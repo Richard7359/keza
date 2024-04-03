@@ -1,11 +1,10 @@
-
+import Navigation from "../components/Navigation_bar/Navigation";
 export default function HomePage() {
   return (
     <main>
        <Navigation />
-       {/* <section onmousedown="return false" className="relative h-screen">
-      <video autoplay muted loop className="absolute w-full h-full object-cover z-0"> */}
-<section className="relative h-screen" onMouseDown={(e) => e.preventDefault()}>
+<section className="relative h-screen">
+{/* <section className="relative h-screen" onMouseDown={(e) => e.preventDefault()}> */}
  <video autoPlay muted loop className="absolute w-full h-full object-cover z-0">
         <source src="/assets/kefl-video.mkv" type="video/mp4" />
         Your browser does not support the video tag.
