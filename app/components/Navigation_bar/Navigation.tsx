@@ -8,7 +8,7 @@ const Navigation = () => {
 
 
   return (
-    <header className="shadow-md p-2 pl-10 pr-10">
+    <header className="shadow-md p-2 pl-10 pr-10 bg-white">
       <nav className="">
       {/* <nav className="relative container mx-auto py-3 px-3 md:px-0"> */}
         <div className="flex items-center justify-between">

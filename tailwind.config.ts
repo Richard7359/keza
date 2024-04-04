@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         "burgundy": "#882539",
+        "burgundy-light": "#cfa8b0"
       }
     },
   },

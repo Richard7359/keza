@@ -1,7 +1,7 @@
 
 export default function Landing() {
   return (
-      <section className="relative h-screen">
+      <section className="relative h-[90%]">
         <video
           autoPlay
           muted
@@ -11,7 +11,7 @@ export default function Landing() {
           <source src="/assets/kefl-video.mkv" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-burgundy opacity-40"></div>
+        <div className="absolute inset-0"></div>
         <div className="absolute top-1/2 left-1/2 tarnsform -translate-x-1/2 -translate-y-1/2 text-white text-center md:text-left px-3 md:px-0 z-10">
           <h1 className="text-7xl font-bold">
             Welcome to Keza Education Future Lab
