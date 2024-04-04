@@ -58,7 +58,7 @@ export default function Service() {
                 } w-[300px] p-2 rounded-md m-2`}
                 onClick={() => setSelected(id)}
               >
-                {/* <div className="flex items-center border border-black w-[300px] p-2 rounded-md m-2"> */}
+                {" "}
                 <Image
                   src={id == selected ? course.light_image : course.image}
                   alt="KEFL Logo image"
