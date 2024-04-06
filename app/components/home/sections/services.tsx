@@ -15,6 +15,11 @@ import robort from "../../../images/robotic_image5.png";
 import robort2 from "../../../images/robot.svg";
 import { TbBrandCitymapper } from "react-icons/tb";
 import coding_programming_service from "../../../images/coding-programming.jpg";
+import robot_arm from "../../../images/coding.png";
+import interactive_engineering from "../../../images/interactive-engineering.jpg"
+import interactive_engineering1 from "../../../images/interactive_engineering1.png"
+import ai1 from "../../../images/artificial_intelence1.png"
+import ai2 from "../../../images/ai2.png"
 export default function Service() {
   const [selected, setSelected] = useState(0);
   const courses = [
@@ -74,7 +79,7 @@ export default function Service() {
           link: "",
         },
         {
-          src: robort,
+          src: robot_arm,
           alt: "",
           style: "w-[280px] h-full rounded-xl",
           link: "",
@@ -83,43 +88,39 @@ export default function Service() {
 
     },
     {
-      title: "Robotics",
+      title: "Interactive engineering",
       images: [
         {
-          src: robort2,
+          src: interactive_engineering1,
           alt: "",
           style: "w-[450px] object-cover rounded-e-lg",
           link: "",
         },
         {
-          src: robort,
+          src: interactive_engineering,
           alt: "",
           style: "w-[280px] h-full rounded-xl",
           link: "",
         },
       ],
-      description:
-        "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
-    },
+      description:"Interactive engineering involves hardware to create projects like robots or circuits. It uses sensors, microcontrollers, e.g., Arduino, for interactive systems. Teaching kids coding, robotics, and engineering should be engaging, using games and collaboration. This fosters 21st-century skills for their future careers." },
     {
-      title: "Robotics",
+      title: "Artificial intelligence / AI",
       images: [
         {
-          src: robort2,
+          src: ai1,
           alt: "",
           style: "w-[450px] object-cover rounded-e-lg",
           link: "",
         },
         {
-          src: robort,
+          src: ai2,
           alt: "",
           style: "w-[280px] h-full rounded-xl",
           link: "",
         },
       ],
-      description:
-        "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
-    },
+      description:"AI has the potential to revolutionize the way we teach and learn, offering unprecedented opportunities for personalized, efficient, and engaging educational experiences. Through our AI initiative, we aim to harness the power of AI to empower both educators and students alike."    },
   ];
   return (
     <section className="relative h-[100vh] text-black">
