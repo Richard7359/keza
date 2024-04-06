@@ -16,10 +16,10 @@ import robort2 from "../../../images/robot.svg";
 import { TbBrandCitymapper } from "react-icons/tb";
 import coding_programming_service from "../../../images/coding-programming.jpg";
 import robot_arm from "../../../images/coding.png";
-import interactive_engineering from "../../../images/interactive-engineering.jpg"
-import interactive_engineering1 from "../../../images/interactive_engineering1.png"
-import ai1 from "../../../images/artificial_intelence1.png"
-import ai2 from "../../../images/ai2.png"
+import interactive_engineering from "../../../images/interactive-engineering.jpg";
+import interactive_engineering1 from "../../../images/interactive_engineering1.png";
+import ai1 from "../../../images/artificial_intelence1.png";
+import ai2 from "../../../images/ai2.png";
 export default function Service() {
   const [selected, setSelected] = useState(0);
   const courses = [
@@ -28,6 +28,12 @@ export default function Service() {
       light_image: light_robotics,
       title: "Robotics",
       alt: "robotics image",
+    },
+    {
+      image: ai,
+      light_image: light_ai,
+      title: "Artificial inteligence / AI",
+      alt: "artificial inteligence image",
     },
     {
       image: coding_programming,
@@ -40,12 +46,6 @@ export default function Service() {
       light_image: light_interactive_programming,
       title: "intercative engineering",
       alt: "intercative engineering image",
-    },
-    {
-      image: ai,
-      light_image: light_ai,
-      title: "Artificial inteligence / AI",
-      alt: "artificial inteligence image",
     },
   ];
   const services = [
@@ -66,11 +66,31 @@ export default function Service() {
           style: "w-[280px] h-full rounded-xl",
           link: "",
         },
-      ], },
+      ],
+    },
+    {
+      title: "Artificial intelligence / AI",
+      images: [
+        {
+          src: ai1,
+          alt: "",
+          style: "w-[450px] object-cover rounded-e-lg",
+          link: "",
+        },
+        {
+          src: ai2,
+          alt: "",
+          style: "w-[280px] h-full rounded-xl",
+          link: "",
+        },
+      ],
+      description:
+        "AI has the potential to revolutionize the way we teach and learn, offering unprecedented opportunities for personalized, efficient, and engaging educational experiences. Through our AI initiative, we aim to harness the power of AI to empower both educators and students alike.",
+    },
     {
       title: "Coding & Programming",
       description:
-      "Coding is about creating instructions for computers using programming languages. For children, starting with block-based languages like Scratch helps build foundational skills through drag-and-drop code blocks. Programming involves making software and games, taught to kids through languages like Turtle Art and Scratch, fostering web app and game creation.",
+        "Coding is about creating instructions for computers using programming languages. For children, starting with block-based languages like Scratch helps build foundational skills through drag-and-drop code blocks. Programming involves making software and games, taught to kids through languages like Turtle Art and Scratch, fostering web app and game creation.",
       images: [
         {
           src: coding_programming_service,
@@ -85,7 +105,6 @@ export default function Service() {
           link: "",
         },
       ],
-
     },
     {
       title: "Interactive engineering",
@@ -103,24 +122,9 @@ export default function Service() {
           link: "",
         },
       ],
-      description:"Interactive engineering involves hardware to create projects like robots or circuits. It uses sensors, microcontrollers, e.g., Arduino, for interactive systems. Teaching kids coding, robotics, and engineering should be engaging, using games and collaboration. This fosters 21st-century skills for their future careers." },
-    {
-      title: "Artificial intelligence / AI",
-      images: [
-        {
-          src: ai1,
-          alt: "",
-          style: "w-[450px] object-cover rounded-e-lg",
-          link: "",
-        },
-        {
-          src: ai2,
-          alt: "",
-          style: "w-[280px] h-full rounded-xl",
-          link: "",
-        },
-      ],
-      description:"AI has the potential to revolutionize the way we teach and learn, offering unprecedented opportunities for personalized, efficient, and engaging educational experiences. Through our AI initiative, we aim to harness the power of AI to empower both educators and students alike."    },
+      description:
+        "Interactive engineering involves hardware to create projects like robots or circuits. It uses sensors, microcontrollers, e.g., Arduino, for interactive systems. Teaching kids coding, robotics, and engineering should be engaging, using games and collaboration. This fosters 21st-century skills for their future careers.",
+    },
   ];
   return (
     <section className="relative h-[100vh] text-black">
@@ -180,10 +184,10 @@ export default function Service() {
           </div>
           <div className="ml-[50px] flex items-center">
             <div>
-              <p className="font-bold text-3xl mb-4">{services[selected].title}</p>
-              <p className="max-w-xl">
-                {services[selected].description}
+              <p className="font-bold text-3xl mb-4">
+                {services[selected].title}
               </p>
+              <p className="max-w-xl">{services[selected].description}</p>
               <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
                 Explore more{" "}
                 <TbBrandCitymapper className="font-bold size-6 mx-2" />
