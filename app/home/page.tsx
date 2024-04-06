@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation_bar/Navigation";
 import Landing from "../components/home/sections/landing";
+import Courses from "../components/home/sections/courses";
 import Services from "../components/home/sections/services";
 export default function HomePage() {
   return (
@@ -9,6 +10,7 @@ export default function HomePage() {
         <Navigation />
         {/* <Landing /> */}
       </div>
+      <Courses />
       <Services />
     </div>
   );
