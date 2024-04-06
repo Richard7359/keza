@@ -14,6 +14,7 @@ import interactive_programming from "../../../images/interactive_programming.png
 import robort from "../../../images/robotic_image5.png";
 import robort2 from "../../../images/robot.svg";
 import { TbBrandCitymapper } from "react-icons/tb";
+import coding_programming_service from "../../../images/coding-programming.jpg";
 export default function Service() {
   const [selected, setSelected] = useState(0);
   const courses = [
@@ -44,38 +45,78 @@ export default function Service() {
   ];
   const services = [
     {
-      images: [
-        { src: robort2, alt: "", style: "w-[450px] object-cover rounded-e-lg", link: ""},
-        { src: robort, alt: "", style: "w-[280px] h-full rounded-xl", link: ""},
-      ],
       title: "Robotics",
+      description:
+        "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
+      images: [
+        {
+          src: robort2,
+          alt: "",
+          style: "w-[450px] object-cover rounded-e-lg",
+          link: "",
+        },
+        {
+          src: robort,
+          alt: "",
+          style: "w-[280px] h-full rounded-xl",
+          link: "",
+        },
+      ], },
+    {
+      title: "Coding & Programming",
+      description:
+      "Coding is about creating instructions for computers using programming languages. For children, starting with block-based languages like Scratch helps build foundational skills through drag-and-drop code blocks. Programming involves making software and games, taught to kids through languages like Turtle Art and Scratch, fostering web app and game creation.",
+      images: [
+        {
+          src: coding_programming_service,
+          alt: "",
+          style: "w-[450px] object-cover rounded-e-lg",
+          link: "",
+        },
+        {
+          src: robort,
+          alt: "",
+          style: "w-[280px] h-full rounded-xl",
+          link: "",
+        },
+      ],
+
+    },
+    {
+      title: "Robotics",
+      images: [
+        {
+          src: robort2,
+          alt: "",
+          style: "w-[450px] object-cover rounded-e-lg",
+          link: "",
+        },
+        {
+          src: robort,
+          alt: "",
+          style: "w-[280px] h-full rounded-xl",
+          link: "",
+        },
+      ],
       description:
         "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
     },
     {
-      images: [
-        { src: robort2, alt: "", style: "w-[450px] object-cover rounded-e-lg", link: ""},
-        { src: robort, alt: "", style: "w-[280px] h-full rounded-xl", link: ""},
-      ],
       title: "Robotics",
-      description:
-        "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
-    },
-    {
       images: [
-        { src: robort2, alt: "", style: "w-[450px] object-cover rounded-e-lg", link: ""},
-        { src: robort, alt: "", style: "w-[280px] h-full rounded-xl", link: ""},
+        {
+          src: robort2,
+          alt: "",
+          style: "w-[450px] object-cover rounded-e-lg",
+          link: "",
+        },
+        {
+          src: robort,
+          alt: "",
+          style: "w-[280px] h-full rounded-xl",
+          link: "",
+        },
       ],
-      title: "Robotics",
-      description:
-        "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
-    },
-    {
-      images: [
-        { src: robort2, alt: "", style: "w-[450px] object-cover rounded-e-lg", link: ""},
-        { src: robort, alt: "", style: "w-[280px] h-full rounded-xl", link: ""},
-      ],
-      title: "Robotics",
       description:
         "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
     },
@@ -124,30 +165,23 @@ export default function Service() {
         <div className="flex justify-center">
           <div className="w-[45%] h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container">
             <div className="w-[90%] h-[80%] flex justify-between">
-              {
-                services[selected].images.map((image , id) => {
-                  return (
-                    <Image
-                      key={id}
-                      src={image.src}
-                      alt={image.alt}
-                      className={image.style}
-                    />
-                  )
-                })
-              }
-              {" "}
+              {services[selected].images.map((image, id) => {
+                return (
+                  <Image
+                    key={id}
+                    src={image.src}
+                    alt={image.alt}
+                    className={image.style}
+                  />
+                );
+              })}{" "}
             </div>
           </div>
           <div className="ml-[50px] flex items-center">
             <div>
-              <p className="font-bold text-3xl mb-4">Robotics</p>
+              <p className="font-bold text-3xl mb-4">{services[selected].title}</p>
               <p className="max-w-xl">
                 {services[selected].description}
-                {/* Robotics is a technology that encompasses the design, building,
-                implementation, and operation of robots. Robotics includes
-                applications designed to conduct a specific task or series of
-                tasks for commercial purposes */}
               </p>
               <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
                 Explore more{" "}
