@@ -28,3 +28,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .robot_container {
+     background-color: #f3f4f6;
+  }
+ }

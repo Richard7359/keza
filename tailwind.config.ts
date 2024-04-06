@@ -7,6 +7,14 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1920px",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -14,12 +22,14 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        "burgundy": "#882539",
-        "burgundy-light": "#cfa8b0"
-      }
+        burgundy: "#882539",
+        "burgundy-light": "#cfa8b0",
+      },
     },
   },
-  variants: {},
+  variants: {
+
+  },
   plugins: [],
 };
 export default config;
