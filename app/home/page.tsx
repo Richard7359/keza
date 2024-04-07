@@ -8,7 +8,7 @@ export default function HomePage() {
       <div className="h-[100vh]  bg-burgundy">
         {/* <div className="h-[100vh]  bg-burgundy opacity-40"> */}
         <Navigation />
-        {/* <Landing /> */}
+        <Landing />
       </div>
       <Courses />
       <Services />

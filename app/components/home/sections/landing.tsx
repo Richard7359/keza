@@ -1,8 +1,7 @@
-
 export default function Landing() {
   return (
-      <section className="relative h-[90%]">
-        <video
+    <section className="w-[100%]">
+      {/* <video
           autoPlay
           muted
           loop
@@ -22,7 +21,20 @@ export default function Landing() {
             future innovators using technology such as robotics, programming and
             STEAM learning.
           </p>
+        </div> */}
+      <div className="flex justify-center mt-2">
+        <div className="w-[95%] h-[70vh] bg-lime-300 rounded-2xl">
+          <video
+            autoPlay
+            muted
+            loop
+            className="absolute w-full h-full object-cover z-0"
+          >
+            <source src="/images/keza_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-      </section>
+      </div>
+    </section>
   );
 }
