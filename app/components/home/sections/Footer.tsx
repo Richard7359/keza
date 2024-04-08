@@ -1,18 +1,24 @@
 import React from "react";
 import Image from "next/image";
 import Keza_logo from "../../../images/white-logo.webp";
+import { FaFacebook } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { IoLogoTwitter } from "react-icons/io";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaFlickr } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="py-10 px-3 m-0 bg-darkGrey">
       <div className="container mx-auto grid md:grid-cols-2">
         <div className="w-fit">
-        <div>
-              <Image
-                src={Keza_logo}
-                alt="KEFL Logo image"
-                className="w-20 md:w-16 object-cover"
-              />
+          <div>
+            <Image
+              src={Keza_logo}
+              alt="KEFL Logo image"
+              className="w-20 md:w-16 object-cover"
+            />
           </div>
           <ul className="text-sm leading-8">
             <li className="flex items-center gap-2 hover:text-white">
@@ -141,27 +147,27 @@ const Footer = () => {
 
         <div className="flex gap-3 mb-5">
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-      
+            <FaFacebook />
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-         
+            <FaYoutube />
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            
+            <AiFillInstagram />
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-             
+            <IoLogoTwitter />
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-              
+            <FaLinkedin />
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-
+            <FaFlickr />
           </div>
         </div>
       </div>
