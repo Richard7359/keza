@@ -158,6 +158,67 @@ export default function Scroling_patners() {
             />
           </li>
         </ul>
+        <ul
+          className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+          aria-hidden="true"
+        >
+          <li>
+            <Image
+              src={courses[0].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[0].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[0].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[0].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[0].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[1].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[2].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+          <li>
+            <Image
+              src={courses[3].image}
+              alt={courses[0].alt}
+              className="w-[100px] mr-2"
+            />
+          </li>
+        </ul>
       </div>
     </section>
   );
