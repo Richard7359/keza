@@ -49,14 +49,50 @@ body {
   font-weight: 500;
 }
 
+.hover-container {
+ position: relative;
+ display: inline-block; /* Adjust as needed */
+}
+
+.overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+ opacity: 0;
+ border-radius: 6px;
+ visibility: hidden;
+ transition: opacity 0.3s ease, visibility 0.3s ease;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.hover-container:hover .overlay {
+ opacity: 1;
+ visibility: visible;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+ }
+  100% {
+    transform: translateX(-100%);
+ }
+}
+
+.animate-infinite-scroll {
+ animation: scroll 250s linear infinite;
+}
+
+.animate-infinite-scroll:hover {
+ animation-play-state: paused;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .robot_container {
-     background-color: #f3f4f6;
-  }
- }
