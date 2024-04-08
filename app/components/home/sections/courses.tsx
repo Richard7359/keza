@@ -127,7 +127,7 @@ export default function Courses() {
     },
   ];
   return (
-    <section className="relative h-[100vh] text-black">
+    <section className="relative h-[100vh] text-black bg-orange-500">
       <h1 className="text-[30px] font-bold flex justify-center pt-12 pb-4">
         Guided courses for every journey
       </h1>

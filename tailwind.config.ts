@@ -16,6 +16,26 @@ const config: Config = {
       "3xl": "1920px",
     },
     extend: {
+      animation: {
+        'infinite-scroll': 'infinite-scroll 240s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        }
+      } ,
+      letterSpacing:{
+        'tighter': '0.5px',
+      },
+      fontWeight:{
+        'custom-light': '500',
+      },
+      fontFamily:{
+        'sans': ['sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        'times': ['Times New Roman', 'serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -24,6 +44,7 @@ const config: Config = {
       colors: {
         burgundy: "#882539",
         "burgundy-light": "#cfa8b0",
+        "custom-gray": "#f0f0f0",
       },
     },
   },
