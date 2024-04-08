@@ -1,7 +1,8 @@
 import Image from "next/image";
 import laser_cutter_machine from "../../../images/laser-cutter-machine.webp";
 import { TbBrandCitymapper } from "react-icons/tb";
-import CuttingEngraving from "./service/cutting_engraving";
+import RightImageService from "./service/RightImageService";
+import LeftImageService from "./service/LeftImageService";
 export default function Services() {
   const cutting_engraving = {
     title: "Cutting & Engraving of Designs",
@@ -29,7 +30,8 @@ export default function Services() {
           each course below by click the read more.
         </p>
       </div>
-      <CuttingEngraving service={cutting_engraving} />
+      <RightImageService service={cutting_engraving} />
+      <LeftImageService service={cutting_engraving} />
     </section>
   );
 }

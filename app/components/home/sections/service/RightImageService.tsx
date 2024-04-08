@@ -5,7 +5,7 @@ import { TbBrandCitymapper } from "react-icons/tb";
 export interface ServiceProps {
   service: { title: string; steps: string[] , link?: string, description : string, image: any, subTitle?: string};
 }
-const CuttingEngraving = ({ service }: ServiceProps) => {
+const RightImageService = ({ service }: ServiceProps) => {
   return (
     <div className="flex justify-center">
       <div className="py-16 w-[80%]">
@@ -55,4 +55,4 @@ const CuttingEngraving = ({ service }: ServiceProps) => {
   );
 };
 
-export default CuttingEngraving;
+export default RightImageService;
