@@ -141,51 +141,27 @@ const Footer = () => {
 
         <div className="flex gap-3 mb-5">
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <a href="https://twitter.com/kefl_rw" target="_blank">
-              <i className="fa-brands fa-twitter"></i>
-            </a>
+      
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <a
-              href="https://www.facebook.com/profile.php?id=100076079992000&mibextid=ZbWKwL"
-              target="_blank"
-            >
-              <i className="fa-brands fa-facebook"></i>
-            </a>
+         
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <a
-              href="https://www.linkedin.com/company/keza-education-future-lab/"
-              target="_blank"
-            >
-              <i className="fa-brands fa-linkedin"></i>
-            </a>
+            
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <a
-              href="https://www.instagram.com/kezaeducationfuturelab/"
-              target="_blank"
-            >
-              <i className="fa-brands fa-instagram"></i>
-            </a>
+             
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <a
-              href="https://www.youtube.com/channel/UCVMjhqFl3WtHF20a9RjvMLQ"
-              target="_blank"
-            >
-              <i className="fa-brands fa-youtube"></i>
-            </a>
+              
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <a href="https://flickr.com/people/197823833@N07/" target="_blank">
-              <i className="fa-brands fa-flickr"></i>
-            </a>
+
           </div>
         </div>
       </div>
