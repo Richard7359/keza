@@ -1,6 +1,5 @@
 import Image from "next/image";
 import keza_logo from "../../images/burgundy-logo.webp";
-import down_arrow from "../../images/chevron-down.svg";
 
 const Navigation = () => {
 

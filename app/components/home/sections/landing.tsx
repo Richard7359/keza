@@ -42,6 +42,7 @@ export default function Landing() {
       <div className="flex justify-center mt-2">
         <div className="relative w-[95%] h-[70vh] rounded-2xl">
         <video src='/keza_video_original.mp4' autoPlay muted loop className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"/>
+        <div className="absolute inset-0 bg-black rounded-2xl"></div>
         </div>
       </div>
       <Scroling_patners />
