@@ -35,7 +35,7 @@ const Footer = () => {
               </svg>
 
               <a
-                href="https://goo.gl/maps/48mqzPAw8vsaeAPHA"
+                href=""
                 target="_blank"
                 className="hover:text-white"
               >
@@ -87,16 +87,16 @@ const Footer = () => {
             <p className="mt-8 mb-3 text-white md:mt-0">Company</p>
             <div className="flex flex-col text-base gap-2">
               <a
-                href="/about/company-structure.html"
+                href=""
                 className="hover:text-white"
               >
                 About
               </a>
-              <a href="/blog/blogs.html" className="hover:text-white">
+              <a href="" className="hover:text-white">
                 Blog
               </a>
               <a
-                href="/testimonials/testimonies.html"
+                href=""
                 className="hover:text-white"
               >
                 Testimonials
@@ -110,7 +110,7 @@ const Footer = () => {
               <a href="#" className="hover:text-white">
                 Terms & conditions
               </a>
-              <a href="/contact/contact-us.html" className="hover:text-white">
+              <a href="" className="hover:text-white">
                 Contact
               </a>
             </div>
@@ -119,7 +119,7 @@ const Footer = () => {
           <div className="mt-8 md:mt-0">
             <p className="mb-3 text-white">Services</p>
             <div className="flex flex-col text-base gap-2 ">
-              <a href="/course/all-courses.html" className="hover:text-white">
+              <a href="" className="hover:text-white">
                 Courses
               </a>
               <a href="#" className="hover:text-white">
