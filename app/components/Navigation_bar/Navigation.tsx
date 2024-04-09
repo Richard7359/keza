@@ -18,6 +18,7 @@ const Navigation = () => {
                 className="w-20 md:w-16 object-cover"
               />
           </div>
+          <div className="flex items-center">
           <div>
             <ul className="hidden md:flex space-x-4 text-sm">
               {
@@ -26,13 +27,14 @@ const Navigation = () => {
                       {link.name}
                   </li>
                 ))
-              }
+              }         
             </ul>
           </div>
           <div className="text-black">
-            <button className="bg-burgundy text-white px-4 py-2 rounded-md text-sm font-semibold">
-              Contact Us
+            <button className="bg-burgundy text-white px-8 py-4 rounded-md text-sm font-bold mx-4">
+              Get in touch
             </button>
+          </div>
           </div>
         </div>
       </nav>
