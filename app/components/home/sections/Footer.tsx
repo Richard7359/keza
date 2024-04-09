@@ -7,17 +7,18 @@ import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaFlickr } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="py-10 px-3 m-0 bg-darkGrey">
+    <footer className="py-10 px-3 m-0 bg-darkGrey text-footer">
       <div className="container mx-auto grid md:grid-cols-2">
         <div className="w-fit">
           <div>
             <Image
               src={Keza_logo}
               alt="KEFL Logo image"
-              className="w-20 md:w-16 object-cover"
+              className="w-[100px] md:w-[100px] object-cover m-4"
             />
           </div>
           <ul className="text-sm leading-8">
@@ -117,7 +118,7 @@ const Footer = () => {
 
           <div className="mt-8 md:mt-0">
             <p className="mb-3 text-white">Services</p>
-            <div className="flex flex-col text-base gap-2">
+            <div className="flex flex-col text-base gap-2 ">
               <a href="/course/all-courses.html" className="hover:text-white">
                 Courses
               </a>
@@ -147,27 +148,39 @@ const Footer = () => {
 
         <div className="flex gap-3 mb-5">
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <FaFacebook />
+            <Link href="https://www.facebook.com/profile.php?id=100076079992000&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+              <FaFacebook />
+            </Link>{" "}
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <FaYoutube />
+            <Link href="https://www.youtube.com/channel/UCVMjhqFl3WtHF20a9RjvMLQ" target="_blank" rel="noopener noreferrer">
+              <FaYoutube />
+            </Link>{" "}
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <AiFillInstagram />
+            <Link href="https://www.instagram.com/kezaeducationfuturelab/" target="_blank" rel="noopener noreferrer">
+              <AiFillInstagram />
+            </Link>{" "}
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <IoLogoTwitter />
+            <Link href="https://twitter.com/kefl_rw" target="_blank" rel="noopener noreferrer">
+              <IoLogoTwitter />
+            </Link>{" "}
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <FaLinkedin />
+            <Link href="https://www.linkedin.com/company/keza-education-future-lab/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+            </Link>{" "}
           </div>
 
           <div className="bg-[#333] p-2 w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#555] hover:text-white cursor-pointer">
-            <FaFlickr />
+            <Link href="https://flickr.com/people/197823833@N07/" target="_blank" rel="noopener noreferrer">
+              <FaFlickr />
+            </Link>{" "}
           </div>
         </div>
       </div>
