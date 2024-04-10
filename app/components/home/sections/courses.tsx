@@ -57,7 +57,7 @@ export default function Courses() {
         {
           src: robort2,
           alt: "",
-          style: "w-[450px] object-cover rounded-e-lg",
+          style: "w-[450px] object-cover rounded-xl",
           link: "",
         },
         {
@@ -74,7 +74,7 @@ export default function Courses() {
         {
           src: ai1,
           alt: "",
-          style: "w-[450px] object-cover rounded-e-lg",
+          style: "w-[450px] object-cover rounded-xl",
           link: "",
         },
         {
@@ -95,7 +95,7 @@ export default function Courses() {
         {
           src: coding_programming_service,
           alt: "",
-          style: "w-[450px] object-cover rounded-e-lg",
+          style: "w-[450px] object-cover rounded-xl",
           link: "",
         },
         {
@@ -112,7 +112,7 @@ export default function Courses() {
         {
           src: interactive_engineering1,
           alt: "",
-          style: "w-[450px] object-cover rounded-e-lg",
+          style: "w-[450px] object-cover rounded-xl",
           link: "",
         },
         {
@@ -127,7 +127,7 @@ export default function Courses() {
     },
   ];
   return (
-    <section className="relative h-[100vh] text-black bg-orange-500">
+    <section className="relative h-[70vh] text-black">
       <h1 className="text-[30px] font-bold flex justify-center pt-12 pb-4">
         Guided courses for every journey
       </h1>
@@ -168,7 +168,7 @@ export default function Courses() {
       </div>
       <div className="">
         <div className="flex justify-center">
-          <div className="w-[45%] h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container">
+          <div className="w-[45%] h-[35vh] bg-burgundy rounded-lg flex justify-center items-center robot_container">
             <div className="w-[90%] h-[80%] flex justify-between">
               {services[selected].images.map((image, id) => {
                 return (

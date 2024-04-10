@@ -65,7 +65,7 @@ export default function Landing() {
         </div>
       </div>
       <Scroling_patners />
-      <p className="text-center pt-2">
+      <p className="text-center pt-2 text-black">
         <strong>KEFL</strong> is trusted and partnering with these organizations
       </p>
     </section>
