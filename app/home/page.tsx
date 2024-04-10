@@ -6,7 +6,7 @@ import Footer from "../components/home/sections/Footer";
 export default function HomePage() {
   return (
     <div>
-      <div className="h-[100vh]  bg-burgundy">
+      <div className="h-[100vh]  bg-section">
         <Navigation />
         <Landing />
       </div>

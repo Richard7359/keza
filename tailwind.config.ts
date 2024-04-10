@@ -56,7 +56,8 @@ const config: Config = {
         white: "#ffffff",
         paragraph: "#4b587c",
         badge: "#e6eeff",
-        footer: "#656565"
+        footer: "#656565",
+        section: "#ebeff5"
       },
     },
   },
