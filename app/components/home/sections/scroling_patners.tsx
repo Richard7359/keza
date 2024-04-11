@@ -51,12 +51,12 @@ export default function Scroling_patners() {
   ];
 
   return (
-    <section className="w-[100%] mt-4">
+    <section className="w-[100%] mt-4 p-2">
       <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
           {partners.map((partner, index) => (
             <li key={index} className="hover-container relative group">
-              <div className="w-[250px] h-[130px] rounded-md overflow-hidden">
+              <div className="w-[250px] h-[130px] rounded-md overflow-hidden shadow-lg">
                 <Image
                 src={partner.logo}
                 alt={partner.alt}

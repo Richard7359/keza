@@ -33,7 +33,7 @@ const config: Config = {
       },
       fontFamily:{
         'sans': ['sans-serif'],
-        'montserrat': ['Montserrat', 'sans-serif'],
+        'montserrat': ['"Montserrat"', 'sans-serif'],
         'times': ['Times New Roman', 'serif'],
       },
       backgroundImage: {
