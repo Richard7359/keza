@@ -9,7 +9,7 @@ export default function Services() {
   const cutting_engraving = {
     title: "Cutting & Engraving of Designs",
     steps: [
-      "Design Prep and Material Selection",
+      "Design and Material Selection",
       "Prototyping",
       "Engraving",
       "Mass Production",
@@ -23,7 +23,7 @@ export default function Services() {
   const steam_training = {
     title: "STEAM training for teachers & students",
     steps: [
-      "Design Prep and Material Selection",
+      "Design and Material Selection",
       "Prototyping",
       "Engraving",
       "Mass Production",
@@ -37,7 +37,7 @@ export default function Services() {
   const technology_gadget = {
     title: "We provide technology gadgets in school",
     steps: [
-      "Design Prep and Material Selection",
+      "Design and Material Selection",
       "Prototyping",
       "Engraving",
       "Mass Production",
@@ -51,7 +51,7 @@ export default function Services() {
   const consultancy = {
     title: "Consultancy",
     steps: [
-      "Design Prep and Material Selection",
+      "Design and Material Selection",
       "Prototyping",
       "Engraving",
       "Mass Production",
