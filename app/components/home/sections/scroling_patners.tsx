@@ -7,7 +7,7 @@ import reb_white from "../../../images/reb_white.png";
 import rightToPlay from "../../../images/rightToPlay.png";
 import unesco from "../../../images/unesco.png";
 import jica from "../../../images/jica.png";
-import sakura from "../../../images/image.png";
+import sakura from "../../../images/sakura.png";
 
 
 export default function Scroling_patners() {

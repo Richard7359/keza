@@ -2,7 +2,7 @@ import Navigation from "../components/Navigation_bar/Navigation";
 import Landing from "../components/home/sections/landing";
 import Courses from "../components/home/sections/courses";
 import Services from "../components/home/sections/services";
-import Footer from "../components/home/sections/Footer";
+import Footer from "../components/Footer";
 export default function HomePage() {
   return (
     <div>

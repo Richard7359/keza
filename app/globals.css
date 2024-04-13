@@ -66,6 +66,10 @@
     }
   }
 
+  .transparent-bg {
+    background-color: transparent;
+   }
+
   @layer base {
     * {
       @apply border-border;
