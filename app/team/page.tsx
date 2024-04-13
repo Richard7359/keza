@@ -150,9 +150,9 @@ export default function NavigationMenuDemo() {
           this is some text to be put here for a specific reason
         </p>
         <div className="flex justify-center">
-          <div className="w-[94%] grid grid-cols-4">
+          <div className="w-[90%] grid grid-cols-4">
             {staff.map((person) => (
-              <div className="flex justify-center  mt-12" key={person.title}>
+              <div className="flex justify-center  mt-8" key={person.title}>
                 <div className="w-[400px] h-[600px] bg-white rounded-lg">
                   <div className="h-[65%] w-full  flex justify-center items-center">
                     <Image
