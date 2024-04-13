@@ -71,6 +71,7 @@ const config: Config = {
         deepSkyBlue: "#00BFFF",
         green: "#50C54C",
         orange: "#FD790D",
+        footer: "#656565",
         darkGrey: "#222222",
         black: "#000000",
         white: "#ffffff",
