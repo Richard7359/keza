@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Keza_logo from "../../../images/white-logo.webp";
+import Keza_logo from "../images/white-logo.webp";
 import { FaFacebook } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";

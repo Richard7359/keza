@@ -181,9 +181,9 @@ export default function Navigation() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem className="transparent-bg text-white">
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/team" legacyBehavior passHref>
                 <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Documentation
+                  team
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
