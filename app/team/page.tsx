@@ -11,7 +11,7 @@ import Raban from "../images/rabanImage.jpg";
 import Carine from "../images/carine.jpg";
 import Thiery from "../images/Thierry.png";
 import Felix from "../images/felix.jpg";
-import Dei from "../images/dei_image.jpg"
+import Dei from "../images/dei_image.jpg";
 
 import { FaFacebook } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
@@ -45,9 +45,7 @@ export default function NavigationMenuDemo() {
       title: "Director of Research, Development and partnership",
       names: "MUGIRANEZA Jean Pierre",
       image: Mugiraneza,
-      media: [
-        { icon: <IoLogoTwitter />, url: "" },
-      ],
+      media: [{ icon: <IoLogoTwitter />, url: "" }],
       bio: "An educationist and economist with over a decade of senior leadership experience across Rwanda and Africa, specializing in school leadership, teacher development, and inclusive education.",
     },
     {
@@ -55,18 +53,25 @@ export default function NavigationMenuDemo() {
       names: "NGENDABANGA Celestin",
       image: Celestin,
       media: [
-        { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/ngendabanga-celestin-89a543210/" },
-        { icon: <IoLogoTwitter />, url: "https://twitter.com/NgendabangaCel2" }
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/ngendabanga-celestin-89a543210/",
+        },
+        { icon: <IoLogoTwitter />, url: "https://twitter.com/NgendabangaCel2" },
       ],
       bio: "As Managing Director at Keza Education Future Lab, Mr. NGENDABANGA blends teaching and a Master's from the Africa Centre of Excellence for Innovative Teaching and Learning.",
     },
     {
-      title: "Technology & digital play-based teaching and learning Senior Advisor",
+      title:
+        "Technology & digital play-based teaching and learning Senior Advisor",
       names: "NIYIGENA Erneste",
       image: Erneste,
       media: [
         { icon: <FaLinkedin />, url: "https://twitter.com/Erneste_N_1991" },
-        { icon: <IoLogoTwitter />, url: "https://www.linkedin.com/in/erneste-niyigena-10aa15102/" },
+        {
+          icon: <IoLogoTwitter />,
+          url: "https://www.linkedin.com/in/erneste-niyigena-10aa15102/",
+        },
       ],
       bio: "Electronics Engineer with over 5 years' experience in design and maintenance of electrical systems, specializes in hardware development for mobile devices and field engineering for Zipline International.",
     },
@@ -75,10 +80,13 @@ export default function NavigationMenuDemo() {
       names: "IRADUKUNDA Audrey Audrey",
       image: Ariela,
       media: [
-        { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/ariela-audrey-iradukunda-b930aa1b2/" },
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/ariela-audrey-iradukunda-b930aa1b2/",
+        },
         { icon: <IoLogoTwitter />, url: "https://twitter.com/iraduariela" },
       ],
-      bio: "",
+      bio: "Audrey is dedicated to ensuring the smooth operation of administrative processes, adept at optimizing workflows and implementing efficient systems. ",
     },
     {
       title: "Robotics & Programming Senior Trainer",
@@ -88,17 +96,20 @@ export default function NavigationMenuDemo() {
         { icon: <FaLinkedin />, url: "" },
         { icon: <IoLogoTwitter />, url: "" },
       ],
-      bio: "",
+      bio: "Clarisse is committed to creating dynamic learning environments where students can explore, create, and excel in the exciting fields of robotics and programming.",
     },
     {
       title: "Mechanical Engineer",
       names: "HABINEZA Raban",
       image: Raban,
       media: [
-        { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/habineza-raban-a78397162/" },
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/habineza-raban-a78397162/",
+        },
         { icon: <IoLogoTwitter />, url: "" },
       ],
-      bio: "",
+      bio: "Raban oversees the design and implementation of mechanical systems, ensuring efficiency and reliability in engineering projects at Raban.",
     },
     {
       title: "Finance Officer",
@@ -108,47 +119,63 @@ export default function NavigationMenuDemo() {
         { icon: <FaLinkedin />, url: "" },
         { icon: <IoLogoTwitter />, url: "" },
       ],
-      bio: "",
+      bio: "Carine manages financial operations, ensuring fiscal responsibility and compliance with regulations to support Raban's financial health and strategic goals.",
     },
     {
       title: "Robotics & Programming Trainer",
       names: "ISHIMWE Thierry",
       image: Thiery,
       media: [
-        { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/ishimwe-thierry-1b4420240/" },
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/ishimwe-thierry-1b4420240/",
+        },
         { icon: <IoLogoTwitter />, url: "" },
       ],
-      bio: "",
+      bio: "Thierry guides and mentors aspiring engineers in mastering robotics and programming techniques, fostering innovation and expertise within Raban's team.",
     },
     {
       title: "Embeded Systems Engineer",
       names: "NIZEYIMANA Felix",
       image: Felix,
       media: [
-        { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/ishimwe-thierry-1b4420240/" },
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/ishimwe-thierry-1b4420240/",
+        },
         { icon: <IoLogoTwitter />, url: "" },
       ],
-      bio: "",
+      bio: "Felix spearheads the development and integration of embedded systems, optimizing functionality and performance to drive technological advancement.",
     },
     {
       title: "Electromechanical Engineer",
       names: "DEI François Audace",
       image: Dei,
       media: [
-        { icon: <FaLinkedin />, url: "" },
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/dei-francois-audace-119055234/",
+        },
         { icon: <IoLogoTwitter />, url: "" },
       ],
-      bio: "",
-    }
+      bio: "DEI leads the integration of electrical and mechanical systems, ensuring seamless functionality and performance optimization across projects.",
+    },
   ];
   return (
     <div className="bg-team-bg pb-4">
       <Navigation />
       <div className="pt-6">
-        <p className="text-center py-2">Our Team</p>
+        <h2 className="text-4xl font-bold text-black tracking-wide text-center">
+          Our T<strong className="text-burgundy">e</strong>eam
+        </h2>
+        <p className="text-gray-600 italic text-center">
+          Meet a selection of key members from the KEFL team, each contributing
+          their expertise in diverse roles:
+        </p>
+        {/* <p className="text-center py-2">Our Team</p>
         <p className="text-center">
           this is some text to be put here for a specific reason
-        </p>
+        </p> */}
         <div className="flex justify-center">
           <div className="w-[90%] grid grid-cols-4">
             {staff.map((person) => (
