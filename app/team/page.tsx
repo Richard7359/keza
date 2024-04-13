@@ -1,54 +1,47 @@
-"use client";
-
-import * as React from "react";
-import Link from "next/link";
-
-import { cn } from "@/lib/utils";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import Navigation from "../components/Navigation_bar/Navigation";
+import Image from "next/image";
+import Antoine from "../images/Antoine-MUTSINZI.png";
 
 export default function NavigationMenuDemo() {
   return (
-    <div className="w-full bg-burgundy py-3 flex justify-around">
-      <div className="text-white">logo</div>
-      <div className="">
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="transparent-bg text-white">
-                Getting started
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="p-2">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">
-                          Introduction
-                        </div>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem className="transparent-bg text-white">
-              <Link href="/docs" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Documentation
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
+    <div className="bg-team-bg">
+      <Navigation />
+      <div className="pt-6">
+        <p className="text-center py-2">Our Team</p>
+        <p className="text-center">
+          this is some text to be put here for a specific reason
+        </p>
+        <div>
+          <div className="w-[400px] h-[600px] bg-white rounded-lg">
+            <div className="h-[60%] w-full  flex justify-center items-center">
+              <Image
+                src={Antoine}
+                alt="KEFL Logo image"
+                className="w-[90%] h-[90%] object-cover rounded-lg bg-image"
+              />
+            </div>
+
+            <div className="flex justify-center items-cente">
+              <div className="w-[90%]">
+                <p className="text-gray-600 font-bold tracking-wider text-xs uppercase">
+                  Board Chairman
+                </p>
+                <p className="text-black font-bold text-xl py-2">
+                  Antoine Mutsinzi
+                </p>
+                <p className="text-gray-700 text-sm font-light">
+                  Antoine, with over 5 years as Director of Teacher Development
+                  at Rwanda Education Board, played pivotal roles in
+                  implementing the Competence Based Curriculum.
+                </p>
+                <div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>{" "}
     </div>
   );
 }

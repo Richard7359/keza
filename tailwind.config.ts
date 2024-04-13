@@ -62,6 +62,8 @@ const config: Config = {
       },
       colors: {
         burgundy: "#882539",
+        image: "#e6ebef",
+        "team-bg": "#f2f2f2",
         "burgundy-light": "#cfa8b0",
         "custom-gray": "#f0f0f0",
         btnHover: "#611A28",
