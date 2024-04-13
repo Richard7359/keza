@@ -6,7 +6,6 @@ import light_robotics from "../../../images/light_robotics.jpg";
 import { useState } from "react";
 import coding_programming from "../../../images/coding_programming.png";
 import light_coding_programming from "../../../images/light_coding_programming.png";
-// import image from "../../../images/image.png"
 import ai from "../../../images/ai.png";
 import light_ai from "../../../images/light_ai.png";
 import light_interactive_programming from "../../../images/light_interactive_programming.png";
