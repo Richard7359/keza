@@ -70,6 +70,16 @@
     background-color: transparent;
    }
 
+   .bg-burgundy-dark {
+    background-color: #8b0000; /* Example bolder color */
+   }
+
+   .static-position {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+   }
+
   @layer base {
     * {
       @apply border-border;

@@ -141,9 +141,10 @@
 // export default Navigation;
 "use client";
 
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-
+import Keza_logo from "../../images/white-logo.webp";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -156,10 +157,35 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export default function Navigation() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      console.log("is scrolled", isScrolled);
+      setIsScrolled(isScrolled);
+    };
+
+    document.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="w-full bg-burgundy py-3 flex justify-around">
-      <div className="text-white">logo</div>
-      <div className="">
+    <div
+      className={`w-full static-position py-3 flex justify-around ${
+        isScrolled ? "bg-burgundy-dark" : "bg-burgundy"
+      } transition-colors duration-300`}
+    >
+      <Link href="/" legacyBehavior passHref>
+        <Image
+          src={Keza_logo}
+          alt="KEFL Logo image"
+          className="w-15 md:w-12 object-cover cursor-pointer"
+        />
+      </Link>
+      <div className="flex items-center">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -183,12 +209,31 @@ export default function Navigation() {
             <NavigationMenuItem className="transparent-bg text-white">
               <Link href="/team" legacyBehavior passHref>
                 <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                  Sign up
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="transparent-bg text-white">
+              <Link href="/team" legacyBehavior passHref>
+                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                  Login
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="transparent-bg text-white">
+              <Link href="/team" legacyBehavior passHref>
+                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                   team
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+        <div>
+          <button className="bg-white text-burgundy px-8 py-3 rounded-md text-sm font-bold mx-4">
+            Get in touch
+          </button>
+        </div>
       </div>
     </div>
   );
