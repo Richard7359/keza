@@ -1,6 +1,8 @@
 import Navigation from "../components/Navigation_bar/Navigation";
 import Image from "next/image";
 import Antoine from "../images/Antoine-MUTSINZI.png";
+import { FaLinkedin } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function NavigationMenuDemo() {
   return (
@@ -34,8 +36,43 @@ export default function NavigationMenuDemo() {
                   at Rwanda Education Board, played pivotal roles in
                   implementing the Competence Based Curriculum.
                 </p>
-                <div>
-                  <div></div>
+                <div className="py-3 flex">
+                  <div className="bg-burgundy text-white hover:text-slate-300 p-2 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer mr-3">
+                    <Link
+                      href="https://www.linkedin.com/company/keza-education-future-lab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </Link>{" "}
+                  </div>{" "}
+                  <div className="bg-burgundy text-white hover:text-slate-300 p-2 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer mr-3">
+                    <Link
+                      href="https://www.linkedin.com/company/keza-education-future-lab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </Link>{" "}
+                  </div>{" "}
+                  <div className="bg-burgundy text-white hover:text-slate-300 p-2 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer mr-3">
+                    <Link
+                      href="https://www.linkedin.com/company/keza-education-future-lab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </Link>{" "}
+                  </div>{" "}
+                  <div className="bg-burgundy text-white hover:text-slate-300 p-2 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer mr-3">
+                    <Link
+                      href="https://www.linkedin.com/company/keza-education-future-lab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </Link>{" "}
+                  </div>
                 </div>
               </div>
             </div>
