@@ -20,8 +20,9 @@ import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaFlickr } from "react-icons/fa";
 import Link from "next/link";
+import Footer from "../components/Footer";
 
-export default function NavigationMenuDemo() {
+export default function Team() {
   const staff = [
     {
       title: "Board Chairman",
@@ -162,20 +163,17 @@ export default function NavigationMenuDemo() {
     },
   ];
   return (
+    <div className="">
     <div className="bg-team-bg pb-4">
       <Navigation />
       <div className="pt-6">
         <h2 className="text-4xl font-bold text-black tracking-wide text-center">
-          Our T<strong className="text-burgundy">e</strong>eam
+          Our T<strong className="text-burgundy">e</strong>am
         </h2>
         <p className="text-gray-600 italic text-center">
           Meet a selection of key members from the KEFL team, each contributing
           their expertise in diverse roles:
         </p>
-        {/* <p className="text-center py-2">Our Team</p>
-        <p className="text-center">
-          this is some text to be put here for a specific reason
-        </p> */}
         <div className="flex justify-center">
           <div className="w-[90%] grid grid-cols-4">
             {staff.map((person) => (
@@ -224,6 +222,8 @@ export default function NavigationMenuDemo() {
           </div>
         </div>
       </div>{" "}
+    </div>
+      <Footer />
     </div>
   );
 }
