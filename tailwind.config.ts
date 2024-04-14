@@ -27,7 +27,7 @@ const config: Config = {
     },
     extend: {
       animation: {
-        'infinite-scroll': 'infinite-scroll 240s linear infinite',
+        'infinite-scroll': 'infinite-scroll 0s linear infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },

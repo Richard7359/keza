@@ -132,7 +132,7 @@
    }
    
    .animate-infinite-scroll {
-    animation: scroll 250s linear infinite;
+    animation: scroll 450s linear infinite;
    }
    
    .animate-infinite-scroll:hover {
