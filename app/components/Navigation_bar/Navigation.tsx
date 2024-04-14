@@ -1,18 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Keza_logo from "../../images/white-logo.webp";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { TbHome2 } from "react-icons/tb";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
@@ -84,7 +79,7 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem className="transparent-bg text-white">
-              <Link href="/team" legacyBehavior passHref>
+              <Link href="/auth/login" legacyBehavior passHref>
                 <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                 <strong className="mr-[3px]"><LuLogIn /></strong>Login
                 </NavigationMenuLink>
