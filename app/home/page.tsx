@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <div>
       <Navigation />
-      <div className="h-[100vh] bg-white font-montserrat">
+      <div className="bg-[#838b94] font-montserrat">
         <Landing />
       </div>
       <Courses />

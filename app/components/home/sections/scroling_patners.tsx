@@ -56,7 +56,7 @@ export default function Scroling_patners() {
         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
           {partners.map((partner, index) => (
             <li key={index} className="hover-container relative group">
-              <div className="w-[250px] h-[130px] rounded-md overflow-hidden shadow-lg">
+              <div className="w-[250px] h-[130px] rounded-md overflow-hidden">
                 <Image
                 src={partner.logo}
                 alt={partner.alt}

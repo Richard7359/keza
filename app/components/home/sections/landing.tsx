@@ -38,9 +38,9 @@ export default function Landing() {
     },
   ];
   return (
-    <section className="w-[100%]">
-      <div className="flex justify-center mt-2">
-        <div className="relative w-[95%] h-[70vh] rounded-2xl">
+    <section className="w-[100%] element">
+      <div className="flex justify-center">
+        <div className="relative w-[95%] h-[70vh] rounded-2xl mt-2">
           <video
             src="/keza_video_original.mp4"
             autoPlay
