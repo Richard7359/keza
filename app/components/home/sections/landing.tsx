@@ -40,7 +40,7 @@ export default function Landing() {
   return (
     <section className="w-[100%] element">
       <div className="flex justify-center">
-        <div className="relative w-[95%] h-[70vh] rounded-2xl mt-2">
+        <div className="relative w-[95%] h-[73vh] rounded-2xl mt-2">
           <video
             src="/keza_video_original.mp4"
             autoPlay
@@ -65,7 +65,7 @@ export default function Landing() {
         </div>
       </div>
       <Scroling_patners />
-      <p className="text-center pt-2 text-black">
+      <p className="text-center pt-2 text-white z-1008">
         <strong>KEFL</strong> is trusted and partnering with these organizations
       </p>
     </section>

@@ -65,7 +65,7 @@ export default function Scroling_patners() {
                 <div className="">
                   <div className="overlay">
                     <div className="text-content">
-                      <h3 className="text-center font-bold">{partner.name}</h3>
+                      <h3 className="text-center font-bold text-white">{partner.name}</h3>
                       <div className="flex justify-center">
                         <Link href={`${partner.link}`} target="_blank" rel="noopener noreferrer">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[5px] px-4 rounded mt-2">
@@ -90,7 +90,7 @@ export default function Scroling_patners() {
                 <div className="">
                   <div className="overlay">
                     <div className="text-content">
-                      <h3 className="text-center font-bold">{partner.name}</h3>
+                      <h3 className="text-center font-bold text-white">{partner.name}</h3>
                       <div className="flex justify-center">
                         <Link href={`${partner.link}`} target="_blank" rel="noopener noreferrer">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[5px] px-4 rounded mt-2">
@@ -115,7 +115,7 @@ export default function Scroling_patners() {
                 <div className="">
                   <div className="overlay">
                     <div className="text-content">
-                      <h3 className="text-center font-bold">{partner.name}</h3>
+                      <h3 className="text-center font-bold text-white">{partner.name}</h3>
                       <div className="flex justify-center">
                         <Link href={`${partner.link}`} target="_blank" rel="noopener noreferrer">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[5px] px-4 rounded mt-2">
@@ -140,7 +140,7 @@ export default function Scroling_patners() {
                 <div className="">
                   <div className="overlay">
                     <div className="text-content">
-                      <h3 className="text-center font-bold">{partner.name}</h3>
+                      <h3 className="text-center font-bold text-white">{partner.name}</h3>
                       <div className="flex justify-center">
                         <Link href={`${partner.link}`} target="_blank" rel="noopener noreferrer">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[5px] px-4 rounded mt-2">
@@ -165,7 +165,7 @@ export default function Scroling_patners() {
                 <div className="">
                   <div className="overlay">
                     <div className="text-content">
-                      <h3 className="text-center font-bold">{partner.name}</h3>
+                      <h3 className="text-center font-bold text-white">{partner.name}</h3>
                       <div className="flex justify-center">
                         <Link href={`${partner.link}`} target="_blank" rel="noopener noreferrer">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[5px] px-4 rounded mt-2">

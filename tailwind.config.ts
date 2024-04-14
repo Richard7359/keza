@@ -74,7 +74,6 @@ const config: Config = {
         footer: "#656565",
         darkGrey: "#222222",
         black: "#000000",
-        white: "#ffffff",
         paragraph: "#4b587c",
         badge: "#e6eeff",
         border: "hsl(var(--border))",
