@@ -19,6 +19,12 @@ import interactive_engineering from "../../../images/interactive-engineering.jpg
 import interactive_engineering1 from "../../../images/interactive_engineering1.png";
 import ai1 from "../../../images/artificial_intelence1.png";
 import ai2 from "../../../images/ai2.png";
+import bootCamp from "../../../images/bootcamp-image-2.jpg";
+import bootCamp1 from "../../../images/bootcamp-image-3.jpg";
+import folklift from "../../../images/keza-forklift.png";
+import robotics from "../../../images/keza_kit1.png";
+import keza_child from "../../../images/keza_child.png"
+
 export default function Courses() {
   const [selected, setSelected] = useState(0);
   const courses = [
@@ -45,7 +51,7 @@ export default function Courses() {
       light_image: light_interactive_programming,
       title: "intercative engineering",
       alt: "intercative engineering image",
-    },
+    }
   ];
   const services = [
     {
@@ -54,13 +60,13 @@ export default function Courses() {
         "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
       images: [
         {
-          src: robort2,
+          src: robotics,
           alt: "",
-          style: "w-[450px] object-cover rounded-xl",
+          style: "w-[450px] object-cover rounded-xl bg-white",
           link: "",
         },
         {
-          src: robort,
+          src: keza_child,
           alt: "",
           style: "w-[280px] h-full rounded-xl",
           link: "",
@@ -109,13 +115,13 @@ export default function Courses() {
       title: "Interactive engineering",
       images: [
         {
-          src: interactive_engineering1,
+          src: bootCamp,
           alt: "",
           style: "w-[450px] object-cover rounded-xl",
           link: "",
         },
         {
-          src: interactive_engineering,
+          src: bootCamp1,
           alt: "",
           style: "w-[280px] h-full rounded-xl",
           link: "",
