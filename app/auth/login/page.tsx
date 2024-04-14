@@ -9,7 +9,7 @@ const page = () => {
       <Image
           src={bootcamp}
           alt="KEFL Logo image"
-          className="w-[98%] h-[98%] object-cover cursor-pointer rounded-2xl"
+          className="w-[98%] h-[98vh] object-cover cursor-pointer rounded-2xl"
         />
       </div>
       <div className='bg-green'>

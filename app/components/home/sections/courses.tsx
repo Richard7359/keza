@@ -24,7 +24,7 @@ import bootCamp1 from "../../../images/bootcamp-image-3.jpg";
 import folklift from "../../../images/keza-forklift.png";
 import robotics from "../../../images/keza_kit1.png";
 import keza_child from "../../../images/keza_child.png";
-import ichigo from "../../../images/image.png";
+import ichigo from "../../../images/image5.png";
 import bootcamp2 from "../../../images/bootcamp.jpg"
 
 export default function Courses() {
