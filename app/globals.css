@@ -138,7 +138,14 @@
    .animate-infinite-scroll:hover {
     animation-play-state: paused;
    }
-   
+
+   .line{stroke-width: 2;stroke-miterlimit: 10;}
+   .circle{fill: transparent;stroke-width: 2;stroke-miterlimit: 10;}
+    .visible_divstyle{visibility: visible; animation-duration: 1s; animation-name: fadeInUp;}
+    .another{visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUp;}
+    .division{visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;}
+    .division1{visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;}
+    .division2{margin: 0 auto;height: 35px;}
 
   @layer base {
     * {

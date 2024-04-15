@@ -63,15 +63,17 @@ export default function Team() {
       bio: "As Managing Director at Keza Education Future Lab, Mr. NGENDABANGA blends teaching and a Master's from the Africa Centre of Excellence for Innovative Teaching and Learning.",
     },
     {
-      title:
-        "Technology & digital play-based teaching and learning Senior Advisor",
+      title: "Digital Learning Senior Advisor",
       names: "NIYIGENA Erneste",
       image: Erneste,
       media: [
-        { icon: <FaLinkedin />, url: "https://twitter.com/Erneste_N_1991" },
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/erneste-niyigena-10aa15102/",
+        },
         {
           icon: <IoLogoTwitter />,
-          url: "https://www.linkedin.com/in/erneste-niyigena-10aa15102/",
+          url: "https://twitter.com/Erneste_N_1991",
         },
       ],
       bio: "Electronics Engineer with over 5 years' experience in design and maintenance of electrical systems, specializes in hardware development for mobile devices and field engineering for Zipline International.",
@@ -164,65 +166,65 @@ export default function Team() {
   ];
   return (
     <div className="">
-    <div className="bg-team-bg pb-4">
-      <Navigation />
-      <div className="pt-6">
-        <h2 className="text-4xl font-bold text-black tracking-wide text-center">
-          Our T<strong className="text-burgundy">e</strong>am
-        </h2>
-        <p className="text-gray-600 italic text-center">
-          Meet a selection of key members from the KEFL team, each contributing
-          their expertise in diverse roles:
-        </p>
-        <div className="flex justify-center">
-          <div className="w-[90%] grid grid-cols-4">
-            {staff.map((person) => (
-              <div className="flex justify-center  mt-8" key={person.title}>
-                <div className="w-[400px] h-[600px] bg-white rounded-lg">
-                  <div className="h-[65%] w-full  flex justify-center items-center">
-                    <Image
-                      src={person.image}
-                      alt={person.names}
-                      className="w-[90%] h-[90%] object-cover rounded-lg bg-image"
-                    />
-                  </div>
+      <div className="bg-team-bg pb-4">
+        <Navigation />
+        <div className="pt-6">
+          <h2 className="text-4xl font-bold text-black tracking-wide text-center">
+            Our T<strong className="text-burgundy">e</strong>am
+          </h2>
+          <p className="text-gray-600 italic text-center">
+            Meet a selection of key members from the KEFL team, each
+            contributing their expertise in diverse roles:
+          </p>
+          <div className="flex justify-center">
+            <div className="w-[90%] grid grid-cols-4">
+              {staff.map((person) => (
+                <div className="flex justify-center  mt-8" key={person.title}>
+                  <div className="w-[400px] h-[600px] bg-white rounded-lg">
+                    <div className="h-[65%] w-full  flex justify-center items-center">
+                      <Image
+                        src={person.image}
+                        alt={person.names}
+                        className="w-[90%] h-[90%] object-cover rounded-lg bg-image"
+                      />
+                    </div>
 
-                  <div className="flex justify-center h-[35%] items-cente">
-                    <div className="relative w-[90%] h-full">
-                      <p className="text-gray-600 font-bold tracking-wider text-xs uppercase">
-                        {person.title}
-                      </p>
-                      <p className="text-black font-bold text-xl py-2">
-                        {person.names}
-                      </p>
-                      <p className="text-gray-700 text-sm font-light">
-                        {person.bio}
-                      </p>
-                      <div className="py-3 flex absolute bottom-0">
-                        {person.media.map((social) => (
-                          <div
-                            key={social.url}
-                            className="bg-burgundy text-white hover:text-slate-300 p-2 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer mr-3"
-                          >
-                            <Link
-                              href={social.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                    <div className="flex justify-center h-[35%] items-cente">
+                      <div className="relative w-[90%] h-full">
+                        <p className="text-gray-600 font-bold tracking-wider text-xs uppercase">
+                          {person.title}
+                        </p>
+                        <p className="text-black font-bold text-xl py-2">
+                          {person.names}
+                        </p>
+                        <p className="text-gray-700 text-sm font-light">
+                          {person.bio}
+                        </p>
+                        <div className="py-3 flex absolute bottom-0">
+                          {person.media.map((social) => (
+                            <div
+                              key={social.url}
+                              className="bg-burgundy text-white hover:text-slate-300 p-2 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer mr-3"
                             >
-                              {social.icon}
-                            </Link>{" "}
-                          </div>
-                        ))}{" "}
+                              <Link
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {social.icon}
+                              </Link>{" "}
+                            </div>
+                          ))}{" "}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </div>{" "}
-    </div>
+        </div>{" "}
+      </div>
       <Footer />
     </div>
   );

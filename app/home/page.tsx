@@ -3,6 +3,7 @@ import Landing from "../components/home/sections/landing";
 import Courses from "../components/home/sections/courses";
 import Services from "../components/home/sections/services";
 import Footer from "../components/Footer";
+import Ourteam from "../components/our_team"
 export default function HomePage() {
   return (
     <div>
@@ -12,6 +13,7 @@ export default function HomePage() {
       </div>
       <Courses />
       <Services />
+      <Ourteam />
       <Footer />
       <script
         src="https://static.elfsight.com/platform/platform.js"
