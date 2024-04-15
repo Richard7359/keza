@@ -5,6 +5,7 @@ import Celestin from "../images/celestin_image.png";
 import Erneste from "../images/erneste-niyigena.png";
 import Ariela from "../images/ariela.png";
 import Link from "next/link";
+import { TbBrandCitymapper } from "react-icons/tb";
 
 const OurTeam = () => {
   return (
@@ -421,19 +422,8 @@ const OurTeam = () => {
         <Link href="/team" legacyBehavior passHref>
           <button className="cssbuttons-io-button">
             View full profile
-            <div className="icon py-3 px-4">
-              <svg
-                height="20"
-                width="20"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+            <div className="icon">
+            <TbBrandCitymapper className="font-bold size-6 mx-2" />
             </div>
           </button>
         </Link>
