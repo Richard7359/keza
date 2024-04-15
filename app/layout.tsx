@@ -18,6 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
+      <script
+        src="https://static.elfsight.com/platform/platform.js"
+        data-use-service-core
+        defer
+      ></script>
+      <div className="elfsight-app-e6faf39d-9af5-4ec3-bb8c-8b556592848c"></div>
     </html>
   );
 }
