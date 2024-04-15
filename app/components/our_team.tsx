@@ -11,9 +11,9 @@ const OurTeam = () => {
     <div>
       <div
         id="team"
-        className="section relative pt-20 pb-8 md:pt-16 bg-white dark:bg-gray-800"
+        className="section relative pt-20  md:pt-16 dark:bg-gray-800 "
       >
-        <div className="container xl:max-w-6xl mx-auto px-4">
+        <div className="container xl:max-w-6xl mx-auto">
           <header className="text-center mx-auto mb-12">
             <h2 className="text-2xl leading-normal mb-2 font-bold text-gray-800 dark:text-gray-100">
               <span className="font-light">Our</span> Team
@@ -50,11 +50,15 @@ const OurTeam = () => {
                 className="stroke-primary line"
               ></line>
             </svg>
+            <p className="text-center font-semibold text-sm">
+              we have <strong className="text-burgundy">12</strong> member ready
+              to assist you!
+            </p>
           </header>
           <div className="flex flex-wrap flex-row -mx-4 justify-center">
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               <div
-                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-12 hover-grayscale-0 wow fadeInUp visible_divstyle"
+                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-2 hover-grayscale-0 wow fadeInUp visible_divstyle"
                 data-wow-duration="1s"
               >
                 <div className="relative overflow-hidden flex justify-center">
@@ -93,7 +97,6 @@ const OurTeam = () => {
                       </svg>
                     </a>
                     <a
-                      target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Facebook link"
                       href="#"
@@ -113,12 +116,10 @@ const OurTeam = () => {
                     </a>
 
                     <a
-                      target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Linkedin link"
                       href="#"
                     >
-                      {/* <!-- <i className="fab fa-linkedin text-linkedin"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -135,12 +136,10 @@ const OurTeam = () => {
                   </div>
                 </div>
               </div>
-              {/* <!-- end team block --> */}
             </div>
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
-              {/* <!-- team block --> */}
               <div
-                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-12 hover-grayscale-0 wow fadeInUp division1"
+                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-2 hover-grayscale-0 wow fadeInUp division1"
                 data-wow-duration="1s"
                 data-wow-delay=".1s"
               >
@@ -180,7 +179,6 @@ const OurTeam = () => {
                       </svg>
                     </a>
                     <a
-                      target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Facebook link"
                       href="#"
@@ -224,7 +222,7 @@ const OurTeam = () => {
             </div>
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               <div
-                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-12 hover-grayscale-0 wow fadeInUp division"
+                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-2 hover-grayscale-0 wow fadeInUp division"
                 data-wow-duration="1s"
                 data-wow-delay=".3s"
               >
@@ -248,7 +246,7 @@ const OurTeam = () => {
                       target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Twitter link"
-                      href="#"
+                      href="https://twitter.com/Erneste_N_1991"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -264,12 +262,10 @@ const OurTeam = () => {
                       </svg>
                     </a>
                     <a
-                      target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Facebook link"
                       href="#"
                     >
-                      {/* <!-- <i className="fab fa-facebook text-facebook"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -288,9 +284,8 @@ const OurTeam = () => {
                       target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Linkedin link"
-                      href="#"
+                      href="https://www.linkedin.com/in/erneste-niyigena-10aa15102/"
                     >
-                      {/* <!-- <i className="fab fa-linkedin text-linkedin"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -312,7 +307,7 @@ const OurTeam = () => {
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               {/* <!-- team block --> */}
               <div
-                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-12 hover-grayscale-0 wow fadeInUp another"
+                className="relative overflow-hidden bg-white dark:bg-gray-800 mb-2 hover-grayscale-0 wow fadeInUp another"
                 data-wow-duration="1s"
                 data-wow-delay=".5s"
               >
@@ -331,15 +326,13 @@ const OurTeam = () => {
                   <p className="text-gray-500 leading-relaxed font-light">
                     Finance & Administration
                   </p>
-                  {/* <!-- social icon --> */}
                   <div className="mt-2 mb-5 space-x-2">
                     <a
                       target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Twitter link"
-                      href="#"
+                      href="https://twitter.com/iraduariela"
                     >
-                      {/* <!-- <i className="fab fa-twitter text-twitter"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -354,12 +347,10 @@ const OurTeam = () => {
                       </svg>
                     </a>
                     <a
-                      target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Facebook link"
                       href="#"
                     >
-                      {/* <!-- <i className="fab fa-facebook text-facebook"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -379,7 +370,6 @@ const OurTeam = () => {
                       aria-label="Instagram link"
                       href="#"
                     >
-                      {/* <!-- <i className="fab fa-instagram text-instagram"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -405,9 +395,8 @@ const OurTeam = () => {
                       target="_blank"
                       className="hover:text-burgundy"
                       aria-label="Linkedin link"
-                      href="#"
+                      href="https://www.linkedin.com/in/ariela-audrey-iradukunda-b930aa1b2/"
                     >
-                      {/* <!-- <i className="fab fa-linkedin text-linkedin"></i> --> */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="inline-block"
@@ -427,6 +416,25 @@ const OurTeam = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center mb-4">
+        <button className="cssbuttons-io-button">
+          View full profile
+          <div className="icon">
+            <svg
+              height="24"
+              width="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+        </button>
       </div>
     </div>
   );
