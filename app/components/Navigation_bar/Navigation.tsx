@@ -15,6 +15,7 @@ import { RiTeamLine } from "react-icons/ri";
 import { TbUserPlus } from "react-icons/tb";
 import { LuLogIn } from "react-icons/lu";
 import { MdTipsAndUpdates } from "react-icons/md";
+import { GrGallery } from "react-icons/gr";
 
 export default function Navigation() {
   return (
@@ -68,6 +69,13 @@ export default function Navigation() {
               <Link href="/team" legacyBehavior passHref>
                 <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                 <strong className="mr-[3px]"><RiTeamLine /></strong>Team
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="transparent-bg text-white">
+              <Link href="/Gallery" legacyBehavior passHref>
+                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-burgundy-light hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                <strong className="mr-[3px]"><GrGallery /></strong>Gallery
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

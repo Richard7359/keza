@@ -60,6 +60,7 @@ const page = () => {
         <Image
           src={bootcamp}
           alt="KEFL Logo image"
+          loading="lazy"
           className="w-[98%] h-[98vh] object-cover cursor-pointer rounded-2xl"
         />
       </div>
