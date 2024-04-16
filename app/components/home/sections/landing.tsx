@@ -1,15 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import robot_image from "../../../images/robotics.png";
-import light_robotics from "../../../images/light_robotics.jpg";
-import coding_programming from "../../../images/coding_programming.png";
-import light_coding_programming from "../../../images/light_coding_programming.png";
-import ai from "../../../images/ai.png";
-import light_ai from "../../../images/light_ai.png";
-import light_interactive_programming from "../../../images/light_interactive_programming.png";
-import interactive_programming from "../../../images/interactive_programming.png";
-import Scroling_patners from "./scroling_patners";
 export default function Landing() {
   return (
     <section className="w-[100%]">
@@ -38,10 +28,6 @@ export default function Landing() {
           </div>
         </div>
       </div>
-      {/* <Scroling_patners />
-      <p className="text-center pt-2 text-white z-1008">
-        <strong>KEFL</strong> is trusted and partnering with these organizations
-      </p> */}
     </section>
   );
 }

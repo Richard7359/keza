@@ -1,4 +1,3 @@
-import Image from "next/image";
 import laser_cutter_machine from "../../../images/laser-cutter-machine.webp";
 import steam_training_image from "../../../images/steam.jpg";
 import RightImageService from "./service/RightImageService";

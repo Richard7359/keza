@@ -152,16 +152,13 @@
       font-family: inherit;
       padding: 0.35em;
       padding-left: 1.2em;
-      /* font-size: 17px; */
       font-weight: 500;
       border-radius: 7px;
       border: none;
-      /* letter-spacing: 0.05em; */
       display: flex;
       align-items: center;
       overflow: hidden;
       position: relative;
-      /* height: 20px; */
       padding-right: 3.3em;
       cursor: pointer;
     }
@@ -175,7 +172,6 @@
       flex-direction: column;
       width: fit-content;
       position: static;
-      /* max-width: 240px; */
     }
     
     .coolinput label.text {
@@ -195,7 +191,6 @@
       font-size: 0.75rem;
       border: 2px #818CF8 solid;
       border-radius: 5px;
-      /* background: #e8e8e8; */
     }
     
     .coolinput input[type=text].input:focus {

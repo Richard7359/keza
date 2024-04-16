@@ -13,12 +13,8 @@ import Thiery from "../images/Thierry.png";
 import Felix from "../images/felix.jpg";
 import Dei from "../images/dei_image.jpg";
 
-import { FaFacebook } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
-import { FaFlickr } from "react-icons/fa";
 import Link from "next/link";
 import Footer from "../components/Footer";
 
