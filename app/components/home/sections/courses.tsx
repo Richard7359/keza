@@ -10,7 +10,6 @@ import ai from "../../../images/ai.png";
 import light_ai from "../../../images/light_ai.png";
 import light_interactive_programming from "../../../images/light_interactive_programming.png";
 import interactive_programming from "../../../images/interactive_programming.png";
-import robort from "../../../images/robotic_image5.png";
 import robort2 from "../../../images/robot.svg";
 import { TbBrandCitymapper } from "react-icons/tb";
 import coding_programming_service from "../../../images/coding-programming.jpg";
@@ -24,7 +23,7 @@ import bootCamp1 from "../../../images/bootcamp-image-3.jpg";
 import folklift from "../../../images/keza-forklift.png";
 import robotics from "../../../images/keza_kit1.png";
 import keza_child from "../../../images/keza_child.png";
-import ichigo from "../../../images/image5.png";
+import ichigo from "../../../images/child_ichigo.png";
 import bootcamp2 from "../../../images/bootcamp.jpg"
 
 export default function Courses() {

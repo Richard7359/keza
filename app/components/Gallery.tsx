@@ -3,6 +3,9 @@ import Navigation from "../components/Navigation_bar/Navigation";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import bootcamp from "../images/bootcamp-image-2.jpg"
+import Piano from "../images/piano.png"
+import Child from "../images/bootcamp-image-4.jpg"
+import Child_ichigo from "../images/child_ichigo.png"
 
 const SampleGallery = () => {
   return (
@@ -35,7 +38,7 @@ const SampleGallery = () => {
           className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
         >
           <Image
-            src={bootcamp}
+            src={Child}
             alt="KEFL Logo image"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -51,12 +54,19 @@ const SampleGallery = () => {
           href="#"
           className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
         >
-          <img
+          {/* <img
             src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+          /> */}
+           <Image
+            src={bootcamp}
+            alt="KEFL Logo image"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
           />
+
 
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
@@ -68,10 +78,16 @@ const SampleGallery = () => {
           href="#"
           className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
         >
-          <img
+          {/* <img
             src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"
             loading="lazy"
             alt="Photo by Martin Sanchez"
+            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+          /> */}
+           <Image
+            src={Piano}
+            alt="KEFL Logo image"
+            loading="lazy"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
           />
 
@@ -85,12 +101,12 @@ const SampleGallery = () => {
           href="#"
           className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
         >
-          <img
-            src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600"
-            loading="lazy"
-            alt="Photo by Lorenzo Herrera"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
+          <Image
+                src={Child_ichigo}
+                alt="KEFL Logo image"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
 
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 

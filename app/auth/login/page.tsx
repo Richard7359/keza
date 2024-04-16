@@ -8,8 +8,6 @@ const page = () => {
     <div className="grid grid-cols-2 h-[100vh]">
       <div className="bg-green flex">
         <div className="bg-white w-full">
-          <div></div>
-          {/* <div className="flex content-center justify-center rounded-l-md bg-white"> */}
           <div className="">
             <div className="flex justify-center items-center h-[100vh]">
               <div className="w-[70%] ">
