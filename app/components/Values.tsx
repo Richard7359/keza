@@ -1,6 +1,6 @@
 import React from "react";
 
-const HowWeWork = () => {
+const Values = () => {
   return (
     <div>
       <div className="min-h-screen bg-gradient-to-r from-sky-200 to-red-100 py-20">
@@ -152,4 +152,4 @@ const HowWeWork = () => {
   );
 };
 
-export default HowWeWork;
+export default Values;
