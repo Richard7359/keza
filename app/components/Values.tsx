@@ -26,14 +26,11 @@ const Values = () => {
               </div>
             </div>
             <div className="bg-white shadow-lg rounded-md p-4 hover:bg-gradient-to-r hover:from-red-50 hover:to-sky-50">
-              <h1 className="font-bold text-xl pb-4">
-                1. Collect Requirements{" "}
-              </h1>
+              <h1 className="font-bold text-xl pb-4">1. Integrity. </h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Praesentium rationeim. Repellendus hic quas facere. Consequatur
-                sint ut quidem saepe! Soluta assumenda nisi rerum quaerat
-                commodi hic aperiam.
+                At KEFL, integrity means ensuring honest teaching, creating a
+                safe learning environment, and continually improving to provide
+                your child with the best robotics and programming education.
               </p>
             </div>
           </div>
@@ -52,13 +49,11 @@ const Values = () => {
               </div>
             </div>
             <div className=" bg-white  shadow-lg  rounded-xl p-4 hover:bg-gradient-to-r hover:from-red-50 hover:to-sky-50">
-              <h1 className="font-bold text-xl">
-                2. Analyze the requirements{" "}
-              </h1>
+              <h1 className="font-bold text-xl">2. Honesty. </h1>
               <p>
-                Lorem ipsum dolor sit amet facere nemo enim. Repellendus hic
-                quas facere. Consequatur sint ut quidem saepe! Soluta assumenda
-                nisi rerum quaerat commodi hic aperiam.
+                At KEZA, honesty is key. Trusted by organizations like REB,
+                Right To Play, UNESCO, Sakura, JICA, and more, we&lsquo;re
+                committed to transparent, reliable education for your child.
               </p>
             </div>
           </div>
@@ -81,13 +76,11 @@ const Values = () => {
               </div>
             </div>
             <div className=" bg-white   shadow-lg rounded-xl p-4 hover:bg-gradient-to-r hover:from-red-50 hover:to-sky-50">
-              <h1 className="font-bold text-xl">
-                3. Sort out possible solutions{" "}
-              </h1>
+              <h1 className="font-bold text-xl">3. Trust. </h1>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Quisquam neque cum sunt similique omnis adipisci tempore placeat
-                ad.
+                Trust is the foundation of our relationship with parents and
+                students at KEZA. It&lsquo;s built on transparency, reliability,
+                and a proven track record of success in our programs.
               </p>
             </div>
           </div>
@@ -110,13 +103,12 @@ const Values = () => {
               </div>
             </div>
             <div className=" bg-white  shadow-lg  rounded-xl p-4 hover:bg-gradient-to-r hover:from-red-50 hover:to-sky-50">
-              <h1 className="font-bold text-xl">
-                4. Implement the best solution.{" "}
-              </h1>
+              <h1 className="font-bold text-xl">4. Accountability. </h1>
               <p>
-                Lorem ipsum dolor sit amet facere nemo enim. Repellendus hic
-                quas facere. Consequatur sint ut quidem saepe! Soluta assumenda
-                nisi rerum quaerat commodi hic aperiam.
+                At KEZA, we uphold accountability by taking responsibility for
+                our actions and ensuring promises to parents and students are
+                met through transparent communication and continuous
+                improvement.
               </p>
             </div>
           </div>
@@ -137,12 +129,13 @@ const Values = () => {
             </div>
             <div className=" bg-white  shadow-lg  rounded-xl p-4 hover:bg-gradient-to-r hover:from-red-50 hover:to-sky-50">
               <h1 className="font-bold text-xl">
-                5. Submit and wait for feedback.{" "}
+                5. Commitment to customer-centric innovation.{" "}
               </h1>
               <p>
-                Lorem ipsum dolor sit amet facere nemo enim. Repellendus hic
-                quas facere. Consequatur sint ut quidem saepe! Soluta assumenda
-                nisi rerum quaerat commodi hic aperiam.
+                Commitment to customer-centric innovation at KEZA means
+                prioritizing the needs and experiences of our clients while
+                continuously pushing the boundaries of innovation to enhance
+                their satisfaction and outcomes.
               </p>
             </div>
           </div>
