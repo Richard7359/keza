@@ -51,6 +51,13 @@ export default function Patners() {
 
   return (
     <section className="w-[100%] mt-4 p-2">
+            <div className="flex flex-col gap-4 items-center text-center my-10 md:mt-20 md:mb-24 md:p-0">
+        <h2 className="font-extrabold text-3xl md:text-5xl">Our partners</h2>
+        <p className="mt-1 text-paragraph text-center max-w-xl">
+          <strong>KEFL</strong> is trusted and partnering with the below
+          organisations.
+        </p>
+      </div>
       <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
         <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
           {partners.map((partner, index) => (
