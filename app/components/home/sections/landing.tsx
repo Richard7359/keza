@@ -12,8 +12,6 @@ export default function Landing() {
             loop
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
-          {/* <div className="absolute inset-0 bg-black opacity-60 rounded-2xl"></div> */}
-
           <div className="absolute flex justify-center items-end h-full w-full">
             <div className="bg-[#cfddf0] md:bg-white px-4 py-2 rounded-[10px]  md:opacity-[0.85] mb-4 text-center">
               <h1 className="font-bold text-black">

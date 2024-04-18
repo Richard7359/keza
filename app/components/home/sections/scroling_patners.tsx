@@ -9,8 +9,7 @@ import unesco from "../../../images/unesco.png";
 import jica from "../../../images/jica.png";
 import sakura from "../../../images/sakura.png";
 
-
-export default function Scroling_patners() {
+export default function Patners() {
   const partners = [
     {
       name: "Ministry of Education",

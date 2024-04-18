@@ -104,7 +104,8 @@ export default function Navigation() {
         </NavigationMenu>
         <div>
           <button className="bg-white text-burgundy px-8 py-3 rounded-md text-sm font-bold mx-4">
-            Get in touch
+            {/* Get in touch */}
+           TALK TO KFL
           </button>
         </div>
       </div>
