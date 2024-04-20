@@ -6,6 +6,7 @@ import Ourteam from "../components/our_team";
 import Values from "../components/Values";
 import SampleGallery from "../components/Gallery";
 import Patners from "../components/home/sections/scroling_patners";
+import FAQ from "../components/home/sections/FAQ";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Courses />
       <Values />
       <SampleGallery />
+      <FAQ />
       <Patners />
       <Ourteam />
       <Footer />
