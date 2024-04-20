@@ -1,9 +1,11 @@
 import React from "react";
+import Image from "next/image";
+import Antoine from "../../../images/Antoine-MUTSINZI.png";
 
 const Testimonial = () => {
   return (
-    <div>
-      <section className="de md:og" id="testimonials" x-data="{ testimonials }">
+    <div className="flex justify-center">
+      <section className="de md:og w-[80%]" id="testimonials" x-data="{ testimonials }">
         <div className="gc sm:ge">
           <span className="x sc uc yc bd qd.5 vd.5 ne pe se df">
             Testimonials
@@ -20,7 +22,6 @@ const Testimonial = () => {
                   <p className="we" x-text="testimonial.text"></p>
 
                   <div className="t w ub _b">
-                    {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf"> */}
                     <div className="ec.5">
                       <p className="oe" x-text="testimonial.author.name"></p>
                       <p className="le we" x-text="testimonial.author.role"></p>
@@ -36,8 +37,6 @@ const Testimonial = () => {
                 <p className="we" x-text="testimonial.text"></p>
 
                 <div className="t w ub _b">
-                  {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf"> */}
-
                   <div className="ec.5">
                     <p className="oe" x-text="testimonial.author.name"></p>
                     <p className="le we" x-text="testimonial.author.role"></p>
@@ -48,14 +47,15 @@ const Testimonial = () => {
             <div className="pc uc _c dd pd df">
               <p className="we" x-text="testimonial.text">
                 Amiso has completely revolutionized the way we manage projects
-                and collaborate as a team. The automation features alone saved
-                us countless hours, and the real-time analytics give us insights
-                we never had before.
+      
               </p>
 
               <div className="t w ub _b">
-                {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf" src="images/testimonials/avatar-1.jpg" alt="Sarah Johnson"> */}
-
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
                 <div className="ec.5">
                   <p className="oe" x-text="testimonial.author.name">
                     Sarah Johnson
@@ -74,8 +74,11 @@ const Testimonial = () => {
               </p>
 
               <div className="t w ub _b">
-                {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf" src="images/testimonials/avatar-2.jpg" alt="Jessica White"> */}
-
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
                 <div className="ec.5">
                   <p className="oe" x-text="testimonial.author.name">
                     Jessica White
@@ -95,8 +98,11 @@ const Testimonial = () => {
               </p>
 
               <div className="t w ub _b">
-                {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf" src="images/testimonials/avatar-3.jpg" alt="Emily Rodriguez"> */}
-
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
                 <div className="ec.5">
                   <p className="oe" x-text="testimonial.author.name">
                     Emily Rodriguez
@@ -107,7 +113,6 @@ const Testimonial = () => {
                 </div>
               </div>
             </div>
-          
           </div>
           <div className="w rb dc">
             <template x-for="(testimonial, testimonialIndex) in column:key='testimonial-' + testimonialIndex">
@@ -115,8 +120,6 @@ const Testimonial = () => {
                 <p className="we" x-text="testimonial.text"></p>
 
                 <div className="t w ub _b">
-                  {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf"> */}
-
                   <div className="ec.5">
                     <p className="oe" x-text="testimonial.author.name"></p>
                     <p className="le we" x-text="testimonial.author.role"></p>
@@ -133,8 +136,11 @@ const Testimonial = () => {
               </p>
 
               <div className="t w ub _b">
-                {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf" src="images/testimonials/avatar-1.jpg" alt="Sarah Johnson"> */}
-
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
                 <div className="ec.5">
                   <p className="oe" x-text="testimonial.author.name">
                     Sarah Johnson
@@ -153,8 +159,11 @@ const Testimonial = () => {
               </p>
 
               <div className="t w ub _b">
-                {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf" src="images/testimonials/avatar-2.jpg" alt="Jessica White"> */}
-
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
                 <div className="ec.5">
                   <p className="oe" x-text="testimonial.author.name">
                     Jessica White
@@ -174,8 +183,11 @@ const Testimonial = () => {
               </p>
 
               <div className="t w ub _b">
-                {/* <img x-bind:src="testimonial.author.photo" x-bind:alt="testimonial.author.name" className="aa oa qc df ff jf" src="images/testimonials/avatar-3.jpg" alt="Emily Rodriguez"> */}
-
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
                 <div className="ec.5">
                   <p className="oe" x-text="testimonial.author.name">
                     Emily Rodriguez
@@ -186,7 +198,91 @@ const Testimonial = () => {
                 </div>
               </div>
             </div>
-          
+          </div>
+          <div className="w rb dc">
+            <template x-for="(testimonial, testimonialIndex) in column:key='testimonial-' + testimonialIndex">
+              <div className="pc uc _c dd pd df">
+                <p className="we" x-text="testimonial.text"></p>
+
+                <div className="t w ub _b">
+                  <div className="ec.5">
+                    <p className="oe" x-text="testimonial.author.name"></p>
+                    <p className="le we" x-text="testimonial.author.role"></p>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <div className="pc uc _c dd pd df">
+              <p className="we" x-text="testimonial.text">
+                Amiso has completely revolutionized the way we manage projects
+                and collaborate as a team. The automation features alone saved
+                us countless hours, and the real-time analytics give us insights
+                we never had before.
+              </p>
+
+              <div className="t w ub _b">
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
+                <div className="ec.5">
+                  <p className="oe" x-text="testimonial.author.name">
+                    Sarah Johnson
+                  </p>
+                  <p className="le we" x-text="testimonial.author.role">
+                    CEO, XYZ Innovations
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="pc uc _c dd pd df">
+              <p className="we" x-text="testimonial.text">
+                Amiso&apos;s automation tools have simplified our workflow and
+                reduced errors. We can focus on strategic tasks, knowing that
+                routine processes are being handled efficiently.
+              </p>
+
+              <div className="t w ub _b">
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
+                <div className="ec.5">
+                  <p className="oe" x-text="testimonial.author.name">
+                    Jessica White
+                  </p>
+                  <p className="le we" x-text="testimonial.author.role">
+                    Operations Manager
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="pc uc _c dd pd df">
+              <p className="we" x-text="testimonial.text">
+                Amiso has been a game-changer for our project management. The
+                smart automation and customizable user roles have made our
+                workflow incredibly smooth. It&apos;s a must-have tool for any
+                growing business.
+              </p>
+
+              <div className="t w ub _b">
+                <Image
+                  src={Antoine}
+                  alt="Antoine image"
+                  className="aa oa qc df ff jf"
+                />
+                <div className="ec.5">
+                  <p className="oe" x-text="testimonial.author.name">
+                    Emily Rodriguez
+                  </p>
+                  <p className="le we" x-text="testimonial.author.role">
+                    Project Manager, ABC Tech Solutions
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="c e h i ia hd id"></div>
         </div>
