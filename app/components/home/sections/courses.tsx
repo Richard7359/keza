@@ -137,7 +137,7 @@ export default function Courses() {
       </h1>
       <div className="flex justify-center">
         {" "}
-        <p className="mt-1 text-paragraph text-center max-w-2xl">
+        <p className="mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl">
           Welcome to a world where coding and robotics ignite young minds and
           shape the future. Our coding and robotics programs inspire young minds
           to think critically and creatively. Join us in shaping the future of
