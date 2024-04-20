@@ -1578,7 +1578,7 @@ select {
 
   font-named-instance: "Regular";
 
-  src: url("../fonts/Inter.var.woff2") format("woff2");
+  /* src: url("../fonts/Inter.var.woff2") format("woff2"); */
 }
 
 @font-face {
@@ -1592,7 +1592,7 @@ select {
 
   font-named-instance: "Italic";
 
-  src: url("../fonts/Inter-italic.var.woff2") format("woff2");
+  /* src: url("../fonts/Inter-italic.var.woff2") format("woff2"); */
 }
 
 body {

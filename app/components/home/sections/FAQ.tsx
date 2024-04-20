@@ -9,7 +9,7 @@ import Title from "../../Title";
 
 const FAQ = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white dark:bg-gray-900 mt-16">
       <div>
         <div className="flex justify-center">
           <Title title="FAQs" />
