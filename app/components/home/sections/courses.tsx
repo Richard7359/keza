@@ -18,7 +18,8 @@ import bootCamp1 from "../../../images/bootcamp-image-3.jpg";
 import robotics from "../../../images/keza_kit1.png";
 import keza_child from "../../../images/keza_child.png";
 import ichigo from "../../../images/child_ichigo.png";
-import bootcamp2 from "../../../images/bootcamp.jpg"
+import bootcamp2 from "../../../images/bootcamp.jpg";
+import Title from "../../Title";
 
 export default function Courses() {
   const [selected, setSelected] = useState(0);
@@ -128,7 +129,10 @@ export default function Courses() {
   ];
   return (
     <section className="relative h-[70vh] text-black">
-      <h1 className="text-[30px] font-bold flex justify-center pt-12 pb-4">
+      <div className="flex justify-center pt-12">
+        <Title title="courses" />
+      </div>
+      <h1 className="text-[30px] font-bold flex justify-center pb-4">
         Guided courses for every journey
       </h1>
       <div className="flex justify-center">
