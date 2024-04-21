@@ -45,7 +45,7 @@ export default function Courses() {
     {
       image: ai,
       light_image: light_ai,
-      title: "Artificial inteligence / AI",
+      title: "Artificial inteligence",
       alt: "artificial inteligence image",
     },
   ];
@@ -128,23 +128,25 @@ export default function Courses() {
     },
   ];
   return (
-    <section className="relative h-[70vh] text-black">
+    <section className="relative h-[70vh] text-black mx-3">
       <div className="flex justify-center pt-12">
         <Title title="courses" />
       </div>
-      <h1 className="text-[30px] font-bold flex justify-center pb-4">
+      <h1 className="text-[20px] md:text-[30px] font-bold pb-4 text-center">
         Guided courses for every journey
       </h1>
       <div className="flex justify-center">
         {" "}
-        <p className="mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl">
+        <p className="hidden md:block mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl">
           Welcome to a world where coding and robotics ignite young minds and
           shape the future. Our coding and robotics programs inspire young minds
           to think critically and creatively. Join us in shaping the future of
           technology. Let&apos;s code and build together.
         </p>
       </div>
-      <div className="flex justify-center m-6">
+      {/* <div className="flex justify-center m-6 bg-green grid grid-cols-2"> */}
+      {/* <div className="flex justify-center m-6 bg-green"> */}
+      <div className="md:m-6 grid grid-cols-2 md:flex md:justify-center">
         {courses.map((course, id) => {
           return (
             <>
@@ -155,7 +157,7 @@ export default function Courses() {
                     : "border-black"
                 } ${
                   id == selected && "bg-burgundy-light"
-                } w-[300px] p-2 rounded-md m-2`}
+                } md:w-[300px] p-2 rounded-md m-2`}
                 onClick={() => setSelected(id < services.length ? id : 0)}
               >
                 {" "}
@@ -170,36 +172,12 @@ export default function Courses() {
           );
         })}
       </div>
-      <div className="">
-        <div className="flex justify-center">
-          <div className="w-[45%] h-[35vh] bg-burgundy rounded-lg flex justify-center items-center robot_container">
-            <div className="w-[90%] h-[80%] flex justify-between">
-              {services[selected].images.map((image, id) => {
-                return (
-                  <Image
-                    key={id}
-                    src={image.src}
-                    alt={image.alt}
-                    className={image.style}
-                  />
-                );
-              })}{" "}
-            </div>
-          </div>
-          <div className="ml-[50px] flex items-center">
-            <div>
-              <p className="font-bold text-3xl mb-4">
-                {services[selected].title}
-              </p>
-              <p className="max-w-xl">{services[selected].description}</p>
-              <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
-                Explore more{" "}
-                <TbBrandCitymapper className="font-bold size-6 mx-2" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </section>
   );
 }
+
+
+
+
+
