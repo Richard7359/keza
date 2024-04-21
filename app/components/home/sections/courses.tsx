@@ -128,11 +128,11 @@ export default function Courses() {
     },
   ];
   return (
-    <section className="relative h-[70vh] text-black">
+    <section className="relative h-[70vh] text-black mx-3">
       <div className="flex justify-center pt-12">
         <Title title="courses" />
       </div>
-      <h1 className="text-[30px] font-bold flex justify-center pb-4">
+      <h1 className="text-[30px] font-bold pb-4 text-center">
         Guided courses for every journey
       </h1>
       <div className="flex justify-center">
@@ -144,7 +144,8 @@ export default function Courses() {
           technology. Let&apos;s code and build together.
         </p>
       </div>
-      <div className="flex justify-center m-6">
+      {/* <div className="flex justify-center m-6 bg-green grid grid-cols-2"> */}
+      <div className="flex justify-center m-6 bg-green">
         {courses.map((course, id) => {
           return (
             <>
@@ -155,7 +156,7 @@ export default function Courses() {
                     : "border-black"
                 } ${
                   id == selected && "bg-burgundy-light"
-                } w-[300px] p-2 rounded-md m-2`}
+                } md:w-[300px] p-2 rounded-md m-2`}
                 onClick={() => setSelected(id < services.length ? id : 0)}
               >
                 {" "}
@@ -170,7 +171,7 @@ export default function Courses() {
           );
         })}
       </div>
-      <div className="">
+      {/* <div className="">
         <div className="flex justify-center">
           <div className="w-[45%] h-[35vh] bg-burgundy rounded-lg flex justify-center items-center robot_container">
             <div className="w-[90%] h-[80%] flex justify-between">
@@ -199,7 +200,7 @@ export default function Courses() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
