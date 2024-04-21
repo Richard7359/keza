@@ -145,7 +145,7 @@ export default function Navigation() {
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border md:mx-2 border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <a
-                href="#"
+                href="/"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-sm md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
@@ -155,7 +155,7 @@ export default function Navigation() {
                 Home
               </a>
               <a
-                href="#"
+                href="/services"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-sm md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
@@ -165,7 +165,7 @@ export default function Navigation() {
                 Services
               </a>
               <a
-                href="#"
+                href="/team"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-sm md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
@@ -175,7 +175,7 @@ export default function Navigation() {
                 Team
               </a>
               <a
-                href="#"
+                href="/Gallery"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-sm md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
@@ -195,7 +195,7 @@ export default function Navigation() {
                 Sign up
               </a>
               <a
-                href="#"
+                href="/auth/login"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-sm md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
