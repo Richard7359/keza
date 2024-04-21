@@ -144,8 +144,6 @@ export default function Courses() {
           technology. Let&apos;s code and build together.
         </p>
       </div>
-      {/* <div className="flex justify-center m-6 bg-green grid grid-cols-2"> */}
-      {/* <div className="flex justify-center m-6 bg-green"> */}
       <div className="md:m-6 grid grid-cols-2 md:flex md:justify-center">
         {courses.map((course, id) => {
           return (
