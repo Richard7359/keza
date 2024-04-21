@@ -34,45 +34,38 @@ const page = () => {
                 <label className="text-sm">Email Address</label>
                 <input
                   type="text"
-                  className="w-full p-2 mb-2 border border-black rounded-full"
+                  className="w-full p-2 mb-2 rounded-lg border border-black"
                 />
                 <label className="text-sm">Password</label>
                 <input
                   type="text"
                   className="w-full p-2 mb-2 rounded-lg border border-black"
                 />
-                <div className="mb-3 flex flex-wrap content-center">
-                  <input
-                    id="remember"
-                    type="checkbox"
-                    className="mr-1 checked:text-burgundy"
-                  />{" "}
-                  <label
-                    htmlFor="remember"
-                    className="mr-auto text-xs font-semibold"
-                  >
-                    Remember for 30 days
-                  </label>
-                  <a href="#" className="text-xs font-semibold text-burgundy">
-                    Forgot password?
-                  </a>
-                </div>
+                 <input
+                  type="text"
+                  className="w-full p-2 mb-2 rounded-lg border border-black"
+                />
+                <label className="text-sm">Confirm Password</label>
+                <input
+                  type="text"
+                  className="w-full p-2 mb-2 rounded-lg border border-black"
+                />
                 <button className="mb-1.5 block w-full text-center text-white bg-burgundy cursor-pointer hover:bg-burgundy-light text-black px-2 py-1.5 rounded-2xl">
-                  Login
+                  Sign up
                 </button>
                 <div className="text-center">
                   <span className="text-xs text-gray-400 font-semibold">
-                    Don&apos;t have account?
+                    arleady have account?
                   </span>
                   {/* <a
                     href="/auth/signup"
                     className="text-xs font-semibold text-burgundy"
                   > */}
                   <a
-                    href="/auth/signup"
+                    href="/auth/login"
                     className="text-xs font-semibold text-burgundy"
                   >
-                    Sign up
+                    Login
                   </a>
                 </div>
               </div>
