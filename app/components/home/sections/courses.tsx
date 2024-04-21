@@ -45,7 +45,7 @@ export default function Courses() {
     {
       image: ai,
       light_image: light_ai,
-      title: "Artificial inteligence / AI",
+      title: "Artificial inteligence",
       alt: "artificial inteligence image",
     },
   ];
@@ -132,12 +132,12 @@ export default function Courses() {
       <div className="flex justify-center pt-12">
         <Title title="courses" />
       </div>
-      <h1 className="text-[30px] font-bold pb-4 text-center">
+      <h1 className="text-[20px] md:text-[30px] font-bold pb-4 text-center">
         Guided courses for every journey
       </h1>
       <div className="flex justify-center">
         {" "}
-        <p className="mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl">
+        <p className="hidden md:block mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl">
           Welcome to a world where coding and robotics ignite young minds and
           shape the future. Our coding and robotics programs inspire young minds
           to think critically and creatively. Join us in shaping the future of
@@ -146,7 +146,7 @@ export default function Courses() {
       </div>
       {/* <div className="flex justify-center m-6 bg-green grid grid-cols-2"> */}
       {/* <div className="flex justify-center m-6 bg-green"> */}
-      <div className="flex justify-center m-6">
+      <div className="md:m-6 grid grid-cols-2">
         {courses.map((course, id) => {
           return (
             <>

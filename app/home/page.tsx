@@ -13,17 +13,17 @@ export default function HomePage() {
   return (
     <div>
       <Navigation />
-      {/* <div className="bg-[#838b94] font-montserrat">
+      <div className="bg-[#838b94] font-montserrat">
         <Landing />
-      </div> */}
+      </div>
       <Courses />
-      {/* <Values />
+      <Values />
       <SampleGallery />
       <Testimonial />
       <FAQ />
       <Patners />
       <Ourteam />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }
