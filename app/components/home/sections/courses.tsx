@@ -75,13 +75,13 @@ export default function Courses() {
         {
           src: bootCamp,
           alt: "",
-          style: "w-[450px] object-cover rounded-xl",
+          style: "w-[60%] h-[100%] object-cover rounded-xl",
           link: "",
         },
         {
           src: bootCamp1,
           alt: "",
-          style: "w-[280px] h-full rounded-xl",
+          style: "w-[40%] h-[100%] h-full rounded-xl",
           link: "",
         },
       ],
@@ -96,13 +96,13 @@ export default function Courses() {
         {
           src: bootcamp2,
           alt: "",
-          style: "w-[450px] object-cover rounded-xl",
+          style: "w-[60%] h-[100%] object-cover rounded-xl",
           link: "",
         },
         {
           src: ichigo,
           alt: "",
-          style: "w-[280px] h-full rounded-xl",
+          style: "w-[40%] h-[100%] h-full rounded-xl",
           link: "",
         },
       ],
@@ -113,13 +113,13 @@ export default function Courses() {
         {
           src: ai1,
           alt: "",
-          style: "w-[450px] object-cover rounded-xl",
+          style: "w-[60%] h-[100%] object-cover rounded-xl",
           link: "",
         },
         {
           src: ai2,
           alt: "",
-          style: "w-[280px] h-full rounded-xl",
+          style: "w-[40%] h-[100%] h-full rounded-xl",
           link: "",
         },
       ],
@@ -128,7 +128,7 @@ export default function Courses() {
     },
   ];
   return (
-    <section className="relative h-[70vh] text-black mx-3">
+    <section className="relative md:h-[70vh] text-black mx-3">
       <div className="flex justify-center pt-12">
         <Title title="courses" />
       </div>
@@ -173,22 +173,23 @@ export default function Courses() {
         })}
       </div>
       <div className="">
-        <div className="flex justify-center">
-          <div className="w-[45%] h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container">
-            <div className="w-[95%] h-[30vh] flex gap-4">
-              {services[selected].images.map((image, id) => {
-                return (
-                  <Image
-                    key={id}
-                    src={image.src}
-                    alt={image.alt}
-                    className={image.style}
-                  />
-                );
-              })}{" "}
+        <div className="md:flex md:justify-center">
+            <div className="w-[100%] h-[18vh] md:w-[45%]  md:h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container">
+              <div className="w-[95%] h-[16vh] md:h-[30vh] flex gap-2 md:gap-4">
+                {services[selected].images.map((image, id) => {
+                  return (
+                    <Image
+                      key={id}
+                      src={image.src}
+                      alt={image.alt}
+                      className={image.style}
+                    />
+                  );
+                })}{" "}
+
             </div>
           </div>
-          <div className="ml-[50px] flex items-center">
+          <div className="md:ml-[50px] flex items-center">
             <div>
               <p className="font-bold text-3xl mb-4">
                 {services[selected].title}
@@ -201,7 +202,7 @@ export default function Courses() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 }
