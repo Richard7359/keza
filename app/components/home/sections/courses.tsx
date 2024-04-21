@@ -145,7 +145,8 @@ export default function Courses() {
         </p>
       </div>
       {/* <div className="flex justify-center m-6 bg-green grid grid-cols-2"> */}
-      <div className="flex justify-center m-6 bg-green">
+      {/* <div className="flex justify-center m-6 bg-green"> */}
+      <div className="flex justify-center m-6">
         {courses.map((course, id) => {
           return (
             <>
