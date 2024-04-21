@@ -96,7 +96,7 @@ export default function Navigation() {
     //   </div>
     // </div>
 
-    <nav className="bg-burgundy border-gray-200 dark:bg-gray-900">
+    <nav className="bg-burgundy static-position border-gray-200 dark:bg-gray-900 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a
           href="https://flowbite.com/"
@@ -213,7 +213,7 @@ export default function Navigation() {
               </a>
             </li>
 
-            <button className="bg-burgundy text-white md:bg-white md:text-burgundy px-8 py-3 rounded-md text-sm font-bold">
+            <button className="bg-burgundy mt-2 md:mt-0 text-white md:bg-white md:text-burgundy px-8 py-3 rounded-md text-sm font-bold">
               {/* Get in touch */}
               TALK TO KFL
             </button>
