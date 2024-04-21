@@ -4,7 +4,7 @@ export default function Landing() {
   return (
     <section className="w-[100%]">
       <div className="flex justify-center">
-        <div className="relative w-[100%] h-[90vh]">
+        <div className="relative w-[100%] h-[50vh] md:h-[90vh]">
           <video
             src="/keza_video_original.mp4"
             autoPlay

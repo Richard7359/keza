@@ -58,13 +58,13 @@ export default function Courses() {
         {
           src: robotics,
           alt: "",
-          style: "w-[450px] object-cover rounded-xl bg-white",
+          style: "w-[60%] h-[100%] object-cover rounded-xl bg-white",
           link: "",
         },
         {
           src: keza_child,
           alt: "",
-          style: "w-[280px] h-full rounded-xl",
+          style: "w-[40%] h-[100%] h-full rounded-xl",
           link: "",
         },
       ],
@@ -172,12 +172,36 @@ export default function Courses() {
           );
         })}
       </div>
-      
+      <div className="">
+        <div className="flex justify-center">
+          <div className="w-[45%] h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container">
+            <div className="w-[95%] h-[30vh] flex gap-4">
+              {services[selected].images.map((image, id) => {
+                return (
+                  <Image
+                    key={id}
+                    src={image.src}
+                    alt={image.alt}
+                    className={image.style}
+                  />
+                );
+              })}{" "}
+            </div>
+          </div>
+          <div className="ml-[50px] flex items-center">
+            <div>
+              <p className="font-bold text-3xl mb-4">
+                {services[selected].title}
+              </p>
+              <p className="max-w-xl">{services[selected].description}</p>
+              <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
+                Explore more{" "}
+                <TbBrandCitymapper className="font-bold size-6 mx-2" />
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
     </section>
   );
 }
-
-
-
-
-
