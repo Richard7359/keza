@@ -16,7 +16,7 @@ export default function HomePage() {
       <div className="bg-[#838b94] font-montserrat">
         <Landing />
       </div>
-      <Courses />
+      {/* <Courses /> */}
       <Values />
       <SampleGallery />
       {/* <div className="absolute f w vb ">
