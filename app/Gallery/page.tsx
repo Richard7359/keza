@@ -2,8 +2,10 @@ import React from "react";
 import Navigation from "../components/Navigation_bar/Navigation";
 import Footer from "../components/Footer";
 import Image from "next/image";
+import child from "../images/bootcamp-image-4.jpg";
 import bootcamp from "../images/bootcamp-image-2.jpg";
 import Piano from "../images/piano.png";
+import Child_ichigo from "../images/child_ichigo.png";
 
 const page = () => {
   return (
@@ -38,7 +40,7 @@ const page = () => {
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <Image
-                src={bootcamp}
+                src={child}
                 alt="KEFL Logo image"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -54,6 +56,12 @@ const page = () => {
               href="#"
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
             >
+              <Image
+                src={bootcamp}
+                alt="KEFL Logo image"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
               <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
@@ -64,6 +72,12 @@ const page = () => {
               href="#"
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
             >
+              <Image
+                src={Piano}
+                alt="KEFL Logo image"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
               <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
@@ -75,7 +89,7 @@ const page = () => {
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <Image
-                src={Piano}
+                src={Child_ichigo}
                 alt="KEFL Logo image"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"

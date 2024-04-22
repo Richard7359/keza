@@ -4,7 +4,6 @@ import bootcamp from "../images/bootcamp-image-2.jpg";
 import Piano from "../images/piano.png";
 import Child from "../images/bootcamp-image-4.jpg";
 import Child_ichigo from "../images/child_ichigo.png";
-import { TbBrandCitymapper } from "react-icons/tb";
 
 const SampleGallery = () => {
   return (
