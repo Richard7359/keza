@@ -12,7 +12,7 @@ import avatar9 from "../../../images/avatar9.png";
 
 const Testimonial = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <section
         className="de md:og w-[80%]"
         id="testimonials"
