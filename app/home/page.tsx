@@ -19,6 +19,11 @@ export default function HomePage() {
       <Courses />
       <Values />
       <SampleGallery />
+      {/* <div className="absolute f w vb ">
+        <div className="ub qc uc _c dd rd.5 vd.5 ne oe we df sm:td sm:zd sm:le">
+          We&lsquo;ve worked with some great startups
+        </div>
+      </div> */}
       <Testimonial />
       <FAQ />
       <Patners />
