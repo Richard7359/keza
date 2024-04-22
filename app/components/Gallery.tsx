@@ -21,7 +21,6 @@ const SampleGallery = () => {
               innovation{" "}
               <strong className="text-burgundy">
                 <a href="/Gallery">view more</a>
-                {/* <TbBrandCitymapper className="font-bold size-6 mx-2" /> */}
               </strong>
             </p>
           </div>
