@@ -164,8 +164,8 @@ export default function Team() {
     <div className="">
       <div className="bg-team-bg pb-4">
         <Navigation />
-        <div className="pt-6">
-          <h2 className="text-4xl font-bold text-black tracking-wide text-center">
+        <div className="pt-4 md:pt-6">
+           <h2 className="text-2xl md:text-4xl font-bold text-black tracking-wide text-center">
             Our T<strong className="text-burgundy">e</strong>am
           </h2>
           <p className="text-gray-600 italic text-center">
@@ -173,10 +173,10 @@ export default function Team() {
             contributing their expertise in diverse roles:
           </p>
           <div className="flex justify-center">
-            <div className="w-[90%] grid grid-cols-4">
+            <div className="w-[90%] grid md:grid-cols-4">
               {staff.map((person) => (
-                <div className="flex justify-center  mt-8" key={person.title}>
-                  <div className="w-[400px] h-[600px] bg-white rounded-lg">
+                <div className="flex justify-center mt-8" key={person.title}>
+                  <div className="w-[100%] h-[600px] md:w-[400px] md:h-[600px] bg-white rounded-lg">
                     <div className="h-[65%] w-full  flex justify-center items-center">
                       <Image
                         src={person.image}
@@ -219,7 +219,7 @@ export default function Team() {
               ))}
             </div>
           </div>
-        </div>{" "}
+        </div>{" "} 
       </div>
       <Footer />
     </div>
