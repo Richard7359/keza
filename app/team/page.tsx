@@ -173,7 +173,7 @@ export default function Team() {
             contributing their expertise in diverse roles:
           </p>
           <div className="flex justify-center">
-            <div className="w-[90%] grid md:grid-cols-4">
+            <div className="w-[90%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl: grid-cols-4">
               {staff.map((person) => (
                 <div className="flex justify-center mt-8" key={person.title}>
                   <div className="w-[100%] h-[600px] md:w-[400px] md:h-[600px] bg-white rounded-lg">
