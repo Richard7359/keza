@@ -168,12 +168,12 @@ export default function Team() {
            <h2 className="text-2xl md:text-4xl font-bold text-black tracking-wide text-center">
             Our T<strong className="text-burgundy">e</strong>am
           </h2>
-          <p className="text-gray-600 italic text-center">
+          <p className="text-gray-600 italic text-center mx-8">
             Meet a selection of key members from the KEFL team, each
             contributing their expertise in diverse roles:
           </p>
           <div className="flex justify-center">
-            <div className="w-[90%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl: grid-cols-4">
+            <div className="w-[90%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-2">
               {staff.map((person) => (
                 <div className="flex justify-center mt-8" key={person.title}>
                   <div className="w-[100%] h-[600px] md:w-[400px] md:h-[600px] bg-white rounded-lg">
