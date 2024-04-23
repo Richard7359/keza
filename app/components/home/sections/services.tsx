@@ -63,12 +63,12 @@ export default function Services() {
   };
   return (
     <section className="relative text-black font-montserrat tracking-tighter">
-      <h2 className="text-4xl font-bold text-center pt-12">
+      <h2 className="text-2xl sm:text-4xl font-bold text-center pt-12">
         Services we provide
       </h2>
       <div className="flex justify-center">
         {" "}
-        <p className="mt-1 text-paragraph text-center max-w-2xl">
+        <p className="mt-1 text-paragraph text-center max-w-2xl  mx-2">
           Below are the courses we provide to young leaners joined us. Explore
           each course below by click the read more.
         </p>

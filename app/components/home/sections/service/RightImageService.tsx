@@ -9,8 +9,8 @@ const RightImageService = ({ service }: ServiceProps) => {
     <div className="flex justify-center">
       <div className="py-16 w-[80%]">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold pb-6 uppercase">{service.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border border-grey">
+          <h2 className="sm:text-2xl font-bold pb-6 uppercase">{service.title}</h2>
+          <div className="hidden sm:grid sm:grid-cols-1 md:grid-cols-4 gap-8 border border-grey sm:block">
             {service.steps.map((step, id) => {
               return (
                 <div
@@ -24,8 +24,8 @@ const RightImageService = ({ service }: ServiceProps) => {
               );
             })}
           </div>
-          <div className="flex flex-col md:flex-row items-center mt-8 bg-custom-gray rounded-lg">
-            <div className="md:w-1/2 ">
+          <div className=" flex flex-col-reverse md:flex-row items-center mt-8 bg-custom-gray rounded-lg">
+            <div className="md:w-1/2 md:h-[427px] ">
               <div className="p-8">
                 <p className="font-bold text-xl py-6">{service.subTitle}</p>
                 <p className="mb-8 font-times font-custom-light text-lg">
@@ -37,15 +37,13 @@ const RightImageService = ({ service }: ServiceProps) => {
                 </button>
               </div>
             </div>
-            <div className="md:w-1/2 relative rounded-tr-lg rounded-br-lg">
+            <div className="md:w-1/2 md:h-[427px] relative rounded-tl-lg sm:rounded-tl-none rounded-tr-lg sm:rounded-br-lg">
               <Image
                 src={service.image}
                 alt="Discovery Process"
-                width={640}
-                height={427}
-                className="w-full h-full object-cover rounded-tr-lg rounded-br-lg"
+                className="w-full h-full object-cover rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg"
               />
-              <div className="absolute inset-0 bg-black opacity-15 rounded-tr-lg rounded-br-lg"></div>
+              <div className="absolute inset-0 bg-black opacity-15 rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg"></div>
             </div>
           </div>
         </div>
