@@ -128,7 +128,7 @@ export default function Courses() {
     },
   ];
   return (
-    <section className="relative md:h-[70vh] text-black mx-3">
+    <section className="relative mb-8 text-black mx-3">
       <div className="flex justify-center pt-12">
         <Title title="courses" />
       </div>
