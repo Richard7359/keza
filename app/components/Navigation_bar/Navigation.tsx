@@ -118,7 +118,7 @@ export default function Navigation() {
                 </strong>
                 Sign up
               </a>
-              <a
+              {/* <a
                 href="/auth/login"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
                 aria-current="page"
@@ -127,7 +127,7 @@ export default function Navigation() {
                   <LuLogIn />
                 </strong>
                 Login
-              </a>
+              </a> */}
               <a
                 href="#"
                 className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
