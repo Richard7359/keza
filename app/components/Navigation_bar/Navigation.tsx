@@ -23,7 +23,7 @@ export default function Navigation() {
 
   return (
     <nav className="bg-burgundy static-position border-gray-200 dark:bg-gray-900 ">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
         <a
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -32,7 +32,7 @@ export default function Navigation() {
             <Image
               src={Keza_logo}
               alt="KEFL Logo image"
-              className="w-8 sm:w-12 object-cover cursor-pointer"
+              className="w-8 md:w-12 object-cover cursor-pointer"
             />
           </Link>
         </a>
@@ -40,7 +40,7 @@ export default function Navigation() {
           onClick={() => setActive(!active)}
           data-collapse-toggle="navbar-default"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-md text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
@@ -62,15 +62,15 @@ export default function Navigation() {
           </svg>
         </button>
         <div
-          className={`w-full ${active && "hidden"} sm:block sm:w-auto`}
-          id="navbar-default"
+          className={`w-full ${active && "hidden"} md:block md:w-auto`}
+          // id="navbar-default"
         >
-          {/* <div className="hidden w-full sm:block sm:w-auto" id="navbar-default"> */}
-          <ul className="font-medium flex flex-col p-4 sm:p-0 mt-4 border sm:mx-2 border-gray-100 rounded-lg bg-gray-50 sm:flex-row sm:space-x-8 rtl:space-x-reverse sm:mt-0 sm:border-0 sm:bg-transparent dark:bg-gray-800 sm:dark:bg-gray-900 dark:border-gray-700">
+          {/* <div className="hidden w-full md:block md:w-auto" id="navbar-default"> */}
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border md:mx-2 border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -80,7 +80,7 @@ export default function Navigation() {
               </a>
               <a
                 href="/services"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -90,7 +90,7 @@ export default function Navigation() {
               </a>
               <a
                 href="/team"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -100,7 +100,7 @@ export default function Navigation() {
               </a>
               <a
                 href="/Gallery"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -110,7 +110,7 @@ export default function Navigation() {
               </a>
               <a
                 href="#"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -120,7 +120,7 @@ export default function Navigation() {
               </a>
               {/* <a
                 href="/auth/login"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -129,15 +129,15 @@ export default function Navigation() {
                 Login
               </a> */}
               <a
-                href="#"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded sm:bg-transparent sm:text-white sm:p-0 group inline-flex sm:h-10 sm:w-max items-center justify-center sm:rounded-sm sm:px-4 sm:py-2 sm:text-sm sm:font-medium sm:transition-colors sm:hover:bg-burgundy-light sm:hover:text-accent-foreground sm:focus:bg-accent sm:focus:text-accent-foreground sm:focus:outline-none sm:disabled:pointer-events-none sm:disabled:opacity-50 sm:data-[active]:bg-accent/50 sm:data-[state=open]:bg-accent/50"
+                href="/courses"
+                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
-                <strong className="mr-[3px]"><MdTipsAndUpdates /></strong>Blog
+                <strong className="mr-[3px]"><MdTipsAndUpdates /></strong>Courses
               </a>
             </li>
 
-            <button className="bg-burgundy mt-2 sm:mt-0 text-white sm:bg-white sm:text-burgundy px-8 py-3 rounded-sm text-sm font-bold">
+            <button className="bg-burgundy mt-2 md:mt-0 text-white md:bg-white md:text-burgundy px-8 py-3 rounded-md text-md font-bold">
               {/* Get in touch */}
               TALK TO KFL
             </button>
