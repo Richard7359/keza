@@ -17,7 +17,7 @@ export default function Landing() {
               <h1 className="font-bold text-black">
                 Keza Education Future Lab [KEFL]
               </h1>
-              <p className="font-normal text-black">
+              <p className=" text-black font-serif">
               a learning
           platform that powers young kids of 3 to 14 years of age to become 
           future innovators using technology .

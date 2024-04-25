@@ -168,7 +168,7 @@ export default function Team() {
            <h2 className="text-2xl md:text-4xl font-bold text-black tracking-wide text-center">
             Our T<strong className="text-burgundy">e</strong>am
           </h2>
-          <p className="text-gray-600 italic text-center mx-8">
+          <p className="text-gray-600 font-serif text-center mx-8">
             Meet a selection of key members from the KEFL team, each
             contributing their expertise in diverse roles:
           </p>

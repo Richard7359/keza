@@ -137,7 +137,7 @@ export default function Courses() {
       </h1>
       <div className="flex justify-center">
         {" "}
-        <p className="hidden md:block mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl">
+        <p className="hidden md:block mt-1 text-gray-500 dark:text-gray-300 text-center max-w-2xl font-serif">
           Welcome to a world where coding and robotics ignite young minds and
           shape the future. Our coding and robotics programs inspire young minds
           to think critically and creatively. Join us in shaping the future of
@@ -192,7 +192,7 @@ export default function Courses() {
               <p className="font-bold text-3xl mb-4">
                 {services[selected].title}
               </p>
-              <p className="max-w-xl">{services[selected].description}</p>
+              <p className="max-w-xl ">{services[selected].description}</p>
               <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
                 Explore more{" "}
                 <TbBrandCitymapper className="font-bold size-6 mx-2" />
