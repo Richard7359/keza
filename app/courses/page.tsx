@@ -14,12 +14,15 @@ import {
 } from "@/components/ui/breadcrumb";
 import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 
-import Ichigo from "../images/ichigojam.jpg";
-import Image from "next/image";
-import { IoStar } from "react-icons/io5";
-import { FaRegStar } from "react-icons/fa";
-import { GoDotFill } from "react-icons/go";
 import CourseCard from "../components/courseCard";
+import Ichigo from "../images/ichigojam.jpg";
+import TrafficLight from "../images/keza-traffic-light.png";
+import Forklift from "../images/keza-forklift.png";
+import Car from "../images/keza-car.png";
+import DevelopmentKit from "../images/kezaz-development-kit.png";
+import Helicopter from "../images/Helocopter.png";
+import HouseInstallation from "../images/House-installation@2x.png";
+import Irrigation from "../images/Irrigation.png";
 
 const Page = () => {
   const [selected, setSelected] = useState(0);
@@ -89,9 +92,15 @@ const Page = () => {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <p className="py-2 font-bold">Recent added courses.</p>
-          <div>
-            <CourseCard image={Ichigo} level={1} />
+          <div className="flex flex-wrap gap-2 mt-4">
+            <CourseCard description={"Ichigo Jam"} image={Ichigo} level={1} complexity={1} stared={true}/>
+            <CourseCard description={"Traffic Light"} image={TrafficLight} level={2} complexity={2}/>
+            <CourseCard description={"Keza Folk lift"} image={Forklift} level={3} complexity={3}/>
+            <CourseCard description={"House Installation"} image={HouseInstallation} level={1} complexity={1} stared={true}/>
+            <CourseCard description={"Keza Car"} image={Car} level={2} complexity={2}/>
+            <CourseCard description={"Lego Helicopter"} image={Helicopter} level={1} complexity={1}/>
+            <CourseCard description={"Irrigation"} image={Irrigation} level={2} complexity={2}/>
+            <CourseCard description={"Keza Development Kit"} image={DevelopmentKit} level={3} complexity={3}/>
           </div>
         </div>
       </div>
