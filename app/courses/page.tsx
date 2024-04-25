@@ -86,18 +86,6 @@ const Page = () => {
                   <Link href="">Advanced level</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
-
-              {/* <BreadcrumbItem>
-              <BreadcrumbLink>
-                <Link href="/">Pre-advanced Level</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <CgChevronDoubleRight />
-            <BreadcrumbItem>
-              <BreadcrumbLink>
-                <Link href="/">Advanced Level</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem> */}
             </BreadcrumbList>
           </Breadcrumb>
           <p className="py-2 font-bold">Recent added courses.</p>
