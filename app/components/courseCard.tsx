@@ -7,7 +7,6 @@ import { IoStar } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 const CourseCard = ({image, level, complexity, description , stared} : {image : any, level: number, complexity: number, description : string , stared? : boolean}) => {
-  // const [stared, setStared] = useState(false);
   return (
     <div className="h-[215px] w-[295px] border-custom rounded-2xl">
       <div className="h-[60%] rounded-t-2xl relative">
