@@ -19,10 +19,11 @@ import Image from "next/image";
 import { IoStar } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import CourseCard from "../components/courseCard";
 
 const Page = () => {
   const [selected, setSelected] = useState(0);
-  const [stared, setStared] = useState(false);
+
   return (
     <div className="bg-[#f7f8fa] h-screen">
       <Navigation />
@@ -89,24 +90,8 @@ const Page = () => {
             </BreadcrumbList>
           </Breadcrumb>
           <p className="py-2 font-bold">Recent added courses.</p>
-          <div className="h-[225px] w-[300px] border-custom rounded-2xl">
-            <div className="h-[60%] rounded-t-2xl">
-              <Image
-                src={Ichigo}
-                alt="KEFL Logo image"
-                className="w-full h-full object-cover cursor-pointer rounded-t-[16px] border-custom"
-              />
-            </div>
-            <div className="h-[25%] flex justify-between mx-3 py-1">
-              <p className="font-serif text-sm">Ichigo Jam</p>
-              {stared ? <IoStar /> : <FaRegStar />}{" "}
-            </div>
-            <div className="bg-blue-light h-[15%] rounded-b-2xl flex items-center justify-end">
-              <div className="inline-flex border border-black items-center mx-2 px-2 rounded-full ">
-                <GoDotFill />
-                <p className="text-[12px] font-bold">EASY</p>
-              </div>
-            </div>
+          <div>
+            <CourseCard image={Ichigo} level={1} />
           </div>
         </div>
       </div>
