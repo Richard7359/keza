@@ -1,5 +1,7 @@
 import React from "react";
 import Script from "next/script";
+import Image from "next/image";
+import News_Letter from "../images/news-letter-img.svg"
 import { SlEnvolopeLetter } from "react-icons/sl";
 
 const NewsLetter = () => {
@@ -8,8 +10,7 @@ const NewsLetter = () => {
       <article className="container mx-auto grid place-items-center md:grid-cols-2 rounded-md w-fit px-3 md:px-0">
         <div>
           <div className="flex gap-4 justify-center items-center md:justify-start">
-            {/* <img src="/assets/news-letter-img.svg" alt="" /> */}
-            {/* <SlEnvolopeLetter className='text-white font-bold'/> */}
+            <Image src={News_Letter} alt="news letter" width={40} height={40} />
             <h3 className="font-bold text-4xl md:text-5xl text-white text-center md:text-left pt-10 md:pt-0 md:pr-8">
               Newsletter
             </h3>
