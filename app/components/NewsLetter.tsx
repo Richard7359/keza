@@ -1,9 +1,10 @@
 import React from "react";
+import Script from "next/script";
 import { SlEnvolopeLetter } from "react-icons/sl";
 
 const NewsLetter = () => {
   return (
-    <section className="py-10 mt-10 bg-deepSkyBlue">
+    <section className="mt-10 bg-deepSkyBlue">
       <article className="container mx-auto grid place-items-center md:grid-cols-2 rounded-md w-fit px-3 md:px-0">
         <div>
           <div className="flex gap-4 justify-center items-center md:justify-start">
@@ -29,7 +30,6 @@ const NewsLetter = () => {
             </button>
           </form>
         </div>
-
         <div className="py-10 w-full flex justify-center">
           <a
             className="twitter-timeline"
@@ -37,14 +37,14 @@ const NewsLetter = () => {
             data-height="500"
             href="https://twitter.com/kefl_rw?ref_src=twsrc%5Etfw"
           >
-            Tweets by kefl_rw
+            Tweets by keza
           </a>
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charSet="utf-8"
-          ></script>
         </div>
+        <Script
+          strategy="lazyOnload"
+          src="https://platform.twitter.com/widgets.js"
+          charSet="utf-8"
+        />
       </article>
     </section>
   );
