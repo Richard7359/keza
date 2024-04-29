@@ -32,7 +32,6 @@ const Page = () => {
       <div className="bg-[#f7f8fa]">
         <Navigation />
         <div className="md:h-screen">
-        {/* <div className="h-screen"> */}
           <div className="flex justify-center ">
             <div className="my-6 w-[97%] bg-white py-6 px-6 rounded-keza border-custom border-custom">
               <Breadcrumb>
@@ -95,7 +94,8 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {/* <div className="flex flex-wrap gap-2 mt-4"> */}
                 <CourseCard
                   description={"Ichigo Jam"}
                   image={Ichigo}
