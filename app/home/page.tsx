@@ -8,6 +8,7 @@ import SampleGallery from "../components/Gallery";
 import Patners from "../components/home/sections/scroling_patners";
 import FAQ from "../components/home/sections/FAQ";
 import Testimonial from "../components/home/sections/Testimonial";
+import NewsLetter from "../components/NewsLetter";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
       </div> */}
       <Testimonial />
       <FAQ />
+      <NewsLetter />
       <Patners />
       <Ourteam />
       <Footer />
