@@ -97,6 +97,7 @@ const Page = () => {
               <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {/* <div className="flex flex-wrap gap-2 mt-4"> */}
                 <CourseCard
+                  id={1}
                   description={"Ichigo Jam"}
                   image={Ichigo}
                   level={1}
@@ -104,18 +105,21 @@ const Page = () => {
                   stared={true}
                 />
                 <CourseCard
+                  id={1}
                   description={"Traffic Light"}
                   image={TrafficLight}
                   level={2}
                   complexity={2}
                 />
                 <CourseCard
+                  id={1}
                   description={"Keza Folk lift"}
                   image={Forklift}
                   level={3}
                   complexity={3}
                 />
                 <CourseCard
+                  id={1}
                   description={"House Installation"}
                   image={HouseInstallation}
                   level={1}
@@ -123,24 +127,28 @@ const Page = () => {
                   stared={true}
                 />
                 <CourseCard
+                  id={1}
                   description={"Keza Car"}
                   image={Car}
                   level={2}
                   complexity={2}
                 />
                 <CourseCard
+                  id={1}
                   description={"Lego Helicopter"}
                   image={Helicopter}
                   level={1}
                   complexity={1}
                 />
                 <CourseCard
+                  id={1}
                   description={"Irrigation"}
                   image={Irrigation}
                   level={2}
                   complexity={2}
                 />
                 <CourseCard
+                  id={1}
                   description={"Keza Development Kit"}
                   image={DevelopmentKit}
                   level={3}

@@ -6,10 +6,15 @@ import Image from "next/image";
 import { IoStar } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-const CourseCard = ({image, level, complexity, description , stared} : {image : any, level: number, complexity: number, description : string , stared? : boolean}) => {
+import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
+import Link from "next/link";
+
+const CourseCard = ({image, level, complexity, description , stared, id} : {image : any, level: number, complexity: number, description : string , stared? : boolean, id: number}) => {
+
   return (
+    <Link href={`/courses/${id}`}>
     <div className="h-[215px] w-full border-custom rounded-2xl">
-    {/* <div className="h-[215px] w-[295px] border-custom rounded-2xl"> */}
       <div className="h-[60%] rounded-t-2xl relative">
         <Image
           src={image}
@@ -29,6 +34,7 @@ const CourseCard = ({image, level, complexity, description , stared} : {image : 
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
