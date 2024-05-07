@@ -105,9 +105,8 @@ const Page = () => {
                       }`}
                     >
                       <div className="flex items-center">
-                      <GiPoliceBadge className="text-3xl"/> 
-                      Which level of
-                        the kids do you accept?
+                        <GiPoliceBadge className="text-3xl" />
+                        Which level of the kids do you accept?
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -139,9 +138,8 @@ const Page = () => {
                       }`}
                     >
                       <div className="flex items-center">
-                      <SlBadge className="text-3xl"/> 
-                      Which level of
-                        the kids do you accept?
+                        <SlBadge className="text-3xl" />
+                        Which level of the kids do you accept?
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -155,39 +153,6 @@ const Page = () => {
                       O&apos;Level section of their normal education.
                     </AccordionContent>
                   </AccordionItem>
-                  {/* <AccordionItem value="item-1" className="border-none  mb-2">
-                    <AccordionTrigger className="pd_id _c uc pc_id hover:uf hover:se">
-                    <div className="flex items-center"><BiBadge className="text-3xl text-green"/> Which level of the kids do you accept?</div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pd_id _c uc pc_id sm:pd_id gd my-3">
-                      <strong>KEFL</strong> is primarily focused on the kids
-                      that are in the age of 3 to 14 years old. Most of the time
-                      those kids are pursuing their primary level and
-                      O&apos;Level section of their normal education.
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-1" className="border-none  mb-2">
-                    <AccordionTrigger className="pd_id _c uc pc_id hover:uf hover:se">
-                    <div className="flex items-center"><BiSolidBadge className="text-3xl"/> Which level of the kids do you accept?</div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pd_id _c uc pc_id sm:pd_id gd my-3">
-                      <strong>KEFL</strong> is primarily focused on the kids
-                      that are in the age of 3 to 14 years old. Most of the time
-                      those kids are pursuing their primary level and
-                      O&apos;Level section of their normal education.
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-1" className="border-none  mb-2">
-                    <AccordionTrigger className="pd_id _c uc pc_id hover:uf hover:se">
-                    <div className="flex items-center"><SlBadge className="text-3xl"/> Which level of the kids do you accept?</div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pd_id _c uc pc_id sm:pd_id gd my-3">
-                      <strong>KEFL</strong> is primarily focused on the kids
-                      that are in the age of 3 to 14 years old. Most of the time
-                      those kids are pursuing their primary level and
-                      O&apos;Level section of their normal education.
-                    </AccordionContent>
-                  </AccordionItem> */}
                 </Accordion>
               </div>
             </div>
