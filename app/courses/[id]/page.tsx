@@ -21,6 +21,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { GoDotFill } from "react-icons/go";
 
 const Page = () => {
   const [selected, setSelected] = useState("null");
@@ -28,6 +29,11 @@ const Page = () => {
   const [twoSelected, twoSetSelected] = useState(false);
   const [threeSelected, threeSetSelected] = useState(false);
   const [fourSelected, fourSetSelected] = useState(false);
+
+  const [oneCompleted, setOneCompleted] = useState(false);
+  const [twoCompleted, setTwoCompleted] = useState(true);
+  const [threeCompleted, setThreeCompleted] = useState(false);
+  const [fourCompleted, setFourCompleted] = useState(false);
 
   return (
     <>
@@ -88,13 +94,27 @@ const Page = () => {
                         O&apos;Level section of their normal education.
                       </div>
                       <div className="m-2 flex justify-end">
-                        <TooltipProvider >
-                          <Tooltip>
-                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">To Do</TooltipTrigger>
-                            <TooltipContent>
-                              <p>Mark this step as completed</p>
-                            </TooltipContent>
-                          </Tooltip>
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center" onClick={() => {setOneCompleted(!oneCompleted)}}>
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger className="border border-black px-3 rounded-full font-semibold" onClick={() => setOneCompleted(!oneCompleted)}>
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
                         </TooltipProvider>
                       </div>
                     </AccordionContent>
@@ -126,20 +146,34 @@ const Page = () => {
                         twoSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-   <div>
+                      <div>
                         <strong>KEFL</strong> is primarily focused on the kids
                         that are in the age of 3 to 14 years old. Most of the
                         time those kids are pursuing their primary level and
                         O&apos;Level section of their normal education.
                       </div>
                       <div className="m-2 flex justify-end">
-                        <TooltipProvider >
-                          <Tooltip>
-                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">To Do</TooltipTrigger>
-                            <TooltipContent>
-                              <p>Mark this step as completed</p>
-                            </TooltipContent>
-                          </Tooltip>
+                      <TooltipProvider>
+                          {twoCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center" onClick={() => {setTwoCompleted(!twoCompleted)}}>
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger className="border border-black px-3 rounded-full font-semibold" onClick={() => setTwoCompleted(!twoCompleted)}>
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
                         </TooltipProvider>
                       </div>
                     </AccordionContent>
@@ -178,9 +212,11 @@ const Page = () => {
                         O&apos;Level section of their normal education.
                       </div>
                       <div className="m-2 flex justify-end">
-                        <TooltipProvider >
+                        <TooltipProvider>
                           <Tooltip>
-                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">To Do</TooltipTrigger>
+                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">
+                              To Do
+                            </TooltipTrigger>
                             <TooltipContent>
                               <p>Mark this step as completed</p>
                             </TooltipContent>
