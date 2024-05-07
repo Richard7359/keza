@@ -126,10 +126,22 @@ const Page = () => {
                         twoSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                      <strong>KEFL</strong> is primarily focused on the kids
-                      that are in the age of 3 to 14 years old. Most of the time
-                      those kids are pursuing their primary level and
-                      O&apos;Level section of their normal education.
+   <div>
+                        <strong>KEFL</strong> is primarily focused on the kids
+                        that are in the age of 3 to 14 years old. Most of the
+                        time those kids are pursuing their primary level and
+                        O&apos;Level section of their normal education.
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider >
+                          <Tooltip>
+                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">To Do</TooltipTrigger>
+                            <TooltipContent>
+                              <p>Mark this step as completed</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
@@ -159,10 +171,22 @@ const Page = () => {
                         threeSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                      <strong>KEFL</strong> is primarily focused on the kids
-                      that are in the age of 3 to 14 years old. Most of the time
-                      those kids are pursuing their primary level and
-                      O&apos;Level section of their normal education.
+                      <div>
+                        <strong>KEFL</strong> is primarily focused on the kids
+                        that are in the age of 3 to 14 years old. Most of the
+                        time those kids are pursuing their primary level and
+                        O&apos;Level section of their normal education.
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider >
+                          <Tooltip>
+                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">To Do</TooltipTrigger>
+                            <TooltipContent>
+                              <p>Mark this step as completed</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
