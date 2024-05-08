@@ -19,7 +19,7 @@ const SideBar = () => {
             href="#"
           >
             <i className="bi bi-menu-button-wide"></i>
-            <span>Components</span>
+            <span>Schools</span>
             <i className="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul
@@ -122,7 +122,7 @@ const SideBar = () => {
             href="#"
           >
             <i className="bi bi-journal-text"></i>
-            <span>Forms</span>
+            <span>Blogs</span>
             <i className="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul
@@ -165,7 +165,7 @@ const SideBar = () => {
             href="#"
           >
             <i className="bi bi-layout-text-window-reverse"></i>
-            <span>Tables</span>
+            <span>Staff</span>
             <i className="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul
@@ -233,7 +233,7 @@ const SideBar = () => {
             href="#"
           >
             <i className="bi bi-gem"></i>
-            <span>Icons</span>
+            <span>Logs</span>
             <i className="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul
@@ -278,12 +278,12 @@ const SideBar = () => {
           </a>
         </li>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link collapsed" href="pages-contact.html">
             <i className="bi bi-envelope"></i>
             <span>Contact</span>
           </a>
-        </li>
+        </li> */}
 
         <li className="nav-item">
           <a className="nav-link collapsed" href="pages-register.html">
@@ -292,26 +292,26 @@ const SideBar = () => {
           </a>
         </li>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link collapsed" href="pages-login.html">
             <i className="bi bi-box-arrow-in-right"></i>
             <span>Login</span>
           </a>
-        </li>
+        </li> */}
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link collapsed" href="pages-error-404.html">
             <i className="bi bi-dash-circle"></i>
             <span>Error 404</span>
           </a>
-        </li>
+        </li> */}
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link collapsed" href="pages-blank.html">
             <i className="bi bi-file-earmark"></i>
             <span>Blank</span>
           </a>
-        </li>
+        </li> */}
       </ul>
     </aside>
   );
