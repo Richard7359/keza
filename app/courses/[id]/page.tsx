@@ -30,7 +30,7 @@ const Page = () => {
   const [threeSelected, threeSetSelected] = useState(false);
   const [fourSelected, fourSetSelected] = useState(false);
 
-  const [oneCompleted, setOneCompleted] = useState(false);
+  const [oneCompleted, setOneCompleted] = useState(true);
   const [twoCompleted, setTwoCompleted] = useState(true);
   const [threeCompleted, setThreeCompleted] = useState(false);
   const [fourCompleted, setFourCompleted] = useState(false);
@@ -75,7 +75,7 @@ const Page = () => {
                         oneSelected == true
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      }`}
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
                         <TbArrowBadgeDown className="text-3xl" /> Which level of
@@ -134,7 +134,7 @@ const Page = () => {
                         twoSelected == true
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      }`}
+                      } ${twoCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
                         <GiPoliceBadge className="text-3xl" />
