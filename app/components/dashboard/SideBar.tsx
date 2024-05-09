@@ -10,6 +10,8 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { LuSchool } from "react-icons/lu";
 import { MdTipsAndUpdates } from "react-icons/md";
 import { BsCameraReels } from "react-icons/bs";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { GrDatabase } from "react-icons/gr";
 
 
 const SideBar = () => {
@@ -38,84 +40,6 @@ const SideBar = () => {
                 data-bs-parent="#sidebar-nav"
               >
                 <li>
-                  <a href="components-alerts.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Alerts</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-accordion.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Accordion</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-badges.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Badges</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-breadcrumbs.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Breadcrumbs</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-buttons.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Buttons</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-cards.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Cards</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-carousel.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Carousel</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-list-group.html">
-                    <i className="bi bi-circle"></i>
-                    <span>List group</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-modal.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Modal</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-tabs.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Tabs</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-pagination.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Pagination</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-progress.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Progress</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-spinners.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Spinners</span>
-                  </a>
-                </li>
-                <li>
                   <a href="components-tooltips.html">
                     <i className="bi bi-circle"></i>
                     <span>Tooltips</span>
@@ -124,7 +48,6 @@ const SideBar = () => {
               </ul>{" "}
             </AccordionContent>
           </AccordionItem>
-        </Accordion>
 
         {/* <li className="nav-item">
           <a
@@ -229,8 +152,7 @@ const SideBar = () => {
           </ul>
         </li> */}
 
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1" className="nav-item">
+          <AccordionItem value="item-2" className="nav-item">
             <AccordionTrigger className="text-base navItem p-[10px] items-center">
               <div className="flex items-center font-semibold">
                 <MdTipsAndUpdates className="text-xl mr-2" />
@@ -243,54 +165,6 @@ const SideBar = () => {
                 className="nav-content"
                 data-bs-parent="#sidebar-nav"
               >
-                <li>
-                  <a href="components-alerts.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Alerts</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-accordion.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Accordion</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-badges.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Badges</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-breadcrumbs.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Breadcrumbs</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-buttons.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Buttons</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-cards.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Cards</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-carousel.html">
-                    <i className="bi bi-circle"></i>
-                    <span>Carousel</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="components-list-group.html">
-                    <i className="bi bi-circle"></i>
-                    <span>List group</span>
-                  </a>
-                </li>
                 <li>
                   <a href="components-modal.html">
                     <i className="bi bi-circle"></i>
@@ -330,7 +204,6 @@ const SideBar = () => {
               </ul>{" "}
             </AccordionContent>
           </AccordionItem>
-        </Accordion>
 
         {/* <li className="nav-item">
           <a
@@ -374,8 +247,8 @@ const SideBar = () => {
             </li>
           </ul>
         </li> */}
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1" className="nav-item">
+
+          <AccordionItem value="item-3" className="nav-item">
             <AccordionTrigger className="text-base navItem p-[10px] items-center">
               <div className="flex items-center font-semibold ">
                 <BsCameraReels className="mr-2" />
@@ -397,7 +270,6 @@ const SideBar = () => {
               </ul>{" "}
             </AccordionContent>
           </AccordionItem>
-        </Accordion>
 
         {/* <li className="nav-item">
           <a
@@ -441,6 +313,30 @@ const SideBar = () => {
             </li>
           </ul>
         </li> */}
+  
+          <AccordionItem value="item-4" className="nav-item">
+            <AccordionTrigger className="text-base navItem p-[10px] items-center">
+              <div className="flex items-center font-semibold ">
+                <GrDatabase className="mr-2" />
+                Staff
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul
+                id="components-nav"
+                className="nav-content"
+                data-bs-parent="#sidebar-nav"
+              >
+                <li>
+                  <a href="components-tooltips.html">
+                    <i className="bi bi-circle"></i>
+                    <span>Tooltips</span>
+                  </a>
+                </li>
+              </ul>{" "}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
 
         <li className="nav-item">
           <a
