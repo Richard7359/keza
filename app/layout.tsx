@@ -4,10 +4,6 @@ import "./globals.css";
 import "./css/course.css";
 import "./css/faq.css";
 import "./css/testimonial.css";
-// import "./css/dashboard.css";
-// import "./css/bootstrap.min.css";
-// import "./css/bootstrap-icons.css";
-// import "./css/style.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

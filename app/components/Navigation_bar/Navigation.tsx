@@ -21,7 +21,8 @@ import { GrGallery } from "react-icons/gr";
 export default function Navigation() {
   const [active, setActive] = useState(true);
   return (
-    <nav className="bg-burgundy static-position dark:bg-gray-900 ">
+    <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 ">
+    {/* <nav className="bg-burgundy static-position dark:bg-gray-900 "> */}
       <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
         <a
           href="/"
