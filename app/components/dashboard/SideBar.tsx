@@ -12,6 +12,7 @@ import { MdTipsAndUpdates } from "react-icons/md";
 import { BsCameraReels } from "react-icons/bs";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { GrDatabase } from "react-icons/gr";
+import { SiLogseq } from "react-icons/si";
 
 
 const SideBar = () => {
@@ -314,7 +315,7 @@ const SideBar = () => {
           </ul>
         </li> */}
   
-          <AccordionItem value="item-4" className="nav-item">
+          <AccordionItem value="item-5" className="nav-item">
             <AccordionTrigger className="text-base navItem p-[10px] items-center">
               <div className="flex items-center font-semibold ">
                 <GrDatabase className="mr-2" />
@@ -336,9 +337,31 @@ const SideBar = () => {
               </ul>{" "}
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-4" className="nav-item">
+            <AccordionTrigger className="text-base navItem p-[10px] items-center">
+              <div className="flex items-center font-semibold ">
+                <SiLogseq className="mr-2" />
+                Logs
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul
+                id="components-nav"
+                className="nav-content"
+                data-bs-parent="#sidebar-nav"
+              >
+                <li>
+                  <a href="components-tooltips.html">
+                    <i className="bi bi-circle"></i>
+                    <span>Tooltips</span>
+                  </a>
+                </li>
+              </ul>{" "}
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a
             className="nav-link collapsed"
             data-bs-target="#tables-nav"
@@ -367,9 +390,9 @@ const SideBar = () => {
               </a>
             </li>
           </ul>
-        </li>
+        </li> */}
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a
             className="nav-link collapsed"
             data-bs-target="#charts-nav"
@@ -404,9 +427,9 @@ const SideBar = () => {
               </a>
             </li>
           </ul>
-        </li>
+        </li> */}
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a
             className="nav-link collapsed"
             data-bs-target="#icons-nav"
@@ -441,19 +464,19 @@ const SideBar = () => {
               </a>
             </li>
           </ul>
-        </li>
+        </li> */}
 
         <li className="nav-heading">Settings</li>
 
         <li className="nav-item">
-          <a className="nav-link collapsed" href="users-profile.html">
+          <a className="nav-link collapsed" href="/dashboard">
             <i className="bi bi-person"></i>
             <span>Profile</span>
           </a>
         </li>
 
         <li className="nav-item">
-          <a className="nav-link collapsed" href="pages-faq.html">
+          <a className="nav-link collapsed" href="/dashboard">
             <i className="bi bi-question-circle"></i>
             <span>F.A.Q</span>
           </a>
@@ -467,7 +490,7 @@ const SideBar = () => {
         </li> */}
 
         <li className="nav-item">
-          <a className="nav-link collapsed" href="pages-register.html">
+          <a className="nav-link collapsed" href="/dashboard">
             <i className="bi bi-card-list"></i>
             <span>Register</span>
           </a>

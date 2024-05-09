@@ -7,7 +7,7 @@ const Header = () => {
         <a href="/" className="logo flex items-center">
         {/* <a href="/" className="logo flex items-center"> */}
           {/* <img src="assets/img/logo.png" alt=""> */}
-          <span className="d-none d-lg-block text-sm">Keza Fducation Future Lab</span>
+          <span className="d-none d-lg-block text-sm">Keza Education Future Lab</span>
         </a>
         <i className="bi bi-list toggle-sidebar-btn"></i>
       </div>
