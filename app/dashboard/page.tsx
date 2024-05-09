@@ -1,18 +1,13 @@
-import React from 'react';
-import Header from '../components/dashboard/Header';
-import SideBar from "../components/dashboard/SideBar";
-import "../css/dashboard.css";
-import "../css/bootstrap.min.css";
-import "../css/bootstrap-icons.css";
-import "../css/style.css";
+import DashboardWrapper from "./layout";
 
 const page = () => {
   return (
-    <div>
-      <Header />
-      <SideBar />
-    </div>
-  )
-}
+    <DashboardWrapper>
+      <div>
+        
+      </div>
+    </DashboardWrapper>
+  );
+};
 
-export default page
+export default page;
