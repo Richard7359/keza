@@ -81,6 +81,8 @@ const config: Config = {
         darkGrey: "#222222",
         black: "#000000",
         paragraph: "#4b587c",
+        dashboardText: "#2c384e",
+        dashboardTextHover: "#4154f1",
         badge: "#e6eeff",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

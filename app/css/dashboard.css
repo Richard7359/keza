@@ -970,3 +970,27 @@
 .nav-justified .nav-item .nav-link {
   width: 100%;
 }
+
+.navItem{
+ display: flex;
+  align-items: center;
+  font-size: 15px;
+  transition: 0.3;
+  background: transparent;
+  padding: 10px 15px;
+  border-radius: 4px; 
+  border: none;
+  color: #2c384e;
+}
+
+.navItem:hover, .navItem:focus{
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #4154f1;
+  transition: 0.3;
+  background: #f6f9ff;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
