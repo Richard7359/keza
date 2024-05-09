@@ -22,7 +22,7 @@ export default function Navigation() {
   const [active, setActive] = useState(true);
   return (
     <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 ">
-    {/* <nav className="bg-burgundy static-position dark:bg-gray-900 "> */}
+    {/* <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 "> */}
       <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
         <a
           href="/"
@@ -68,7 +68,7 @@ export default function Navigation() {
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -78,7 +78,7 @@ export default function Navigation() {
               </a>
               <a
                 href="/services"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -88,7 +88,7 @@ export default function Navigation() {
               </a>
               <a
                 href="/team"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -98,7 +98,7 @@ export default function Navigation() {
               </a>
               <a
                 href="/Gallery"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -108,7 +108,7 @@ export default function Navigation() {
               </a>
               {/* <a
                 href="#"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -118,7 +118,7 @@ export default function Navigation() {
               </a> */}
               {/* <a
                 href="/auth/login"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]">
@@ -128,14 +128,14 @@ export default function Navigation() {
               </a> */}
               <a
                 href="/courses"
-                className="block py-2 px-3 text-black focus:bg-burgundy focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-burgundy-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
                 <strong className="mr-[3px]"><MdTipsAndUpdates /></strong>Courses
               </a>
             </li>
 
-            <button className="bg-burgundy mt-2 md:mt-0 text-white md:bg-white md:text-burgundy px-8 py-2 rounded-md text-md font-bold">
+            <button className="bg-deepSkyBlue mt-2 md:mt-0 text-white md:bg-white md:text-black px-8 py-2 rounded-md text-md font-bold">
               {/* Get in touch */}
               TALK TO KFL
             </button>
