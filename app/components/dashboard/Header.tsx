@@ -7,9 +7,6 @@ const Header = () => {
     <header id="header" className="header fixed-top flex items-center">
       <div className="flex items-center justify-center">
         <a href="/" className="logo flex items-center">
-        {/* <a href="/" className="logo flex items-center"> */}
-          {/* <img src="assets/img/logo.png" alt=""> */}
-          
           <span className="d-none d-lg-block text-sm">Keza Education Future Lab</span>
         </a>
         <i className="bi bi-list toggle-sidebar-btn"></i>
@@ -21,10 +18,10 @@ const Header = () => {
           method="POST"
           action="#"
         >
-          <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
-          <button type="submit" title="Search">
+          {/* <input type="text" name="query" placeholder="Search" title="Enter search keyword" /> */}
+          {/* <button type="submit" title="Search">
             <i className="bi bi-search"></i>
-          </button>
+          </button> */}
         </form>
       </div>
 

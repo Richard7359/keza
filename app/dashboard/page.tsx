@@ -7,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Input } from "@/components/ui/input";
 
 const page = () => {
   return (
@@ -31,9 +32,22 @@ const page = () => {
         </div>
       </div>
       <div className="flex justify-center">
-     <div className="w-[98%] bg-white p-2 mt-2 rounded-sm uc">
-     <div><p className="">Staff members</p></div>
-      </div>
+        <div className="w-[98%] bg-white p-2 mt-2 rounded-sm uc">
+          <div className="flex justify-between">
+            {" "}
+            <div className="flex font-medium text-sm">
+              <p className="">Staff members</p>
+              <p className="mx-2 bg-success text-[11px] text-white px-1 rounded-full font-medium">
+                14
+              </p>
+            </div>
+            <div>
+              {/* <Input type="email" placeholder="Email"/> */}
+              <input type="text" placeholder="search by names" className="text-sm uc py-1 px-2 rounded-md"/>
+              <button></button>
+            </div>
+          </div>
+        </div>
       </div>
     </DashboardWrapper>
   );
