@@ -226,7 +226,8 @@ const Testimonial = () => {
             </template>
             <div className="pc uc _c dd pd df">
               <p className="we" x-text="testimonial.text">
-              KEZA&apos;s commitment to safety and learning gives me peace of mind.
+                KEZA&apos;s commitment to safety and learning gives me peace of
+                mind.
               </p>
 
               <div className="t w ub _b">

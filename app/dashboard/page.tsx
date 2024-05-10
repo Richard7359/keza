@@ -8,6 +8,15 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { HiOutlineUserAdd } from "react-icons/hi";
 
 const page = () => {
   return (
@@ -43,8 +52,24 @@ const page = () => {
             </div>
             <div>
               {/* <Input type="email" placeholder="Email"/> */}
-              <input type="text" placeholder="search by names" className="text-sm uc py-1 px-2 rounded-md"/>
-              <button></button>
+              <input
+                type="text"
+                placeholder="search by names"
+                className="text-sm uc py-1 px-2 rounded-md"
+              />
+              <Dialog >
+                <DialogTrigger className="text-sm mx-2 border uc px-2 py-1 rounded-md bg-deepSkyBlue font-medium text-white">Add staff member</DialogTrigger>
+                {/* <DialogTrigger className="text-sm mx-2 p-0"><HiOutlineUserAdd />Add member</DialogTrigger> */}
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Are you absolutely sure?</DialogTitle>
+                    <DialogDescription>
+                      This action cannot be undone. This will permanently delete
+                      your account and remove your data from our servers.
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
