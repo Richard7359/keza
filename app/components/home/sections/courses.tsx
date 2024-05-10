@@ -172,7 +172,9 @@ export default function Courses() {
       </div>
       <div className="">
         <div className="md:flex md:justify-center">
-            <div className="w-[100%] h-[18vh] md:w-[45%]  md:h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container">
+        <div className="w-[100%] h-[18vh] md:w-[45%]  md:h-[35vh] border rc rounded-lg flex justify-center items-center robot_container">
+        {/* <div className="w-[100%] h-[18vh] md:w-[45%]  md:h-[35vh] border rc bg-gradient-to-r from-sky-200 to-red-100 py-20 rounded-lg flex justify-center items-center robot_container"> */}
+            {/* <div className="w-[100%] h-[18vh] md:w-[45%]  md:h-[35vh] border border-black bg-burgundy rounded-lg flex justify-center items-center robot_container"> */}
               <div className="w-[95%] h-[16vh] md:h-[30vh] flex gap-2 md:gap-4">
                 {services[selected].images.map((image, id) => {
                   return (

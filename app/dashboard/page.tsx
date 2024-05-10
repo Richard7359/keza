@@ -30,8 +30,10 @@ const page = () => {
           </Breadcrumb>
         </div>
       </div>
-      <div>
-        hello
+      <div className="flex justify-center">
+     <div className="w-[98%] bg-white p-2 mt-2 rounded-sm uc">
+     <div><p className="">Staff members</p></div>
+      </div>
       </div>
     </DashboardWrapper>
   );
