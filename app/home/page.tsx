@@ -25,7 +25,8 @@ export default function HomePage() {
           We&lsquo;ve worked with some great startups
         </div>
       </div> */}
-      <Testimonial />
+      {/* hidden for a moment until the real content is collected */}
+      {/* <Testimonial /> */}
       <FAQ />
       <NewsLetter />
       <Patners />

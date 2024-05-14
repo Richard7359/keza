@@ -39,7 +39,7 @@ const SampleGallery = () => {
           >
             <Image
               src={Child}
-              alt="KEFL Logo image"
+              alt="child image"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -47,7 +47,7 @@ const SampleGallery = () => {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
             <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-              VR
+              Workshop
             </span>
           </a>
           <a
@@ -56,7 +56,7 @@ const SampleGallery = () => {
           >
             <Image
               src={bootcamp}
-              alt="KEFL Logo image"
+              alt="bootcamp image"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -73,7 +73,7 @@ const SampleGallery = () => {
           >
             <Image
               src={Piano}
-              alt="KEFL Logo image"
+              alt="piano image"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -81,7 +81,7 @@ const SampleGallery = () => {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
             <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-              Dev
+              Piano
             </span>
           </a>
           <a
@@ -90,7 +90,7 @@ const SampleGallery = () => {
           >
             <Image
               src={Child_ichigo}
-              alt="KEFL Logo image"
+              alt="piano image"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
@@ -98,7 +98,7 @@ const SampleGallery = () => {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
             <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
-              Retro
+              Ichigo
             </span>
           </a>
         </div>
