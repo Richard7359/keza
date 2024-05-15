@@ -145,7 +145,7 @@
     .division1{visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;}
     .division2{margin: 0 auto;height: 35px;}
     .cssbuttons-io-button {
-      background: #882539;
+      /* background: #882539; */
       color: white;
       font-family: inherit;
       padding: 0.35em;

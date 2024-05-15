@@ -195,7 +195,7 @@ export default function Courses() {
                 {services[selected].title}
               </p>
               <p className="max-w-xl ">{services[selected].description}</p>
-              <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
+              <button className="bg-burgundy bg-deepSkyBlue rounded-md px-4 py-2 text-white flex items-center my-6">
                 Explore more{" "}
                 <TbBrandCitymapper className="font-bold size-6 mx-2" />
               </button>

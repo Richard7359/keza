@@ -420,7 +420,7 @@ const OurTeam = () => {
       </div>
       <div className="flex justify-center mb-4">
         <Link href="/team" legacyBehavior passHref>
-          <button className="cssbuttons-io-button">
+          <button className="cssbuttons-io-button bg-deepSkyBlue">
             View full profile
             <div className="icon">
             <TbBrandCitymapper className="font-bold size-6 mx-2" />
