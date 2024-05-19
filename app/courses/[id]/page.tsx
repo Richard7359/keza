@@ -19,6 +19,7 @@ import { SiOpslevel } from "react-icons/si";
 import { GiArmorDowngrade } from "react-icons/gi";
 import { AiFillApi } from "react-icons/ai";
 import { BiLogoUnsplash } from "react-icons/bi";
+import { BiPackage } from "react-icons/bi";
 
 import { SlBadge } from "react-icons/sl";
 import {
@@ -40,6 +41,11 @@ import fulls1s2 from "../../images/TrafficLight/fulls1s2.jpeg";
 import l2 from "../../images/TrafficLight/l2.jpeg";
 import wd from "../../images/TrafficLight/wd.jpeg";
 import plugl2wd from "../../images/TrafficLight/plugl2wd.jpg";
+import fulll2wd from "../../images/TrafficLight/fulll2wd.jpeg";
+import l1 from "../../images/TrafficLight/l1.jpeg";
+import l1wd from "../../images/TrafficLight/l1wd.jpeg";
+import l1wds1s2 from "../../images/TrafficLight/l1wds1s2.jpg";
+import fulls1bottom from "../../images/TrafficLight/fulls1bottom.jpeg";
 
 const Page = () => {
   const [selected, setSelected] = useState("null");
@@ -81,12 +87,12 @@ const Page = () => {
                   <AccordionItem
                     value="item-1"
                     className="border border-none"
-                    onClick={() => {
-                      oneSetSelected(!oneSelected);
-                      twoSetSelected(false);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -154,12 +160,12 @@ const Page = () => {
                   <AccordionItem
                     value="item-2"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(false);
-                      twoSetSelected(!twoSelected);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(false);
+                    //   twoSetSelected(!twoSelected);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -182,7 +188,7 @@ const Page = () => {
                         <Image
                           src={s1s2}
                           alt="KEFL Logo image"
-                          className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
                       </div>
                       <div className="m-2 flex justify-end">
@@ -222,12 +228,12 @@ const Page = () => {
                   <AccordionItem
                     value="item-3"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(false);
-                      twoSetSelected(!twoSelected);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(false);
+                    //   twoSetSelected(!twoSelected);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -250,7 +256,7 @@ const Page = () => {
                         <Image
                           src={s1s2full}
                           alt="image"
-                          className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
                       </div>
                       <div className="m-2 flex justify-end">
@@ -290,12 +296,12 @@ const Page = () => {
                   <AccordionItem
                     value="item-4"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(!oneSelected);
-                      twoSetSelected(false);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -314,17 +320,26 @@ const Page = () => {
                         oneSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                      <div className="flex gap-2">
-                        <Image
-                          src={s4}
-                          alt="KEFL Logo image"
-                          className="w-[30%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                        />
-                        <Image
-                          src={s4s1}
-                          alt="KEFL Logo image"
-                          className="w-[70%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                        />
+                      <div>
+                        <div className="flex gap-2">
+                          <Image
+                            src={s4}
+                            alt="KEFL Logo image"
+                            className="w-[30%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                          <Image
+                            src={s4s1}
+                            alt="KEFL Logo image"
+                            className="w-[70%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                        <div className="flex gap-2 justify-center mt-2">
+                          <Image
+                            src={plugs4s1}
+                            alt="image"
+                            className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
@@ -363,12 +378,12 @@ const Page = () => {
                   <AccordionItem
                     value="item-5"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(false);
-                      twoSetSelected(!twoSelected);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(false);
+                    //   twoSetSelected(!twoSelected);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -378,8 +393,8 @@ const Page = () => {
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
-                        <GiArmorDowngrade className="text-3xl" />
-                        STEP 4: Plugging WD into S1 & S2
+                        <AiFillApi className="text-3xl" />
+                        STEP 5 FULL VIEW OF WD AND S1&S2
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -389,9 +404,9 @@ const Page = () => {
                     >
                       <div className="flex gap-2 justify-center">
                         <Image
-                          src={plugs4s1}
+                          src={fulls1s2}
                           alt="image"
-                          className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
                       </div>
                       <div className="m-2 flex justify-end">
@@ -431,12 +446,94 @@ const Page = () => {
                   <AccordionItem
                     value="item-6"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(false);
-                      twoSetSelected(!twoSelected);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <BiLogoUnsplash className="text-3xl" /> STEP 6: Plugging
+                        L2 into WD&S1&S2
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div>
+                        <div className="flex gap-2">
+                          <Image
+                            src={l2}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                          <Image
+                            src={wd}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                        <div className="flex gap-2 justify-center mt-2">
+                          <Image
+                            src={plugl2wd}
+                            alt="image"
+                            className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-7"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(false);
+                    //   twoSetSelected(!twoSelected);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -447,7 +544,7 @@ const Page = () => {
                     >
                       <div className="flex items-center">
                         <AiFillApi className="text-3xl" />
-                        STEP 5 FULL VIEW OF WD AND S1&S2
+                        STEP7:FULL VIEW OF L2 AND WD&S1&S2
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -457,9 +554,9 @@ const Page = () => {
                     >
                       <div className="flex gap-2 justify-center">
                         <Image
-                          src={fulls1s2}
+                          src={fulll2wd}
                           alt="image"
-                          className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
                       </div>
                       <div className="m-2 flex justify-end">
@@ -497,14 +594,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-7"
+                    value="item-8"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(!oneSelected);
-                      twoSetSelected(false);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
@@ -514,8 +611,8 @@ const Page = () => {
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
-                        <BiLogoUnsplash className="text-3xl" /> STEP 6: Plugging
-                        L2 into WD&S1&S2
+                        <BiPackage className="text-3xl" /> STEP 8: Plugging L1
+                        into L2&WD&S1&S2
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -523,17 +620,26 @@ const Page = () => {
                         oneSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                      <div className="flex gap-2">
-                        <Image
-                          src={l2}
-                          alt="KEFL Logo image"
-                          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                        />
-                        <Image
-                          src={wd}
-                          alt="KEFL Logo image"
-                          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                        />
+                      <div>
+                        <div className="flex gap-2">
+                          <Image
+                            src={l1}
+                            alt="KEFL Logo image"
+                            className="w-[30%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                          <Image
+                            src={l1wd}
+                            alt="KEFL Logo image"
+                            className="w-[70%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                        <div className="flex gap-2 justify-center mt-2">
+                          <Image
+                            src={l1wds1s2}
+                            alt="image"
+                            className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
@@ -570,47 +676,48 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-8"
+                    value="item-9"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(!oneSelected);
-                      twoSetSelected(false);
-                      threeSetSelected(false);
-                      fourSetSelected(false);
-                    }}
+                    // onClick={() => {
+                    //   oneSetSelected(false);
+                    //   twoSetSelected(!twoSelected);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        twoSelected == true
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${twoCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
-                      <BiLogoUnsplash className="text-3xl" /> STEP 6: Plugging
-                        L2 into WD&S1&S2
+                        <AiFillApi className="text-3xl" />
+                        STEP 9: Full view of L1 and L2&WD&S1&S2 to form BOTTOM
+                        PART
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        twoSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                       <div className="flex gap-2 justify-center">
+                      <div className="flex gap-2 justify-center">
                         <Image
-                          src={plugl2wd}
+                          src={fulls1bottom}
                           alt="image"
-                          className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {twoCompleted ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -624,7 +731,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
