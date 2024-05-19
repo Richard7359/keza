@@ -14,9 +14,10 @@ import { MdOutlineNotificationsActive } from "react-icons/md";
 export default function Navigation() {
   const [active, setActive] = useState(true);
   return (
-    <div className="bg-yellow-300">
-      <div className="py-2 flex justify-center items-center text-3xl"><MdOutlineNotificationsActive /><p className="text-sm font-mono">This is the dummy testing anouncement, find the application details <strong className="font-bold">here</strong></p></div>
-    <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 ">
+    <div className="bg-yellow-300 z-50">
+    <div className="py-2 flex justify-center items-center text-3xl z-50"><MdOutlineNotificationsActive /><p className="text-sm font-mono">This is the dummy testing anouncement, find the application details <strong className="font-bold">here</strong></p></div>
+    <nav className="bg-deepSkyBlue dark:bg-gray-900 ">
+    {/* <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 "> */}
       <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Link href="/" legacyBehavior passHref>
