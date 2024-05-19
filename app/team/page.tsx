@@ -29,7 +29,7 @@ export default function Team() {
       media: [
         { icon: <IoLogoTwitter />, url: "https://twitter.com/a_mutsinzi" },
       ],
-      bio: "Antoine, with over 5 years as Director of Teacher Development at Rwanda Education Board, played pivotal roles in implementing the Competence Based Curriculum.",
+      bio: "Antoine has extensive experience in teacher development and educational leadership where he served as Director of Teacher Development and Training unit at Rwanda Education Board (REB) for more than 5 years and he have experience to work with Development partners in different area. He has played key roles in important activities in Rwanda’s education system such as the development and implementation of the Competence Based Curriculum (CBC).              He has experience working in strategic planning with both MINECOFIN and MINEDUC and has worked with various organizations and government institutions, on; validating and finalizing partner mapping, overseeing the effectiveness of coordination within their respective sectors. Antoine has occupied high positions in Local Government such as the Chairman of Nyarugenge District Council and now Chairing the Commission of Social Economic and Good Governance in Kigali City Council.              Since November 2018 he has been working as an independent Consultant and he owns companies called Sakura Group Ltd and Keza Education Future Lab (KEFL Ltd) with mission to facilitate Education to transform and create a sustainable impact in society. Academically, Antoine holds a Master’s Degree in Mathematics Education at Naruto University of Education, Japan. He holds a bachelor’s degree in Mathematics and science education from Kigali Institute of Education.",
     },
     {
       title: "Curriculum and instructional quality manager",
@@ -38,14 +38,14 @@ export default function Team() {
       media: [
         { icon: <IoLogoTwitter />, url: "https://twitter.com/Mukiza78Emile" },
       ],
-      bio: "Emile Mukiza, an Education Advisor, brings expertise in curriculum development and teacher training with a Master's in Education Administration.",
+      bio: " Mr Emile Mukiza, has a proven track record as an Education Advisor, combines academic expertise with practical experience to drive positive transformations in education. He has a Masters in Education Administration, 12 years experience in education sector, he has an excellent experience in curriculum development, development of teaching and learning materials, teacher training, adult education, Early childhood development. He has actively participated in Competence Based Curriculum (CBC) development in Rwanda through Rwanda Education Board, elaboration, evaluation and procurement of teaching and learning materials for all levels of basic education. He has participated in elaboration of training documents on pedagogy and assessment used in teacher training.He had an opportunity to be in the the region- focused training program in improvement of teaching methodology in primary science and mathematics for sub Saharan Africa, held at OKAYAMA - JAPAN, and also in the training programme (for young leaders) Education (sciences and mathematics at the primary/secondary level 3) course in Yamagata, Japan.              As an author of physics textbooks; he had an opportunity to work as Physics Curriculum developer in National Curriculum Development Center (NCDC) As a supervisor and instructional or program specialist, he had the role of decision-maker, consultant, and specialist in advising Head teachers, teachers, and other professional personnel. His responsibilities included curriculum development, instruction, and teachers’ development through working together and retraining them in an in-service program. As a curriculum specialist, He also served as a member of a management team, his roles were to plan for and supervise curriculum development and implementation, and the provision of centralized instructional services; supervise and direct the work of subject teachers, specialists, and resource teachers.",
     },
     {
       title: "Director of Research, Development and partnership",
       names: "MUGIRANEZA Jean Pierre",
       image: Mugiraneza,
       media: [{ icon: <IoLogoTwitter />, url: "" }],
-      bio: "An educationist and economist with over a decade of senior leadership experience across Rwanda and Africa, specializing in school leadership, teacher development, and inclusive education.",
+      bio: "An educationist & economist practitioner able to influence sustainable change across the full spectrum of education provision through designing and leading the implementation of education projects at large scale. 10+ years of experience in senior leadership across a wide range of national and international organizations within Rwanda and Africa.Worked with a range of development organizations including UKAid funded BLF, VVOB – Flemish Aid Organization, UNICEF, VSO, JICA, Save the Children, Plan International as well as MINEDUC and REB. Particular expertise in school leadership, teacher development, special educational needs, gender in education and safeguarding. Recent school leadership and inclusive education experience in Rwanda.",
     },
     {
       title: "Managing Director",
@@ -58,7 +58,7 @@ export default function Team() {
         },
         { icon: <IoLogoTwitter />, url: "https://twitter.com/NgendabangaCel2" },
       ],
-      bio: "As Managing Director at Keza Education Future Lab, Mr. NGENDABANGA blends teaching and a Master's from the Africa Centre of Excellence for Innovative Teaching and Learning.",
+      bio: "Currently, he is serving as the Managing Director at Keza Education Future Lab. Before this role, he worked as a part-time Tutorial Assistant in the MSPE department at the University of Rwanda - College of Education (UR-CE), where he assisted in teaching the Chemical Thermodynamics and Kinetics module. He also had over four years of experience teaching chemistry in secondary schools.In 2019&comma; he pursued postgraduate studies at the Africa Centre of Excellence for Innovative Teaching and Learning in Mathematics and Science (ACEITLMS) through the University of Rwanda College of Education. He successfully completed his Master’s degree in 2022 and has published at least four articles in reputable journals across the country. With a vast background in Mathematics, Chemistry, and Biology for three years in high school, He obtained a bachelor's degree in chemistry from the University of Rwanda in 2018. He has conducted various training sessions throughout his career, including Training TTC trainers, teachers, and young children on Learning through Play with Technology, Robotics, Artificial Intelligence (AI), 3D printing, and Micro-science kits.Pertinent to him Organizing Continuous Professional Development (CPD) sessions on STEM subjects, he has provided mentoring and coaching through Project Based Learning (PBL), and advocated for integrating ICT in education. Additionally, he possesses skills in monitoring and evaluation, curriculum design and implementation, coordination, planning, and educational management. Further, he has expertise in data collection using various tools and data analysis using software tools such as Statistical Package for the Social Sciences (SPSS).As an added strength, Mr. NGENDABANGA effectively manages teams and fosters a collaborative work environment. He firmly believes that a motivated and engaged workforce is the cornerstone of success for any organization.",
     },
     {
       title: "Digital Learning Senior Advisor",
@@ -74,7 +74,7 @@ export default function Team() {
           url: "https://twitter.com/Erneste_N_1991",
         },
       ],
-      bio: "Electronics Engineer with over 5 years' experience in design and maintenance of electrical systems, specializes in hardware development for mobile devices and field engineering for Zipline International.",
+      bio: "Erneste NIYIGENA an Electronics Engineer with more than 5 years of experience in design, development, maintenance, and troubleshooting electrical and electronic systems. Seeking to continue to leverage my experience in the technology world that has an immediate impact on the community while bringing solutions to the community’s problems. Erneste Niyigena has worked in Pivot access from 2016 up 2019 as hardware developer of mobile devices. At this time He was responsible for the design and development of schematics and printed circuit boards of mobile Point Of Sale machines.            From the end of 2019 up now he is part time electrical field engineer in zipline international responsible for routine and non routine maintenance, troubleshooting and system upgrade of two Zipline distribution centers located in Rwanda. In Keza future education lab Erneste is system engineer of our makerspace. from his broad experience he works with students is design and development life cycle of new electrical/electronic products. Erneste‘s skills include Altium Design Circuit and PCB design tool, Eagle Circuit, C & C++",
     },
     {
       title: "Finance & Administration",
@@ -196,9 +196,9 @@ export default function Team() {
                           {person.names}
                         </p>
                         <p className="text-gray-700 text-sm font-light">
-                          <TeamDialog trigger={person.bio} description={person.bio} image={person.image} names={person.names} media={person.media}/>
+                          <TeamDialog trigger={person.bio} description={person.bio} image={person.image} names={person.names} media={person.media} position={person.title}/>
                         </p>
-                        <div className="py-3 flex absolute bottom-0">
+                        <div className="py-3 hidden sm:flex absolute bottom-0 ">
                           {person.media.map((social) => (
                             <div
                               key={social.url}
