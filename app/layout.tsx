@@ -5,6 +5,8 @@ import "./css/course.css";
 import "./css/faq.css";
 import "./css/testimonial.css";
 
+import Provider from "./_trpc/provider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}><Provider>{children}</Provider></body>
       <script
         src="https://static.elfsight.com/platform/platform.js"
         data-use-service-core

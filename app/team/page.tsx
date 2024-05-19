@@ -18,6 +18,20 @@ import { FaLinkedin } from "react-icons/fa6";
 import Link from "next/link";
 import Footer from "../components/Footer";
 
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { TeamDialog } from "../components/team/Dialog";
+
 export default function Team() {
   const staff = [
     {
@@ -165,7 +179,7 @@ export default function Team() {
       <div className="bg-team-bg pb-4">
         <Navigation />
         <div className="pt-4 md:pt-6">
-           <h2 className="text-2xl md:text-4xl font-bold text-black tracking-wide text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-black tracking-wide text-center">
             Our T<strong className="text-burgundy">e</strong>am
           </h2>
           <p className="text-gray-600 font-serif text-center mx-8">
@@ -175,7 +189,7 @@ export default function Team() {
           <div className="flex justify-center">
             <div className="w-[90%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-2">
               {staff.map((person) => (
-                <div className="flex justify-center mt-8" key={person.title}>
+                <div key={person.title} className="flex justify-center mt-8">
                   <div className="w-[100%] h-[600px] md:w-[400px] md:h-[600px] bg-white rounded-lg">
                     <div className="h-[65%] w-full  flex justify-center items-center">
                       <Image
@@ -194,7 +208,8 @@ export default function Team() {
                           {person.names}
                         </p>
                         <p className="text-gray-700 text-sm font-light">
-                          {person.bio}
+                          {/* {person.bio} */}
+                          <TeamDialog trigger={person.bio} description={"description"} />
                         </p>
                         <div className="py-3 flex absolute bottom-0">
                           {person.media.map((social) => (
@@ -219,7 +234,7 @@ export default function Team() {
               ))}
             </div>
           </div>
-        </div>{" "} 
+        </div>{" "}
       </div>
       <Footer />
     </div>
