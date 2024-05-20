@@ -106,11 +106,8 @@ const Page = () => {
 
   const [done, setDone] = useState<number[]>([]);
 
-  // const [oneCompleted, setOneCompleted] = useState(false);
+  // const [done.includes(25), setOneCompleted] = useState(false);
   // const [twoCompleted, setTwoCompleted] = useState(false);
-
-  const [oneCompleted, setOneCompleted] = useState(0);
-  const [twoCompleted, setTwoCompleted] = useState(0);
 
   return (
     <>
@@ -2040,93 +2037,22 @@ const Page = () => {
                       </div>
                     </AccordionContent>
                   </AccordionItem>
-
-                  {/* <AccordionItem
-                    value=" 24"
-                    className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(24);
-                      if (activeAccordion == 24) {
-                        setActiveAccordion(0);
-                      }
-                    }}
-                  >
-                    <AccordionTrigger
-                      className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        activeAccordion == 24
-                          ? "pc_id_courses_bottom uf_course se_course"
-                          : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
-                    >
-                      <div className="flex items-center">
-                        <FaMonument className="text-3xl" />
-                        STEP 24: Plugging L3 to wires with LED and LH2
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent
-                      className={`pd_id _c uc ${
-                        activeAccordion == 24 ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
-                    >
-                      <div className="flex justify-center">
-                        <Image
-                          src={lh1l4}
-                          alt="image"
-                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
-                        />
-                      </div>
-                      <div className="flex justify-center mt-2">
-                        <Image
-                          src={l1lh4}
-                          alt="image"
-                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
-                        />
-                      </div>
-                      <div className="m-2 flex justify-end">
-                        <TooltipProvider>
-                          {oneCompleted ? (
-                            <Tooltip>
-                              <TooltipTrigger
-                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                                onClick={() => {}}
-                              >
-                                <GoDotFill />
-                                <p>Done</p>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Mark this step as not completed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          ) : (
-                            <Tooltip>
-                              <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">
-                                To Do
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Mark this step as completed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
-                        </TooltipProvider>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem> */}
                   <AccordionItem
                     value=" 25"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(25);
-                      if (activeAccordion == 25) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 25
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(25) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(25);
+                        if (activeAccordion == 25) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <AiFillApi className="text-3xl" />
@@ -2148,11 +2074,16 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(25) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                                onClick={() => {}}
+                                onClick={() => {
+                                  const newDone = done.filter(
+                                    (item) => item !== 25
+                                  );
+                                  setDone(newDone);
+                                }}
                               >
                                 <GoDotFill />
                                 <p>Done</p>
@@ -2163,7 +2094,12 @@ const Page = () => {
                             </Tooltip>
                           ) : (
                             <Tooltip>
-                              <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => {
+                                  setDone([...done, 25]);
+                                }}
+                              >
                                 To Do
                               </TooltipTrigger>
                               <TooltipContent>
@@ -2178,19 +2114,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 26"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(26);
-                      if (activeAccordion == 26) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 26
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(26) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(26);
+                        if (activeAccordion == 26) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <FaPause className="text-3xl" /> STEP 26: Plugging
@@ -2216,12 +2152,15 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(26) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
+                                  const newDone = done.filter(
+                                    (item) => item !== 26
+                                  );
+                                  setDone(newDone);
                                 }}
                               >
                                 <GoDotFill />
@@ -2235,7 +2174,9 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => {
+                                  setDone([...done, 26]);
+                                }}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -2251,24 +2192,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 27"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(27);
-                      if (activeAccordion == 27) {
-                        setActiveAccordion(0);
-                      }
-                    }}
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 27
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(27) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(27);
+                        if (activeAccordion == 27) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <AiFillApi className="text-3xl" />
@@ -2289,12 +2225,15 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(27) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
+                                  const newDone = done.filter(
+                                    (item) => item !== 27
+                                  );
+                                  setDone(newDone);
                                 }}
                               >
                                 <GoDotFill />
@@ -2308,7 +2247,9 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => {
+                                  setDone([...done, 27]);
+                                }}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -2324,19 +2265,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 28"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(28);
-                      if (activeAccordion == 28) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 28
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(28) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(28);
+                        if (activeAccordion == 28) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <FaPlug className="text-3xl" />
@@ -2358,12 +2299,15 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(28) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
+                                  const newDone = done.filter(
+                                    (item) => item !== 28
+                                  );
+                                  setDone(newDone);
                                 }}
                               >
                                 <GoDotFill />
@@ -2377,7 +2321,9 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => {
+                                  setDone([...done, 28]);
+                                }}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -2393,24 +2339,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 29"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(29);
-                      if (activeAccordion == 29) {
-                        setActiveAccordion(0);
-                      }
-                    }}
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 29
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(29) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(29);
+                        if (activeAccordion == 29) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <AiFillApi className="text-3xl" />
@@ -2432,12 +2373,15 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(29) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
+                                  const newDone = done.filter(
+                                    (item) => item !== 29
+                                  );
+                                  setDone(newDone);
                                 }}
                               >
                                 <GoDotFill />
@@ -2451,7 +2395,9 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => {
+                                  setDone([...done, 29]);
+                                }}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -2467,19 +2413,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 30"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(30);
-                      if (activeAccordion == 30) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 30
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(30) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(30);
+                        if (activeAccordion == 30) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <FaVenus className="text-3xl" /> STEP 30: Plugging
@@ -2514,12 +2460,15 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(30) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
+                                  const newDone = done.filter(
+                                    (item) => item !== 30
+                                  );
+                                  setDone(newDone);
                                 }}
                               >
                                 <GoDotFill />
@@ -2533,7 +2482,9 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => {
+                                  setDone([...done, 30]);
+                                }}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -2549,19 +2500,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 31"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(31);
-                      if (activeAccordion == 31) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 31
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(31) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(31);
+                        if (activeAccordion == 31) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <AiFillApi className="text-3xl" />
@@ -2582,12 +2533,15 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(31) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
+                                  const newDone = done.filter(
+                                    (item) => item !== 31
+                                  );
+                                  setDone(newDone);
                                 }}
                               >
                                 <GoDotFill />
@@ -2601,7 +2555,9 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
+                                onClick={() => {
+                                  setDone([...done, 31]);
+                                }}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -2617,19 +2573,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 32"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(32);
-                      if (activeAccordion == 32) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 32
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(32) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(32);
+                        if (activeAccordion == 32) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <FaVenus className="text-3xl" /> STEP 32: Plugging
@@ -2664,11 +2620,16 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(32) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                                onClick={() => {}}
+                                onClick={() => {
+                                  const newDone = done.filter(
+                                    (item) => item !== 32
+                                  );
+                                  setDone(newDone);
+                                }}
                               >
                                 <GoDotFill />
                                 <p>Done</p>
@@ -2679,7 +2640,12 @@ const Page = () => {
                             </Tooltip>
                           ) : (
                             <Tooltip>
-                              <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => {
+                                  setDone([...done, 32]);
+                                }}
+                              >
                                 To Do
                               </TooltipTrigger>
                               <TooltipContent>
@@ -2694,19 +2660,19 @@ const Page = () => {
                   <AccordionItem
                     value=" 33"
                     className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(33);
-                      if (activeAccordion == 33) {
-                        setActiveAccordion(0);
-                      }
-                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 33
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                      } ${done.includes(33) ? "uf_course se_course" : ""}`}
+                      onClick={() => {
+                        setActiveAccordion(33);
+                        if (activeAccordion == 33) {
+                          setActiveAccordion(0);
+                        }
+                      }}
                     >
                       <div className="flex items-center">
                         <SlBadge className="text-3xl" /> STEP 33: Full View of
@@ -2727,11 +2693,16 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {oneCompleted ? (
+                          {done.includes(25) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                                onClick={() => {}}
+                                onClick={() => {
+                                  const newDone = done.filter(
+                                    (item) => item !== 33
+                                  );
+                                  setDone(newDone);
+                                }}
                               >
                                 <GoDotFill />
                                 <p>Done</p>
@@ -2742,7 +2713,12 @@ const Page = () => {
                             </Tooltip>
                           ) : (
                             <Tooltip>
-                              <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => {
+                                  setDone([...done, 33]);
+                                }}
+                              >
                                 To Do
                               </TooltipTrigger>
                               <TooltipContent>
