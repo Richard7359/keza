@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "@/app/components/Navigation_bar/Navigation";
 import Footer from "@/app/components/Footer";
 import image from "../../images/ichigojam.jpg";
@@ -102,12 +102,13 @@ import batterryfull from "../../images/TrafficLight/batteryfull.jpeg";
 import full from "../../images/TrafficLight/fullfinalview.jpeg";
 
 const Page = () => {
+  const localData = localStorage.getItem("done");
   const [activeAccordion, setActiveAccordion] = useState(0);
+  const [done, setDone] = useState<number[]>(localData ? JSON.parse(localData) : []);
 
-  const [done, setDone] = useState<number[]>([]);
-
-  // const [done.includes(25), setOneCompleted] = useState(false);
-  // const [twoCompleted, setTwoCompleted] = useState(false);
+  useEffect(() => {
+    localStorage.setItem("done", JSON.stringify(done));
+  } , [done])
 
   return (
     <>
