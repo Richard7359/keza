@@ -283,7 +283,7 @@ const Page = () => {
                       </div>
                     </AccordionContent>
                   </AccordionItem>
-                  <AccordionItem value=" 3" className="border border-none mt-4">
+                  <AccordionItem value="3" className="border border-none mt-4">
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
                         activeAccordion == 3
@@ -303,9 +303,7 @@ const Page = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
-                      className={`pd_id _c uc ${
-                        done.includes(3) ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
+                      className={`pd_id _c uc pc_id_courses sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
                         <Image
@@ -375,9 +373,7 @@ const Page = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
-                      className={`pd_id _c uc ${
-                        done.includes(4) ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
+                      className={`pd_id _c uc pc_id_courses sm:pd_id gd`}
                     >
                       <div>
                         <div className="flex gap-2">
@@ -461,9 +457,8 @@ const Page = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
-                      className={`pd_id _c uc ${
-                        done.includes(5) ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
+                      className={`pd_id _c uc pc_id_courses
+                      sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
                         <Image
