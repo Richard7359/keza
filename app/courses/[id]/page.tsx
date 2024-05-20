@@ -88,6 +88,8 @@ import fulll1lh2 from "../../images/TrafficLight/fulll1lh2.jpeg";
 import lh1l4 from "../../images/TrafficLight/lh2l4.jpg";
 import l1lh4 from "../../images/TrafficLight/l2lh1.jpg";
 import fulll4 from "../../images/TrafficLight/fulll4.jpeg";
+import inside_part from "../../images/TrafficLight/inside_part.jpeg";
+import modelpart from "../../images/TrafficLight/modelpart.jpg";
 
 const Page = () => {
   const [selected, setSelected] = useState("null");
@@ -2022,26 +2024,17 @@ const Page = () => {
                         oneSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                      <div>
-                        <div className="flex gap-2">
-                          <Image
-                            src={lh1}
-                            alt="KEFL Logo image"
-                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                          />
-                          <Image
-                            src={led1a}
-                            alt="KEFL Logo image"
-                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                          />
-                        </div>
-                        <div className="flex gap-2 justify-center mt-2">
-                          <Image
-                            src={lh1led1a}
-                            alt="image"
-                            className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
-                          />
-                        </div>
+                      <div className="flex gap-2">
+                        <Image
+                          src={inside_part}
+                          alt="KEFL Logo image"
+                          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                        />
+                        <Image
+                          src={modelpart}
+                          alt="KEFL Logo image"
+                          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                        />
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
