@@ -1168,6 +1168,165 @@ const Page = () => {
     </div>
   </AccordionContent>
 </AccordionItem>
+<AccordionItem
+  value="15"
+  className="border border-none mt-4"
+>
+  <AccordionTrigger
+    className={`pd_id _c uc pc_id hover:uf hover:se ${
+      activeAccordion === 15 ? "pc_id_courses_bottom uf_course se_course" : ""
+    } ${done.includes(15) ? "uf_course se_course" : ""}`}
+    onClick={() => {
+      setActiveAccordion(15);
+      if (activeAccordion === 15) {
+        setActiveAccordion(0);
+      }
+    }}
+  >
+    <div className="flex items-center">
+      <CgPolaroid className="text-3xl" /> STEP 15: PLUGGING L1(X4) INTO TOP & BOTTOM PART
+    </div>
+  </AccordionTrigger>
+  <AccordionContent
+    className={`pd_id _c uc ${
+      activeAccordion === 15 ? "pc_id_courses" : ""
+    } sm:pd_id gd`}
+  >
+    <div>
+      <div className="flex gap-2">
+        <Image
+          src={x1}
+          alt="KEFL Logo image"
+          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+        />
+        <Image
+          src={x2}
+          alt="KEFL Logo image"
+          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+        />
+      </div>
+      <div className="flex gap-2 justify-center mt-2">
+        <Image
+          src={x1x2}
+          alt="image"
+          className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
+        />
+      </div>
+    </div>
+    <div className="m-2 flex justify-end">
+      <TooltipProvider>
+        {done.includes(15) ? (
+          <Tooltip>
+            <TooltipTrigger
+              className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+              onClick={(e) => {
+                e.preventDefault();
+                const newDone = done.filter((item) => item !== 15);
+                setDone(newDone);
+              }}
+            >
+              <GoDotFill />
+              <p>Done</p>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as not completed</p>
+            </TooltipContent>
+          </Tooltip>
+        ) : (
+          <Tooltip>
+            <TooltipTrigger
+              className="border border-black px-3 rounded-full font-semibold"
+              onClick={(e) => {
+                e.preventDefault();
+                setDone([...done, 15]);
+              }}
+            >
+              To Do
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as completed</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
+      </TooltipProvider>
+    </div>
+  </AccordionContent>
+</AccordionItem>
+<AccordionItem
+  value="16"
+  className="border border-none mt-4"
+>
+  <AccordionTrigger
+    className={`pd_id _c uc pc_id hover:uf hover:se ${
+      activeAccordion === 16 ? "pc_id_courses_bottom uf_course se_course" : ""
+    } ${done.includes(16) ? "uf_course se_course" : ""}`}
+    onClick={() => {
+      setActiveAccordion(16);
+      if (activeAccordion === 16) {
+        setActiveAccordion(0);
+      }
+    }}
+  >
+    <div className="flex items-center">
+      <AiFillApi className="text-3xl" /> STEP 16: Full view of L1 and Top & Bottom Part
+    </div>
+  </AccordionTrigger>
+  <AccordionContent
+    className={`pd_id _c uc ${
+      activeAccordion === 16 ? "pc_id_courses" : ""
+    } sm:pd_id gd`}
+  >
+    <div className="flex gap-2">
+      <Image
+        src={fulll1}
+        alt="KEFL Logo image"
+        className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+      />
+      <Image
+        src={fulll1bottom}
+        alt="KEFL Logo image"
+        className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+      />
+    </div>
+    <div className="m-2 flex justify-end">
+      <TooltipProvider>
+        {done.includes(16) ? (
+          <Tooltip>
+            <TooltipTrigger
+              className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+              onClick={(e) => {
+                e.preventDefault();
+                const newDone = done.filter((item) => item !== 16);
+                setDone(newDone);
+              }}
+            >
+              <GoDotFill />
+              <p>Done</p>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as not completed</p>
+            </TooltipContent>
+          </Tooltip>
+        ) : (
+          <Tooltip>
+            <TooltipTrigger
+              className="border border-black px-3 rounded-full font-semibold"
+              onClick={(e) => {
+                e.preventDefault();
+                setDone([...done, 16]);
+              }}
+            >
+              To Do
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as completed</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
+      </TooltipProvider>
+    </div>
+  </AccordionContent>
+</AccordionItem>
 
 
                  
