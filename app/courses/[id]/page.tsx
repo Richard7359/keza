@@ -160,7 +160,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2">
@@ -182,7 +182,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  // //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -196,7 +196,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setOneCompleted(!oneCompleted)}
+                                // onClick={() => setOneCompleted(!oneCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -233,7 +233,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 2 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -250,7 +250,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -264,7 +264,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -301,7 +301,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -318,7 +318,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -332,7 +332,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -369,7 +369,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 4 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -400,7 +400,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -414,7 +414,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setOneCompleted(!oneCompleted)}
+                                // onClick={() => setOneCompleted(!oneCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -451,7 +451,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 5 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -468,7 +468,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -482,7 +482,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -519,7 +519,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 6 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -550,7 +550,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -601,7 +601,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 7 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -618,7 +618,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -632,7 +632,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -669,7 +669,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 8 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -700,7 +700,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -752,7 +752,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 9 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -769,7 +769,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -783,7 +783,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -825,7 +825,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 10 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -856,7 +856,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -912,7 +912,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 11 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -929,7 +929,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -943,7 +943,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -980,7 +980,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 12 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -997,7 +997,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1011,7 +1011,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -1053,7 +1053,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 13 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1084,7 +1084,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1140,7 +1140,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                         activeAccordion == 1 ? "pc_id_courses" : ""
+                         activeAccordion == 14 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1157,7 +1157,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setTwoCompleted(!twoCompleted);
+                                 // setTwoCompleted(!twoCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1171,7 +1171,7 @@ const Page = () => {
                             <Tooltip>
                               <TooltipTrigger
                                 className="border border-black px-3 rounded-full font-semibold"
-                                onClick={() => setTwoCompleted(!twoCompleted)}
+                                // onClick={() => setTwoCompleted(!twoCompleted)}
                               >
                                 To Do
                               </TooltipTrigger>
@@ -1208,7 +1208,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 15 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1239,7 +1239,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1295,7 +1295,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 16 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2">
@@ -1317,7 +1317,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1373,7 +1373,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 17 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1404,7 +1404,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1460,7 +1460,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 18 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1477,7 +1477,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1533,7 +1533,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 19 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1564,7 +1564,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1620,7 +1620,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 20 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1637,7 +1637,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1693,7 +1693,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 21 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1729,7 +1729,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1785,7 +1785,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 22 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1816,7 +1816,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1872,7 +1872,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 23 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1894,7 +1894,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -1950,7 +1950,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 24 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -1974,7 +1974,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2031,7 +2031,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 25 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2048,7 +2048,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2104,7 +2104,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 26 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2">
@@ -2126,7 +2126,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2182,7 +2182,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 27 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2199,7 +2199,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2256,7 +2256,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 28 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2273,7 +2273,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2330,7 +2330,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 29 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2347,7 +2347,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2403,7 +2403,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 30 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -2434,7 +2434,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2490,7 +2490,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 31 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2507,7 +2507,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2563,7 +2563,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 32 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -2594,7 +2594,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
@@ -2650,7 +2650,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        activeAccordion == 3 ? "pc_id_courses" : ""
+                        activeAccordion == 33 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center mt-2">
@@ -2667,7 +2667,7 @@ const Page = () => {
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
                                 onClick={() => {
-                                  setOneCompleted(!oneCompleted);
+                                  //setOneCompleted(!oneCompleted);
                                 }}
                               >
                                 <GoDotFill />
