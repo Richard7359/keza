@@ -800,167 +800,151 @@ const Page = () => {
     </div>
   </AccordionContent>
 </AccordionItem>
+<AccordionItem value="10" className="border border-none mt-4">
+  <AccordionTrigger
+    className={`pd_id _c uc pc_id hover:uf hover:se ${
+      activeAccordion == 10 ? "pc_id_courses_bottom uf_course se_course" : ""
+    } ${done.includes(10) ? "uf_course se_course" : ""}`}
+    onClick={() => {
+      setActiveAccordion(10);
+      if (activeAccordion == 10) {
+        setActiveAccordion(0);
+      }
+    }}
+  >
+    <div className="flex items-center">
+      <CgEricsson className="text-3xl" /> STEP 10: Plugging W2 into W1
+    </div>
+  </AccordionTrigger>
+  <AccordionContent
+    className={`pd_id _c uc ${done.includes(10) ? "pc_id_courses" : ""} sm:pd_id gd`}
+  >
+    <div>
+      <div className="flex gap-2">
+        <Image
+          src={w1}
+          alt="KEFL Logo image"
+          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+        />
+        <Image
+          src={w2}
+          alt="KEFL Logo image"
+          className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+        />
+      </div>
+      <div className="flex gap-2 justify-center mt-2">
+        <Image
+          src={w1w2}
+          alt="image"
+          className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
+        />
+      </div>
+    </div>
+    <div className="m-2 flex justify-end">
+      <TooltipProvider>
+        {done.includes(10) ? (
+          <Tooltip>
+            <TooltipTrigger
+              className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+              onClick={(e) => {
+                e.preventDefault();
+                const newDone = done.filter((item) => item !== 10);
+                setDone(newDone);
+              }}
+            >
+              <GoDotFill />
+              <p>Done</p>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as not completed</p>
+            </TooltipContent>
+          </Tooltip>
+        ) : (
+          <Tooltip>
+            <TooltipTrigger
+              className="border border-black px-3 rounded-full font-semibold"
+              onClick={(e) => {
+                e.preventDefault();
+                setDone([...done, 10]);
+              }}
+            >
+              To Do
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as completed</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
+      </TooltipProvider>
+    </div>
+  </AccordionContent>
+</AccordionItem>
+<AccordionItem value="11" className="border border-none mt-4">
+  <AccordionTrigger
+    className={`pd_id _c uc pc_id hover:uf hover:se ${
+      activeAccordion == 11 ? "pc_id_courses_bottom uf_course se_course" : ""
+    } ${done.includes(11) ? "uf_course se_course" : ""}`}
+    onClick={() => {
+      setActiveAccordion(11);
+      if (activeAccordion == 11) {
+        setActiveAccordion(0);
+      }
+    }}
+  >
+    <div className="flex items-center">
+      <AiFillApi className="text-3xl" /> STEP 11: Full view of twice W1 and W2.
+    </div>
+  </AccordionTrigger>
+  <AccordionContent
+    className={`pd_id _c uc ${done.includes(11) ? "pc_id_courses" : ""} sm:pd_id gd`}
+  >
+    <div className="flex gap-2 justify-center">
+      <Image
+        src={fullw1w2}
+        alt="image"
+        className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+      />
+    </div>
+    <div className="m-2 flex justify-end">
+      <TooltipProvider>
+        {done.includes(11) ? (
+          <Tooltip>
+            <TooltipTrigger
+              className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+              onClick={(e) => {
+                e.preventDefault();
+                const newDone = done.filter((item) => item !== 11);
+                setDone(newDone);
+              }}
+            >
+              <GoDotFill />
+              <p>Done</p>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as not completed</p>
+            </TooltipContent>
+          </Tooltip>
+        ) : (
+          <Tooltip>
+            <TooltipTrigger
+              className="border border-black px-3 rounded-full font-semibold"
+              onClick={(e) => {
+                e.preventDefault();
+                setDone([...done, 11]);
+              }}
+            >
+              To Do
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Mark this step as completed</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
+      </TooltipProvider>
+    </div>
+  </AccordionContent>
+</AccordionItem>
 
-                  <AccordionItem
-                    value=" 10"
-                    className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(10);
-                      if (activeAccordion == 10) {
-                        setActiveAccordion(0);
-                      }
-                    }}
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
-                  >
-                    <AccordionTrigger
-                      className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        activeAccordion == 10
-                          ? "pc_id_courses_bottom uf_course se_course"
-                          : ""
-                      } ${oneCompleted ? "uf_course se_course" : ""}`}
-                    >
-                      <div className="flex items-center">
-                        <CgEricsson className="text-3xl" /> STEP 10: Plugging W2
-                        into W1
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent
-                      className={`pd_id _c uc ${
-                        activeAccordion == 10 ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
-                    >
-                      <div>
-                        <div className="flex gap-2">
-                          <Image
-                            src={w1}
-                            alt="KEFL Logo image"
-                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                          />
-                          <Image
-                            src={w2}
-                            alt="KEFL Logo image"
-                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                          />
-                        </div>
-                        <div className="flex gap-2 justify-center mt-2">
-                          <Image
-                            src={w1w2}
-                            alt="image"
-                            className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
-                          />
-                        </div>
-                      </div>
-                      <div className="m-2 flex justify-end">
-                        <TooltipProvider>
-                          {oneCompleted ? (
-                            <Tooltip>
-                              <TooltipTrigger
-                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                                onClick={() => {
-                                  //setOneCompleted(!oneCompleted);
-                                }}
-                              >
-                                <GoDotFill />
-                                <p>Done</p>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Mark this step as not completed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          ) : (
-                            <Tooltip>
-                              <TooltipTrigger
-                                className="border border-black px-3 rounded-full font-semibold"
-                                //onClick={() => setOneCompleted(!oneCompleted)}
-                              >
-                                To Do
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Mark this step as completed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
-                        </TooltipProvider>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem
-                    value=" 11"
-                    className="border border-none mt-4"
-                    onClick={() => {
-                      setActiveAccordion(11);
-                      if (activeAccordion == 11) {
-                        setActiveAccordion(0);
-                      }
-                    }}
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
-                  >
-                    <AccordionTrigger
-                      className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        activeAccordion == 11
-                          ? "pc_id_courses_bottom uf_course se_course"
-                          : ""
-                      } ${done.includes(1) ? "uf_course se_course" : ""}`}
-                    >
-                      <div className="flex items-center">
-                        <AiFillApi className="text-3xl" />
-                        STEP 11: Full view of twice W1 and W2.
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent
-                      className={`pd_id _c uc ${
-                        activeAccordion == 11 ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
-                    >
-                      <div className="flex gap-2 justify-center">
-                        <Image
-                          src={fullw1w2}
-                          alt="image"
-                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
-                        />
-                      </div>
-                      <div className="m-2 flex justify-end">
-                        <TooltipProvider>
-                          {done.includes(1) ? (
-                            <Tooltip>
-                              <TooltipTrigger
-                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                                onClick={() => {
-                                  // setTwoCompleted(!twoCompleted);
-                                }}
-                              >
-                                <GoDotFill />
-                                <p>Done</p>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Mark this step as not completed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          ) : (
-                            <Tooltip>
-                              <TooltipTrigger
-                                className="border border-black px-3 rounded-full font-semibold"
-                                // onClick={() => setTwoCompleted(!twoCompleted)}
-                              >
-                                To Do
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Mark this step as completed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
-                        </TooltipProvider>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
                   <AccordionItem
                     value="12"
                     className="border border-none mt-4"
@@ -1847,7 +1831,7 @@ const Page = () => {
                         </TooltipProvider>
                       </div>
                     </AccordionContent>
-                  </AccordionItem>
+                  </AccordionItem> 
                   <AccordionItem
                     value=" 23"
                     className="border border-none mt-4"
