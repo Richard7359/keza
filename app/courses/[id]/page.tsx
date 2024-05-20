@@ -31,6 +31,8 @@ import { CgServerless } from "react-icons/cg";
 import { FaChessBishop } from "react-icons/fa";
 import { FaMonument } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
+import { FaPlug } from "react-icons/fa";
+
 
 import { SlBadge } from "react-icons/sl";
 import {
@@ -2141,7 +2143,7 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-27"
+                    value="item-28"
                     className="border border-none mt-4"
                     // onClick={() => {
                     //   oneSetSelected(!oneSelected);
@@ -2158,8 +2160,8 @@ const Page = () => {
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
-                        <AiFillApi className="text-3xl" />
-                        STEP 27: Full view of inside parts and Model part
+                        <FaPlug className="text-3xl" />
+                        STEP 28: Plugging electronic wires to the  finished model part.
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -2169,7 +2171,7 @@ const Page = () => {
                     >
                       <div className="flex justify-center">
                         <Image
-                          src={fullviewinside}
+                          src={finishedmodel}
                           alt="image"
                           className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
