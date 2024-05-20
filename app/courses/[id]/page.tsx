@@ -102,7 +102,10 @@ import batterryfull from "../../images/TrafficLight/batteryfull.jpeg";
 import full from "../../images/TrafficLight/fullfinalview.jpeg";
 
 const Page = () => {
-  const localData = localStorage.getItem("done");
+  let localData;
+  if (typeof window!== 'undefined') {
+    localData = localStorage.getItem("done");
+  }
   const [activeAccordion, setActiveAccordion] = useState(0);
   const [done, setDone] = useState<number[]>(localData ? JSON.parse(localData) : []);
 
