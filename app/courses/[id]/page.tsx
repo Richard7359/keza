@@ -32,7 +32,7 @@ import { FaChessBishop } from "react-icons/fa";
 import { FaMonument } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
 import { FaPlug } from "react-icons/fa";
-
+import { FaVenus } from "react-icons/fa";
 
 import { SlBadge } from "react-icons/sl";
 import {
@@ -94,6 +94,12 @@ import inside_part from "../../images/TrafficLight/inside_part.jpeg";
 import modelpart from "../../images/TrafficLight/modelpart.jpg";
 import fullviewinside from "../../images/TrafficLight/fullviewinside.jpeg";
 import finishedmodel from "../../images/TrafficLight/plugmodelpart.jpg";
+import fullviewinternal from "../../images/TrafficLight/fullviewinternal.jpeg";
+import battery from "../../images/TrafficLight/battery.jpeg";
+import batterycable from "../../images/TrafficLight/batterycable.jpeg";
+import fullbatterycable from "../../images/TrafficLight/cablebattery.jpg";
+import batterryfull from "../../images/TrafficLight/batteryfull.jpeg";
+import full from "../../images/TrafficLight/fullfinalview.jpeg";
 
 const Page = () => {
   const [selected, setSelected] = useState("null");
@@ -2161,7 +2167,8 @@ const Page = () => {
                     >
                       <div className="flex items-center">
                         <FaPlug className="text-3xl" />
-                        STEP 28: Plugging electronic wires to the  finished model part.
+                        STEP 28: Plugging electronic wires to the finished model
+                        part.
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
@@ -2174,6 +2181,375 @@ const Page = () => {
                           src={finishedmodel}
                           alt="image"
                           className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+                        />
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-29"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <AiFillApi className="text-3xl" />
+                        STEP 29: Full view of Internal side assembly with
+                        electronic part.
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div className="flex justify-center">
+                        <Image
+                          src={fullviewinternal}
+                          alt="image"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+                        />
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-30"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <FaVenus className="text-3xl" /> STEP 30: Plugging
+                        BATTERY and connecting CABLE
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div>
+                        <div className="flex gap-2">
+                          <Image
+                            src={battery}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                          <Image
+                            src={batterycable}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                        <div className="flex gap-2 justify-center mt-2">
+                          <Image
+                            src={fullbatterycable}
+                            alt="image"
+                            className="w-[100%] h-[280px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-31"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <AiFillApi className="text-3xl" />
+                        STEP 31: Full view of BATTERY and connecting CABLE
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div className="flex justify-center">
+                        <Image
+                          src={batterryfull}
+                          alt="image"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+                        />
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-32"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <FaVenus className="text-3xl" /> STEP 32: Plugging
+                        Battery with cable to The traffic light.
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div>
+                        <div className="flex gap-2">
+                          <Image
+                            src={battery}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                          <Image
+                            src={batterycable}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                        <div className="flex gap-2 justify-center mt-2">
+                          <Image
+                            src={fullbatterycable}
+                            alt="image"
+                            className="w-[100%] h-[280px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-33"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <SlBadge className="text-3xl" /> STEP 35: Full View of
+                        FINAL Assembly of TRAFFIC LIGHT
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div className="flex gap-2 justify-center mt-2">
+                        <Image
+                          src={full}
+                          alt="image"
+                          className="w-[100%] h-[280px] cursor-pointer rounded-[5px] border-custom"
                         />
                       </div>
                       <div className="m-2 flex justify-end">
