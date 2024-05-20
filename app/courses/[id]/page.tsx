@@ -30,7 +30,7 @@ import { CgScreenShot } from "react-icons/cg";
 import { CgServerless } from "react-icons/cg";
 import { FaChessBishop } from "react-icons/fa";
 import { FaMonument } from "react-icons/fa";
-
+import { FaPause } from "react-icons/fa";
 
 import { SlBadge } from "react-icons/sl";
 import {
@@ -85,6 +85,9 @@ import led1a from "../../images/TrafficLight/l1a.jpeg";
 import lh1led1a from "../../images/TrafficLight/lh1led1a.jpg";
 import fulll1lh1 from "../../images/TrafficLight/fulll1lh1.jpeg";
 import fulll1lh2 from "../../images/TrafficLight/fulll1lh2.jpeg";
+import lh1l4 from "../../images/TrafficLight/lh2l4.jpg";
+import l1lh4 from "../../images/TrafficLight/l2lh1.jpg";
+import fulll4 from "../../images/TrafficLight/fulll4.jpeg";
 
 const Page = () => {
   const [selected, setSelected] = useState("null");
@@ -1875,17 +1878,170 @@ const Page = () => {
                         oneSelected == true ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
-                      <div className="flex gap-2 justify-center">
+                      <div className="flex justify-center">
                         <Image
-                          src={fulll1lh1}
+                          src={lh1l4}
                           alt="image"
-                          className="w-[50%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
+                      </div>
+                      <div className="flex justify-center mt-2">
                         <Image
-                          src={fulll1lh2}
+                          src={l1lh4}
                           alt="image"
-                          className="w-[50%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                         />
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-25"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <AiFillApi className="text-3xl" />
+                        STEP 25: Full view of 4 Inside parts with LEDs and
+                        wires.
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div className="flex justify-center">
+                        <Image
+                          src={fulll4}
+                          alt="image"
+                          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+                        />
+                      </div>
+                      <div className="m-2 flex justify-end">
+                        <TooltipProvider>
+                          {oneCompleted ? (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                                onClick={() => {
+                                  setOneCompleted(!oneCompleted);
+                                }}
+                              >
+                                <GoDotFill />
+                                <p>Done</p>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as not completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <Tooltip>
+                              <TooltipTrigger
+                                className="border border-black px-3 rounded-full font-semibold"
+                                onClick={() => setOneCompleted(!oneCompleted)}
+                              >
+                                To Do
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Mark this step as completed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-26"
+                    className="border border-none mt-4"
+                    // onClick={() => {
+                    //   oneSetSelected(!oneSelected);
+                    //   twoSetSelected(false);
+                    //   threeSetSelected(false);
+                    //   fourSetSelected(false);
+                    // }}
+                  >
+                    <AccordionTrigger
+                      className={`pd_id _c uc pc_id hover:uf hover:se ${
+                        oneSelected == true
+                          ? "pc_id_courses_bottom uf_course se_course"
+                          : ""
+                      } ${oneCompleted ? "uf_course se_course" : ""}`}
+                    >
+                      <div className="flex items-center">
+                        <FaPause className="text-3xl" /> STEP 26: Plugging
+                        Inside parts into Model part
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className={`pd_id _c uc ${
+                        oneSelected == true ? "pc_id_courses" : ""
+                      } sm:pd_id gd`}
+                    >
+                      <div>
+                        <div className="flex gap-2">
+                          <Image
+                            src={lh1}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                          <Image
+                            src={led1a}
+                            alt="KEFL Logo image"
+                            className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
+                        <div className="flex gap-2 justify-center mt-2">
+                          <Image
+                            src={lh1led1a}
+                            alt="image"
+                            className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
+                          />
+                        </div>
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
