@@ -11,8 +11,8 @@ import image from "../../images/ai2.png";
 
 const ViewMaterials = () => {
   return (
-    <Dialog>
-      <DialogTrigger className="border border-level4 font-semibold bg-level4 bg-opacity-5 hover:border-level4 hover:bg-level4 hover:text-white rounded-full text-sm px-4 py-1">
+    <Dialog >
+      <DialogTrigger disabled={true} className="border border-level4 font-semibold bg-level4 bg-opacity-5 hover:border-level4 hover:bg-level4 hover:text-white rounded-full text-sm px-4 py-1">
         View materials
       </DialogTrigger>
       <DialogContent>

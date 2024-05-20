@@ -14,6 +14,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { HiOutlineChevronDoubleRight } from "react-icons/hi";
+import { GiBookshelf } from "react-icons/gi";
+
 
 import CourseCard from "../components/courseCard";
 import Ichigo from "../images/ichigojam.jpg";
@@ -94,14 +96,13 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              <p
+             {selected == 0 ? <p
                 onClick={() => setSelected(2)}
                 className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
               >
                 Middle level{" "}
-                {/* <HiOutlineChevronDoubleRight className="text-level2" /> */}
-              </p>
-              <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              </p> : ""}
+              {selected == 2 || selected == 0  ? <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <CourseCard
                   id={1}
                   description={"Traffic Light"}
@@ -109,7 +110,9 @@ const Page = () => {
                   level={2}
                   complexity={2}
                 />
-              </div>
+              </div> : <div className="font-medium flex items-center p-3 gap-2">
+              <GiBookshelf /> <p>No courses available for this level</p>
+                </div>}
               <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {/* <CourseCard
                   id={1}
