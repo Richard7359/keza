@@ -102,16 +102,13 @@ import batterryfull from "../../images/TrafficLight/batteryfull.jpeg";
 import full from "../../images/TrafficLight/fullfinalview.jpeg";
 
 const Page = () => {
-  const [selected, setSelected] = useState("null");
-  const [oneSelected, oneSetSelected] = useState(false);
-  const [twoSelected, twoSetSelected] = useState(false);
-  const [threeSelected, threeSetSelected] = useState(false);
-  const [fourSelected, fourSetSelected] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState(0);
 
-  const [oneCompleted, setOneCompleted] = useState(false);
-  const [twoCompleted, setTwoCompleted] = useState(false);
-  const [threeCompleted, setThreeCompleted] = useState(false);
-  const [fourCompleted, setFourCompleted] = useState(false);
+  // const [oneCompleted, setOneCompleted] = useState(false);
+  // const [twoCompleted, setTwoCompleted] = useState(false);
+
+    const [oneCompleted, setOneCompleted] = useState(0);
+  const [twoCompleted, setTwoCompleted] = useState(0);
 
   return (
     <>
@@ -139,18 +136,19 @@ const Page = () => {
                   className="w-[100%] border-none"
                 >
                   <AccordionItem
-                    value="item-1"
+                    value=" 1"
                     className="border border-none"
-                    // onClick={() => {
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(1);
+                      if (activeAccordion == 1) {
+                        setActiveAccordion(0);
+                      }
+                    }}
+
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 1
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -162,7 +160,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2">
@@ -212,18 +210,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-2"
+                    value=" 2"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(2);
+                      if (activeAccordion == 2) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 2
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -235,7 +233,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -280,18 +278,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-3"
+                    value=" 3"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(3);
+                      if (activeAccordion == 3) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 3
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -303,7 +301,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -348,18 +346,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-4"
+                    value=" 4"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(4);
+                      if (activeAccordion == 4) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 4
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -371,7 +369,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -430,18 +428,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-5"
+                    value=" 5"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(5);
+                      if (activeAccordion == 5) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 5
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -453,7 +451,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -498,18 +496,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-6"
+                    value=" 6"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(6);
+                      if (activeAccordion == 6) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 6
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -521,7 +519,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -580,18 +578,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-7"
+                    value=" 7"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                    onClick={() => {
+                      setActiveAccordion(7);
+                      if (activeAccordion == 7) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 7
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -603,7 +601,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -648,18 +646,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-8"
+                    value=" 8"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                                        onClick={() => {
+                      setActiveAccordion(8);
+                      if (activeAccordion == 8) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 8
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -671,7 +669,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -730,18 +728,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-9"
+                    value=" 9"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                                        onClick={() => {
+                      setActiveAccordion(9);
+                      if (activeAccordion == 9) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 9
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -754,7 +752,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -799,9 +797,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-10"
+                    value=" 10"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(10);
+                      if (activeAccordion == 10) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -810,7 +813,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 10
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -822,7 +825,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -881,9 +884,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-11"
+                    value=" 11"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(11);
+                      if (activeAccordion == 11) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(false);
                     //   twoSetSelected(!twoSelected);
                     //   threeSetSelected(false);
@@ -892,7 +900,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 11
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -904,7 +912,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -949,18 +957,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-11"
+                    value="12"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(false);
-                    //   twoSetSelected(!twoSelected);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                                        onClick={() => {
+                      setActiveAccordion(12);
+                      if (activeAccordion == 12) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 12
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -972,7 +980,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1017,9 +1025,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-13"
+                    value=" 13"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(13);
+                      if (activeAccordion == 13) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1028,7 +1041,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 13
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1040,7 +1053,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1099,9 +1112,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-14"
+                    value=" 14"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(14);
+                      if (activeAccordion == 14) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(false);
                     //   twoSetSelected(!twoSelected);
                     //   threeSetSelected(false);
@@ -1110,7 +1128,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        twoSelected == true
+                         activeAccordion == 14
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${twoCompleted ? "uf_course se_course" : ""}`}
@@ -1122,7 +1140,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        twoSelected == true ? "pc_id_courses" : ""
+                         activeAccordion == 1 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1167,18 +1185,18 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-15"
+                    value=" 15"
                     className="border border-none mt-4"
-                    // onClick={() => {
-                    //   oneSetSelected(!oneSelected);
-                    //   twoSetSelected(false);
-                    //   threeSetSelected(false);
-                    //   fourSetSelected(false);
-                    // }}
+                                        onClick={() => {
+                      setActiveAccordion(15);
+                      if (activeAccordion == 15) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 15
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1190,7 +1208,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1249,9 +1267,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-16"
+                    value=" 16"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(16);
+                      if (activeAccordion == 16) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1260,7 +1283,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 16
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1272,7 +1295,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2">
@@ -1322,9 +1345,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-17"
+                    value=" 17"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(17);
+                      if (activeAccordion == 17) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1333,7 +1361,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 17
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1345,7 +1373,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1404,9 +1432,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-18"
+                    value=" 18"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(18);
+                      if (activeAccordion == 18) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1415,7 +1448,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 18
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1427,7 +1460,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1472,9 +1505,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-19"
+                    value=" 19"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(19);
+                      if (activeAccordion == 19) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1483,7 +1521,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 19
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1495,7 +1533,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1554,9 +1592,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-20"
+                    value=" 20"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(20);
+                      if (activeAccordion == 20) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1565,7 +1608,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 20
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1577,7 +1620,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1622,9 +1665,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-21"
+                    value=" 21"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(21);
+                      if (activeAccordion == 21) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1633,7 +1681,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 21
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1645,7 +1693,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1709,9 +1757,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-22"
+                    value=" 22"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(22);
+                      if (activeAccordion == 22) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1720,7 +1773,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 22
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1732,7 +1785,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -1791,9 +1844,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-23"
+                    value=" 23"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(23);
+                      if (activeAccordion == 23) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1802,7 +1860,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 23
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1814,7 +1872,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center">
@@ -1864,9 +1922,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-24"
+                    value=" 24"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(24);
+                      if (activeAccordion == 24) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1875,7 +1938,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 24
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1887,7 +1950,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -1939,9 +2002,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-25"
+                    value=" 25"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(25);
+                      if (activeAccordion == 25) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -1950,7 +2018,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 25
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -1963,7 +2031,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2008,9 +2076,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-26"
+                    value=" 26"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(26);
+                      if (activeAccordion == 26) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2019,7 +2092,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 26
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2031,7 +2104,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2">
@@ -2081,9 +2154,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-27"
+                    value=" 27"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(27);
+                      if (activeAccordion == 27) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2092,7 +2170,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 27
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2104,7 +2182,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2149,9 +2227,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-28"
+                    value=" 28"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(28);
+                      if (activeAccordion == 28) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2160,7 +2243,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 28
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2173,7 +2256,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2218,9 +2301,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-29"
+                    value=" 29"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(29);
+                      if (activeAccordion == 29) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2229,7 +2317,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 29
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2242,7 +2330,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2287,9 +2375,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-30"
+                    value=" 30"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(30);
+                      if (activeAccordion == 30) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2298,7 +2391,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 30
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2310,7 +2403,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -2369,9 +2462,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-31"
+                    value=" 31"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(31);
+                      if (activeAccordion == 31) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2380,7 +2478,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 31
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2392,7 +2490,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex justify-center">
@@ -2437,9 +2535,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-32"
+                    value=" 32"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(32);
+                      if (activeAccordion == 32) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2448,7 +2551,7 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 32
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
@@ -2460,7 +2563,7 @@ const Page = () => {
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div>
@@ -2519,9 +2622,14 @@ const Page = () => {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem
-                    value="item-33"
+                    value=" 33"
                     className="border border-none mt-4"
-                    // onClick={() => {
+                                        onClick={() => {
+                      setActiveAccordion(33);
+                      if (activeAccordion == 33) {
+                        setActiveAccordion(0);
+                      }
+                    }}
                     //   oneSetSelected(!oneSelected);
                     //   twoSetSelected(false);
                     //   threeSetSelected(false);
@@ -2530,19 +2638,19 @@ const Page = () => {
                   >
                     <AccordionTrigger
                       className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        oneSelected == true
+                        activeAccordion == 33
                           ? "pc_id_courses_bottom uf_course se_course"
                           : ""
                       } ${oneCompleted ? "uf_course se_course" : ""}`}
                     >
                       <div className="flex items-center">
-                        <SlBadge className="text-3xl" /> STEP 35: Full View of
+                        <SlBadge className="text-3xl" /> STEP 33: Full View of
                         FINAL Assembly of TRAFFIC LIGHT
                       </div>
                     </AccordionTrigger>
                     <AccordionContent
                       className={`pd_id _c uc ${
-                        oneSelected == true ? "pc_id_courses" : ""
+                        activeAccordion == 3 ? "pc_id_courses" : ""
                       } sm:pd_id gd`}
                     >
                       <div className="flex gap-2 justify-center mt-2">
@@ -2586,53 +2694,6 @@ const Page = () => {
                       </div>
                     </AccordionContent>
                   </AccordionItem>
-                  {/* <AccordionItem
-                    value="item-3"
-                    className="border border-none mt-4"
-                    onClick={() => {
-                      oneSetSelected(false);
-                      twoSetSelected(false);
-                      threeSetSelected(!threeSelected);
-                      fourSetSelected(false);
-                    }}
-                  >
-                    <AccordionTrigger
-                      className={`pd_id _c uc pc_id hover:uf hover:se ${
-                        threeSelected == true
-                          ? "pc_id_courses_bottom uf_course se_course"
-                          : ""
-                      }`}
-                    >
-                      <div className="flex items-center">
-                        <SlBadge className="text-3xl" />
-                        Which level of the kids do you accept?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent
-                      className={`pd_id _c uc ${
-                        threeSelected == true ? "pc_id_courses" : ""
-                      } sm:pd_id gd`}
-                    >
-                      <div>
-                        <strong>KEFL</strong> is primarily focused on the kids
-                        that are in the age of 3 to 14 years old. Most of the
-                        time those kids are pursuing their primary level and
-                        O&apos;Level section of their normal education.
-                      </div>
-                      <div className="m-2 flex justify-end">
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger className="border border-black px-3 rounded-full font-semibold">
-                              To Do
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>Mark this step as completed</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem> */}
                 </Accordion>
               </div>
             </div>
