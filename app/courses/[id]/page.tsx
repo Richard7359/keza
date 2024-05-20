@@ -2693,7 +2693,7 @@ const Page = () => {
                       </div>
                       <div className="m-2 flex justify-end">
                         <TooltipProvider>
-                          {done.includes(25) ? (
+                          {done.includes(33) ? (
                             <Tooltip>
                               <TooltipTrigger
                                 className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
