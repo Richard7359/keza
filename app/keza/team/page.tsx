@@ -1,4 +1,4 @@
-import Navigation from "../components/Navigation_bar/Navigation";
+import Navigation from "../../components/Navigation_bar/Navigation";
 import Image from "next/image";
 import Antoine from "../images/Antoine-MUTSINZI.png";
 import Emile from "../images/MUKIZA-Emile.png";
@@ -16,9 +16,9 @@ import Dei from "../images/dei_image.jpg";
 import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import Link from "next/link";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 
-import { TeamDialog } from "../components/team/Dialog";
+import { TeamDialog } from "../../components/team/Dialog";
 
 export default function Team() {
   const staff = [
