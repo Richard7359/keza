@@ -39,9 +39,9 @@ const LeftImageService = ({ service }: ServiceProps) => {
               <Image
                 src={service.image}
                 alt="Discovery Process"
-                className="w-full h-full object-cover rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg"
+                className="w-full h-full object-cover rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg border border-custom-gray"
               />
-              <div className="absolute inset-0 bg-black opacity-15 rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg"></div>
+              {/* <div className="absolute inset-0 bg-black opacity-15 rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg"></div> */}
             </div>
             <div className="md:w-1/2 md:h-[427px]">
               <div className="p-8">

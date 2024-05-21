@@ -41,9 +41,9 @@ const RightImageService = ({ service }: ServiceProps) => {
               <Image
                 src={service.image}
                 alt="Discovery Process"
-                className="w-full h-full object-cover rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg"
+                className="w-full h-full object-cover rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg border border-custom-gray"
               />
-              <div className="absolute inset-0 bg-black opacity-15 rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg"></div>
+              {/* <div className="absolute inset-0 bg-black opacity-15 rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg"></div> */}
             </div>
           </div>
         </div>
