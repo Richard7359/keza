@@ -1,22 +1,15 @@
-// import { publicProcedure } from "@/server/trpc";
-// import { z } from "zod";
+// import {router, publicProcedure} from "../../trpc";
 
-// const Input = z.object({
-//   userId: z.string(),
-//   id: z.string(),
-// });
-
-// export const deleteAgent = publicProcedure
-//   .input(Input)
-//   .mutation(async (input) => {
-//     try {
-//       const agent = await client.deleteBankAgent({
-//         userId: input.input.userId,
-//         id: input.input.id,
-//       });
-
-//       return agent.delete_BankAgent?.returning;
-//     } catch (error: any) {
-//       throw error.message;
-//     }
+// export const exampleRouter = router({
+//     sayHello: publicProcedure.query(async () => {
+//       return { message: "Hello Everybody" };
+//     }),
 //   });
+
+import {router, publicProcedure} from "../../trpc";
+
+export const exampleRouter = router({
+    sayHello: publicProcedure.query(async () => {
+      return { message: "Hello Everybody" };
+    }),
+  });

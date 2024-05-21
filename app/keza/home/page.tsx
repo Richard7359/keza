@@ -1,3 +1,5 @@
+"use client"
+
 import Navigation from "../../components/Navigation_bar/Navigation";
 import Landing from "../../components/home/sections/landing";
 import Courses from "../../components/home/sections/courses";
@@ -9,8 +11,14 @@ import Patners from "../../components/home/sections/scroling_patners";
 import FAQ from "../../components/home/sections/FAQ";
 import Testimonial from "../../components/home/sections/Testimonial";
 import NewsLetter from "../../components/NewsLetter";
+import example from "../../hooks/useGetExampleRoute"
 
 export default function HomePage() {
+   const { data } = example();
+  // const data
+  console.log("data")
+  console.log(data)
+
   return (
     <div>
       <Navigation />
@@ -20,13 +28,6 @@ export default function HomePage() {
       <Courses />
       <Values />
       <SampleGallery />
-      {/* <div className="absolute f w vb ">
-        <div className="ub qc uc _c dd rd.5 vd.5 ne oe we df sm:td sm:zd sm:le">
-          We&lsquo;ve worked with some great startups
-        </div>
-      </div> */}
-      {/* hidden for a moment until the real content is collected */}
-      {/* <Testimonial /> */}
       <FAQ />
       <NewsLetter />
       <Patners />

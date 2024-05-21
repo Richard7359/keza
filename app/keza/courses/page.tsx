@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Navigation from "../components/Navigation_bar/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../../components/Navigation_bar/Navigation";
+import Footer from "../../components/Footer";
 import Link from "next/link";
 import {
   Breadcrumb,
@@ -17,9 +17,9 @@ import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 import { GiBookshelf } from "react-icons/gi";
 
 
-import CourseCard from "../components/courseCard";
+import CourseCard from "../../components/courseCard";
 import Ichigo from "../images/ichigojam.jpg";
-import TrafficLight from "../images/keza-traffic-light.png";
+import TrafficLight from "../../images/keza-traffic-light.png";
 import Forklift from "../images/keza-forklift.png";
 import Car from "../images/keza-car.png";
 import DevelopmentKit from "../images/kezaz-development-kit.png";
