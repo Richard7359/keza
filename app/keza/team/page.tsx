@@ -1,24 +1,24 @@
-import Navigation from "../../components/Navigation_bar/Navigation";
+import Navigation from "@/app/components/Navigation_bar/Navigation";
 import Image from "next/image";
-import Antoine from "../images/Antoine-MUTSINZI.png";
-import Emile from "../images/MUKIZA-Emile.png";
-import Celestin from "../images/celestin_image.png";
-import Mugiraneza from "../images/Jean-Pierre-Mugiraneza.png";
-import Erneste from "../images/erneste-niyigena.png";
-import Ariela from "../images/ariela.png";
-import Clarise from "../images/clarisse.jpg";
-import Raban from "../images/rabanImage.jpg";
-import Carine from "../images/carine.jpg";
-import Thiery from "../images/Thierry.png";
-import Felix from "../images/felix.jpg";
-import Dei from "../images/dei_image.jpg";
+import Antoine from "../../images/Antoine-MUTSINZI.png";
+import Emile from "../../images/MUKIZA-Emile.png";
+import Celestin from "../../images/celestin_image.png";
+import Mugiraneza from "../../images/Jean-Pierre-Mugiraneza.png";
+import Erneste from "../../images/erneste-niyigena.png";
+import Ariela from "../../images/ariela.png";
+import Clarise from "../../images/clarisse.jpg";
+import Raban from "../../images/rabanImage.jpg";
+import Carine from "../../images/carine.jpg";
+import Thiery from "../../images/Thierry.png";
+import Felix from "../../images/felix.jpg";
+import Dei from "../../images/dei_image.jpg";
 
 import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import Link from "next/link";
-import Footer from "../../components/Footer";
+import Footer from "@/app/components/Footer";
 
-import { TeamDialog } from "../../components/team/Dialog";
+import { TeamDialog } from "@/app/components/team/Dialog";
 
 export default function Team() {
   const staff = [
