@@ -125,7 +125,7 @@ const Page = () => {
           <Image
             src={final_traffic_light}
             alt="KEFL Logo image"
-            className="w-[490px] h-[300px] cursor-pointer rounded-[5px] border-custom"
+            className="w-[80%] sm:w-[490px] h-[300px] cursor-pointer rounded-[5px] border-custom"
           />
         </div>
         <div className="flex justify-center mt-4">
