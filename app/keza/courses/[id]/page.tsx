@@ -129,7 +129,7 @@ const Page = () => {
           />
         </div>
         <div className="flex justify-center mt-4">
-          <div className="w-[40%]">
+          <div className="w-[80%] sm:w-[50%]">
             <ViewMaterials />
             <div className="mt-4">
               <div className="flex justify-center">
