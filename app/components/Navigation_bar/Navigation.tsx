@@ -19,8 +19,8 @@ export default function Navigation() {
     <nav className="bg-deepSkyBlue dark:bg-gray-900 ">
     {/* <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 "> */}
       <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
-        <a href="/keza//" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Link href="/keza//" legacyBehavior passHref>
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link href="/" legacyBehavior passHref>
             <Image
               src={Keza_logo}
               alt="KEFL Logo image"
