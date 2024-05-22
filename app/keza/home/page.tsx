@@ -18,6 +18,7 @@ export default function HomePage() {
   // const data
   console.log("data")
   console.log(data)
+  console.log(data)
 
   return (
     <div>
