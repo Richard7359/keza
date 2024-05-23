@@ -15,7 +15,7 @@ export default function Navigation() {
   const [active, setActive] = useState(true);
   return (
     <div className="bg-yellow-300 z-50">
-    <div className="py-2 flex justify-center items-center text-3xl z-50"><MdOutlineNotificationsActive /><p className="text-sm font-mono">This is the dummy testing anouncement, find the application details <strong className="font-bold">here</strong></p></div>
+    <div className="py-2 flex justify-center items-center text-3xl z-50"><MdOutlineNotificationsActive /><p className="text-sm font-mono">KEFL is announcing a job vacancy for the position of a Robotics trainer. For more details, click <strong className="font-bold cursor-pointer">here</strong></p></div>
     <nav className="bg-deepSkyBlue dark:bg-gray-900 ">
     {/* <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 "> */}
       <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
