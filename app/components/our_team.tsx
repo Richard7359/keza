@@ -417,7 +417,7 @@ const OurTeam = () => {
         </div>
       </div>
       <div className="flex justify-center mb-4">
-        <Link href="/team" legacyBehavior passHref>
+        <Link href="/keza/team" legacyBehavior passHref>
           <button className="cssbuttons-io-button bg-deepSkyBlue">
             View full profile
             <div className="icon">
