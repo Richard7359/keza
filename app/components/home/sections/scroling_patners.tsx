@@ -51,7 +51,7 @@ export default function Patners() {
 
   return (
     <section className="mt-4 p-2 flex justify-center">
-      <div className="w-[50%] mt-4 p-2">
+      <div className="w-[99%] sm:w-[50%] mt-4 p-2">
         <div className="flex flex-col gap-4 items-center text-center my-10 md:mt-20 md:mb-24 md:p-0">
           <h2 className="font-extrabold text-3xl md:text-5xl">Our partners</h2>
           <p className="mt-1 text-paragraph text-center max-w-xl">

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Navigation from "../../components/Navigation_bar/Navigation";
 import Landing from "../../components/home/sections/landing";
@@ -11,18 +11,18 @@ import Patners from "../../components/home/sections/scroling_patners";
 import FAQ from "../../components/home/sections/FAQ";
 import Testimonial from "../../components/home/sections/Testimonial";
 import NewsLetter from "../../components/NewsLetter";
-import example from "../../hooks/useGetExampleRoute"
+import example from "../../hooks/useGetExampleRoute";
 
 export default function HomePage() {
-   const { data } = example();
+  const { data } = example();
   // const data
-  console.log("data")
-  console.log(data)
-  console.log(data)
+  console.log("data");
+  console.log(data);
+  console.log(data);
 
   return (
-    <div>
-      <Navigation />
+    <div className="bg-green w-[100%] p-0 m-0">
+      {/* <Navigation />
       <div className="bg-[#838b94] font-montserrat">
         <Landing />
       </div>
@@ -31,9 +31,9 @@ export default function HomePage() {
       <SampleGallery />
       <FAQ />
       <NewsLetter />
-      <Patners />
+      <Patners /> */}
       <Ourteam />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Script from "next/script";
 import Image from "next/image";
-import News_Letter from "../images/news-letter-img.svg"
+import News_Letter from "../images/news-letter-img.svg";
 import { SlEnvolopeLetter } from "react-icons/sl";
 
 const NewsLetter = () => {
@@ -21,14 +21,18 @@ const NewsLetter = () => {
             thec world of children, and upcomings of KEFL
           </p>
           <form className="">
-            <input
-              type="email"
-              placeholder="Type your email address here"
-              className="w-full p-3 rounded-xl border-none outline-none focus:border focus:border-darkGrey"
-            />
-            <button className="w-full py-3 bg-darkGrey hover:bg-black text-white mt-5 rounded-full">
-              Send
-            </button>
+            <div className="flex justify-center">
+              <input
+                type="email"
+                placeholder="Type your email address here"
+                className="w-[95%] sm:w-full p-3 rounded-xl border-none outline-none focus:border focus:border-darkGrey"
+              />
+            </div>
+            <div className="flex justify-center">
+              <button className="w-[95%] sm:w-full py-3 bg-darkGrey hover:bg-black text-white mt-5 rounded-full">
+                Send
+              </button>
+            </div>
           </form>
         </div>
         <div className="py-10 w-full flex justify-center">

@@ -56,7 +56,8 @@ const OurTeam = () => {
               to assist you!
             </p>
           </header>
-          <div className="flex flex-wrap flex-row -mx-4 justify-center">
+          {/* <div className="bg-zinc-700"> */}
+          <div className="flex flex-wrap flex-row  justify-center">
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               <div
                 className="relative overflow-hidden bg-white dark:bg-gray-800 mb-2 hover-grayscale-0 wow fadeInUp visible_divstyle"
@@ -303,10 +304,8 @@ const OurTeam = () => {
                   </div>
                 </div>
               </div>
-              {/* <!-- end team block --> */}
             </div>
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
-              {/* <!-- team block --> */}
               <div
                 className="relative overflow-hidden bg-white dark:bg-gray-800 mb-2 hover-grayscale-0 wow fadeInUp another"
                 data-wow-duration="1s"
