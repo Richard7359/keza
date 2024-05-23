@@ -63,11 +63,11 @@ export default function Patners() {
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
             {partners.map((partner, index) => (
               <li key={index} className="hover-container relative group">
-                <div className="w-[140px] h-[80px] rounded-md overflow-hidden">
+                <div className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.alt}
-                    className="w-[140px] h-[80px] rounded-md"
+                    className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md"
                   />
                   <div className="">
                     <div className="overlay">
@@ -94,11 +94,11 @@ export default function Patners() {
             ))}
             {partners.map((partner, index) => (
               <li key={index} className="hover-container relative group">
-                <div className="w-[140px] h-[80px] rounded-md overflow-hidden">
+                <div className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.alt}
-                    className="w-[140px] h-[80px] rounded-md"
+                    className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md"
                   />
                   <div className="">
                     <div className="overlay">
@@ -125,11 +125,11 @@ export default function Patners() {
             ))}
             {partners.map((partner, index) => (
               <li key={index} className="hover-container relative group">
-                <div className="w-[140px] h-[80px] rounded-md overflow-hidden">
+                <div className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.alt}
-                    className="w-[140px] h-[80px] rounded-md"
+                    className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md"
                   />
                   <div className="">
                     <div className="overlay">
@@ -156,11 +156,11 @@ export default function Patners() {
             ))}
             {partners.map((partner, index) => (
               <li key={index} className="hover-container relative group">
-                <div className="w-[140px] h-[80px] rounded-md overflow-hidden">
+                <div className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.alt}
-                    className="w-[140px] h-[80px] rounded-md"
+                    className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md"
                   />
                   <div className="">
                     <div className="overlay">
@@ -187,11 +187,11 @@ export default function Patners() {
             ))}
             {partners.map((partner, index) => (
               <li key={index} className="hover-container relative group">
-                <div className="w-[140px] h-[80px] rounded-md overflow-hidden">
+                <div className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.alt}
-                    className="w-[140px] h-[80px] rounded-md"
+                    className="w-[90px] h-[60px] sm:w-[140px] sm:h-[80px] rounded-md"
                   />
                   <div className="">
                     <div className="overlay">

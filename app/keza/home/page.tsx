@@ -21,8 +21,8 @@ export default function HomePage() {
   console.log(data);
 
   return (
-    <div className="bg-green w-[100%] p-0 m-0">
-      {/* <Navigation />
+    <div className="w-[100%] p-0 m-0">
+      <Navigation />
       <div className="bg-[#838b94] font-montserrat">
         <Landing />
       </div>
@@ -31,9 +31,9 @@ export default function HomePage() {
       <SampleGallery />
       <FAQ />
       <NewsLetter />
-      <Patners /> */}
+      <Patners />
       <Ourteam />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -56,7 +56,6 @@ const OurTeam = () => {
               to assist you!
             </p>
           </header>
-          {/* <div className="bg-zinc-700"> */}
           <div className="flex flex-wrap flex-row  justify-center">
             <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               <div
