@@ -4,6 +4,7 @@ import "./globals.css";
 import "./css/course.css";
 import "./css/faq.css";
 import "./css/testimonial.css";
+import "./css/newDashboard.css";
 
 import Provider from "./_trpc/provider";
 
