@@ -80,6 +80,7 @@ const config: Config = {
         level4: '#006c67',
         darkGrey: "#222222",
         black: "#000000",
+        red: "#FF0000",
         paragraph: "#4b587c",
         dashboardText: "#2c384e",
         dashboardTextHover: "#4154f1",
