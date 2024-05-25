@@ -7,7 +7,7 @@ import Button from "../form/Button";
 import { TbPlayerTrackNext } from "react-icons/tb";
 import { useState } from "react";
 import Complexity from "./Complexity";
-import Combobox from "./ComboBox";
+// import Combobox from "./ComboBox";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -49,9 +49,9 @@ function BasicCourseInfo() {
           {...register("title")}
         />
       </div>
-      <div>
+      {/* <div>
         <Combobox />
-      </div>
+      </div> */}
       <div className="mt-2">
         <label htmlFor="description" className="text-sm font-medium">
           Complexity
