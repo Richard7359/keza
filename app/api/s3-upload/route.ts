@@ -14,7 +14,7 @@ const s3Client = new S3Client({
     console.log(fileName);
     const params = {
         Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME as string,
-        Key: `${fileName}-${new Date().getTime()}`,
+        Key: `courses/${fileName}`,
         Body: fileBuffer,
         ContentType: "image/jpeg",
     }
