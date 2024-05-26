@@ -7,7 +7,8 @@ import Button from "../form/Button";
 import { TbPlayerTrackNext } from "react-icons/tb";
 import { useState } from "react";
 import Complexity from "./Complexity";
-// import Combobox from "./ComboBox";
+import Combobox from "./ComboBox";
+import UploadImage from "./UploadImage";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -36,31 +37,39 @@ function BasicCourseInfo() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-2/3 ">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] ">
       <div className="flex flex-col gap-2 ">
-        <label htmlFor="title" className="text-sm font-medium">
+        <label htmlFor="title" className="text-sm font-semibold">
           Title
         </label>
         <input
           type="text"
           id="title"
           placeholder="Enter the course title"
-          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none"
+          className="w-full rounded-md input_text input_bg border border-input bg-background px-3 py-2 text-sm outline-none"
           {...register("title")}
         />
       </div>
-      {/* <div>
-        <Combobox />
-      </div> */}
-      <div className="mt-2">
-        <label htmlFor="description" className="text-sm font-medium">
-          Complexity
-        </label>
-        <div className="mt-2">
-          <Complexity complexity={1} />
-          <Complexity complexity={2} />
-          <Complexity complexity={3} />
+      <div className="mt-2 grid grid-cols-2">
+        <div>
+          <label htmlFor="description" className="text-sm font-semibold">
+            Course Level
+          </label>
+          <Combobox />
         </div>
+        <div>
+          <label htmlFor="description" className="text-sm font-semibold">
+            Complexity
+          </label>
+          <div className="mt-2">
+            <Complexity complexity={1} />
+            <Complexity complexity={2} />
+            <Complexity complexity={3} />
+          </div>
+        </div>
+      </div>
+      <div>
+        <UploadImage />
       </div>
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-end mt-2">

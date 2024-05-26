@@ -1,93 +1,87 @@
-// "use client"
+import React, { useState } from "react";
 
-// import * as React from "react"
-// import { Check, ChevronsUpDown } from "lucide-react"
+// import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "@tabler/icons";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
-// import { cn } from "@/lib/utils"
-// import { Button } from "@/components/ui/button"
-// import {
-//   Command,
-//   CommandEmpty,
-//   CommandGroup,
-//   CommandInput,
-//   CommandItem,
-// } from "@/components/ui/command"
-// import {
-//   Popover,
-//   PopoverContent,
-//   PopoverTrigger,
-// } from "@/components/ui/popover"
+import Button from "../form/Button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { BsCheckAll } from "react-icons/bs";
 
-// const frameworks = [
-//   {
-//     value: "next.js",
-//     label: "Next.js",
-//   },
-//   {
-//     value: "sveltekit",
-//     label: "SvelteKit",
-//   },
-//   {
-//     value: "nuxt.js",
-//     label: "Nuxt.js",
-//   },
-//   {
-//     value: "remix",
-//     label: "Remix",
-//   },
-//   {
-//     value: "astro",
-//     label: "Astro",
-//   },
-// ]
+// import { vitalsRange } from "@store/rangeStore";
 
-// function Combobox() {
-//   const [open, setOpen] = React.useState(false)
-//   const [value, setValue] = React.useState("")
+const Combobox = () => {
+  const [level, setLevel] = useState("");
+  return (
+    <div className="mt-2 input_text">
+      {" "}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <button className="flex items-center input_bg justify-between w-60 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none">
+            {level == "" ? (
+              <span>Select the course level</span>
+            ) : (
+              <span>{level}</span>
+            )}
+            <MdOutlineKeyboardArrowDown className="ml-2 h-4 w-4" />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="w-60">
+          <DropdownMenuItem
+            className="flex items-center justify-between"
+            onClick={() => {
+              setLevel("Beginner");
+            }}
+          >
+            Beginner
+            {level == "Beginner" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            )}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="flex items-center justify-between"
+            onClick={() => {
+              setLevel("Middle");
+            }}
+          >
+            Middle
+            {level == "Middle" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            )}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="flex items-center justify-between"
+            onClick={() => {
+              setLevel("Pre-advanced");
+            }}
+          >
+            Pre-advanced
+            {level == "Pre-advanced" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            )}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="flex items-center justify-between"
+            onClick={() => {
+              setLevel("advanced");
+            }}
+          >
+            advanced
+            {level == "advanced" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            )}
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+};
 
-//   return (
-//     <Popover open={open} onOpenChange={setOpen}>
-//       <PopoverTrigger asChild>
-//         <Button
-//           variant="outline"
-//           role="combobox"
-//           aria-expanded={open}
-//           className="w-[200px] justify-between"
-//         >
-//           {value
-//             ? frameworks.find((framework) => framework.value === value)?.label
-//             : "Select framework..."}
-//           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-//         </Button>
-//       </PopoverTrigger>
-//       <PopoverContent className="w-[200px] p-0">
-//         <Command>
-//           <CommandInput placeholder="Search framework..." />
-//           <CommandEmpty>No framework found.</CommandEmpty>
-//           <CommandGroup>
-//             {frameworks.map((framework) => (
-//               <CommandItem
-//                 key={framework.value}
-//                 value={framework.value}
-//                 onSelect={(currentValue) => {
-//                   setValue(currentValue === value ? "" : currentValue)
-//                   setOpen(false)
-//                 }}
-//               >
-//                 <Check
-//                   className={cn(
-//                     "mr-2 h-4 w-4",
-//                     value === framework.value ? "opacity-100" : "opacity-0"
-//                   )}
-//                 />
-//                 {framework.label}
-//               </CommandItem>
-//             ))}
-//           </CommandGroup>
-//         </Command>
-//       </PopoverContent>
-//     </Popover>
-//   )
-// }
-
-// export default Combobox
+export default Combobox;
