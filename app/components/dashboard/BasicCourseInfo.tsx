@@ -87,7 +87,7 @@ function BasicCourseInfo() {
         </div>
       </div>
       <div>
-        <UploadImage file={file} setFile={setFile} />
+       <UploadImage file={file} setFile={setFile} />
       </div>
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-end mt-2">
