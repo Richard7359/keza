@@ -44,8 +44,8 @@ function BasicCourseInfo() {
         method: "POST",
         body: formData,
       });
-
       const data = await response.json();
+      if(data) setFile(null);
       console.log(data);
     } catch (error) {
       console.log(error);
