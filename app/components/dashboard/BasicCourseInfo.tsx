@@ -27,10 +27,28 @@ function BasicCourseInfo() {
   });
 
   const [error, setError] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null);
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    if (data.title === "") {
-      setError("Title is required");
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    // if (data.title === "") {
+    //   setError("Title is required");
+    // }
+    if (!file) {
+      return setError("File is required");
+    }
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("folder", "courses");
+    try {
+      const response = await fetch("/api/s3-upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
     }
     setError("");
     console.log(data);
@@ -69,7 +87,7 @@ function BasicCourseInfo() {
         </div>
       </div>
       <div>
-        <UploadImage />
+        <UploadImage file={file} setFile={setFile} />
       </div>
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-end mt-2">
