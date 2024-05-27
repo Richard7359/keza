@@ -17,6 +17,9 @@ import { ChangeEvent } from "react";
 import { GrCloudUpload } from "react-icons/gr";
 import { TbTrashX } from "react-icons/tb";
 
+import { motion } from "framer-motion";
+import { CourseData } from "@/app/store/courseData";
+
 const FormSchema = z.object({
   title: z.string(),
 });
@@ -36,27 +39,55 @@ function AddCourseForm() {
   const [error, setError] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const { currentStep, setCurrentStep } = step();
-  // const [currentStep, setCurrentStep] = useState<number>(0);
+  const [previousStep, setPreviousStep] = useState<number>(0);
+  const [complexity, setComplexity] = useState<number>(0);
+  const [level, setLevel] = useState("");
+  const delta = currentStep - previousStep;
+  const { course, setCourse } = CourseData();
 
   const handleNext = () => {
     if (error) return;
+    setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   };
+
   const handleBack = () => {
-    if (currentStep === 0) return console.log("You are at the first currentStep");
+    if (currentStep === 0)
+      return console.log("You are at the first currentStep");
+    setPreviousStep(currentStep);
     setCurrentStep(currentStep - 1);
   };
 
   useEffect(() => {
-    // if (file) {
-    //   setError("");
-    // }
-    // if (!file) {
-    //   return setError("File is required");
-    // }
-  }, [file]);
+    setError("");
+  }, [complexity, level, file]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log("submitting..........................");
+    console.log("these are the course data before: ", course);
+    console.log(data);
+    console.log(level);
+    console.log(complexity);
+    console.log(file);
+    if (data.title === "" || !file || level === "" || complexity === 0) {
+      return setError("All fields are required");
+    }
+    if (currentStep == 0) {
+      setCourse({
+        ...course,
+        basicInfo: {
+          title: data.title,
+          level: level,
+          complexity: complexity,
+          uploadedBy: "Admin",
+          attachment: file.name,
+        },
+      });
+    } else {
+    }
+    console.log("these are the course data after:", course);
+    handleNext();
+
     // if (data.title === "") {
     //   setError("Title is required");
     // }
@@ -92,9 +123,14 @@ function AddCourseForm() {
           <p className="text-sm font-semibold">Step : {currentStep}</p>
         )}
       </div>
-
-      {currentStep == 0 ? (
-        <div>
+      {currentStep == 0 && (
+        <motion.div
+          initial={{ x: 200 >= 0 ? "50%" : "-50%", opacity: 0 }}
+          // delta was used to determine the direction but it's missbehaving for now will used later
+          // initial={{ x: delte >= 0 ? "50%" : "-50%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           <div className="flex flex-col gap-2 ">
             <div></div>
             <label htmlFor="title" className="text-sm font-semibold">
@@ -113,25 +149,42 @@ function AddCourseForm() {
               <label htmlFor="description" className="text-sm font-semibold">
                 Course Level
               </label>
-              <Combobox />
+              <Combobox level={level} setLevel={setLevel} />
             </div>
             <div>
               <label htmlFor="description" className="text-sm font-semibold">
                 Complexity
               </label>
               <div className="mt-2">
-                <Complexity complexity={1} />
-                <Complexity complexity={2} />
-                <Complexity complexity={3} />
+                <Complexity
+                  complexity={1}
+                  onClick={() => setComplexity(1)}
+                  className={complexity == 1 ? "border border-green" : ""}
+                />
+                <Complexity
+                  complexity={2}
+                  onClick={() => setComplexity(2)}
+                  className={complexity == 2 ? "border medium-border" : ""}
+                />
+                <Complexity
+                  complexity={3}
+                  onClick={() => setComplexity(3)}
+                  className={complexity == 3 ? "border border-level4" : ""}
+                />
               </div>
             </div>
           </div>
           <div>
             <UploadImage file={file} setFile={setFile} />
           </div>
-        </div>
-      ) : (
-        <div>
+        </motion.div>
+      )}{" "}
+      {currentStep > 0 && (
+        <motion.div
+          initial={{ x: 200 >= 0 ? "50%" : "-50%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           <div className="flex">
             <div className="w-[75%]">
               <label htmlFor="title" className="text-sm font-semibold">
@@ -211,17 +264,22 @@ function AddCourseForm() {
               <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"></div> */}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-between mt-2">
-        <Button type="submit" className="" onClick={() => handleBack()}>
-          <p className="flex items-center gap-2 ">
-            <IoPlayBackOutline />
-            <p>back</p>
-          </p>
-        </Button>
-        <Button type="submit" className="" onClick={() => handleNext()}>
+        <div>
+          {currentStep > 0 && (
+            <Button className="" onClick={() => handleBack()}>
+              <p className="flex items-center gap-2 ">
+                <IoPlayBackOutline />
+                <p>back</p>
+              </p>
+            </Button>
+          )}
+        </div>
+        <Button type="submit" className="">
+          {/* <Button className="" onClick={() => handleNext()}> */}
           <p className="flex items-center gap-2 ">
             <p>Save-Next</p>
             <TbPlayerTrackNext />

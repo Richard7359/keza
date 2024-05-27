@@ -17,8 +17,7 @@ import { BsCheckAll } from "react-icons/bs";
 
 // import { vitalsRange } from "@store/rangeStore";
 
-const Combobox = () => {
-  const [level, setLevel] = useState("");
+const Combobox = ({level, setLevel} : {level : string, setLevel: (value : string) => void}) => {
   return (
     <div className="mt-2 input_text">
       {" "}

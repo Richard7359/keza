@@ -15,19 +15,19 @@ export interface courseDataTypes {
     basicInfo: {
         title: string;
         level: string;
-        complexity: string;
+        complexity: number;
         uploadedBy: string;
         attachment: string;
     },
     steps: stepDataTypes[];
 }
 
-export const step = create<courseType>((set) => ({
+export const CourseData = create<courseType>((set) => ({
     course: {
         basicInfo: {
             title: "",
             level: "",
-            complexity: "",
+            complexity: 0,
             uploadedBy: "",
             attachment: "",
         },

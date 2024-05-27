@@ -104,6 +104,9 @@ dependencies:
   flowbite:
     specifier: ^2.3.0
     version: 2.3.0
+  framer-motion:
+    specifier: ^11.2.6
+    version: 11.2.6(react-dom@18.2.0)(react@18.2.0)
   lucide-react:
     specifier: ^0.367.0
     version: 0.367.0(react@18.2.0)
@@ -5762,6 +5765,25 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       map-cache: 0.2.2
+    dev: false
+
+  /framer-motion@11.2.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-XUrjjBt57e5YoHQtjwc3eNchFBuHvIgN/cS8SC4oIaAn2J/0+bLanUxXizidJKZVeHJam/JrmMnPRjYMglVn5g==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
     dev: false
 
   /from2@2.3.0:

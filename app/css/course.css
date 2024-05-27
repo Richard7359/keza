@@ -27,6 +27,11 @@
   color: rgb(255 159 26 / var(--tw-text-opacity));
 }
 
+.medium-border {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 159 26 / var(--tw-border-opacity));
+}
+
 .medium-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(255 239 217 / var(--tw-bg-opacity));

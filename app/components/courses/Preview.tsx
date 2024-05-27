@@ -39,6 +39,7 @@ import { FaPlug } from "react-icons/fa";
 import { FaVenus } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import { GoDotFill } from "react-icons/go";
+import { CourseData } from "@/app/store/courseData";
 
 interface IconsMap {
   [key: string]: React.ComponentType<any>; // Adjust the generic parameter as needed
@@ -48,6 +49,7 @@ const Preview = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
+  const { course , setCourse} = CourseData();
   
 
   // const iconsMap: IconsMap = {
@@ -100,8 +102,7 @@ const Preview = () => {
               }}
             >
               <div className="flex items-center">
-                <FaMonument className="text-3xl" /> STEP {currentStep}:
-                Taking S1 and S2
+                <FaMonument className="text-3xl" /> {course.basicInfo.title == "" ? "Add the course title" : `STEP ${currentStep}:${course.basicInfo.title}`}
               </div>
             </AccordionTrigger>
             <AccordionContent

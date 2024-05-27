@@ -2,16 +2,19 @@ import React from "react";
 import { GoDotFill } from "react-icons/go";
 import { cn } from "@/lib/utils";
 
-const Complexity = ({
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  complexity: number;
+  className?: string;
+}
+
+const Complexity: React.FC<ButtonProps>  = ({
   complexity,
   className,
   ...props
-}: {
-  complexity: number;
-  className?: string;
 }) => {
   return (
     <button
+      {...props}
       className={cn(
         `inline-flex border border-custom items-center mr-2 px-2 rounded-full  ${
           complexity == 1
@@ -24,7 +27,6 @@ const Complexity = ({
         }`,
         className
       )}
-      {...props}
     >
       <GoDotFill />
       <p className="text-[12px] font-bold">
