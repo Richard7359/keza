@@ -40,6 +40,8 @@ import { FaVenus } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import { GoDotFill } from "react-icons/go";
 import { CourseData } from "@/app/store/courseData";
+import { BsFillImageFill } from "react-icons/bs";
+import { BsImage } from "react-icons/bs";
 
 interface IconsMap {
   [key: string]: React.ComponentType<any>; // Adjust the generic parameter as needed
@@ -48,12 +50,28 @@ interface IconsMap {
 const Preview = ({
   currentTitle,
   setCurrentTitle,
+  file1,
+  setFile1,
+  file2,
+  setFile2,
+  file3,
+  setFile3,
+  file4,
+  setFile4,
 }: {
   currentTitle: string;
   setCurrentTitle: (value: string) => void;
+  file1: File | null;
+  setFile1: (value: File | null) => void;
+  file2: File | null;
+  setFile2: (value: File | null) => void;
+  file3: File | null;
+  setFile3: (value: File | null) => void;
+  file4: File | null;
+  setFile4: (value: File | null) => void;
 }) => {
-  const [activeAccordion, setActiveAccordion] = useState(0);
-  const [done, setDone] = useState<number[]>([]);
+  const [activeAccordion, setActiveAccordion] = useState(1);
+  const [done, setDone] = useState<number[]>([1]);
   const { currentStep } = step();
   const { course, setCourse } = CourseData();
 
@@ -91,8 +109,8 @@ const Preview = ({
           template, next and save, submit form as final form ..............
         </div>
       ) : (
-        <Accordion type="single" collapsible className="w-[100%] border-none">
-          <AccordionItem value=" 1" className="border border-none">
+        <Accordion type="single" defaultValue="1" collapsible className="w-[100%] border-none">
+          <AccordionItem value="1" className="border border-none" >
             <AccordionTrigger
               className={`pd_id _c uc pc_id hover:uf hover:se ${
                 activeAccordion == 1
@@ -119,16 +137,28 @@ const Preview = ({
               } sm:pd_id gd`}
             >
               <div className="flex gap-2">
-                <Image
-                  src={s1}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                />
-                <Image
-                  src={s2}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                />
+                {file1 ? (
+                  <Image
+                    src={s1}
+                    alt="KEFL Logo image"
+                    className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                  />
+                ) : (
+                  <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
+                    <BsFillImageFill className="h-full w-full" />
+                  </div>
+                )}
+                {file2 ? (
+                  <Image
+                    src={s2}
+                    alt="KEFL Logo image"
+                    className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                  />
+                ) : (
+                  <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
+                    <BsImage className="h-full w-full" />
+                  </div>
+                )}
               </div>
               <div className="m-2 flex justify-end">
                 <TooltipProvider>

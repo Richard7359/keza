@@ -25,7 +25,7 @@ const FormSchema = z.object({
   course_title: z.string(),
 });
 
-function AddCourseForm({ currentTitle, setCurrentTitle} : {currentTitle: string, setCurrentTitle: (value: string) => void}){
+function AddCourseForm({ currentTitle, setCurrentTitle , file1, setFile1, file2, setFile2, file3, setFile3, file4, setFile4} : {currentTitle: string, setCurrentTitle: (value: string) => void, file1 : File | null, setFile1: (value: File | null) => void, file2 : File | null, setFile2: (value: File | null) => void, file3 : File | null, setFile3: (value: File | null) => void , file4 : File | null, setFile4: (value: File | null) => void}){
   const {
     handleSubmit,
     register,
