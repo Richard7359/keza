@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "@/app/components/Navigation_bar/Navigation";
 import Footer from "@/app/components/Footer";
-import image from "../../../images/ichigojam.jpg";
 import Image from "next/image";
 import ViewMaterials from "@/app/components/courses/Dialog";
 import {
@@ -12,9 +11,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// level icons
-import { TbArrowBadgeDown } from "react-icons/tb";
-import { GiPoliceBadge } from "react-icons/gi";
 import { SiOpslevel } from "react-icons/si";
 import { GiArmorDowngrade } from "react-icons/gi";
 import { AiFillApi } from "react-icons/ai";
@@ -33,15 +29,15 @@ import { FaMonument } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
 import { FaPlug } from "react-icons/fa";
 import { FaVenus } from "react-icons/fa";
-
 import { SlBadge } from "react-icons/sl";
+import { GoDotFill } from "react-icons/go";
+
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GoDotFill } from "react-icons/go";
 import final_traffic_light from "../../../images/TrafficLight/traffic_light.jpeg";
 import s1 from "../../../images/TrafficLight/s1.jpeg";
 import s2 from "../../../images/TrafficLight/s2.jpeg";

@@ -16,7 +16,7 @@ const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
   return (
     <div className="mt-2 ">
       {!file ? (
-        <label className="opacity-1  text-xs font-bold text-hc-gray-800 hover:cursor-pointer dark:text-gray-300">
+        <label className="opacity-1  text-xs font-bold hover:cursor-pointer">
           Attach file
           <input
             type="file"
@@ -24,23 +24,22 @@ const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
             hidden={true}
             onChange={handleFileChange}
           />
-          <div className="mt-2 flex h-52 flex-col items-center justify-center rounded-xl border border-dashed border-hc-blue-300 bg-hc-blue-50 py-8 input_bg dark:border-gray-500 dark:bg-hc-darkgray-100">
-            <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white dark:bg-hc-darkgray-200">
+          <div className="mt-2 flex h-52 flex-col items-center justify-center rounded-xl border border-dashed py-8 input_bg">
+            <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
               <GrCloudUpload
                 size={34}
-                className="text-primary-500"
-                //   stroke={1.5}
+                className="text-primary-500 text-deepSkyBlue"
                 strokeLinejoin="miter"
               />
             </span>
-            <p className="mt-2 text-xs text-hc-gray-800 dark:text-gray-400">
+            <p className="mt-2 text-xs">
               Drop your files here or
-              <span className="cursor-pointer text-primary text-deepSkyBlue underline dark:text-gray-300">
+              <span className="cursor-pointer text-deepSkyBlue underline">
                 {" "}
                 browse
               </span>
             </p>
-            <p className="mt-2 text-xsm text_gray-400 dark:text-gray-300">
+            <p className="mt-2 text-xsm text_gray-400">
               Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
             </p>
           </div>
@@ -51,7 +50,7 @@ const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
             Selected file
           </label>
           <div className="flex items-center gap-7">
-            <span className="flex cursor-pointer text-sky-600 font-bold text-sm text-primary-500 dark:text-primary-200">
+            <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
               {file?.name}
             </span>
             <button
@@ -61,7 +60,7 @@ const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
             >
               <TbTrashX
                 size={20}
-                className="text-primary text-red dark:text-gray-300"
+                className="text-primary text-red"
                 strokeLinejoin="miter"
               />
             </button>
