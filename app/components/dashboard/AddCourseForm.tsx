@@ -22,17 +22,20 @@ import { CourseData } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
+  course_title: z.string(),
 });
 
-function AddCourseForm() {
+function AddCourseForm({ currentTitle, setCurrentTitle} : {currentTitle: string, setCurrentTitle: (value: string) => void}){
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors },
   } = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       title: "",
+      course_title: ""
     },
   });
 
@@ -44,6 +47,12 @@ function AddCourseForm() {
   const [level, setLevel] = useState("");
   const delta = currentStep - previousStep;
   const { course, setCourse } = CourseData();
+  const course_title_Title = watch("course_title");
+  const watchedTitle = watch("title");
+
+  useEffect(() => {
+    setCurrentTitle(course_title_Title);
+  }, [course_title_Title]);
 
   const handleNext = () => {
     if (error) return;
@@ -60,7 +69,7 @@ function AddCourseForm() {
 
   useEffect(() => {
     setError("");
-  }, [complexity, level, file]);
+  }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log("submitting..........................");
@@ -192,10 +201,10 @@ function AddCourseForm() {
               </label>
               <input
                 type="text"
-                id="title"
+                id="course_title"
                 placeholder="Enter the course title"
                 className="w-full rounded-md input_text input_bg border border-input bg-background px-3 py-2 text-sm outline-none"
-                {...register("title")}
+                {...register("course_title")}
               />
             </div>
             <div className="w-[25%] flex items-end justify-end">

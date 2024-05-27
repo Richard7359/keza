@@ -45,12 +45,17 @@ interface IconsMap {
   [key: string]: React.ComponentType<any>; // Adjust the generic parameter as needed
 }
 
-const Preview = () => {
+const Preview = ({
+  currentTitle,
+  setCurrentTitle,
+}: {
+  currentTitle: string;
+  setCurrentTitle: (value: string) => void;
+}) => {
   const [activeAccordion, setActiveAccordion] = useState(0);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
-  const { course , setCourse} = CourseData();
-  
+  const { course, setCourse } = CourseData();
 
   // const iconsMap: IconsMap = {
   //   FaChessBishop,
@@ -102,7 +107,10 @@ const Preview = () => {
               }}
             >
               <div className="flex items-center">
-                <FaMonument className="text-3xl" /> {course.basicInfo.title == "" ? "Add the course title" : `STEP ${currentStep}:${course.basicInfo.title}`}
+                <FaMonument className="text-3xl" />{" "}
+                {currentTitle == ""
+                  ? "Add the course title"
+                  : `STEP ${currentStep} : ${currentTitle}`}
               </div>
             </AccordionTrigger>
             <AccordionContent
