@@ -48,30 +48,32 @@ const Preview = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
-  const iconsMap: IconsMap = {
-    FaChessBishop,
-    SiOpslevel,
-    GiArmorDowngrade,
-    AiFillApi,
-    BiLogoUnsplash,
-    BiPackage,
-    CgEricsson,
-    CgFigma,
-    CgPolaroid,
-    CgTally,
-    CgTrees,
-    CgTapDouble,
-    CgScreenShot,
-    CgServerless,
-    FaMonument,
-    FaPause,
-    FaPlug,
-    FaVenus,
-    SlBadge,
-    GoDotFill,
-  };
-  const iconArray = ["FaPlug"];
-  const IconComponent = iconsMap[iconArray[currentStep]];
+  
+
+  // const iconsMap: IconsMap = {
+  //   FaChessBishop,
+  //   SiOpslevel,
+  //   GiArmorDowngrade,
+  //   AiFillApi,
+  //   BiLogoUnsplash,
+  //   BiPackage,
+  //   CgEricsson,
+  //   CgFigma,
+  //   CgPolaroid,
+  //   CgTally,
+  //   CgTrees,
+  //   CgTapDouble,
+  //   CgScreenShot,
+  //   CgServerless,
+  //   FaMonument,
+  //   FaPause,
+  //   FaPlug,
+  //   FaVenus,
+  //   SlBadge,
+  //   GoDotFill,
+  // };
+  // const iconArray = ["FaPlug"];
+  // const IconComponent = iconsMap[iconArray[currentStep]];
 
   return (
     <div className="flex justify-center">
@@ -98,7 +100,7 @@ const Preview = () => {
               }}
             >
               <div className="flex items-center">
-                <IconComponent className="text-3xl" /> STEP {currentStep}:
+                <FaMonument className="text-3xl" /> STEP {currentStep}:
                 Taking S1 and S2
               </div>
             </AccordionTrigger>
