@@ -1,16 +1,4 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
-import Navigation from "@/app/components/Navigation_bar/Navigation";
-import Footer from "@/app/components/Footer";
-import Image from "next/image";
-import ViewMaterials from "@/app/components/courses/Dialog";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { SiOpslevel } from "react-icons/si";
 import { GiArmorDowngrade } from "react-icons/gi";
 import { AiFillApi } from "react-icons/ai";
@@ -31,6 +19,18 @@ import { FaPlug } from "react-icons/fa";
 import { FaVenus } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import { GoDotFill } from "react-icons/go";
+
+import React, { useEffect, useState } from "react";
+import Navigation from "@/app/components/Navigation_bar/Navigation";
+import Footer from "@/app/components/Footer";
+import Image from "next/image";
+import ViewMaterials from "@/app/components/courses/Dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import {
   Tooltip,
