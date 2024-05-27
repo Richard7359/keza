@@ -25,7 +25,29 @@ const FormSchema = z.object({
   course_title: z.string(),
 });
 
-function AddCourseForm({ currentTitle, setCurrentTitle , file1, setFile1, file2, setFile2, file3, setFile3, file4, setFile4} : {currentTitle: string, setCurrentTitle: (value: string) => void, file1 : File | null, setFile1: (value: File | null) => void, file2 : File | null, setFile2: (value: File | null) => void, file3 : File | null, setFile3: (value: File | null) => void , file4 : File | null, setFile4: (value: File | null) => void}){
+function AddCourseForm({
+  currentTitle,
+  setCurrentTitle,
+  file1,
+  setFile1,
+  file2,
+  setFile2,
+  file3,
+  setFile3,
+  file4,
+  setFile4,
+}: {
+  currentTitle: string;
+  setCurrentTitle: (value: string) => void;
+  file1: File | null;
+  setFile1: (value: File | null) => void;
+  file2: File | null;
+  setFile2: (value: File | null) => void;
+  file3: File | null;
+  setFile3: (value: File | null) => void;
+  file4: File | null;
+  setFile4: (value: File | null) => void;
+}) {
   const {
     handleSubmit,
     register,
@@ -35,7 +57,7 @@ function AddCourseForm({ currentTitle, setCurrentTitle , file1, setFile1, file2,
     resolver: zodResolver(FormSchema),
     defaultValues: {
       title: "",
-      course_title: ""
+      course_title: "",
     },
   });
 
@@ -215,62 +237,109 @@ function AddCourseForm({ currentTitle, setCurrentTitle , file1, setFile1, file2,
           </div>
           <div className="mt-3">
             <div className="flex gap-2">
-              <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
-                <input
-                  type="file"
-                  accept="image/jpeg,image/png,application/pdf,image/jpg"
-                  hidden={true}
-                  // onChange={handleFileChange}
-                />
-                <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
-                  <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
-                    <GrCloudUpload
-                      size={34}
-                      className="text-primary-500 text-deepSkyBlue"
-                      strokeLinejoin="miter"
-                    />
-                  </span>
-                  <p className="mt-2 text-xs">
-                    Drop your files here or
-                    <span className="cursor-pointer text-deepSkyBlue underline">
-                      {" "}
-                      browse
+              {!file1 ? (
+                <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,application/pdf,image/jpg"
+                    hidden={true}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      setFile1(e.target.files![0]);
+                      console.log(e.target.files![0]);
+                    }}
+                  />
+                  <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
+                    <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
+                      <GrCloudUpload
+                        size={34}
+                        className="text-primary-500 text-deepSkyBlue"
+                        strokeLinejoin="miter"
+                      />
                     </span>
-                  </p>
-                  <p className="mt-2 text-xsm text_gray-400">
-                    Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
-                  </p>
-                </div>
-              </label>
-              <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
-                <input
-                  type="file"
-                  accept="image/jpeg,image/png,application/pdf,image/jpg"
-                  hidden={true}
-                  // onChange={handleFileChange}
-                />
-                <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
-                  <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
-                    <GrCloudUpload
-                      size={34}
-                      className="text-primary-500 text-deepSkyBlue"
-                      strokeLinejoin="miter"
-                    />
-                  </span>
-                  <p className="mt-2 text-xs">
-                    Drop your files here or
-                    <span className="cursor-pointer text-deepSkyBlue underline">
-                      {" "}
-                      browse
+                    <p className="mt-2 text-xs">
+                      Drop your files here or
+                      <span className="cursor-pointer text-deepSkyBlue underline">
+                        {" "}
+                        browse
+                      </span>
+                    </p>
+                    <p className="mt-2 text-xsm text_gray-400">
+                      Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
+                    </p>
+                  </div>
+                </label>
+              ) : (
+                <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
+                  <div className="flex items-center gap-7">
+                    <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                      {file?.name}
                     </span>
-                  </p>
-                  <p className="mt-2 text-xsm text_gray-400">
-                    Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
-                  </p>
+                    <button
+                      onClick={() => setFile1(null)}
+                      className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                      type="button"
+                    >
+                      <TbTrashX
+                        size={20}
+                        className="text-primary text-red"
+                        strokeLinejoin="miter"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </label>
-              {/* <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"></div>
-              <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"></div> */}
+              )}
+
+              {!file2 ? (
+                <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,application/pdf,image/jpg"
+                    hidden={true}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      setFile2(e.target.files![0]);
+                      console.log(e.target.files![0]);
+                    }}
+                  />
+                  <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
+                    <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
+                      <GrCloudUpload
+                        size={34}
+                        className="text-primary-500 text-deepSkyBlue"
+                        strokeLinejoin="miter"
+                      />
+                    </span>
+                    <p className="mt-2 text-xs">
+                      Drop your files here or
+                      <span className="cursor-pointer text-deepSkyBlue underline">
+                        {" "}
+                        browse
+                      </span>
+                    </p>
+                    <p className="mt-2 text-xsm text_gray-400">
+                      Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
+                    </p>
+                  </div>
+                </label>
+              ) : (
+                <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
+                  <div className="flex items-center gap-7">
+                    <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                      {file?.name}
+                    </span>
+                    <button
+                      onClick={() => setFile2(null)}
+                      className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                      type="button"
+                    >
+                      <TbTrashX
+                        size={20}
+                        className="text-primary text-red"
+                        strokeLinejoin="miter"
+                      />
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

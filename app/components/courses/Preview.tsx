@@ -71,7 +71,7 @@ const Preview = ({
   setFile4: (value: File | null) => void;
 }) => {
   const [activeAccordion, setActiveAccordion] = useState(1);
-  const [done, setDone] = useState<number[]>([1]);
+  const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
   const { course, setCourse } = CourseData();
 
@@ -139,9 +139,11 @@ const Preview = ({
               <div className="flex gap-2">
                 {file1 ? (
                   <Image
-                    src={s1}
+                    src={URL.createObjectURL(file1)}
                     alt="KEFL Logo image"
                     className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                    width={500} 
+                    height={300} 
                   />
                 ) : (
                   <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
@@ -150,9 +152,11 @@ const Preview = ({
                 )}
                 {file2 ? (
                   <Image
-                    src={s2}
+                    src={URL.createObjectURL(file2)}
                     alt="KEFL Logo image"
                     className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                    width={500} 
+                    height={300}
                   />
                 ) : (
                   <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
