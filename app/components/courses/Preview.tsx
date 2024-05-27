@@ -47,12 +47,31 @@ interface IconsMap {
 const Preview = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
   const [done, setDone] = useState<number[]>([]);
-  const { currentStep, setCurrentStep } = step();
+  const { currentStep } = step();
   const iconsMap: IconsMap = {
+    FaChessBishop,
+    SiOpslevel,
+    GiArmorDowngrade,
+    AiFillApi,
+    BiLogoUnsplash,
+    BiPackage,
+    CgEricsson,
+    CgFigma,
+    CgPolaroid,
+    CgTally,
+    CgTrees,
+    CgTapDouble,
+    CgScreenShot,
+    CgServerless,
+    FaMonument,
+    FaPause,
     FaPlug,
+    FaVenus,
+    SlBadge,
+    GoDotFill,
   };
   const iconArray = ["FaPlug"];
-  const IconComponent = iconsMap[iconArray[0]];
+  const IconComponent = iconsMap[iconArray[currentStep]];
 
   return (
     <div className="flex justify-center">
