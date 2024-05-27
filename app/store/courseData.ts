@@ -1,10 +1,5 @@
 import { create } from "zustand";
 
-export interface stepState {
-  currentStep: number;
-  setCurrentStep: (value: number) => void;
-}
-
 export interface courseType {
     course: courseDataTypes;
     setCourse: (value: courseDataTypes) => void;
@@ -13,7 +8,7 @@ export interface courseType {
 export interface stepDataTypes {
     title: string;
     template: string;
-    attachment: {position: string, file: string};
+    attachment: {position: string, file: File | null};
 }
 
 export interface courseDataTypes {
