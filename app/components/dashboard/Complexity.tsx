@@ -15,6 +15,7 @@ const Complexity: React.FC<ButtonProps>  = ({
   return (
     <button
       {...props}
+      type="button"
       className={cn(
         `inline-flex border border-custom items-center mr-2 px-2 rounded-full  ${
           complexity == 1

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -74,6 +74,28 @@ const Preview = ({
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
   const { course, setCourse } = CourseData();
+  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
+  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+
+  useEffect(() => {
+    const currentStepObj = course.steps.find(step => step.step === currentStep);
+
+    if (currentStepObj) {
+      const up_left = currentStepObj.attachment.find(att => att.position === 'up_left');
+      const up_right = currentStepObj.attachment.find(att => att.position === 'up_right');
+  
+      if (up_left) {
+        setCurrentImage1(up_left.file);
+      }else{
+        setCurrentImage1(null);
+      }
+      if (up_right) {
+        setCurrentImage2(up_right.file);
+      }else{
+        setCurrentImage2(null);
+      }
+    }
+  }, [course]);
 
   // const iconsMap: IconsMap = {
   //   FaChessBishop,
@@ -137,9 +159,9 @@ const Preview = ({
               } sm:pd_id gd`}
             >
               <div className="flex gap-2">
-                {file1 ? (
+                {currentImage1 ? (
                   <Image
-                    src={URL.createObjectURL(file1)}
+                    src={URL.createObjectURL(currentImage1)}
                     alt="KEFL Logo image"
                     className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
                     width={500} 
@@ -150,9 +172,9 @@ const Preview = ({
                     <BsFillImageFill className="h-full w-full" />
                   </div>
                 )}
-                {file2 ? (
+                {currentImage2 ? (
                   <Image
-                    src={URL.createObjectURL(file2)}
+                    src={URL.createObjectURL(currentImage2)}
                     alt="KEFL Logo image"
                     className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
                     width={500} 

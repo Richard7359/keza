@@ -7,8 +7,9 @@ export interface courseType {
 
 export interface stepDataTypes {
     title: string;
+    step: number;
     template: string;
-    attachment: {position: string, file: File | null};
+    attachment: {position: string, file: File | null}[];
 }
 
 export interface courseDataTypes {

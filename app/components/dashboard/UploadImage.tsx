@@ -8,8 +8,6 @@ const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
-      console.log(e.target.files[0]);
-      console.log(file);
     }
   };
 

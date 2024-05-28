@@ -19,6 +19,7 @@ import { TbTrashX } from "react-icons/tb";
 
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
+import { courseDataTypes } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -76,15 +77,26 @@ function AddCourseForm({
     setCurrentTitle(course_title_Title);
   }, [course_title_Title]);
 
+  useEffect(() => {
+    console.log("these are the course data after:", course);
+  }, [course]);
+  useEffect(() => {
+
+  }, [file1])
   const handleNext = () => {
     if (error) return;
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
+    // if(currentStep > 0) setCourse({...course, steps: [...course.steps, {
+    //   title: watchedTitle,
+    //   step: currentStep,
+    //   template: "default",
+    //   attachment: [{position: "up_left", file: file1}, {position: "up_right", file: file2}]
+    // }]})
   };
 
   const handleBack = () => {
-    if (currentStep === 0)
-      return console.log("You are at the first currentStep");
+    if (currentStep === 0) return;
     setPreviousStep(currentStep);
     setCurrentStep(currentStep - 1);
   };
@@ -94,12 +106,6 @@ function AddCourseForm({
   }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("submitting..........................");
-    console.log("these are the course data before: ", course);
-    console.log(data);
-    console.log(level);
-    console.log(complexity);
-    console.log(file);
     if (data.title === "" || !file || level === "" || complexity === 0) {
       return setError("All fields are required");
     }
@@ -113,10 +119,32 @@ function AddCourseForm({
           uploadedBy: "Admin",
           attachment: file.name,
         },
+        steps: [
+          ...course.steps,
+          {
+            title: data.course_title,
+            step: currentStep + 1,
+            template: "default",
+            attachment: [
+            ],
+          },
+        ],
       });
-    } else {
+    } else if (currentStep > 0) {
+      setCourse({
+        ...course,
+        steps: [
+          ...course.steps,
+          {
+            title: data.course_title,
+            step: currentStep,
+            template: "default",
+            attachment: [
+            ],
+          },
+        ],
+      });
     }
-    console.log("these are the course data after:", course);
     handleNext();
 
     // if (data.title === "") {
@@ -141,8 +169,43 @@ function AddCourseForm({
     //   console.log(error);
     // }
     setError("");
-    console.log(data);
   }
+
+  const addAttachement = (position: string, file: File) => {
+    if (currentStep > 0) {
+      setCourse({
+        ...course,
+        steps: course.steps.map((step) => {
+          if (step.step == currentStep) {
+            return {
+              ...step,
+              attachment: [ ...step.attachment,
+                { position: position, file: file },
+              ],
+            };
+          }
+          return step;
+        }),
+      });
+    }
+  };
+
+  const deleteAttachement = (position: string) => {
+    if (currentStep > 0) {
+      setCourse({
+       ...course,
+        steps: course.steps.map((step) => {
+          if (step.step == currentStep) {
+            return {
+             ...step,
+              attachment: step.attachment.filter(att => att.position!== position),
+            };
+          }
+          return step;
+        }),
+      });
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] ">
@@ -245,7 +308,7 @@ function AddCourseForm({
                     hidden={true}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                       setFile1(e.target.files![0]);
-                      console.log(e.target.files![0]);
+                      addAttachement("up_left", e.target.files![0]);
                     }}
                   />
                   <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
@@ -272,10 +335,13 @@ function AddCourseForm({
                 <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
                   <div className="flex items-center gap-7">
                     <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                      {file?.name}
+                      {file1?.name}
                     </span>
                     <button
-                      onClick={() => setFile1(null)}
+                      onClick={() => {
+                        setFile1(null);
+                        deleteAttachement("up_left");
+                      }}
                       className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
                       type="button"
                     >
@@ -297,7 +363,7 @@ function AddCourseForm({
                     hidden={true}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                       setFile2(e.target.files![0]);
-                      console.log(e.target.files![0]);
+                      addAttachement("up_right", e.target.files![0]);
                     }}
                   />
                   <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
@@ -324,10 +390,10 @@ function AddCourseForm({
                 <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
                   <div className="flex items-center gap-7">
                     <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                      {file?.name}
+                      {file2?.name}
                     </span>
                     <button
-                      onClick={() => setFile2(null)}
+                      onClick={() => {setFile2(null); deleteAttachement("up_right");}}
                       className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
                       type="button"
                     >
