@@ -17,63 +17,63 @@ import { BsCheckAll } from "react-icons/bs";
 
 // import { vitalsRange } from "@store/rangeStore";
 
-const Combobox = ({level, setLevel} : {level : string, setLevel: (value : string) => void}) => {
+const TemplateOptions = ({template, setTemplate} : {template : string, setTemplate: (value : string) => void}) => {
   return (
     <div className="mt-2 input_text">
       {" "}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="flex items-center input_bg justify-between w-60 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none">
-            {level == "" ? (
-              <span>Select the course level</span>
+          <button className="flex items-center input_bg justify-between w-44 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none">
+            {template == "" ? (
+              <span>change template</span>
             ) : (
-              <span>{level}</span>
+              <span>{template}</span>
             )}
             <MdOutlineKeyboardArrowDown className="ml-2 h-4 w-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-60">
+        <DropdownMenuContent align="start" className="w-44">
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setLevel("Beginner");
+              setTemplate("single-images");
             }}
           >
-            Beginner
-            {level == "Beginner" && (
+            single-images
+            {template == "single-images" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setLevel("Middle");
+              setTemplate("two-images");
             }}
           >
-            Middle
-            {level == "Middle" && (
+            two-images
+            {template == "two-images" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setLevel("Pre-advanced");
+              setTemplate("three-images");
             }}
           >
-            Pre-advanced
-            {level == "Pre-advanced" && (
+            three-images
+            {template == "three-images" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setLevel("advanced");
+              setTemplate("four-images");
             }}
           >
-            advanced
-            {level == "advanced" && (
+            four-images
+            {template == "four-images" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
             )}
           </DropdownMenuItem>
@@ -83,4 +83,4 @@ const Combobox = ({level, setLevel} : {level : string, setLevel: (value : string
   );
 };
 
-export default Combobox;
+export default TemplateOptions;

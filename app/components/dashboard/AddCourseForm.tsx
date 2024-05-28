@@ -7,7 +7,7 @@ import Button from "../form/Button";
 import { TbPlayerTrackNext } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import Complexity from "./Complexity";
-import Combobox from "./ComboBox";
+import Levels from "./LevelsOPtions";
 import UploadImage from "./UploadImage";
 import { IoPlayBackOutline } from "react-icons/io5";
 import { IoFootstepsOutline } from "react-icons/io5";
@@ -19,6 +19,7 @@ import { TbTrashX } from "react-icons/tb";
 
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
+import TemplateOptions from "./TemplatesOptions";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -26,25 +27,31 @@ const FormSchema = z.object({
 });
 
 function AddCourseForm() {
-
-  const { currentStep, setCurrentStep , previousStep, setPreviousStep} = step();
+  const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
   const { course, setCourse } = CourseData();
   const {
     handleSubmit,
     register,
     watch,
+    reset,
+    setValue,
     formState: { errors },
   } = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       title: course.basicInfo ? course.basicInfo.title : "",
-      course_title: course.steps.length > 0 ? course.steps[currentStep - 1].title : "",
+      course_title:
+        course.steps.length > 0 && currentStep > 0
+          ? course.steps[currentStep - 1].title
+          : "",
     },
   });
+
   const [error, setError] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
+  const [template, setTemplate] = useState("");
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
@@ -55,7 +62,14 @@ function AddCourseForm() {
   useEffect(() => {
     console.log("currentStep : ", currentStep);
     console.log("previousStep : ", previousStep);
-  }, [currentStep, previousStep])
+    setValue(
+      "course_title",
+      course.steps.length > 0 && currentStep > 0
+        ? course.steps[currentStep - 1].title
+        : ""
+    );
+    setValue("title", course.basicInfo ? course.basicInfo.title : "");
+  }, [currentStep, previousStep]);
 
   useEffect(() => {
     const currentStepObj = course.steps.find(
@@ -88,6 +102,10 @@ function AddCourseForm() {
   }, [course_title_value]);
 
   useEffect(() => {
+    setBasicTitle(watchedTitle);
+  }, [watchedTitle]);
+
+  useEffect(() => {
     console.log("these are the course data after:", course);
   }, [course]);
   const handleNext = () => {
@@ -97,6 +115,7 @@ function AddCourseForm() {
   };
 
   const handleBack = () => {
+    console.log("handling back");
     if (currentStep === 0) return;
     setPreviousStep(currentStep);
     setCurrentStep(currentStep - 1);
@@ -107,9 +126,18 @@ function AddCourseForm() {
   }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    if (data.title === "" || !file || level === "" || complexity === 0) {
+
+    if (
+      currentStep == 0 &&
+      (data.title === "" || !file || level === "" || complexity === 0)
+    ) {
       return setError("All fields are required");
     }
+    console.log("submitted data : ", data);
+    console.log("submitted level : ", level);
+    console.log("submitted complexity : ", complexity);
+    console.log("submitted file : ", file);
+
     if (currentStep == 0) {
       setCourse({
         ...course,
@@ -118,32 +146,38 @@ function AddCourseForm() {
           level: level,
           complexity: complexity,
           uploadedBy: "Admin",
-          attachment: file.name,
+          attachment: file ? file.name : "",
         },
-        steps: [
-          ...course.steps,
-          {
-            title: data.course_title,
-            step: currentStep + 1,
-            template: "default",
-            attachment: [],
-          },
-        ],
       });
-    } else if (currentStep > 0) {
+      if (currentStep == course.steps.length) {
+        setCourse({
+          basicInfo: {...course.basicInfo},
+          steps: [
+            ...course.steps,
+            {
+              title: "",
+              step: currentStep + 1,
+              template: "single-images",
+              attachment: [],
+            },
+          ],
+        });
+      }
+    } else if (currentStep > 0 && currentStep == course.steps.length) {
       setCourse({
         ...course,
         steps: [
           ...course.steps,
           {
-            title: data.course_title,
+            title: "",
             step: currentStep + 1,
-            template: "default",
+            template: "single-images",
             attachment: [],
           },
         ],
       });
     }
+    // reset();
     handleNext();
 
     // if (data.title === "") {
@@ -226,6 +260,18 @@ function AddCourseForm() {
     }
   };
 
+  const setBasicTitle = (title: string) => {
+    if (currentStep == 0) {
+      setCourse({
+        ...course,
+        basicInfo: {
+          ...course.basicInfo,
+          title: title,
+        },
+      });
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] ">
       <div className="flex gap-2 mb-3">
@@ -262,7 +308,7 @@ function AddCourseForm() {
               <label htmlFor="description" className="text-sm font-semibold">
                 Course Level
               </label>
-              <Combobox level={level} setLevel={setLevel} />
+              <Levels level={level} setLevel={setLevel} />
             </div>
             <div>
               <label htmlFor="description" className="text-sm font-semibold">
@@ -299,23 +345,25 @@ function AddCourseForm() {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div className="flex">
-            <div className="w-[75%]">
+            <div className="w-[70%]">
               <label htmlFor="title" className="text-sm font-semibold">
                 Title
               </label>
               <input
                 type="text"
                 id="course_title"
-                defaultValue={"Step"}
                 placeholder="Enter the course title"
                 className="w-full rounded-md input_text input_bg border border-input bg-background px-3 py-2 text-sm outline-none"
                 {...register("course_title")}
               />
             </div>
-            <div className="w-[25%] flex items-end justify-end">
-              <button className="border border-deepSkyBlue py-2 px-4 rounded-md">
+            <div className="w-[30%] flex items-end justify-end">
+              {/* <button className="border border-deepSkyBlue py-2 px-4 rounded-md">
                 Change template
-              </button>
+              </button> */}
+              <div className="">
+              <TemplateOptions template={template} setTemplate={setTemplate} />
+              </div>
             </div>
           </div>
           <div className="mt-3">
@@ -433,7 +481,7 @@ function AddCourseForm() {
       <div className="flex justify-between mt-2">
         <div>
           {currentStep > 0 && (
-            <Button className="" onClick={() => handleBack()}>
+            <Button className="" type="button" onClick={() => handleBack()}>
               <p className="flex items-center gap-2 ">
                 <IoPlayBackOutline />
                 <p>back</p>
