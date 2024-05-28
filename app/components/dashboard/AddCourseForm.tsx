@@ -29,25 +29,9 @@ const FormSchema = z.object({
 function AddCourseForm({
   currentTitle,
   setCurrentTitle,
-  file1,
-  setFile1,
-  file2,
-  setFile2,
-  file3,
-  setFile3,
-  file4,
-  setFile4,
 }: {
   currentTitle: string;
   setCurrentTitle: (value: string) => void;
-  file1: File | null;
-  setFile1: (value: File | null) => void;
-  file2: File | null;
-  setFile2: (value: File | null) => void;
-  file3: File | null;
-  setFile3: (value: File | null) => void;
-  file4: File | null;
-  setFile4: (value: File | null) => void;
 }) {
   const {
     handleSubmit,
@@ -73,6 +57,35 @@ function AddCourseForm({
   const course_title_Title = watch("course_title");
   const watchedTitle = watch("title");
 
+  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
+  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+
+  useEffect(() => {
+    const currentStepObj = course.steps.find(
+      (step) => step.step === currentStep
+    );
+
+    if (currentStepObj) {
+      const up_left = currentStepObj.attachment.find(
+        (att) => att.position === "up_left"
+      );
+      const up_right = currentStepObj.attachment.find(
+        (att) => att.position === "up_right"
+      );
+
+      if (up_left) {
+        setCurrentImage1(up_left.file);
+      } else {
+        setCurrentImage1(null);
+      }
+      if (up_right) {
+        setCurrentImage2(up_right.file);
+      } else {
+        setCurrentImage2(null);
+      }
+    }
+  }, [course]);
+
   useEffect(() => {
     setCurrentTitle(course_title_Title);
   }, [course_title_Title]);
@@ -80,19 +93,10 @@ function AddCourseForm({
   useEffect(() => {
     console.log("these are the course data after:", course);
   }, [course]);
-  useEffect(() => {
-
-  }, [file1])
   const handleNext = () => {
     if (error) return;
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
-    // if(currentStep > 0) setCourse({...course, steps: [...course.steps, {
-    //   title: watchedTitle,
-    //   step: currentStep,
-    //   template: "default",
-    //   attachment: [{position: "up_left", file: file1}, {position: "up_right", file: file2}]
-    // }]})
   };
 
   const handleBack = () => {
@@ -125,8 +129,7 @@ function AddCourseForm({
             title: data.course_title,
             step: currentStep + 1,
             template: "default",
-            attachment: [
-            ],
+            attachment: [],
           },
         ],
       });
@@ -139,8 +142,7 @@ function AddCourseForm({
             title: data.course_title,
             step: currentStep,
             template: "default",
-            attachment: [
-            ],
+            attachment: [],
           },
         ],
       });
@@ -179,7 +181,8 @@ function AddCourseForm({
           if (step.step == currentStep) {
             return {
               ...step,
-              attachment: [ ...step.attachment,
+              attachment: [
+                ...step.attachment,
                 { position: position, file: file },
               ],
             };
@@ -193,12 +196,14 @@ function AddCourseForm({
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {
       setCourse({
-       ...course,
+        ...course,
         steps: course.steps.map((step) => {
           if (step.step == currentStep) {
             return {
-             ...step,
-              attachment: step.attachment.filter(att => att.position!== position),
+              ...step,
+              attachment: step.attachment.filter(
+                (att) => att.position !== position
+              ),
             };
           }
           return step;
@@ -300,14 +305,13 @@ function AddCourseForm({
           </div>
           <div className="mt-3">
             <div className="flex gap-2">
-              {!file1 ? (
+              {!currentImage1 ? (
                 <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
                   <input
                     type="file"
                     accept="image/jpeg,image/png,application/pdf,image/jpg"
                     hidden={true}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                      setFile1(e.target.files![0]);
                       addAttachement("up_left", e.target.files![0]);
                     }}
                   />
@@ -335,7 +339,7 @@ function AddCourseForm({
                 <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
                   <div className="flex items-center gap-7">
                     <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                      {file1?.name}
+                      {currentImage1?.name}
                     </span>
                     <button
                       onClick={() => {
@@ -355,7 +359,7 @@ function AddCourseForm({
                 </div>
               )}
 
-              {!file2 ? (
+              {!currentImage2 ? (
                 <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
                   <input
                     type="file"
@@ -390,10 +394,13 @@ function AddCourseForm({
                 <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
                   <div className="flex items-center gap-7">
                     <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                      {file2?.name}
+                      {currentImage2?.name}
                     </span>
                     <button
-                      onClick={() => {setFile2(null); deleteAttachement("up_right");}}
+                      onClick={() => {
+                        setFile2(null);
+                        deleteAttachement("up_right");
+                      }}
                       className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
                       type="button"
                     >

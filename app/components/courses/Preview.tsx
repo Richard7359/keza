@@ -43,32 +43,12 @@ import { CourseData } from "@/app/store/courseData";
 import { BsFillImageFill } from "react-icons/bs";
 import { BsImage } from "react-icons/bs";
 
-interface IconsMap {
-  [key: string]: React.ComponentType<any>; // Adjust the generic parameter as needed
-}
 
 const Preview = ({
   currentTitle,
-  setCurrentTitle,
-  file1,
-  setFile1,
-  file2,
-  setFile2,
-  file3,
-  setFile3,
-  file4,
-  setFile4,
 }: {
   currentTitle: string;
   setCurrentTitle: (value: string) => void;
-  file1: File | null;
-  setFile1: (value: File | null) => void;
-  file2: File | null;
-  setFile2: (value: File | null) => void;
-  file3: File | null;
-  setFile3: (value: File | null) => void;
-  file4: File | null;
-  setFile4: (value: File | null) => void;
 }) => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
@@ -96,31 +76,6 @@ const Preview = ({
       }
     }
   }, [course]);
-
-  // const iconsMap: IconsMap = {
-  //   FaChessBishop,
-  //   SiOpslevel,
-  //   GiArmorDowngrade,
-  //   AiFillApi,
-  //   BiLogoUnsplash,
-  //   BiPackage,
-  //   CgEricsson,
-  //   CgFigma,
-  //   CgPolaroid,
-  //   CgTally,
-  //   CgTrees,
-  //   CgTapDouble,
-  //   CgScreenShot,
-  //   CgServerless,
-  //   FaMonument,
-  //   FaPause,
-  //   FaPlug,
-  //   FaVenus,
-  //   SlBadge,
-  //   GoDotFill,
-  // };
-  // const iconArray = ["FaPlug"];
-  // const IconComponent = iconsMap[iconArray[currentStep]];
 
   return (
     <div className="flex justify-center">
