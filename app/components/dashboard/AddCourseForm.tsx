@@ -19,20 +19,16 @@ import { TbTrashX } from "react-icons/tb";
 
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
-import { courseDataTypes } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
   course_title: z.string(),
 });
 
-function AddCourseForm({
-  currentTitle,
-  setCurrentTitle,
-}: {
-  currentTitle: string;
-  setCurrentTitle: (value: string) => void;
-}) {
+function AddCourseForm() {
+
+  const { currentStep, setCurrentStep , previousStep, setPreviousStep} = step();
+  const { course, setCourse } = CourseData();
   const {
     handleSubmit,
     register,
@@ -41,24 +37,25 @@ function AddCourseForm({
   } = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      title: "",
-      course_title: "",
+      title: course.basicInfo ? course.basicInfo.title : "",
+      course_title: course.steps.length > 0 ? course.steps[currentStep - 1].title : "",
     },
   });
-
   const [error, setError] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
-  const { currentStep, setCurrentStep } = step();
-  const [previousStep, setPreviousStep] = useState<number>(0);
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
   const delta = currentStep - previousStep;
-  const { course, setCourse } = CourseData();
-  const course_title_Title = watch("course_title");
+  const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
   const [currentImage1, setCurrentImage1] = useState<File | null>(null);
   const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+
+  useEffect(() => {
+    console.log("currentStep : ", currentStep);
+    console.log("previousStep : ", previousStep);
+  }, [currentStep, previousStep])
 
   useEffect(() => {
     const currentStepObj = course.steps.find(
@@ -87,8 +84,8 @@ function AddCourseForm({
   }, [course]);
 
   useEffect(() => {
-    setCurrentTitle(course_title_Title);
-  }, [course_title_Title]);
+    setStepTitle(course_title_value);
+  }, [course_title_value]);
 
   useEffect(() => {
     console.log("these are the course data after:", course);
@@ -140,7 +137,7 @@ function AddCourseForm({
           ...course.steps,
           {
             title: data.course_title,
-            step: currentStep,
+            step: currentStep + 1,
             template: "default",
             attachment: [],
           },
@@ -204,6 +201,23 @@ function AddCourseForm({
               attachment: step.attachment.filter(
                 (att) => att.position !== position
               ),
+            };
+          }
+          return step;
+        }),
+      });
+    }
+  };
+
+  const setStepTitle = (title: string) => {
+    if (currentStep > 0) {
+      setCourse({
+        ...course,
+        steps: course.steps.map((step) => {
+          if (step.step == currentStep) {
+            return {
+              ...step,
+              title: title,
             };
           }
           return step;
@@ -292,6 +306,7 @@ function AddCourseForm({
               <input
                 type="text"
                 id="course_title"
+                defaultValue={"Step"}
                 placeholder="Enter the course title"
                 className="w-full rounded-md input_text input_bg border border-input bg-background px-3 py-2 text-sm outline-none"
                 {...register("course_title")}
@@ -343,7 +358,6 @@ function AddCourseForm({
                     </span>
                     <button
                       onClick={() => {
-                        setFile1(null);
                         deleteAttachement("up_left");
                       }}
                       className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
@@ -366,7 +380,6 @@ function AddCourseForm({
                     accept="image/jpeg,image/png,application/pdf,image/jpg"
                     hidden={true}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                      setFile2(e.target.files![0]);
                       addAttachement("up_right", e.target.files![0]);
                     }}
                   />
@@ -398,7 +411,6 @@ function AddCourseForm({
                     </span>
                     <button
                       onClick={() => {
-                        setFile2(null);
                         deleteAttachement("up_right");
                       }}
                       className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"

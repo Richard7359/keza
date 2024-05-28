@@ -44,12 +44,7 @@ import { BsFillImageFill } from "react-icons/bs";
 import { BsImage } from "react-icons/bs";
 
 
-const Preview = ({
-  currentTitle,
-}: {
-  currentTitle: string;
-  setCurrentTitle: (value: string) => void;
-}) => {
+const Preview = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
@@ -103,9 +98,7 @@ const Preview = ({
             >
               <div className="flex items-center">
                 <FaMonument className="text-3xl" />{" "}
-                {currentTitle == ""
-                  ? "Add the course title"
-                  : `STEP ${currentStep} : ${currentTitle}`}
+                {course.steps.length > 0 ?  `STEP ${currentStep} : ${course.steps[currentStep - 1].title }`: "Add the course title" }
               </div>
             </AccordionTrigger>
             <AccordionContent
