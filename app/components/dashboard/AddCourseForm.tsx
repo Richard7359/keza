@@ -300,7 +300,7 @@ function AddCourseForm() {
               </div>
             </div>
             <div className="">
-              <label htmlFor="title" className="text-sm font-semibold">
+              <label htmlFor="title" className="text-sm font-semibold mt-2">
                 Title
               </label>
               <input
@@ -312,6 +312,9 @@ function AddCourseForm() {
               />
             </div>
           </div>
+          <label htmlFor="title" className="text-sm font-semibold mt-2">
+                Attach images:
+          </label>
           {course.steps[currentStep - 1].template == "Single Image" && <SingleImage />}
           {course.steps[currentStep - 1].template == "Single Image Fit" && <SingleImageFit />}
           {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}

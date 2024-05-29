@@ -182,8 +182,8 @@ function SingleImageFit() {
   };
 
   return (
-    <div className="mt-3">
-      <div className="flex justify-center items-center gap-2 h-[190px]">
+    <div className="m">
+      <div className="flex justify-center items-center gap-2 h-[170px]">
         {!currentImage1 ? (
           <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
             <input

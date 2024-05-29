@@ -180,7 +180,7 @@ function TwoImagesSidebySide() {
   };
 
   return (
-    <div className="mt-3 h-[150px] flex items-center">
+    <div className="h-[140px] flex items-center">
       <div className="flex w-full gap-2">
         {!currentImage1 ? (
           <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">

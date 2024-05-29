@@ -201,7 +201,7 @@ function FourImagesSidebySide() {
   };
 
   return (
-    <div className="mt-3 h-[370px] flex items-center">
+    <div className="h-[365px] flex items-center">
       <div className="w-full">
         <div className="flex w-full gap-2">
           {!currentImage1 ? (
