@@ -24,6 +24,7 @@ import TemplateOptions from "./TemplatesOptions";
 // Templates
 import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
 import SingleImage from "../courses/templates/SingleImage";
+import SingleImageFit from "../courses/templates/SingleImageFit";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -308,8 +309,9 @@ function AddCourseForm() {
               />
             </div>
           </div>
-          {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}
           {course.steps[currentStep - 1].template == "Single Image" && <SingleImage />}
+          {course.steps[currentStep - 1].template == "Single Image Fit" && <SingleImageFit />}
+          {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}
