@@ -20,6 +20,7 @@ import { TbTrashX } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "./TemplatesOptions";
+import Loader from "../Loader"
 
 // Templates
 import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
@@ -106,28 +107,6 @@ function AddCourseForm() {
         console.log(error);
       }
     });
-
-    // if (data.title === "") {
-    //   setError("Title is required");
-    // }
-    // if (!file) {
-    //   return setError("File is required");
-    // }
-
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("folder", "courses");
-    // try {
-    //   const response = await fetch("/api/s3-upload", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
-    //   const data = await response.json();
-    //   if (data) setFile(null);
-    //   console.log(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   };
@@ -375,6 +354,7 @@ function AddCourseForm() {
               <TbPlayerTrackNext />
             </p>
           </Button>
+          <Loader isActive={true}/>
         </div>
         {currentStep > 0 && (
           <Button type="submit" className="">

@@ -60,6 +60,9 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      spinAnimation: {
+        "spin-fast": "spin 0.5s linear infinite",
+      },
       colors: {
         burgundy: "#882539",
         image: "#e6ebef",
