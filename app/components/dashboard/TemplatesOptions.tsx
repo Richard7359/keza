@@ -15,15 +15,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { BsCheckAll } from "react-icons/bs";
 
-// import { vitalsRange } from "@store/rangeStore";
-
 const TemplateOptions = ({template, setTemplate} : {template : string, setTemplate: (value : string) => void}) => {
   return (
-    <div className="mt-2 input_text">
+    <div className="mt-2 input_text w-full ">
       {" "}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="flex items-center input_bg justify-between w-44 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none">
+          <button className="flex items-center input_bg justify-between w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none">
             {template == "" ? (
               <span>change template</span>
             ) : (
@@ -32,49 +30,71 @@ const TemplateOptions = ({template, setTemplate} : {template : string, setTempla
             <MdOutlineKeyboardArrowDown className="ml-2 h-4 w-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-44">
+        <DropdownMenuContent align="start" className="w-full">
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setTemplate("single-images");
+              setTemplate("Single Image");
             }}
           >
-            single-images
-            {template == "single-images" && (
-              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            Single Image
+            {template == "Single Image" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setTemplate("two-images");
+              setTemplate("Two Images Side by Side");
             }}
           >
-            two-images
-            {template == "two-images" && (
-              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            Two Images Side by Side
+            {template == "Two Images Side by Side" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setTemplate("three-images");
+              setTemplate("Large pic Left, Small pic Right with Bottom pic");
             }}
           >
-            three-images
-            {template == "three-images" && (
-              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            Large pic Left, Small pic Right with Bottom pic
+            {template == "Large pic Left, Small pic Right with Bottom pic" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setTemplate("four-images");
+              setTemplate("Two Images Top, One Image Bottom");
             }}
           >
-            four-images
-            {template == "four-images" && (
-              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300" />
+            Two Images Top, One Image Bottom
+            {template == "Two Images Top, One Image Bottom" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
+            )}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="flex items-center justify-between"
+            onClick={() => {
+              setTemplate("Four Equal Images (2x2 Grid)");
+            }}
+          >
+            Four Equal Images (2x2 Grid)
+            {template == "Four Equal Images (2x2 Grid)" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
+            )}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="flex items-center justify-between"
+            onClick={() => {
+              setTemplate("Two Images Vertically Stacked");
+            }}
+          >
+            Two Images Vertically Stacked
+            {template == "Two Images Vertically Stacked" && (
+              <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
         </DropdownMenuContent>

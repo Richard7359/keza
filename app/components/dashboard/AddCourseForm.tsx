@@ -126,17 +126,12 @@ function AddCourseForm() {
   }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-
     if (
       currentStep == 0 &&
       (data.title === "" || !file || level === "" || complexity === 0)
     ) {
       return setError("All fields are required");
     }
-    console.log("submitted data : ", data);
-    console.log("submitted level : ", level);
-    console.log("submitted complexity : ", complexity);
-    console.log("submitted file : ", file);
 
     if (currentStep == 0) {
       setCourse({
@@ -151,7 +146,7 @@ function AddCourseForm() {
       });
       if (currentStep == course.steps.length) {
         setCourse({
-          basicInfo: {...course.basicInfo},
+          basicInfo: { ...course.basicInfo },
           steps: [
             ...course.steps,
             {
@@ -344,8 +339,19 @@ function AddCourseForm() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="flex">
-            <div className="w-[70%]">
+          <div className="">
+            <div className="w-[100%]">
+              <label htmlFor="title" className="text-sm font-semibold">
+                Change Template
+              </label>
+              <div className="w-[100%]">
+                <TemplateOptions
+                  template={template}
+                  setTemplate={setTemplate}
+                />
+              </div>
+            </div>
+            <div className="">
               <label htmlFor="title" className="text-sm font-semibold">
                 Title
               </label>
@@ -356,14 +362,6 @@ function AddCourseForm() {
                 className="w-full rounded-md input_text input_bg border border-input bg-background px-3 py-2 text-sm outline-none"
                 {...register("course_title")}
               />
-            </div>
-            <div className="w-[30%] flex items-end justify-end">
-              {/* <button className="border border-deepSkyBlue py-2 px-4 rounded-md">
-                Change template
-              </button> */}
-              <div className="">
-              <TemplateOptions template={template} setTemplate={setTemplate} />
-              </div>
             </div>
           </div>
           <div className="mt-3">
