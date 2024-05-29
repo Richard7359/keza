@@ -7,6 +7,7 @@ import { CourseData } from "@/app/store/courseData";
 import TwoImagesSidebySideTemplate from "./templates/TwoImagesSidebySideTemplate";
 import SingleImageTemplate from "./templates/SingleImageTemplate";
 import SingleImageFitTemplate from "./templates/SingleImageFitTemplate";
+import LargePicTemplate from "./templates/LargePicTemplate";
 
 import { useEffect, useState } from "react";
 
@@ -39,6 +40,7 @@ const Preview = () => {
           {currentCourse?.template == "Single Image" && <SingleImageTemplate />}
           {currentCourse?.template == "Single Image Fit" && <SingleImageFitTemplate />}
           {currentCourse?.template == "Two Images Side by Side"  && <TwoImagesSidebySideTemplate />}
+          {currentCourse?.template == "Large pic Left, Small pic Right with Bottom pic"  && <LargePicTemplate />}
         </div>
       )}
     </div>

@@ -25,6 +25,7 @@ import TemplateOptions from "./TemplatesOptions";
 import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
 import SingleImage from "../courses/templates/SingleImage";
 import SingleImageFit from "../courses/templates/SingleImageFit";
+import LargePic from "../courses/templates/LargePic";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -216,7 +217,7 @@ function AddCourseForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] ">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-[95%] ">
       <div className="flex gap-2 mb-3">
         <IoFootstepsOutline size={20} />
         {currentStep == 0 ? (
@@ -312,6 +313,7 @@ function AddCourseForm() {
           {course.steps[currentStep - 1].template == "Single Image" && <SingleImage />}
           {course.steps[currentStep - 1].template == "Single Image Fit" && <SingleImageFit />}
           {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}
+          {course.steps[currentStep - 1].template == "Large pic Left, Small pic Right with Bottom pic" && <LargePic />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}

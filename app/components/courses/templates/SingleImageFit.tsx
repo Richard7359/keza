@@ -183,39 +183,42 @@ function SingleImageFit() {
 
   return (
     <div className="mt-3">
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center items-center gap-2 h-[190px]">
         {!currentImage1 ? (
-          <label className="opacity-1 w-[100%] h-[260px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+          <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
             <input
               type="file"
               accept="image/jpeg,image/png,application/pdf,image/jpg"
               hidden={true}
+              className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 addAttachement("up_left", e.target.files![0]);
               }}
             />
-            <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
-              <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
+            <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+              <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
                 <GrCloudUpload
                   size={34}
                   className="text-primary-500 text-deepSkyBlue"
                   strokeLinejoin="miter"
                 />
               </span>
-              <p className="mt-2 text-xs">
-                Drop your files here or
-                <span className="cursor-pointer text-deepSkyBlue underline">
-                  {" "}
-                  browse
-                </span>
-              </p>
-              <p className="mt-2 text-xsm text_gray-400">
-                Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
-              </p>
+              <div>
+                <p className="mt-2 text-xs">
+                  Drop your files here or
+                  <span className="cursor-pointer text-deepSkyBlue underline">
+                    {" "}
+                    browse
+                  </span>
+                </p>
+                <p className="mt-2 text-xsm text_gray-400">
+                  Max file size 10MB.
+                </p>
+              </div>
             </div>
           </label>
         ) : (
-          <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
+          <div className="mt-1 flex items-center gap-2 w-[50%] h-[190px]">
             <div className="flex items-center gap-7">
               <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
                 {currentImage1?.name}
