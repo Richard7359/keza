@@ -26,6 +26,8 @@ import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
 import SingleImage from "../courses/templates/SingleImage";
 import SingleImageFit from "../courses/templates/SingleImageFit";
 import LargePic from "../courses/templates/LargePic";
+import LargePicBottom from "../courses/templates/LargePicBottom";
+import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -314,27 +316,35 @@ function AddCourseForm() {
           {course.steps[currentStep - 1].template == "Single Image Fit" && <SingleImageFit />}
           {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}
           {course.steps[currentStep - 1].template == "Large pic Left, Small pic Right with Bottom pic" && <LargePic />}
+          {course.steps[currentStep - 1].template == "Two Images Top, One Image Bottom" && <LargePicBottom />}
+          {course.steps[currentStep - 1].template == "Four Equal Images (2x2 Grid)" && <FourImagesSidebySide />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-between mt-2">
-        <div>
+        <div className="flex gap-2 items-center">
           {currentStep > 0 && (
             <Button className="" type="button" onClick={() => handleBack()}>
-              <p className="flex items-center gap-2 ">
+              <p className="flex items-center gap-2">
                 <IoPlayBackOutline />
                 <p>back</p>
               </p>
             </Button>
-          )}
-        </div>
-        <Button type="submit" className="">
+          )}      
+          <Button type="submit" className="">
           {/* <Button className="" onClick={() => handleNext()}> */}
-          <p className="flex items-center gap-2 ">
+          <p className="flex items-center gap-2">
             <p>Save-Next</p>
             <TbPlayerTrackNext />
           </p>
         </Button>
+        </div>
+        {currentStep > 0 && ( <Button type="submit" className="">
+          <p className="flex items-center">
+            <p>Submit</p>
+            {/* <TbPlayerTrackNext /> */}
+          </p>
+        </Button>)}
       </div>
     </form>
   );
