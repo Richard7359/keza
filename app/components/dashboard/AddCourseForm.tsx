@@ -81,9 +81,53 @@ function AddCourseForm() {
     setBasicTitle(watchedTitle);
   }, [watchedTitle]);
 
-  useEffect(() => {}, [course]);
-  const handleNext = () => {
+  async function handleNext(){
     if (error) return;
+    console.log("current course : ");
+    console.log(course.steps[currentStep - 1]);
+    const currentStepData = course.steps[currentStep - 1];
+    currentStepData.attachment?.map(async (file) => {
+      if (!file.file) {
+        return setError("File is required");
+      }
+      const formData = new FormData();
+      formData.append("file", file.file);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (data) setFile(null);
+        console.log("response from Image upload : ")
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+
+    // if (data.title === "") {
+    //   setError("Title is required");
+    // }
+    // if (!file) {
+    //   return setError("File is required");
+    // }
+
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // formData.append("folder", "courses");
+    // try {
+    //   const response = await fetch("/api/s3-upload", {
+    //     method: "POST",
+    //     body: formData,
+    //   });
+    //   const data = await response.json();
+    //   if (data) setFile(null);
+    //   console.log(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   };
@@ -147,27 +191,6 @@ function AddCourseForm() {
     // reset();
     handleNext();
 
-    // if (data.title === "") {
-    //   setError("Title is required");
-    // }
-    // if (!file) {
-    //   return setError("File is required");
-    // }
-
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("folder", "courses");
-    // try {
-    //   const response = await fetch("/api/s3-upload", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
-    //   const data = await response.json();
-    //   if (data) setFile(null);
-    //   console.log(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
     setError("");
   }
 
@@ -189,7 +212,6 @@ function AddCourseForm() {
   };
 
   const setStepTemplate = (inputTemplate: string) => {
-    console.log("input : ", inputTemplate);
     if (currentStep > 0) {
       setCourse({
         ...course,
@@ -217,6 +239,8 @@ function AddCourseForm() {
       });
     }
   };
+
+  const handleSubmitForm = () => {};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[95%] ">
@@ -313,15 +337,24 @@ function AddCourseForm() {
             </div>
           </div>
           <label htmlFor="title" className="text-sm font-semibold mt-2">
-                Attach images:
+            Attach images:
           </label>
-          {course.steps[currentStep - 1].template == "Single Image" && <SingleImage />}
-          {course.steps[currentStep - 1].template == "Single Image Fit" && <SingleImageFit />}
-          {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}
-          {course.steps[currentStep - 1].template == "Large pic Left, Small pic Right with Bottom pic" && <LargePic />}
-          {course.steps[currentStep - 1].template == "Two Images Top, One Image Bottom" && <LargePicBottom />}
-          {course.steps[currentStep - 1].template == "Four Equal Images (2x2 Grid)" && <FourImagesSidebySide />}
-          {course.steps[currentStep - 1].template == "Two Images Vertically Stacked" && <FourImagesSidebySide />}
+          {course.steps[currentStep - 1].template == "Single Image" && (
+            <SingleImage />
+          )}
+          {course.steps[currentStep - 1].template == "Single Image Fit" && (
+            <SingleImageFit />
+          )}
+          {course.steps[currentStep - 1].template ==
+            "Two Images Side by Side" && <TwoImagesSidebySide />}
+          {course.steps[currentStep - 1].template ==
+            "Large pic Left, Small pic Right with Bottom pic" && <LargePic />}
+          {course.steps[currentStep - 1].template ==
+            "Two Images Top, One Image Bottom" && <LargePicBottom />}
+          {course.steps[currentStep - 1].template ==
+            "Four Equal Images (2x2 Grid)" && <FourImagesSidebySide />}
+          {course.steps[currentStep - 1].template ==
+            "Two Images Vertically Stacked" && <FourImagesSidebySide />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}
@@ -334,21 +367,23 @@ function AddCourseForm() {
                 <p>back</p>
               </p>
             </Button>
-          )}      
+          )}
           <Button type="submit" className="">
-          {/* <Button className="" onClick={() => handleNext()}> */}
-          <p className="flex items-center gap-2">
-            <p>Save-Next</p>
-            <TbPlayerTrackNext />
-          </p>
-        </Button>
+            {/* <Button className="" onClick={() => handleNext()}> */}
+            <p className="flex items-center gap-2">
+              <p>Save-Next</p>
+              <TbPlayerTrackNext />
+            </p>
+          </Button>
         </div>
-        {currentStep > 0 && ( <Button type="submit" className="">
-          <p className="flex items-center">
-            <p>Submit</p>
-            {/* <TbPlayerTrackNext /> */}
-          </p>
-        </Button>)}
+        {currentStep > 0 && (
+          <Button type="submit" className="">
+            <p className="flex items-center">
+              <p>Submit</p>
+              {/* <TbPlayerTrackNext /> */}
+            </p>
+          </Button>
+        )}
       </div>
     </form>
   );

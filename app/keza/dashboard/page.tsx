@@ -9,7 +9,7 @@ const Page = () => {
           <div className="flex justify-between">
             {" "}
             <div className="flex font-medium text-sm">
-              <p className="">Staff members</p>
+              <p className="">All courses</p>
               <p className="mx-2 text-[11px] text-black rounded-full font-medium">
                 14
               </p>
@@ -17,7 +17,7 @@ const Page = () => {
             <div>
               <input
                 type="text"
-                placeholder="search by names"
+                placeholder="search by title"
                 className="text-sm uc py-1 px-2 rounded-md"
               />
               <Button className="mx-2">
