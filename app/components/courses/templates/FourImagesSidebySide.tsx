@@ -180,7 +180,7 @@ function FourImagesSidebySide() {
   };
 
   return (
-    <div className="mt-3 h-[150px] flex items-center">
+    <div className="mt-3 h-[370px] flex items-center">
       <div className="w-full">
       <div className="flex w-full gap-2">
         {!currentImage1 ? (
