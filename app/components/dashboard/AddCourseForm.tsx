@@ -318,6 +318,7 @@ function AddCourseForm() {
           {course.steps[currentStep - 1].template == "Large pic Left, Small pic Right with Bottom pic" && <LargePic />}
           {course.steps[currentStep - 1].template == "Two Images Top, One Image Bottom" && <LargePicBottom />}
           {course.steps[currentStep - 1].template == "Four Equal Images (2x2 Grid)" && <FourImagesSidebySide />}
+          {course.steps[currentStep - 1].template == "Two Images Vertically Stacked" && <FourImagesSidebySide />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}

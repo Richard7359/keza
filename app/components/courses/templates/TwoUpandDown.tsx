@@ -43,7 +43,7 @@ import { CourseData } from "@/app/store/courseData";
 import { BsFillImageFill } from "react-icons/bs";
 import { BsImage } from "react-icons/bs";
 
-const FourImageSidebySideTemplate = () => {
+const TwoUpandDown = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
@@ -233,4 +233,4 @@ const FourImageSidebySideTemplate = () => {
   );
 };
 
-export default FourImageSidebySideTemplate;
+export default TwoUpandDown;

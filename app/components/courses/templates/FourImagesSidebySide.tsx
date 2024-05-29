@@ -54,6 +54,8 @@ function FourImagesSidebySide() {
 
   const [currentImage1, setCurrentImage1] = useState<File | null>(null);
   const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+  const [currentImage3, setCurrentImage3] = useState<File | null>(null);
+  const [currentImage4, setCurrentImage4] = useState<File | null>(null);
 
   useEffect(() => {
     console.log("template options", template);
@@ -81,6 +83,13 @@ function FourImagesSidebySide() {
       const up_right = currentStepObj.attachment.find(
         (att) => att.position === "up_right"
       );
+      const bottom_left = currentStepObj.attachment.find(
+        (att) => att.position === "bottom_left"
+      );
+
+      const bottom_right = currentStepObj.attachment.find(
+        (att) => att.position === "bottom_right"
+      );
 
       if (up_left) {
         setCurrentImage1(up_left.file);
@@ -91,6 +100,18 @@ function FourImagesSidebySide() {
         setCurrentImage2(up_right.file);
       } else {
         setCurrentImage2(null);
+      }
+
+      if (bottom_left) {
+        setCurrentImage3(bottom_left.file);
+      } else {
+        setCurrentImage3(null);
+      }
+
+      if (bottom_right) {
+        setCurrentImage4(bottom_right.file);
+      } else {
+        setCurrentImage4(null);
       }
     }
   }, [course]);
@@ -182,230 +203,119 @@ function FourImagesSidebySide() {
   return (
     <div className="mt-3 h-[370px] flex items-center">
       <div className="w-full">
-      <div className="flex w-full gap-2">
-        {!currentImage1 ? (
-          <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
-            <input
-              type="file"
-              accept="image/jpeg,image/png,application/pdf,image/jpg"
-              hidden={true}
-              className="bg-green"
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_left", e.target.files![0]);
-              }}
-            />
-            <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
-              <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
-                <GrCloudUpload
-                  size={34}
-                  className="text-primary-500 text-deepSkyBlue"
-                  strokeLinejoin="miter"
-                />
-              </span>
-              <div>
-                <p className="mt-2 text-xs">
-                  Drop your files here or
-                  <span className="cursor-pointer text-deepSkyBlue underline">
-                    {" "}
-                    browse
-                  </span>
-                </p>
-                <p className="mt-2 text-xsm text_gray-400">
-                  Max file size 10MB.
-                </p>
+        <div className="flex w-full gap-2">
+          {!currentImage1 ? (
+            <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+              <input
+                type="file"
+                accept="image/jpeg,image/png,application/pdf,image/jpg"
+                hidden={true}
+                className="bg-green"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  addAttachement("up_left", e.target.files![0]);
+                }}
+              />
+              <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+                <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
+                  <GrCloudUpload
+                    size={34}
+                    className="text-primary-500 text-deepSkyBlue"
+                    strokeLinejoin="miter"
+                  />
+                </span>
+                <div>
+                  <p className="mt-2 text-xs">
+                    Drop your files here or
+                    <span className="cursor-pointer text-deepSkyBlue underline">
+                      {" "}
+                      browse
+                    </span>
+                  </p>
+                  <p className="mt-2 text-xsm text_gray-400">
+                    Max file size 10MB.
+                  </p>
+                </div>
+              </div>
+            </label>
+          ) : (
+            <div className="mt-1 flex items-center gap-2 w-[50%]">
+              <div className="flex items-center gap-7">
+                <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                  {currentImage1?.name}
+                </span>
+                <button
+                  onClick={() => {
+                    deleteAttachement("up_left");
+                  }}
+                  className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                  type="button"
+                >
+                  <TbTrashX
+                    size={20}
+                    className="text-primary text-red"
+                    strokeLinejoin="miter"
+                  />
+                </button>
               </div>
             </div>
-          </label>
-        ) : (
-          <div className="mt-1 flex items-center gap-2 w-[50%]">
-            <div className="flex items-center gap-7">
-              <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage1?.name}
-              </span>
-              <button
-                onClick={() => {
-                  deleteAttachement("up_left");
+          )}
+          {!currentImage2 ? (
+            <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+              <input
+                type="file"
+                accept="image/jpeg,image/png,application/pdf,image/jpg"
+                hidden={true}
+                className="bg-green"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  addAttachement("up_right", e.target.files![0]);
                 }}
-                className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
-                type="button"
-              >
-                <TbTrashX
-                  size={20}
-                  className="text-primary text-red"
-                  strokeLinejoin="miter"
-                />
-              </button>
-            </div>
-          </div>
-        )}
-        {!currentImage2 ? (
-          <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
-            <input
-              type="file"
-              accept="image/jpeg,image/png,application/pdf,image/jpg"
-              hidden={true}
-              className="bg-green"
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_right", e.target.files![0]);
-              }}
-            />
-            <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
-              <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
-                <GrCloudUpload
-                  size={34}
-                  className="text-primary-500 text-deepSkyBlue"
-                  strokeLinejoin="miter"
-                />
-              </span>
-              <div>
-                <p className="mt-2 text-xs">
-                  Drop your files here or
-                  <span className="cursor-pointer text-deepSkyBlue underline">
-                    {" "}
-                    browse
-                  </span>
-                </p>
-                <p className="mt-2 text-xsm text_gray-400">
-                  Max file size 10MB.
-                </p>
+              />
+              <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+                <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
+                  <GrCloudUpload
+                    size={34}
+                    className="text-primary-500 text-deepSkyBlue"
+                    strokeLinejoin="miter"
+                  />
+                </span>
+                <div>
+                  <p className="mt-2 text-xs">
+                    Drop your files here or
+                    <span className="cursor-pointer text-deepSkyBlue underline">
+                      {" "}
+                      browse
+                    </span>
+                  </p>
+                  <p className="mt-2 text-xsm text_gray-400">
+                    Max file size 10MB.
+                  </p>
+                </div>
+              </div>
+            </label>
+          ) : (
+            <div className="mt-1 flex items-center gap-2 w-[50%]">
+              <div className="flex items-center gap-7">
+                <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                  {currentImage2?.name}
+                </span>
+                <button
+                  onClick={() => {
+                    deleteAttachement("up_right");
+                  }}
+                  className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                  type="button"
+                >
+                  <TbTrashX
+                    size={20}
+                    className="text-primary text-red"
+                    strokeLinejoin="miter"
+                  />
+                </button>
               </div>
             </div>
-          </label>
-        ) : (
-          <div className="mt-1 flex items-center gap-2 w-[50%]">
-            <div className="flex items-center gap-7">
-              <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage2?.name}
-              </span>
-              <button
-                onClick={() => {
-                  deleteAttachement("up_right");
-                }}
-                className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
-                type="button"
-              >
-                <TbTrashX
-                  size={20}
-                  className="text-primary text-red"
-                  strokeLinejoin="miter"
-                />
-              </button>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-      <div className="flex w-full gap-2 mt-2">
-        {!currentImage1 ? (
-          <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
-            <input
-              type="file"
-              accept="image/jpeg,image/png,application/pdf,image/jpg"
-              hidden={true}
-              className="bg-green"
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_left", e.target.files![0]);
-              }}
-            />
-            <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
-              <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
-                <GrCloudUpload
-                  size={34}
-                  className="text-primary-500 text-deepSkyBlue"
-                  strokeLinejoin="miter"
-                />
-              </span>
-              <div>
-                <p className="mt-2 text-xs">
-                  Drop your files here or
-                  <span className="cursor-pointer text-deepSkyBlue underline">
-                    {" "}
-                    browse
-                  </span>
-                </p>
-                <p className="mt-2 text-xsm text_gray-400">
-                  Max file size 10MB.
-                </p>
-              </div>
-            </div>
-          </label>
-        ) : (
-          <div className="mt-1 flex items-center gap-2 w-[50%]">
-            <div className="flex items-center gap-7">
-              <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage1?.name}
-              </span>
-              <button
-                onClick={() => {
-                  deleteAttachement("up_left");
-                }}
-                className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
-                type="button"
-              >
-                <TbTrashX
-                  size={20}
-                  className="text-primary text-red"
-                  strokeLinejoin="miter"
-                />
-              </button>
-            </div>
-          </div>
-        )}
-        {!currentImage2 ? (
-          <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
-            <input
-              type="file"
-              accept="image/jpeg,image/png,application/pdf,image/jpg"
-              hidden={true}
-              className="bg-green"
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_right", e.target.files![0]);
-              }}
-            />
-            <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
-              <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
-                <GrCloudUpload
-                  size={34}
-                  className="text-primary-500 text-deepSkyBlue"
-                  strokeLinejoin="miter"
-                />
-              </span>
-              <div>
-                <p className="mt-2 text-xs">
-                  Drop your files here or
-                  <span className="cursor-pointer text-deepSkyBlue underline">
-                    {" "}
-                    browse
-                  </span>
-                </p>
-                <p className="mt-2 text-xsm text_gray-400">
-                  Max file size 10MB.
-                </p>
-              </div>
-            </div>
-          </label>
-        ) : (
-          <div className="mt-1 flex items-center gap-2 w-[50%]">
-            <div className="flex items-center gap-7">
-              <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage2?.name}
-              </span>
-              <button
-                onClick={() => {
-                  deleteAttachement("up_right");
-                }}
-                className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
-                type="button"
-              >
-                <TbTrashX
-                  size={20}
-                  className="text-primary text-red"
-                  strokeLinejoin="miter"
-                />
-              </button>
-            </div>
-          </div>
-        )}
-      </div></div>
     </div>
   );
 }

@@ -43,7 +43,7 @@ import { CourseData } from "@/app/store/courseData";
 import { BsFillImageFill } from "react-icons/bs";
 import { BsImage } from "react-icons/bs";
 
-const FourImageSidebySideTemplate = () => {
+const TwoUpandDownTemplate = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
@@ -90,7 +90,7 @@ const FourImageSidebySideTemplate = () => {
         setCurrentImage3(null);
       }
 
-      if (bottom_right ) {
+      if (bottom_right) {
         setCurrentImage4(bottom_right.file);
       } else {
         setCurrentImage4(null);
@@ -132,59 +132,39 @@ const FourImageSidebySideTemplate = () => {
               activeAccordion == 1 ? "pc_id_courses" : ""
             } sm:pd_id gd`}
           >
-            <div className="flex gap-2">
+            <div className="gap-2">
               {currentImage1 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage1)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
-                />
+                <div className="w-full flex justify-center">
+                  <Image
+                    src={URL.createObjectURL(currentImage1)}
+                    alt="KEFL Logo image"
+                    className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
+                    width={500}
+                    height={300}
+                  />
+                </div>
               ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsFillImageFill className="h-full w-full" />
+                <div className="w-full flex justify-center">
+                  <div className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom">
+                    <BsFillImageFill className="h-full w-full" />
+                  </div>
                 </div>
               )}
               {currentImage2 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage2)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
-                />
-              ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsImage className="h-full w-full" />
+                <div className="w-full flex justify-center">
+                  <Image
+                    src={URL.createObjectURL(currentImage2)}
+                    alt="KEFL Logo image"
+                    className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom mt-2"
+                    width={500}
+                    height={300}
+                  />{" "}
                 </div>
-              )}
-            </div>
-            <div className="flex gap-2 mt-2">
-              {currentImage3 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage3)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
-                />
               ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsFillImageFill className="h-full w-full" />
-                </div>
-              )}
-              {currentImage4 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage4)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
-                />
-              ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsImage className="h-full w-full" />
+                <div className="w-full flex justify-center mt-2">
+                  <div className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom flex justify-center">
+                    <BsImage className="h-full w-full" />
+                  </div>
                 </div>
               )}
             </div>
@@ -226,11 +206,10 @@ const FourImageSidebySideTemplate = () => {
               </TooltipProvider>
             </div>
           </AccordionContent>
-          
         </AccordionItem>
       </Accordion>
     </div>
   );
 };
 
-export default FourImageSidebySideTemplate;
+export default TwoUpandDownTemplate;

@@ -10,6 +10,7 @@ import SingleImageFitTemplate from "./templates/SingleImageFitTemplate";
 import LargePicTemplate from "./templates/LargePicTemplate";
 import LargePicBottomTemplate from "./templates/LargePicBottomTemplate";
 import FourImageSidebySideTemplate from "./templates/FourImageSidebySideTemplate";
+import TwoUpandDownTemplate from "./templates/TwoUpandDownTemplate";
 
 import { useEffect, useState } from "react";
 
@@ -45,6 +46,7 @@ const Preview = () => {
           {currentCourse?.template == "Large pic Left, Small pic Right with Bottom pic"  && <LargePicTemplate />}
           {currentCourse?.template == "Two Images Top, One Image Bottom"  && <LargePicBottomTemplate />}
           {currentCourse?.template == "Four Equal Images (2x2 Grid)"  && <FourImageSidebySideTemplate />}
+          {currentCourse?.template == "Two Images Vertically Stacked"  && <TwoUpandDownTemplate />}
         </div>
       )}
     </div>
