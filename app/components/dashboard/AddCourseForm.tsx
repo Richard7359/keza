@@ -21,6 +21,10 @@ import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "./TemplatesOptions";
 
+// Templates
+import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
+import SingleImage from "../courses/templates/SingleImage";
+
 const FormSchema = z.object({
   title: z.string(),
   course_title: z.string(),
@@ -51,17 +55,11 @@ function AddCourseForm() {
   const [file, setFile] = useState<File | null>(null);
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
-  const [template, setTemplate] = useState("");
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-
   useEffect(() => {
-    console.log("currentStep : ", currentStep);
-    console.log("previousStep : ", previousStep);
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
@@ -72,32 +70,6 @@ function AddCourseForm() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
-
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
-    }
-  }, [course]);
-
-  useEffect(() => {
     setStepTitle(course_title_value);
   }, [course_title_value]);
 
@@ -105,9 +77,7 @@ function AddCourseForm() {
     setBasicTitle(watchedTitle);
   }, [watchedTitle]);
 
-  useEffect(() => {
-    console.log("these are the course data after:", course);
-  }, [course]);
+  useEffect(() => {}, [course]);
   const handleNext = () => {
     if (error) return;
     setPreviousStep(currentStep);
@@ -115,7 +85,6 @@ function AddCourseForm() {
   };
 
   const handleBack = () => {
-    console.log("handling back");
     if (currentStep === 0) return;
     setPreviousStep(currentStep);
     setCurrentStep(currentStep - 1);
@@ -126,13 +95,12 @@ function AddCourseForm() {
   }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    if (
-      currentStep == 0 &&
-      (data.title === "" || !file || level === "" || complexity === 0)
-    ) {
-      return setError("All fields are required");
-    }
-
+    // if (
+    //   currentStep == 0 &&
+    //   (data.title === "" || !file || level === "" || complexity === 0)
+    // ) {
+    //   return setError("All fields are required");
+    // }
     if (currentStep == 0) {
       setCourse({
         ...course,
@@ -152,7 +120,7 @@ function AddCourseForm() {
             {
               title: "",
               step: currentStep + 1,
-              template: "single-images",
+              template: "Single Image",
               attachment: [],
             },
           ],
@@ -166,7 +134,7 @@ function AddCourseForm() {
           {
             title: "",
             step: currentStep + 1,
-            template: "single-images",
+            template: "Single Image",
             attachment: [],
           },
         ],
@@ -199,45 +167,6 @@ function AddCourseForm() {
     setError("");
   }
 
-  const addAttachement = (position: string, file: File) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: [
-                ...step.attachment,
-                { position: position, file: file },
-              ],
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
-
-  const deleteAttachement = (position: string) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: step.attachment.filter(
-                (att) => att.position !== position
-              ),
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
-
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {
       setCourse({
@@ -247,6 +176,24 @@ function AddCourseForm() {
             return {
               ...step,
               title: title,
+            };
+          }
+          return step;
+        }),
+      });
+    }
+  };
+
+  const setStepTemplate = (inputTemplate: string) => {
+    console.log("input : ", inputTemplate);
+    if (currentStep > 0) {
+      setCourse({
+        ...course,
+        steps: course.steps.map((step) => {
+          if (step.step == currentStep) {
+            return {
+              ...step,
+              template: inputTemplate,
             };
           }
           return step;
@@ -345,10 +292,7 @@ function AddCourseForm() {
                 Change Template
               </label>
               <div className="w-[100%]">
-                <TemplateOptions
-                  template={template}
-                  setTemplate={setTemplate}
-                />
+                <TemplateOptions />
               </div>
             </div>
             <div className="">
@@ -364,115 +308,8 @@ function AddCourseForm() {
               />
             </div>
           </div>
-          <div className="mt-3">
-            <div className="flex gap-2">
-              {!currentImage1 ? (
-                <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
-                  <input
-                    type="file"
-                    accept="image/jpeg,image/png,application/pdf,image/jpg"
-                    hidden={true}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                      addAttachement("up_left", e.target.files![0]);
-                    }}
-                  />
-                  <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
-                    <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
-                      <GrCloudUpload
-                        size={34}
-                        className="text-primary-500 text-deepSkyBlue"
-                        strokeLinejoin="miter"
-                      />
-                    </span>
-                    <p className="mt-2 text-xs">
-                      Drop your files here or
-                      <span className="cursor-pointer text-deepSkyBlue underline">
-                        {" "}
-                        browse
-                      </span>
-                    </p>
-                    <p className="mt-2 text-xsm text_gray-400">
-                      Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
-                    </p>
-                  </div>
-                </label>
-              ) : (
-                <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
-                  <div className="flex items-center gap-7">
-                    <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                      {currentImage1?.name}
-                    </span>
-                    <button
-                      onClick={() => {
-                        deleteAttachement("up_left");
-                      }}
-                      className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
-                      type="button"
-                    >
-                      <TbTrashX
-                        size={20}
-                        className="text-primary text-red"
-                        strokeLinejoin="miter"
-                      />
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {!currentImage2 ? (
-                <label className="opacity-1  text-xs font-bold hover:cursor-pointer w-[50%] h-[220px] cursor-pointer rounded-[5px]">
-                  <input
-                    type="file"
-                    accept="image/jpeg,image/png,application/pdf,image/jpg"
-                    hidden={true}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                      addAttachement("up_right", e.target.files![0]);
-                    }}
-                  />
-                  <div className="h-full flex flex-col items-center justify-center border border-dashed rounded-[5px] py-8 input_bg">
-                    <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
-                      <GrCloudUpload
-                        size={34}
-                        className="text-primary-500 text-deepSkyBlue"
-                        strokeLinejoin="miter"
-                      />
-                    </span>
-                    <p className="mt-2 text-xs">
-                      Drop your files here or
-                      <span className="cursor-pointer text-deepSkyBlue underline">
-                        {" "}
-                        browse
-                      </span>
-                    </p>
-                    <p className="mt-2 text-xsm text_gray-400">
-                      Max file size 10MB, PDF, JPG,PNG or JPEG file supported.
-                    </p>
-                  </div>
-                </label>
-              ) : (
-                <div className="mt-1 flex items-center gap-2 w-[50%] h-[220px]">
-                  <div className="flex items-center gap-7">
-                    <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                      {currentImage2?.name}
-                    </span>
-                    <button
-                      onClick={() => {
-                        deleteAttachement("up_right");
-                      }}
-                      className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
-                      type="button"
-                    >
-                      <TbTrashX
-                        size={20}
-                        className="text-primary text-red"
-                        strokeLinejoin="miter"
-                      />
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
+          {course.steps[currentStep - 1].template == "Two Images Side by Side" && <TwoImagesSidebySide />}
+          {course.steps[currentStep - 1].template == "Single Image" && <SingleImage />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}
