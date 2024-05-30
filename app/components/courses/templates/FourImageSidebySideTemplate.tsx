@@ -50,15 +50,10 @@ const FourImageSidebySideTemplate = () => {
   const { currentStep } = step();
   const {
     course,
-    setCourse,
     image1,
-    setImage1,
     image2,
     image3,
     image4,
-    setImage2,
-    setImage3,
-    setImage4,
   } = CourseData();
   const [currentImage1, setCurrentImage1] = useState<imageType>({
     position: "",

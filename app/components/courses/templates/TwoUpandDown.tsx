@@ -1,236 +1,310 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import Button from "../../form/Button";
+import { TbPlayerTrackNext } from "react-icons/tb";
 import { useEffect, useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import s1 from "../../images/TrafficLight/s1.jpeg";
-import s2 from "../../images/TrafficLight/s2.jpeg";
+import { IoPlayBackOutline } from "react-icons/io5";
 import { step } from "@/app/store/currectStep";
+import { ChangeEvent } from "react";
 
-// icons
-import { SiOpslevel } from "react-icons/si";
-import { GiArmorDowngrade } from "react-icons/gi";
-import { AiFillApi } from "react-icons/ai";
-import { BiLogoUnsplash } from "react-icons/bi";
-import { BiPackage } from "react-icons/bi";
-import { CgEricsson } from "react-icons/cg";
-import { CgFigma } from "react-icons/cg";
-import { CgPolaroid } from "react-icons/cg";
-import { CgTally } from "react-icons/cg";
-import { CgTrees } from "react-icons/cg";
-import { CgTapDouble } from "react-icons/cg";
-import { CgScreenShot } from "react-icons/cg";
-import { CgServerless } from "react-icons/cg";
-import { FaChessBishop } from "react-icons/fa";
-import { FaMonument } from "react-icons/fa";
-import { FaPause } from "react-icons/fa";
-import { FaPlug } from "react-icons/fa";
-import { FaVenus } from "react-icons/fa";
-import { SlBadge } from "react-icons/sl";
-import { GoDotFill } from "react-icons/go";
+import { GrCloudUpload } from "react-icons/gr";
+import { TbTrashX } from "react-icons/tb";
+
+import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
-import { BsFillImageFill } from "react-icons/bs";
-import { BsImage } from "react-icons/bs";
+import TemplateOptions from "../../dashboard/TemplatesOptions";
+import { imageType } from "@/app/store/courseData";
 
-const TwoUpandDown = () => {
-  const [activeAccordion, setActiveAccordion] = useState(1);
-  const [done, setDone] = useState<number[]>([]);
-  const { currentStep } = step();
-  const { course, setCourse } = CourseData();
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-  const [currentImage3, setCurrentImage3] = useState<File | null>(null);
-  const [currentImage4, setCurrentImage4] = useState<File | null>(null);
+const FormSchema = z.object({
+  title: z.string(),
+  course_title: z.string(),
+});
+
+function TwoUpandDown() {
+  const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    setImage2,
+    image3,
+    setImage3,
+  } = CourseData();
+  const {
+    handleSubmit,
+    register,
+    watch,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      title: course.basicInfo ? course.basicInfo.title : "",
+      course_title:
+        course.steps.length > 0 && currentStep > 0
+          ? course.steps[currentStep - 1].title
+          : "",
+    },
+  });
+
+  const [error, setError] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null);
+  const [complexity, setComplexity] = useState<number>(0);
+  const [level, setLevel] = useState("");
+  const [template, setTemplate] = useState("Two Images Side by Side");
+  const delta = currentStep - previousStep;
+  const course_title_value = watch("course_title");
+  const watchedTitle = watch("title");
+
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage3, setCurrentImage3] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
+    console.log("template options", template);
+  }, [template]);
+
+  useEffect(() => {
+    console.log("currentStep : ", currentStep);
+    console.log("previousStep : ", previousStep);
+    setValue(
+      "course_title",
+      course.steps.length > 0 && currentStep > 0
+        ? course.steps[currentStep - 1].title
+        : ""
     );
+    setValue("title", course.basicInfo ? course.basicInfo.title : "");
+  }, [currentStep, previousStep]);
 
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-      const bottom_left = currentStepObj.attachment.find(
-        (att) => att.position === "bottom_left"
-      );
-
-      const bottom_right = currentStepObj.attachment.find(
-        (att) => att.position === "bottom_right"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
-
-      if (bottom_left) {
-        setCurrentImage3(bottom_left.file);
-      } else {
-        setCurrentImage3(null);
-      }
-
-      if (bottom_right ) {
-        setCurrentImage4(bottom_right.file);
-      } else {
-        setCurrentImage4(null);
-      }
+  useEffect(() => {
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
     }
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+    if (image3.file) {
+      setCurrentImage3(image3);
+    } else {
+      setCurrentImage3({ position: "", file: null });
+    }
+  }, [image1, image2, image3]);
+
+  useEffect(() => {
+    setStepTitle(course_title_value);
+  }, [course_title_value]);
+
+  useEffect(() => {
+    setBasicTitle(watchedTitle);
+  }, [watchedTitle]);
+
+  useEffect(() => {
+    console.log("these are the course data after:", course);
   }, [course]);
 
+  useEffect(() => {
+    setError("");
+  }, [complexity, level, file, watchedTitle]);
+
+  const deleteAttachement = (position: string) => {
+    if (currentStep > 0) {
+      setCourse({
+        ...course,
+        steps: course.steps.map((step) => {
+          if (step.step == currentStep) {
+            return {
+              ...step,
+              attachment: step.attachment.filter(
+                (att) => att.position !== position
+              ),
+            };
+          }
+          return step;
+        }),
+      });
+    }
+  };
+
+  const setStepTitle = (title: string) => {
+    if (currentStep > 0) {
+      setCourse({
+        ...course,
+        steps: course.steps.map((step) => {
+          if (step.step == currentStep) {
+            return {
+              ...step,
+              title: title,
+            };
+          }
+          return step;
+        }),
+      });
+    }
+  };
+
+  const setBasicTitle = (title: string) => {
+    if (currentStep == 0) {
+      setCourse({
+        ...course,
+        basicInfo: {
+          ...course.basicInfo,
+          title: title,
+        },
+      });
+    }
+  };
+
   return (
-    <div className="w-full">
-      <Accordion
-        type="single"
-        defaultValue="1"
-        collapsible
-        className="w-[100%] border-none"
-      >
-        <AccordionItem value="1" className="border border-none">
-          <AccordionTrigger
-            className={`pd_id _c uc pc_id hover:uf hover:se ${
-              activeAccordion == 1
-                ? "pc_id_courses_bottom uf_course se_course"
-                : ""
-            } ${done.includes(1) ? "uf_course se_course" : ""}`}
-            onClick={() => {
-              setActiveAccordion(1);
-              if (activeAccordion == 1) {
-                setActiveAccordion(0);
-              }
-            }}
-          >
-            <div className="flex items-center">
-              <FaMonument className="text-3xl" />{" "}
-              {course.steps.length > 0
-                ? `STEP ${currentStep} : ${course.steps[currentStep - 1].title}`
-                : "Add the course title"}
-            </div>
-          </AccordionTrigger>
-          <AccordionContent
-            className={`pd_id _c uc ${
-              activeAccordion == 1 ? "pc_id_courses" : ""
-            } sm:pd_id gd`}
-          >
-            <div className="flex gap-2">
-              {currentImage1 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage1)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
+    <div className="">
+      <div className="flex justify-center items-center gap-2 h-[350px]">
+        <div className="w-full">
+          <div className="w-full flex justify-center">
+            {!currentImage1.file ? (
+              <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,application/pdf,image/jpg"
+                  hidden={true}
+                  className="bg-green"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    if (currentStep > 0) {
+                      setImage1({
+                        position: "up_left",
+                        file: e.target.files![0],
+                      });
+                    }
+                  }}
                 />
-              ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsFillImageFill className="h-full w-full" />
+                <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+                  <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
+                    <GrCloudUpload
+                      size={34}
+                      className="text-primary-500 text-deepSkyBlue"
+                      strokeLinejoin="miter"
+                    />
+                  </span>
+                  <div>
+                    <p className="mt-2 text-xs">
+                      Drop your files here or
+                      <span className="cursor-pointer text-deepSkyBlue underline">
+                        {" "}
+                        browse
+                      </span>
+                    </p>
+                    <p className="mt-2 text-xsm text_gray-400">
+                      Max file size 10MB.
+                    </p>
+                  </div>
                 </div>
-              )}
-              {currentImage2 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage2)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
+              </label>
+            ) : (
+              <div className="mt-1 flex items-center gap-2 w-[50%] h-[190px]">
+                <div className="flex items-center gap-7">
+                  <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                    {currentImage1.file?.name}
+                  </span>
+                  <button
+                    onClick={() => {
+                      deleteAttachement("up_left");
+                    }}
+                    className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                    type="button"
+                  >
+                    <TbTrashX
+                      size={20}
+                      className="text-primary text-red"
+                      strokeLinejoin="miter"
+                    />
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="w-full flex justify-center mt-2">
+            {!currentImage2.file ? (
+              <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,application/pdf,image/jpg"
+                  hidden={true}
+                  className="bg-green"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    if (currentStep > 0) {
+                      setImage2({
+                        position: "bottom",
+                        file: e.target.files![0],
+                      });
+                    }
+                  }}
                 />
-              ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsImage className="h-full w-full" />
+                <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+                  <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
+                    <GrCloudUpload
+                      size={34}
+                      className="text-primary-500 text-deepSkyBlue"
+                      strokeLinejoin="miter"
+                    />
+                  </span>
+                  <div>
+                    <p className="mt-2 text-xs">
+                      Drop your files here or
+                      <span className="cursor-pointer text-deepSkyBlue underline">
+                        {" "}
+                        browse
+                      </span>
+                    </p>
+                    <p className="mt-2 text-xsm text_gray-400">
+                      Max file size 10MB.
+                    </p>
+                  </div>
                 </div>
-              )}
-            </div>
-            <div className="flex gap-2 mt-2">
-              {currentImage3 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage3)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
-                />
-              ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsFillImageFill className="h-full w-full" />
+              </label>
+            ) : (
+              <div className="mt-1 flex items-center gap-2 w-[50%] h-[190px]">
+                <div className="flex items-center gap-7">
+                  <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                    {currentImage1.file?.name}
+                  </span>
+                  <button
+                    onClick={() => {
+                      deleteAttachement("up_left");
+                    }}
+                    className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                    type="button"
+                  >
+                    <TbTrashX
+                      size={20}
+                      className="text-primary text-red"
+                      strokeLinejoin="miter"
+                    />
+                  </button>
                 </div>
-              )}
-              {currentImage4 ? (
-                <Image
-                  src={URL.createObjectURL(currentImage4)}
-                  alt="KEFL Logo image"
-                  className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom"
-                  width={500}
-                  height={300}
-                />
-              ) : (
-                <div className="w-[50%] h-[220px] cursor-pointer rounded-[5px] border-custom">
-                  <BsImage className="h-full w-full" />
-                </div>
-              )}
-            </div>
-            <div className="m-2 flex justify-end">
-              <TooltipProvider>
-                {done.includes(1) ? (
-                  <Tooltip>
-                    <TooltipTrigger
-                      className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const newDone = done.filter((item) => item !== 1);
-                        setDone(newDone);
-                      }}
-                    >
-                      <GoDotFill />
-                      <p>Done</p>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Mark this step as not completed</p>
-                    </TooltipContent>
-                  </Tooltip>
-                ) : (
-                  <Tooltip>
-                    <TooltipTrigger
-                      className="border border-black px-3 rounded-full font-semibold"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setDone([...done, 1]);
-                      }}
-                    >
-                      To Do
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Mark this step as completed</p>
-                    </TooltipContent>
-                  </Tooltip>
-                )}
-              </TooltipProvider>
-            </div>
-          </AccordionContent>
-          
-        </AccordionItem>
-      </Accordion>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default TwoUpandDown;

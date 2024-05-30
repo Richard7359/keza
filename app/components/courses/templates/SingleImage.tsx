@@ -31,7 +31,9 @@ function SingleImage() {
     image1,
     setImage1,
     image2,
-    setImage2
+    setImage2,
+    image3,
+    setImage3
   } = CourseData();
   const {
     handleSubmit,
@@ -123,26 +125,6 @@ function SingleImage() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  // const addAttachement = (position: string, file: File) => {
-  //   if (currentStep > 0) {
-  //     setCourse({
-  //       ...course,
-  //       steps: course.steps.map((step) => {
-  //         if (step.step == currentStep) {
-  //           return {
-  //             ...step,
-  //             attachment: [
-  //               ...step.attachment,
-  //               { position: position, file: file },
-  //             ],
-  //           };
-  //         }
-  //         return step;
-  //       }),
-  //     });
-  //   }
-  // };
-
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {
       setCourse({
@@ -194,7 +176,7 @@ function SingleImage() {
   return (
     <div className="">
       <div className="flex justify-center items-center gap-2 h-[175px]">
-        {!currentImage1 ? (
+        {!currentImage1.file ? (
           <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
             <input
               type="file"
@@ -202,7 +184,10 @@ function SingleImage() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_left", e.target.files![0]);
+                // addAttachement("up_left", e.target.files![0]);
+                if (currentStep > 0) {
+                  setImage1({position: "up_left", file: e.target.files![0]});
+                }
               }}
             />
             <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -231,7 +216,7 @@ function SingleImage() {
           <div className="mt-1 flex items-center gap-2 w-[50%] h-[190px]">
             <div className="flex items-center gap-7">
               <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage1?.name}
+                {currentImage1.file?.name}
               </span>
               <button
                 onClick={() => {

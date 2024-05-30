@@ -15,6 +15,7 @@ import { TbTrashX } from "react-icons/tb";
 
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
+import { imageType } from "@/app/store/courseData";
 import TemplateOptions from "../../dashboard/TemplatesOptions";
 
 const FormSchema = z.object({
@@ -24,7 +25,8 @@ const FormSchema = z.object({
 
 function SingleImageFit() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse } = CourseData();
+  const { course, setCourse, image1, setImage1, image2, setImage2 } =
+    CourseData();
   const {
     handleSubmit,
     register,
@@ -52,8 +54,14 @@ function SingleImageFit() {
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   useEffect(() => {
     console.log("template options", template);
@@ -72,30 +80,17 @@ function SingleImageFit() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
-
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
     }
-  }, [course]);
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+  }, [image1, image2]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -113,25 +108,25 @@ function SingleImageFit() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  const addAttachement = (position: string, file: File) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: [
-                ...step.attachment,
-                { position: position, file: file },
-              ],
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
+  // const addAttachement = (position: string, file: File) => {
+  //   if (currentStep > 0) {
+  //     setCourse({
+  //       ...course,
+  //       steps: course.steps.map((step) => {
+  //         if (step.step == currentStep) {
+  //           return {
+  //             ...step,
+  //             attachment: [
+  //               ...step.attachment,
+  //               { position: position, file: file },
+  //             ],
+  //           };
+  //         }
+  //         return step;
+  //       }),
+  //     });
+  //   }
+  // };
 
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {
@@ -184,7 +179,7 @@ function SingleImageFit() {
   return (
     <div className="m">
       <div className="flex justify-center items-center gap-2 h-[170px]">
-        {!currentImage1 ? (
+        {!currentImage1.file ? (
           <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
             <input
               type="file"
@@ -192,7 +187,10 @@ function SingleImageFit() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_left", e.target.files![0]);
+                // addAttachement("up_left", e.target.files![0]);
+                if (currentStep > 0) {
+                  setImage1({position: "up_left", file: e.target.files![0]});
+                }
               }}
             />
             <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -221,7 +219,7 @@ function SingleImageFit() {
           <div className="mt-1 flex items-center gap-2 w-[50%] h-[190px]">
             <div className="flex items-center gap-7">
               <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage1?.name}
+                {currentImage1.file?.name}
               </span>
               <button
                 onClick={() => {

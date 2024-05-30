@@ -29,6 +29,7 @@ import SingleImageFit from "../courses/templates/SingleImageFit";
 import LargePic from "../courses/templates/LargePic";
 import LargePicBottom from "../courses/templates/LargePicBottom";
 import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
+import TwoUpandDown from "../courses/templates/TwoUpandDown";
 import { title } from "process";
 
 const FormSchema = z.object({
@@ -380,7 +381,7 @@ function AddCourseForm() {
           {course.steps[currentStep - 1].template ==
             "Four Equal Images (2x2 Grid)" && <FourImagesSidebySide />}
           {course.steps[currentStep - 1].template ==
-            "Two Images Vertically Stacked" && <FourImagesSidebySide />}
+            "Two Images Vertically Stacked" && <TwoUpandDown />}
         </motion.div>
       )}
       {error ? <p className="text-red text-sm">{error}</p> : null}

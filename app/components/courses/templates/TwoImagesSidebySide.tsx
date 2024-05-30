@@ -224,7 +224,6 @@ function TwoImagesSidebySide() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                // addAttachement("up_left", e.target.files![0]);
                 if (currentStep > 0) {
                   setImage1({position: "up_left", file: e.target.files![0]});
                 }
