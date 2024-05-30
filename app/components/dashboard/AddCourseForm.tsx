@@ -20,7 +20,7 @@ import { TbTrashX } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "./TemplatesOptions";
-import Loader from "../Loader"
+import Loader from "../Loader";
 
 // Templates
 import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
@@ -82,34 +82,35 @@ function AddCourseForm() {
     setBasicTitle(watchedTitle);
   }, [watchedTitle]);
 
-  async function handleNext(){
+  async function handleNext() {
     if (error) return;
     console.log("current course : ");
     console.log(course.steps[currentStep - 1]);
     const currentStepData = course.steps[currentStep - 1];
-    currentStepData.attachment?.map(async (file) => {
-      if (!file.file) {
-        return setError("File is required");
-      }
-      const formData = new FormData();
-      formData.append("file", file.file);
-      formData.append("folder", "courses");
-      try {
-        const response = await fetch("/api/s3-upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await response.json();
-        if (data) setFile(null);
-        console.log("response from Image upload : ")
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    });
+
+    // currentStepData.attachment?.map(async (file) => {
+    //   if (!file.file) {
+    //     return setError("File is required");
+    //   }
+    //   const formData = new FormData();
+    //   formData.append("file", file.file);
+    //   formData.append("folder", "courses");
+    //   try {
+    //     const response = await fetch("/api/s3-upload", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
+    //     const data = await response.json();
+    //     if (data) setFile(null);
+    //     console.log("response from Image upload : ")
+    //     console.log(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // });
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
-  };
+  }
 
   const handleBack = () => {
     if (currentStep === 0) return;
@@ -354,13 +355,15 @@ function AddCourseForm() {
               <TbPlayerTrackNext />
             </p>
           </Button>
-          <Loader isActive={true}/>
+          <Button className="px-12">
+            <div className="spinAnimation"></div>{" "}
+          </Button>
         </div>
         {currentStep > 0 && (
           <Button type="submit" className="">
             <p className="flex items-center">
               <p>Submit</p>
-              {/* <TbPlayerTrackNext /> */}
+              <TbPlayerTrackNext />
             </p>
           </Button>
         )}
