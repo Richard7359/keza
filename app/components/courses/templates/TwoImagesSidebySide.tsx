@@ -16,6 +16,7 @@ import { TbTrashX } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "../../dashboard/TemplatesOptions";
+import { imageType } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -24,7 +25,7 @@ const FormSchema = z.object({
 
 function TwoImagesSidebySide() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse } = CourseData();
+  const { course, setCourse , image1, setImage1, image2,image3,image4,setImage2,setImage3,setImage4} = CourseData();
   const {
     handleSubmit,
     register,
@@ -52,8 +53,11 @@ function TwoImagesSidebySide() {
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+  const [currentImage1, setCurrentImage1] = useState<imageType>({position: "", file: null});
+  const [currentImage2, setCurrentImage2] = useState<imageType>({position: "", file: null});
+
+  // const [currentImage1, setCurrentImage1] = useState<File | null>(null);
+  // const [currentImage2, setCurrentImage2] = useState<File | null>(null);
 
   useEffect(() => {
     console.log("template options", template);
@@ -70,30 +74,39 @@ function TwoImagesSidebySide() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
+    // const currentStepObj = course.steps.find(
+    //   (step) => step.step === currentStep
+    // );
 
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
+    // if (currentStepObj) {
+    //   const up_left = currentStepObj.attachment.find(
+    //     (att) => att.position === "up_left"
+    //   );
+    //   const up_right = currentStepObj.attachment.find(
+    //     (att) => att.position === "up_right"
+    //   );
 
-      if (up_left) {
-        setCurrentImage1(up_left.file);
+    //  if (image1) {
+    //   const up_left = currentStepObj.attachment.find(
+    //     (att) => att.position === "up_left"
+    //   );
+    //   const up_right = currentStepObj.attachment.find(
+    //     (att) => att.position === "up_right"
+    //   );
+
+      if (image1) {
+        setCurrentImage1(image1);
       } else {
-        setCurrentImage1(null);
+        setCurrentImage1({position: "", file: null});
       }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
+      if (image2) {
+        setCurrentImage2(image2);
       } else {
-        setCurrentImage2(null);
+        setCurrentImage2({position: "", file: null});
       }
-    }
-  }, [course]);
+    // }
+  }, [image1, image2]);
+// }, [course]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -113,23 +126,44 @@ function TwoImagesSidebySide() {
 
   const addAttachement = (position: string, file: File) => {
     if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: [
-                ...step.attachment,
-                { position: position, file: file },
-              ],
-            };
-          }
-          return step;
-        }),
-      });
+      setImage1({position: position, file: file});
+      // setCourse({
+      //   ...course,
+      //   steps: course.steps.map((step) => {
+      //     if (step.step == currentStep) {
+      //       return {
+      //         ...step,
+      //         attachment: [
+      //           ...step.attachment,
+      //           { position: position, file: file },
+      //         ],
+      //       };
+      //     }
+      //     return step;
+      //   }),
+      // });
     }
   };
+
+  // const addAttachement = (position: string, file: File) => {
+  //   if (currentStep > 0) {
+  //     setCourse({
+  //       ...course,
+  //       steps: course.steps.map((step) => {
+  //         if (step.step == currentStep) {
+  //           return {
+  //             ...step,
+  //             attachment: [
+  //               ...step.attachment,
+  //               { position: position, file: file },
+  //             ],
+  //           };
+  //         }
+  //         return step;
+  //       }),
+  //     });
+  //   }
+  // };
 
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {
@@ -182,7 +216,7 @@ function TwoImagesSidebySide() {
   return (
     <div className="h-[140px] flex items-center">
       <div className="flex w-full gap-2">
-        {!currentImage1 ? (
+        {!currentImage1.file ? (
           <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
             <input
               type="file"
@@ -190,7 +224,10 @@ function TwoImagesSidebySide() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_left", e.target.files![0]);
+                // addAttachement("up_left", e.target.files![0]);
+                if (currentStep > 0) {
+                  setImage1({position: "up_left", file: e.target.files![0]});
+                }
               }}
             />
             <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -219,7 +256,7 @@ function TwoImagesSidebySide() {
           <div className="mt-1 flex items-center gap-2 w-[50%]">
             <div className="flex items-center gap-7">
               <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage1?.name}
+                {currentImage1.file?.name}
               </span>
               <button
                 onClick={() => {
@@ -237,7 +274,7 @@ function TwoImagesSidebySide() {
             </div>
           </div>
         )}
-        {!currentImage2 ? (
+        {!currentImage2.file ? (
           <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
             <input
               type="file"
@@ -245,7 +282,10 @@ function TwoImagesSidebySide() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                addAttachement("up_right", e.target.files![0]);
+                // addAttachement("up_right", e.target.files![0]);
+                if (currentStep > 0) {
+                  setImage1({position: "up_right", file: e.target.files![0]});
+                }
               }}
             />
             <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -274,7 +314,7 @@ function TwoImagesSidebySide() {
           <div className="mt-1 flex items-center gap-2 w-[50%]">
             <div className="flex items-center gap-7">
               <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                {currentImage2?.name}
+                {currentImage2.file?.name}
               </span>
               <button
                 onClick={() => {

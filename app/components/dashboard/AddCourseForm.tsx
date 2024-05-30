@@ -29,6 +29,7 @@ import SingleImageFit from "../courses/templates/SingleImageFit";
 import LargePic from "../courses/templates/LargePic";
 import LargePicBottom from "../courses/templates/LargePicBottom";
 import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
+import { title } from "process";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -60,6 +61,7 @@ function AddCourseForm() {
   const [file, setFile] = useState<File | null>(null);
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
+  const [uploading, setUploading] = useState<boolean>(false);
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
@@ -74,43 +76,83 @@ function AddCourseForm() {
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
   }, [currentStep, previousStep]);
 
+  // useEffect(() => {
+  //   setBasicComplexity(complexity);
+  // }, [complexity]);
+
   useEffect(() => {
     setStepTitle(course_title_value);
   }, [course_title_value]);
 
   useEffect(() => {
-    setBasicTitle(watchedTitle);
-  }, [watchedTitle]);
+    setBasicInfo(watchedTitle, complexity, level, file as File);
+  }, [watchedTitle, complexity, level, file]);
 
   async function handleNext() {
     if (error) return;
-    console.log("current course : ");
-    console.log(course.steps[currentStep - 1]);
     const currentStepData = course.steps[currentStep - 1];
+    setUploading(true);
+    if (currentStep == 0) {
+      if (!course.basicInfo.attachment) {
+        setUploading(false);
+        return setError("File is required");
+      }
+      const files = course.basicInfo.attachment;
+      const formData = new FormData();
+      if(course.basicInfo.attachment) formData.append("file", course.basicInfo.attachment);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (data) {
+          setUploading(false);
+          setFile(null);
+          setPreviousStep(currentStep);
+          setCurrentStep(currentStep + 1);
+        }
+      } catch (error) {
+        setUploading(false);
+        setFile(null);
+        setPreviousStep(currentStep);
+        setCurrentStep(currentStep + 1);
+      }
 
-    // currentStepData.attachment?.map(async (file) => {
-    //   if (!file.file) {
-    //     return setError("File is required");
-    //   }
-    //   const formData = new FormData();
-    //   formData.append("file", file.file);
-    //   formData.append("folder", "courses");
-    //   try {
-    //     const response = await fetch("/api/s3-upload", {
-    //       method: "POST",
-    //       body: formData,
-    //     });
-    //     const data = await response.json();
-    //     if (data) setFile(null);
-    //     console.log("response from Image upload : ")
-    //     console.log(data);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // });
+      return;
+    }
+    currentStepData.attachment?.map(async (file) => {
+      if (!file.file) {
+        setUploading(false);
+        return setError("File is required");
+      }
+      const formData = new FormData();
+      formData.append("file", file.file);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (data) {
+          setUploading(false);
+          setFile(null);
+        }
+      } catch (error) {
+        setUploading(false);
+        setPreviousStep(currentStep);
+        setCurrentStep(currentStep - 1);
+      }
+    });
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   }
+
+  useEffect(() => {
+    console.log("course", course);
+  }, [course]);
 
   const handleBack = () => {
     if (currentStep === 0) return;
@@ -137,7 +179,7 @@ function AddCourseForm() {
           level: level,
           complexity: complexity,
           uploadedBy: "Admin",
-          attachment: file ? file.name : "",
+          attachment: file ? file : null,
         },
       });
       if (currentStep == course.steps.length) {
@@ -208,17 +250,21 @@ function AddCourseForm() {
     }
   };
 
-  const setBasicTitle = (title: string) => {
+    const setBasicInfo = ( title: string, complexity: number, level: string, file: File) => {
     if (currentStep == 0) {
       setCourse({
         ...course,
         basicInfo: {
           ...course.basicInfo,
+          complexity: complexity,
           title: title,
+          level: level,
+          attachment: file
         },
       });
     }
   };
+
 
   const handleSubmitForm = () => {};
 
@@ -340,24 +386,28 @@ function AddCourseForm() {
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-between mt-2">
         <div className="flex gap-2 items-center">
-          {currentStep > 0 && (
-            <Button className="" type="button" onClick={() => handleBack()}>
-              <p className="flex items-center gap-2">
-                <IoPlayBackOutline />
-                <p>back</p>
-              </p>
+          {uploading == false ? (
+            <div className="flex items-center gap-2">
+              {currentStep > 0 && (
+                <Button className="" type="button" onClick={() => handleBack()}>
+                  <p className="flex items-center gap-2">
+                    <IoPlayBackOutline />
+                    <p>back</p>
+                  </p>
+                </Button>
+              )}
+              <Button type="submit" className="">
+                <p className="flex items-center gap-2">
+                  <p>Save-Next</p>
+                  <TbPlayerTrackNext />
+                </p>
+              </Button>
+            </div>
+          ) : (
+            <Button className="px-12">
+              <div className="spinAnimation"></div>{" "}
             </Button>
           )}
-          <Button type="submit" className="">
-            {/* <Button className="" onClick={() => handleNext()}> */}
-            <p className="flex items-center gap-2">
-              <p>Save-Next</p>
-              <TbPlayerTrackNext />
-            </p>
-          </Button>
-          <Button className="px-12">
-            <div className="spinAnimation"></div>{" "}
-          </Button>
         </div>
         {currentStep > 0 && (
           <Button type="submit" className="">
