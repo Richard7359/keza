@@ -16,6 +16,7 @@ import { TbTrashX } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "../../dashboard/TemplatesOptions";
+import { imageType } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -24,7 +25,14 @@ const FormSchema = z.object({
 
 function SingleImage() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse } = CourseData();
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    setImage2
+  } = CourseData();
   const {
     handleSubmit,
     register,
@@ -52,8 +60,18 @@ function SingleImage() {
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage3, setCurrentImage3] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   useEffect(() => {
     console.log("template options", template);
@@ -72,30 +90,22 @@ function SingleImage() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
-
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
     }
-  }, [course]);
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+    if (image3.file) {
+      setCurrentImage3(image3);
+    } else {
+      setCurrentImage3({ position: "", file: null });
+    }
+    }, [image1, image2, image3]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -113,25 +123,25 @@ function SingleImage() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  const addAttachement = (position: string, file: File) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: [
-                ...step.attachment,
-                { position: position, file: file },
-              ],
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
+  // const addAttachement = (position: string, file: File) => {
+  //   if (currentStep > 0) {
+  //     setCourse({
+  //       ...course,
+  //       steps: course.steps.map((step) => {
+  //         if (step.step == currentStep) {
+  //           return {
+  //             ...step,
+  //             attachment: [
+  //               ...step.attachment,
+  //               { position: position, file: file },
+  //             ],
+  //           };
+  //         }
+  //         return step;
+  //       }),
+  //     });
+  //   }
+  // };
 
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {

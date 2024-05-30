@@ -16,6 +16,7 @@ import { TbTrashX } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "../../dashboard/TemplatesOptions";
+import { imageType } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -24,7 +25,18 @@ const FormSchema = z.object({
 
 function FourImagesSidebySide() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse } = CourseData();
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    image3,
+    image4,
+    setImage2,
+    setImage3,
+    setImage4,
+  } = CourseData();
   const {
     handleSubmit,
     register,
@@ -52,10 +64,23 @@ function FourImagesSidebySide() {
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-  const [currentImage3, setCurrentImage3] = useState<File | null>(null);
-  const [currentImage4, setCurrentImage4] = useState<File | null>(null);
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage3, setCurrentImage3] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage4, setCurrentImage4] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+
 
   useEffect(() => {
     console.log("template options", template);
@@ -72,49 +97,75 @@ function FourImagesSidebySide() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
+  //   const currentStepObj = course.steps.find(
+  //     (step) => step.step === currentStep
+  //   );
 
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-      const bottom_left = currentStepObj.attachment.find(
-        (att) => att.position === "bottom_left"
-      );
+  //   if (currentStepObj) {
+  //     const up_left = currentStepObj.attachment.find(
+  //       (att) => att.position === "up_left"
+  //     );
+  //     const up_right = currentStepObj.attachment.find(
+  //       (att) => att.position === "up_right"
+  //     );
+  //     const bottom_left = currentStepObj.attachment.find(
+  //       (att) => att.position === "bottom_left"
+  //     );
 
-      const bottom_right = currentStepObj.attachment.find(
-        (att) => att.position === "bottom_right"
-      );
+  //     const bottom_right = currentStepObj.attachment.find(
+  //       (att) => att.position === "bottom_right"
+  //     );
 
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
+  //     if (up_left) {
+  //       setCurrentImage1(up_left.file);
+  //     } else {
+  //       setCurrentImage1(null);
+  //     }
+  //     if (up_right) {
+  //       setCurrentImage2(up_right.file);
+  //     } else {
+  //       setCurrentImage2(null);
+  //     }
 
-      if (bottom_left) {
-        setCurrentImage3(bottom_left.file);
-      } else {
-        setCurrentImage3(null);
-      }
+  //     if (bottom_left) {
+  //       setCurrentImage3(bottom_left.file);
+  //     } else {
+  //       setCurrentImage3(null);
+  //     }
 
-      if (bottom_right) {
-        setCurrentImage4(bottom_right.file);
-      } else {
-        setCurrentImage4(null);
-      }
-    }
-  }, [course]);
+  //     if (bottom_right) {
+  //       setCurrentImage4(bottom_right.file);
+  //     } else {
+  //       setCurrentImage4(null);
+  //     }
+  //   }
+  // }, [course]);
+  if (image1.file) {
+    setCurrentImage1(image1);
+  } else {
+    setCurrentImage1({ position: "", file: null });
+  }
+  if (image2) {
+    setCurrentImage2(image2);
+  } else {
+    setCurrentImage2({ position: "", file: null });
+  }
+
+  if (image3.file) {
+    setCurrentImage3(image3);
+  } else {
+    setCurrentImage3({ position: "", file: null });
+  }
+
+  if (image4.file) {
+    setCurrentImage4(image4);
+  } else {
+    setCurrentImage4({ position: "", file: null });
+  }
+  // }
+}, [image1, image2, image3, image4]);
+// }, [course]);
+
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -132,25 +183,25 @@ function FourImagesSidebySide() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  const addAttachement = (position: string, file: File) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: [
-                ...step.attachment,
-                { position: position, file: file },
-              ],
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
+  // const addAttachement = (position: string, file: File) => {
+  //   if (currentStep > 0) {
+  //     setCourse({
+  //       ...course,
+  //       steps: course.steps.map((step) => {
+  //         if (step.step == currentStep) {
+  //           return {
+  //             ...step,
+  //             attachment: [
+  //               ...step.attachment,
+  //               { position: position, file: file },
+  //             ],
+  //           };
+  //         }
+  //         return step;
+  //       }),
+  //     });
+  //   }
+  // };
 
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {
@@ -204,7 +255,7 @@ function FourImagesSidebySide() {
     <div className="h-[365px] flex items-center">
       <div className="w-full">
         <div className="flex w-full gap-2">
-          {!currentImage1 ? (
+          {!currentImage1.file ? (
             <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
               <input
                 type="file"
@@ -212,7 +263,10 @@ function FourImagesSidebySide() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  addAttachement("up_left", e.target.files![0]);
+                  // addAttachement("up_left", e.target.files![0]);
+                  if (currentStep > 0) {
+                    setImage1({position: "up_left", file: e.target.files![0]});
+                  }
                 }}
               />
               <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -241,7 +295,7 @@ function FourImagesSidebySide() {
             <div className="mt-1 flex items-center gap-2 w-[50%]">
               <div className="flex items-center gap-7">
                 <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                  {currentImage1?.name}
+                  {currentImage1.file?.name}
                 </span>
                 <button
                   onClick={() => {
@@ -259,7 +313,7 @@ function FourImagesSidebySide() {
               </div>
             </div>
           )}
-          {!currentImage2 ? (
+          {!currentImage2.file ? (
             <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
               <input
                 type="file"
@@ -267,7 +321,10 @@ function FourImagesSidebySide() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  addAttachement("up_right", e.target.files![0]);
+                  // addAttachement("up_right", e.target.files![0]);
+                  if (currentStep > 0) {
+                    setImage2({position: "up_right", file: e.target.files![0]});
+                  }
                 }}
               />
               <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -296,7 +353,125 @@ function FourImagesSidebySide() {
             <div className="mt-1 flex items-center gap-2 w-[50%]">
               <div className="flex items-center gap-7">
                 <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-                  {currentImage2?.name}
+                  {currentImage2.file?.name}
+                </span>
+                <button
+                  onClick={() => {
+                    deleteAttachement("up_right");
+                  }}
+                  className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                  type="button"
+                >
+                  <TbTrashX
+                    size={20}
+                    className="text-primary text-red"
+                    strokeLinejoin="miter"
+                  />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="flex w-full gap-2 mt-2">
+          {!currentImage3.file ? (
+            <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+              <input
+                type="file"
+                accept="image/jpeg,image/png,application/pdf,image/jpg"
+                hidden={true}
+                className="bg-green"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  // addAttachement("up_left", e.target.files![0]);
+                  if (currentStep > 0) {
+                    setImage3({position: "up_left", file: e.target.files![0]});
+                  }
+                }}
+              />
+              <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+                <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
+                  <GrCloudUpload
+                    size={34}
+                    className="text-primary-500 text-deepSkyBlue"
+                    strokeLinejoin="miter"
+                  />
+                </span>
+                <div>
+                  <p className="mt-2 text-xs">
+                    Drop your files here or
+                    <span className="cursor-pointer text-deepSkyBlue underline">
+                      {" "}
+                      browse
+                    </span>
+                  </p>
+                  <p className="mt-2 text-xsm text_gray-400">
+                    Max file size 10MB.
+                  </p>
+                </div>
+              </div>
+            </label>
+          ) : (
+            <div className="mt-1 flex items-center gap-2 w-[50%]">
+              <div className="flex items-center gap-7">
+                <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                  {currentImage3.file?.name}
+                </span>
+                <button
+                  onClick={() => {
+                    deleteAttachement("up_left");
+                  }}
+                  className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
+                  type="button"
+                >
+                  <TbTrashX
+                    size={20}
+                    className="text-primary text-red"
+                    strokeLinejoin="miter"
+                  />
+                </button>
+              </div>
+            </div>
+          )}
+          {!currentImage4.file ? (
+            <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
+              <input
+                type="file"
+                accept="image/jpeg,image/png,application/pdf,image/jpg"
+                hidden={true}
+                className="bg-green"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  // addAttachement("up_right", e.target.files![0]);
+                  if (currentStep > 0) {
+                    setImage4({position: "up_right", file: e.target.files![0]});
+                  }
+                }}
+              />
+              <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
+                <span className="opacity-1 hover:shadow:sm flex h-12 w-12 p-2 mx-3 items-center justify-center rounded-full bg-white">
+                  <GrCloudUpload
+                    size={34}
+                    className="text-primary-500 text-deepSkyBlue"
+                    strokeLinejoin="miter"
+                  />
+                </span>
+                <div>
+                  <p className="mt-2 text-xs">
+                    Drop your files here or
+                    <span className="cursor-pointer text-deepSkyBlue underline">
+                      {" "}
+                      browse
+                    </span>
+                  </p>
+                  <p className="mt-2 text-xsm text_gray-400">
+                    Max file size 10MB.
+                  </p>
+                </div>
+              </div>
+            </label>
+          ) : (
+            <div className="mt-1 flex items-center gap-2 w-[50%]">
+              <div className="flex items-center gap-7">
+                <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
+                  {currentImage4.file?.name}
                 </span>
                 <button
                   onClick={() => {

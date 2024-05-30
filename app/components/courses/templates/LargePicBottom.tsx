@@ -16,6 +16,7 @@ import { TbTrashX } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
 import TemplateOptions from "../../dashboard/TemplatesOptions";
+import { imageType } from "@/app/store/courseData";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -24,7 +25,16 @@ const FormSchema = z.object({
 
 function LargePicBottom() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse } = CourseData();
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    image3,
+    setImage2,
+    setImage3,
+  } = CourseData();
   const {
     handleSubmit,
     register,
@@ -52,9 +62,18 @@ function LargePicBottom() {
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-  const [currentImage3, setCurrentImage3] = useState<File | null>(null);
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage3, setCurrentImage3] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   useEffect(() => {
     console.log("template options", template);
@@ -73,39 +92,24 @@ function LargePicBottom() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
 
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-      const bottom = currentStepObj.attachment.find(
-        (att) => att.position === "bottom"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
-
-      if (bottom) {
-        setCurrentImage3(bottom.file);
-      } else {
-        setCurrentImage3(null);
-      }
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
     }
-  }, [course]);
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+  
+    if (image3.file) {
+      setCurrentImage3(image3);
+    } else {
+      setCurrentImage3({ position: "", file: null });
+    }
+    }, [image1, image2, image3]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -123,25 +127,25 @@ function LargePicBottom() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  const addAttachement = (position: string, file: File) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: [
-                ...step.attachment,
-                { position: position, file: file },
-              ],
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
+  // const addAttachement = (position: string, file: File) => {
+  //   if (currentStep > 0) {
+  //     setCourse({
+  //       ...course,
+  //       steps: course.steps.map((step) => {
+  //         if (step.step == currentStep) {
+  //           return {
+  //             ...step,
+  //             attachment: [
+  //               ...step.attachment,
+  //               { position: position, file: file },
+  //             ],
+  //           };
+  //         }
+  //         return step;
+  //       }),
+  //     });
+  //   }
+  // };
 
   const deleteAttachement = (position: string) => {
     if (currentStep > 0) {
@@ -195,7 +199,7 @@ function LargePicBottom() {
     <div className="h-[387px] flex items-center">
         <div className="w-full">
     <div className="flex w-full gap-2">
-      {!currentImage1 ? (
+      {!currentImage1.file ? (
         <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
           <input
             type="file"
@@ -203,7 +207,10 @@ function LargePicBottom() {
             hidden={true}
             className="bg-green"
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              addAttachement("up_left", e.target.files![0]);
+              // addAttachement("up_left", e.target.files![0]);
+              if (currentStep > 0) {
+                setImage1({position: "up_left", file: e.target.files![0]});
+              }
             }}
           />
           <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -232,7 +239,7 @@ function LargePicBottom() {
         <div className="mt-1 flex items-center gap-2 w-[50%]">
           <div className="flex items-center gap-7">
             <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-              {currentImage1?.name}
+              {currentImage1.file?.name}
             </span>
             <button
               onClick={() => {
@@ -250,7 +257,7 @@ function LargePicBottom() {
           </div>
         </div>
       )}
-      {!currentImage2 ? (
+      {!currentImage2.file ? (
         <label className="opacity-1 flex w-[50%] h-[65px] text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
           <input
             type="file"
@@ -258,7 +265,10 @@ function LargePicBottom() {
             hidden={true}
             className="bg-green"
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              addAttachement("up_right", e.target.files![0]);
+              // addAttachement("up_right", e.target.files![0]);
+              if (currentStep > 0) {
+                setImage2({position: "up_right", file: e.target.files![0]});
+              }
             }}
           />
           <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -287,7 +297,7 @@ function LargePicBottom() {
         <div className="mt-1 flex items-center gap-2 w-[50%]">
           <div className="flex items-center gap-7">
             <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-              {currentImage2?.name}
+              {currentImage2.file?.name}
             </span>
             <button
               onClick={() => {
@@ -307,7 +317,7 @@ function LargePicBottom() {
       )}
     </div>
     <div className="flex justify-center w-full mt-2">
-      {!currentImage3 ? (
+      {!currentImage3.file ? (
         <label className="opacity-1 flex w-[50%] h-[65px]  text-xs font-bold hover:cursor-pointer cursor-pointer rounded-[5px]">
           <input
             type="file"
@@ -315,7 +325,10 @@ function LargePicBottom() {
             hidden={true}
             className="bg-green"
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              addAttachement("bottom", e.target.files![0]);
+              // addAttachement("bottom", e.target.files![0]);
+              if (currentStep > 0) {
+                setImage3({position: "bottom", file: e.target.files![0]});
+              }
             }}
           />
           <div className="flex w-full items-center border border-dashed rounded-[5px] input_bg">
@@ -344,7 +357,7 @@ function LargePicBottom() {
         <div className="mt-1 flex items-center gap-2 w-[50%]">
           <div className="flex items-center gap-7">
             <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-              {currentImage3?.name}
+              {currentImage3.file?.name}
             </span>
             <button
               onClick={() => {

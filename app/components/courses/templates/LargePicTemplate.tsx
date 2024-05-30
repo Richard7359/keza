@@ -43,50 +43,55 @@ import { CourseData } from "@/app/store/courseData";
 import { BsFillImageFill } from "react-icons/bs";
 import { BsImage } from "react-icons/bs";
 import { ImImage } from "react-icons/im";
+import { imageType } from "@/app/store/courseData";
 
 const LargePicTemplate = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
-  const { course, setCourse } = CourseData();
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-  const [currentImage3, setCurrentImage3] = useState<File | null>(null);
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    image3,
+    image4,
+    setImage2,
+    setImage3,
+    setImage4,
+  } = CourseData();
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage3, setCurrentImage3] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
-
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-      const bottom = currentStepObj.attachment.find(
-        (att) => att.position === "bottom"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
-
-      if (bottom) {
-        setCurrentImage3(bottom.file);
-      } else {
-        setCurrentImage3(null);
-      }
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
     }
-  }, [course]);
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+
+    if (image3.file) {
+      setCurrentImage3(image3);
+    } else {
+      setCurrentImage3({ position: "", file: null });
+    }
+  }, [image1, image2, image3]);
 
   return (
     <div className="w-full">
@@ -124,9 +129,9 @@ const LargePicTemplate = () => {
           >
             <div>
               <div className="flex gap-2">
-                {currentImage1 ? (
+                {currentImage1.file ? (
                   <Image
-                    src={URL.createObjectURL(currentImage1)}
+                    src={URL.createObjectURL(currentImage1.file)}
                     alt="KEFL Logo image"
                     className="w-[30%] h-[220px] cursor-pointer rounded-[5px] border-custom"
                     width={500}
@@ -137,9 +142,9 @@ const LargePicTemplate = () => {
                     <BsImage className="h-full w-full" />
                   </div>
                 )}
-                {currentImage2 ? (
+                {currentImage2.file ? (
                   <Image
-                    src={URL.createObjectURL(currentImage2)}
+                    src={URL.createObjectURL(currentImage2.file)}
                     alt="KEFL Logo image"
                     className="w-[70%] h-[220px] cursor-pointer rounded-[5px] border-custom"
                     width={500}
@@ -152,9 +157,9 @@ const LargePicTemplate = () => {
                 )}
               </div>
               <div className="flex gap-2 justify-center mt-2">
-                {currentImage3 ? (
+                {currentImage3.file ? (
                   <Image
-                    src={URL.createObjectURL(currentImage3)}
+                    src={URL.createObjectURL(currentImage3.file)}
                     alt="image"
                     className="w-[100%] h-[250px] cursor-pointer rounded-[5px] border-custom"
                     width={500}
