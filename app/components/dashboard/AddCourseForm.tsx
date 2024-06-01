@@ -12,15 +12,10 @@ import UploadImage from "./UploadImage";
 import { IoPlayBackOutline } from "react-icons/io5";
 import { IoFootstepsOutline } from "react-icons/io5";
 import { step } from "@/app/store/currectStep";
-import { ChangeEvent } from "react";
-
-import { GrCloudUpload } from "react-icons/gr";
-import { TbTrashX } from "react-icons/tb";
 
 import { motion } from "framer-motion";
 import { CourseData, imageType } from "@/app/store/courseData";
 import TemplateOptions from "./TemplatesOptions";
-import Loader from "../Loader";
 
 // Templates
 import TwoImagesSidebySide from "../courses/templates/TwoImagesSidebySide";
@@ -30,7 +25,6 @@ import LargePic from "../courses/templates/LargePic";
 import LargePicBottom from "../courses/templates/LargePicBottom";
 import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
-import { title } from "process";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -62,11 +56,11 @@ function AddCourseForm() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       title: course.basicInfo ? course.basicInfo.title : "",
-      course_title: "",
-      // course_title:
-      //   course.steps.length > 0 && currentStep > 0
-      //     ? course.steps[currentStep - 1]?.title
-      //     : "",
+      // course_title: "",
+      course_title:
+        course.steps.length > 0 && currentStep > 0
+          ? course.steps[currentStep - 1]?.title
+          : "",
     },
   });
 
@@ -89,8 +83,7 @@ function AddCourseForm() {
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
   }, [currentStep, previousStep]);
 
-  useEffect(() => {
-  }, [image1, image2, image3, image4]);
+  useEffect(() => {}, [image1, image2, image3, image4]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -109,7 +102,8 @@ function AddCourseForm() {
         allImages.push(image);
       }
     });
-    allImages.map(async (file) => {
+    const uploadedImages: imageType[] = [];
+    const uploadPromises = allImages.map(async (file) => {
       setUploading(true);
       if (!file.file) {
         setUploading(false);
@@ -124,47 +118,45 @@ function AddCourseForm() {
           body: formData,
         });
         const data = await response.json();
+        console.log("returned data : ", data);
         if (data) {
-          // setCourse({
-          //   ...course,
-          //   steps: course.steps.map((step) => {
-          //     if (step.step == currentStep) {
-          //       return {
-          //         ...step,
-          //         attachment: [
-          //           ...step.attachment,
-          //           { position: file.position, file: data.fileName },
-          //         ],
-          //       };
-          //     }
-          //     return step;
-          //   }),
-          // });
-          setCourse({
-            ...course,
-            steps: [...course.steps, { ...currentStepData, attachment: [{ position: file.position, file: data.fileName }]}] ,
-          });
-          setUploading(false);
-          setFile(null);
-          setImage1({ position: "", file: null });
-          setImage2({ position: "", file: null });
-          setImage3({ position: "", file: null });
-          setImage4({ position: "", file: null });
-          setPreviousStep(currentStep);
-          setCurrentStep(currentStep + 1);
+          uploadedImages.push({ position: file.position, file: data.fileName });
         }
       } catch (error) {
-        setImage1({ position: "", file: null });
-        setImage2({ position: "", file: null });
-        setImage3({ position: "", file: null });
-        setImage4({ position: "", file: null });
-        setUploading(false);
-        setPreviousStep(currentStep);
-        setCurrentStep(currentStep + 1);
         alert("error");
       }
-      setUploading(false);
     });
+
+    await Promise.all(uploadPromises);
+    const updatedSteps: any = course.steps.map((step, index) => {
+      if (index === currentStep - 1) {
+        return {
+          ...step,
+          attachment: [...step.attachment, [...uploadedImages]],
+        };
+      }
+      return step;
+    });
+    setCourse({
+      ...course,
+      steps: [
+        ...updatedSteps,
+        {
+          title: "",
+          step: currentStep + 1,
+          template: "Single Image",
+          attachment: [],
+        },
+      ],
+    });
+    setUploading(false);
+    setFile(null);
+    setImage1({ position: "", file: null });
+    setImage2({ position: "", file: null });
+    setImage3({ position: "", file: null });
+    setImage4({ position: "", file: null });
+    setPreviousStep(currentStep);
+    setCurrentStep(currentStep + 1);
   }
 
   useEffect(() => {
@@ -223,30 +215,31 @@ function AddCourseForm() {
             });
           }
           setUploading(false);
-          setFile(null);      
+          setFile(null);
           setPreviousStep(currentStep);
           setCurrentStep(currentStep + 1);
         }
       } catch (error) {
         setUploading(false);
-        setFile(null);  
+        setFile(null);
       }
-    } else if (currentStep > 0 && currentStep == course.steps.length) {
-      setCourse({
-        ...course,
-        steps: [
-          ...course.steps,
-          {
-            title: "",
-            step: currentStep + 1,
-            template: "Single Image",
-            attachment: [],
-          },
-        ],
-      });
     }
+    // else if (currentStep > 0 && currentStep == course.steps.length) {
+    //   setCourse({
+    //     ...course,
+    //     steps: [
+    //       ...course.steps,
+    //       {
+    //         title: "",
+    //         step: currentStep + 1,
+    //         template: "Single Image",
+    //         attachment: [],
+    //       },
+    //     ],
+    //   });
+    // }
     // reset();
-    console.log("adding the next step")
+    console.log("adding the next step");
     handleNext();
     setError("");
   }

@@ -3,19 +3,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import Button from "../../form/Button";
-import { TbPlayerTrackNext } from "react-icons/tb";
 import { useEffect, useState } from "react";
-import { IoPlayBackOutline } from "react-icons/io5";
 import { step } from "@/app/store/currectStep";
 import { ChangeEvent } from "react";
 
 import { GrCloudUpload } from "react-icons/gr";
 import { TbTrashX } from "react-icons/tb";
 
-import { motion } from "framer-motion";
 import { CourseData } from "@/app/store/courseData";
-import TemplateOptions from "../../dashboard/TemplatesOptions";
 import { imageType } from "@/app/store/courseData";
 
 const FormSchema = z.object({
@@ -24,24 +19,17 @@ const FormSchema = z.object({
 });
 
 function TwoImagesSidebySide() {
-  const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
+  const { currentStep,  previousStep } = step();
   const {
     course,
     setCourse,
     image1,
     setImage1,
     image2,
-    image3,
-    image4,
     setImage2,
-    setImage3,
-    setImage4,
   } = CourseData();
   const {
-    handleSubmit,
-    register,
     watch,
-    reset,
     setValue,
     formState: { errors },
   } = useForm<z.infer<typeof FormSchema>>({
@@ -73,9 +61,6 @@ function TwoImagesSidebySide() {
     file: null,
   });
 
-  // const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  // const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-
   useEffect(() => {
     console.log("template options", template);
   }, [template]);
@@ -91,26 +76,6 @@ function TwoImagesSidebySide() {
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-    // const currentStepObj = course.steps.find(
-    //   (step) => step.step === currentStep
-    // );
-
-    // if (currentStepObj) {
-    //   const up_left = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_left"
-    //   );
-    //   const up_right = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_right"
-    //   );
-
-    //  if (image1) {
-    //   const up_left = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_left"
-    //   );
-    //   const up_right = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_right"
-    //   );
-
     if (image1) {
       setCurrentImage1(image1);
     } else {
@@ -121,9 +86,7 @@ function TwoImagesSidebySide() {
     } else {
       setCurrentImage2({ position: "", file: null });
     }
-    // }
   }, [image1, image2]);
-  // }, [course]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -140,47 +103,6 @@ function TwoImagesSidebySide() {
   useEffect(() => {
     setError("");
   }, [complexity, level, file, watchedTitle]);
-
-  const addAttachement = (position: string, file: File) => {
-    if (currentStep > 0) {
-      setImage1({ position: position, file: file });
-      // setCourse({
-      //   ...course,
-      //   steps: course.steps.map((step) => {
-      //     if (step.step == currentStep) {
-      //       return {
-      //         ...step,
-      //         attachment: [
-      //           ...step.attachment,
-      //           { position: position, file: file },
-      //         ],
-      //       };
-      //     }
-      //     return step;
-      //   }),
-      // });
-    }
-  };
-
-  // const addAttachement = (position: string, file: File) => {
-  //   if (currentStep > 0) {
-  //     setCourse({
-  //       ...course,
-  //       steps: course.steps.map((step) => {
-  //         if (step.step == currentStep) {
-  //           return {
-  //             ...step,
-  //             attachment: [
-  //               ...step.attachment,
-  //               { position: position, file: file },
-  //             ],
-  //           };
-  //         }
-  //         return step;
-  //       }),
-  //     });
-  //   }
-  // };
 
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {
@@ -281,7 +203,6 @@ function TwoImagesSidebySide() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                // addAttachement("up_right", e.target.files![0]);
                 if (currentStep > 0) {
                   setImage2({ position: "up_right", file: e.target.files![0] });
                 }
