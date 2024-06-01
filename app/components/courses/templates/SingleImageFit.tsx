@@ -40,7 +40,7 @@ function SingleImageFit() {
       title: course.basicInfo ? course.basicInfo.title : "",
       course_title:
         course.steps.length > 0 && currentStep > 0
-          ? course.steps[currentStep - 1].title
+          ? course.steps[currentStep - 1]?.title
           : "",
     },
   });
@@ -73,7 +73,7 @@ function SingleImageFit() {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
-        ? course.steps[currentStep - 1].title
+        ? course.steps[currentStep - 1]?.title
         : ""
     );
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
@@ -170,7 +170,7 @@ function SingleImageFit() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 // addAttachement("up_left", e.target.files![0]);
                 if (currentStep > 0) {
-                  setImage1({position: "up_left", file: e.target.files![0]});
+                  setImage1({ position: "up_left", file: e.target.files![0] });
                 }
               }}
             />
@@ -205,7 +205,7 @@ function SingleImageFit() {
               <button
                 onClick={() => {
                   if (currentStep > 0) {
-                    setImage1({position: "", file: null});
+                    setImage1({ position: "", file: null });
                   }
                 }}
                 className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"

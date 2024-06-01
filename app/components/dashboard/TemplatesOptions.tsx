@@ -45,10 +45,10 @@ const TemplateOptions = () => {
       <DropdownMenu>
         <DropdownMenuTrigger defaultValue={"Two Images Side by Side"} asChild>
           <button className="flex items-center input_bg justify-between w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none">
-            {course.steps[currentStep - 1].template == "" ? (
+            {course.steps[currentStep - 1]?.template == "" ? (
               <span>select the template</span>
             ) : (
-              <span>{course.steps[currentStep -1].template}</span>
+              <span>{course.steps[currentStep - 1]?.template}</span>
             )}
             <MdOutlineKeyboardArrowDown className="ml-2 h-4 w-4" />
           </button>
@@ -61,7 +61,7 @@ const TemplateOptions = () => {
             }}
           >
             Single Image
-            {course.steps[currentStep - 1].template == "Single Image" && (
+            {course.steps[currentStep - 1]?.template == "Single Image" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
@@ -72,7 +72,7 @@ const TemplateOptions = () => {
             }}
           >
             Single Image Fit
-            {course.steps[currentStep - 1].template == "Single Image Fit" && (
+            {course.steps[currentStep - 1]?.template == "Single Image Fit" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
@@ -83,18 +83,22 @@ const TemplateOptions = () => {
             }}
           >
             Two Images Side by Side
-            {course.steps[currentStep - 1].template == "Two Images Side by Side" && (
+            {course.steps[currentStep - 1]?.template ==
+              "Two Images Side by Side" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center justify-between"
             onClick={() => {
-              setStepTemplate("Large pic Left, Small pic Right with Bottom pic");
+              setStepTemplate(
+                "Large pic Left, Small pic Right with Bottom pic"
+              );
             }}
           >
             Large pic Left, Small pic Right with Bottom pic
-            {course.steps[currentStep - 1].template == "Large pic Left, Small pic Right with Bottom pic" && (
+            {course.steps[currentStep - 1]?.template ==
+              "Large pic Left, Small pic Right with Bottom pic" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
@@ -105,7 +109,8 @@ const TemplateOptions = () => {
             }}
           >
             Two Images Top, One Image Bottom
-            {course.steps[currentStep - 1].template == "Two Images Top, One Image Bottom" && (
+            {course.steps[currentStep - 1]?.template ==
+              "Two Images Top, One Image Bottom" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
@@ -116,7 +121,8 @@ const TemplateOptions = () => {
             }}
           >
             Four Equal Images (2x2 Grid)
-            {course.steps[currentStep - 1].template == "Four Equal Images (2x2 Grid)" && (
+            {course.steps[currentStep - 1]?.template ==
+              "Four Equal Images (2x2 Grid)" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>
@@ -127,7 +133,8 @@ const TemplateOptions = () => {
             }}
           >
             Two Images Vertically Stacked
-            {course.steps[currentStep - 1].template == "Two Images Vertically Stacked" && (
+            {course.steps[currentStep - 1]?.template ==
+              "Two Images Vertically Stacked" && (
               <BsCheckAll className="h-3.5 w-3.5 text-hc-gray-700 dark:text-gray-300 my-2" />
             )}
           </DropdownMenuItem>

@@ -25,7 +25,18 @@ const FormSchema = z.object({
 
 function TwoImagesSidebySide() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse , image1, setImage1, image2,image3,image4,setImage2,setImage3,setImage4} = CourseData();
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    image3,
+    image4,
+    setImage2,
+    setImage3,
+    setImage4,
+  } = CourseData();
   const {
     handleSubmit,
     register,
@@ -39,7 +50,7 @@ function TwoImagesSidebySide() {
       title: course.basicInfo ? course.basicInfo.title : "",
       course_title:
         course.steps.length > 0 && currentStep > 0
-          ? course.steps[currentStep - 1].title
+          ? course.steps[currentStep - 1]?.title
           : "",
     },
   });
@@ -53,8 +64,14 @@ function TwoImagesSidebySide() {
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
 
-  const [currentImage1, setCurrentImage1] = useState<imageType>({position: "", file: null});
-  const [currentImage2, setCurrentImage2] = useState<imageType>({position: "", file: null});
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   // const [currentImage1, setCurrentImage1] = useState<File | null>(null);
   // const [currentImage2, setCurrentImage2] = useState<File | null>(null);
@@ -67,7 +84,7 @@ function TwoImagesSidebySide() {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
-        ? course.steps[currentStep - 1].title
+        ? course.steps[currentStep - 1]?.title
         : ""
     );
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
@@ -94,19 +111,19 @@ function TwoImagesSidebySide() {
     //     (att) => att.position === "up_right"
     //   );
 
-      if (image1) {
-        setCurrentImage1(image1);
-      } else {
-        setCurrentImage1({position: "", file: null});
-      }
-      if (image2) {
-        setCurrentImage2(image2);
-      } else {
-        setCurrentImage2({position: "", file: null});
-      }
+    if (image1) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
+    }
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
     // }
   }, [image1, image2]);
-// }, [course]);
+  // }, [course]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -126,7 +143,7 @@ function TwoImagesSidebySide() {
 
   const addAttachement = (position: string, file: File) => {
     if (currentStep > 0) {
-      setImage1({position: position, file: file});
+      setImage1({ position: position, file: file });
       // setCourse({
       //   ...course,
       //   steps: course.steps.map((step) => {
@@ -206,7 +223,7 @@ function TwoImagesSidebySide() {
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 if (currentStep > 0) {
-                  setImage1({position: "up_left", file: e.target.files![0]});
+                  setImage1({ position: "up_left", file: e.target.files![0] });
                 }
               }}
             />
@@ -241,7 +258,7 @@ function TwoImagesSidebySide() {
               <button
                 onClick={() => {
                   if (currentStep > 0) {
-                    setImage1({position: "", file: null});
+                    setImage1({ position: "", file: null });
                   }
                 }}
                 className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
@@ -266,7 +283,7 @@ function TwoImagesSidebySide() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 // addAttachement("up_right", e.target.files![0]);
                 if (currentStep > 0) {
-                  setImage1({position: "up_right", file: e.target.files![0]});
+                  setImage2({ position: "up_right", file: e.target.files![0] });
                 }
               }}
             />
@@ -301,7 +318,7 @@ function TwoImagesSidebySide() {
               <button
                 onClick={() => {
                   if (currentStep > 0) {
-                    setImage2({position: "", file: null});
+                    setImage2({ position: "", file: null });
                   }
                 }}
                 className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"

@@ -48,9 +48,26 @@ const TwoImagesSidebySideTemplate = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
-  const { course, setCourse , image1, setImage1, image2,image3,image4,setImage2,setImage3,setImage4} = CourseData();
-  const [currentImage1, setCurrentImage1] = useState<imageType>({position: "", file: null});
-  const [currentImage2, setCurrentImage2] = useState<imageType>({position: "", file: null});
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    image3,
+    image4,
+    setImage2,
+    setImage3,
+    setImage4,
+  } = CourseData();
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   // useEffect(() => {
   //   const currentStepObj = course.steps.find(
@@ -99,19 +116,19 @@ const TwoImagesSidebySideTemplate = () => {
     //     (att) => att.position === "up_right"
     //   );
 
-      if (image1) {
-        setCurrentImage1(image1);
-      } else {
-        setCurrentImage1({position: "", file: null});
-      }
-      if (image2) {
-        setCurrentImage2(image2);
-      } else {
-        setCurrentImage2({position: "", file: null});
-      }
+    if (image1) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
+    }
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
     // }
   }, [image1, image2]);
-// }, [course]);
+  // }, [course]);
 
   return (
     <div className="w-full">
@@ -138,7 +155,9 @@ const TwoImagesSidebySideTemplate = () => {
             <div className="flex items-center">
               <FaMonument className="text-3xl" />{" "}
               {course.steps.length > 0
-                ? `STEP ${currentStep} : ${course.steps[currentStep - 1].title}`
+                ? `STEP ${currentStep} : ${
+                    course.steps[currentStep - 1]?.title
+                  }`
                 : "Add the course title"}
             </div>
           </AccordionTrigger>

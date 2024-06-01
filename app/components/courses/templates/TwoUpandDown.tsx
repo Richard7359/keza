@@ -48,7 +48,7 @@ function TwoUpandDown() {
       title: course.basicInfo ? course.basicInfo.title : "",
       course_title:
         course.steps.length > 0 && currentStep > 0
-          ? course.steps[currentStep - 1].title
+          ? course.steps[currentStep - 1]?.title
           : "",
     },
   });
@@ -85,7 +85,7 @@ function TwoUpandDown() {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
-        ? course.steps[currentStep - 1].title
+        ? course.steps[currentStep - 1]?.title
         : ""
     );
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
@@ -206,7 +206,7 @@ function TwoUpandDown() {
                   <button
                     onClick={() => {
                       if (currentStep > 0) {
-                        setImage1({position: "", file: null});
+                        setImage1({ position: "", file: null });
                       }
                     }}
                     className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
@@ -270,7 +270,7 @@ function TwoUpandDown() {
                   <button
                     onClick={() => {
                       if (currentStep > 0) {
-                        setImage2({position: "", file: null});
+                        setImage2({ position: "", file: null });
                       }
                     }}
                     className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"

@@ -48,13 +48,7 @@ const SingleImageFitTemplate = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
-  const {
-    course,
-    image1,
-    image2,
-    image3,
-    image4
-  } = CourseData();
+  const { course, image1, image2, image3, image4 } = CourseData();
   const [currentImage1, setCurrentImage1] = useState<imageType>({
     position: "",
     file: null,
@@ -101,7 +95,9 @@ const SingleImageFitTemplate = () => {
             <div className="flex items-center">
               <FaMonument className="text-3xl" />{" "}
               {course.steps.length > 0
-                ? `STEP ${currentStep} : ${course.steps[currentStep - 1].title}`
+                ? `STEP ${currentStep} : ${
+                    course.steps[currentStep - 1]?.title
+                  }`
                 : "Add the course title"}
             </div>
           </AccordionTrigger>

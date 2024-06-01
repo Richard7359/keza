@@ -33,7 +33,7 @@ function SingleImage() {
     image2,
     setImage2,
     image3,
-    setImage3
+    setImage3,
   } = CourseData();
   const {
     handleSubmit,
@@ -48,7 +48,7 @@ function SingleImage() {
       title: course.basicInfo ? course.basicInfo.title : "",
       course_title:
         course.steps.length > 0 && currentStep > 0
-          ? course.steps[currentStep - 1].title
+          ? course.steps[currentStep - 1]?.title
           : "",
     },
   });
@@ -85,7 +85,7 @@ function SingleImage() {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
-        ? course.steps[currentStep - 1].title
+        ? course.steps[currentStep - 1]?.title
         : ""
     );
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
@@ -107,7 +107,7 @@ function SingleImage() {
     } else {
       setCurrentImage3({ position: "", file: null });
     }
-    }, [image1, image2, image3]);
+  }, [image1, image2, image3]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -167,7 +167,7 @@ function SingleImage() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 // addAttachement("up_left", e.target.files![0]);
                 if (currentStep > 0) {
-                  setImage1({position: "up_left", file: e.target.files![0]});
+                  setImage1({ position: "up_left", file: e.target.files![0] });
                 }
               }}
             />
@@ -202,7 +202,7 @@ function SingleImage() {
               <button
                 onClick={() => {
                   if (currentStep > 0) {
-                    setImage1({position: "", file: null});
+                    setImage1({ position: "", file: null });
                   }
                 }}
                 className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"

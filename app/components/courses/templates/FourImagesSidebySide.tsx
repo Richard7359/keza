@@ -50,7 +50,7 @@ function FourImagesSidebySide() {
       title: course.basicInfo ? course.basicInfo.title : "",
       course_title:
         course.steps.length > 0 && currentStep > 0
-          ? course.steps[currentStep - 1].title
+          ? course.steps[currentStep - 1]?.title
           : "",
     },
   });
@@ -81,7 +81,6 @@ function FourImagesSidebySide() {
     file: null,
   });
 
-
   useEffect(() => {
     console.log("template options", template);
   }, [template]);
@@ -90,82 +89,81 @@ function FourImagesSidebySide() {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
-        ? course.steps[currentStep - 1].title
+        ? course.steps[currentStep - 1]?.title
         : ""
     );
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
   }, [currentStep, previousStep]);
 
   useEffect(() => {
-  //   const currentStepObj = course.steps.find(
-  //     (step) => step.step === currentStep
-  //   );
+    //   const currentStepObj = course.steps.find(
+    //     (step) => step.step === currentStep
+    //   );
 
-  //   if (currentStepObj) {
-  //     const up_left = currentStepObj.attachment.find(
-  //       (att) => att.position === "up_left"
-  //     );
-  //     const up_right = currentStepObj.attachment.find(
-  //       (att) => att.position === "up_right"
-  //     );
-  //     const bottom_left = currentStepObj.attachment.find(
-  //       (att) => att.position === "bottom_left"
-  //     );
+    //   if (currentStepObj) {
+    //     const up_left = currentStepObj.attachment.find(
+    //       (att) => att.position === "up_left"
+    //     );
+    //     const up_right = currentStepObj.attachment.find(
+    //       (att) => att.position === "up_right"
+    //     );
+    //     const bottom_left = currentStepObj.attachment.find(
+    //       (att) => att.position === "bottom_left"
+    //     );
 
-  //     const bottom_right = currentStepObj.attachment.find(
-  //       (att) => att.position === "bottom_right"
-  //     );
+    //     const bottom_right = currentStepObj.attachment.find(
+    //       (att) => att.position === "bottom_right"
+    //     );
 
-  //     if (up_left) {
-  //       setCurrentImage1(up_left.file);
-  //     } else {
-  //       setCurrentImage1(null);
-  //     }
-  //     if (up_right) {
-  //       setCurrentImage2(up_right.file);
-  //     } else {
-  //       setCurrentImage2(null);
-  //     }
+    //     if (up_left) {
+    //       setCurrentImage1(up_left.file);
+    //     } else {
+    //       setCurrentImage1(null);
+    //     }
+    //     if (up_right) {
+    //       setCurrentImage2(up_right.file);
+    //     } else {
+    //       setCurrentImage2(null);
+    //     }
 
-  //     if (bottom_left) {
-  //       setCurrentImage3(bottom_left.file);
-  //     } else {
-  //       setCurrentImage3(null);
-  //     }
+    //     if (bottom_left) {
+    //       setCurrentImage3(bottom_left.file);
+    //     } else {
+    //       setCurrentImage3(null);
+    //     }
 
-  //     if (bottom_right) {
-  //       setCurrentImage4(bottom_right.file);
-  //     } else {
-  //       setCurrentImage4(null);
-  //     }
-  //   }
+    //     if (bottom_right) {
+    //       setCurrentImage4(bottom_right.file);
+    //     } else {
+    //       setCurrentImage4(null);
+    //     }
+    //   }
+    // }, [course]);
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
+    }
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+
+    if (image3.file) {
+      setCurrentImage3(image3);
+    } else {
+      setCurrentImage3({ position: "", file: null });
+    }
+
+    if (image4.file) {
+      setCurrentImage4(image4);
+    } else {
+      setCurrentImage4({ position: "", file: null });
+    }
+    // }
+  }, [image1, image2, image3, image4]);
   // }, [course]);
-  if (image1.file) {
-    setCurrentImage1(image1);
-  } else {
-    setCurrentImage1({ position: "", file: null });
-  }
-  if (image2) {
-    setCurrentImage2(image2);
-  } else {
-    setCurrentImage2({ position: "", file: null });
-  }
-
-  if (image3.file) {
-    setCurrentImage3(image3);
-  } else {
-    setCurrentImage3({ position: "", file: null });
-  }
-
-  if (image4.file) {
-    setCurrentImage4(image4);
-  } else {
-    setCurrentImage4({ position: "", file: null });
-  }
-  // }
-}, [image1, image2, image3, image4]);
-// }, [course]);
-
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -246,7 +244,10 @@ function FourImagesSidebySide() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   // addAttachement("up_left", e.target.files![0]);
                   if (currentStep > 0) {
-                    setImage1({position: "up_left", file: e.target.files![0]});
+                    setImage1({
+                      position: "up_left",
+                      file: e.target.files![0],
+                    });
                   }
                 }}
               />
@@ -281,7 +282,7 @@ function FourImagesSidebySide() {
                 <button
                   onClick={() => {
                     if (currentStep > 0) {
-                      setImage1({position: "", file: null});
+                      setImage1({ position: "", file: null });
                     }
                   }}
                   className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
@@ -306,7 +307,10 @@ function FourImagesSidebySide() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   // addAttachement("up_right", e.target.files![0]);
                   if (currentStep > 0) {
-                    setImage2({position: "up_right", file: e.target.files![0]});
+                    setImage2({
+                      position: "up_right",
+                      file: e.target.files![0],
+                    });
                   }
                 }}
               />
@@ -341,7 +345,7 @@ function FourImagesSidebySide() {
                 <button
                   onClick={() => {
                     if (currentStep > 0) {
-                      setImage2({position: "", file: null});
+                      setImage2({ position: "", file: null });
                     }
                   }}
                   className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
@@ -368,7 +372,10 @@ function FourImagesSidebySide() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   // addAttachement("up_left", e.target.files![0]);
                   if (currentStep > 0) {
-                    setImage3({position: "up_left", file: e.target.files![0]});
+                    setImage3({
+                      position: "up_left",
+                      file: e.target.files![0],
+                    });
                   }
                 }}
               />
@@ -403,7 +410,7 @@ function FourImagesSidebySide() {
                 <button
                   onClick={() => {
                     if (currentStep > 0) {
-                      setImage3({position: "", file: null});
+                      setImage3({ position: "", file: null });
                     }
                   }}
                   className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
@@ -428,7 +435,10 @@ function FourImagesSidebySide() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   // addAttachement("up_right", e.target.files![0]);
                   if (currentStep > 0) {
-                    setImage4({position: "up_right", file: e.target.files![0]});
+                    setImage4({
+                      position: "up_right",
+                      file: e.target.files![0],
+                    });
                   }
                 }}
               />
@@ -463,7 +473,7 @@ function FourImagesSidebySide() {
                 <button
                   onClick={() => {
                     if (currentStep > 0) {
-                      setImage4({position: "", file: null});
+                      setImage4({ position: "", file: null });
                     }
                   }}
                   className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
