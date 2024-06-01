@@ -39,7 +39,7 @@ const FormSchema = z.object({
 
 function AddCourseForm() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse } = CourseData();
+  const { course, setCourse,image1, image2,image3,image4 } = CourseData();
   const {
     handleSubmit,
     register,
@@ -77,9 +77,12 @@ function AddCourseForm() {
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
   }, [currentStep, previousStep]);
 
-  // useEffect(() => {
-  //   setBasicComplexity(complexity);
-  // }, [complexity]);
+  useEffect(() => {
+    console.log("image 1 : ", image1);
+    console.log("image 2 : ", image2);
+    console.log("image 3 : ", image3);
+    console.log("image 4 : ", image4);
+  }, [image1, image2,image3,image4]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -92,61 +95,60 @@ function AddCourseForm() {
   async function handleNext() {
     if (error) return;
     const currentStepData = course.steps[currentStep - 1];
-    setUploading(true);
-    if (currentStep == 0) {
-      if (!course.basicInfo.attachment) {
-        setUploading(false);
-        return setError("File is required");
-      }
-      const files = course.basicInfo.attachment;
-      const formData = new FormData();
-      if(course.basicInfo.attachment) formData.append("file", course.basicInfo.attachment);
-      formData.append("folder", "courses");
-      try {
-        const response = await fetch("/api/s3-upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await response.json();
-        if (data) {
-          setUploading(false);
-          setFile(null);
-          setPreviousStep(currentStep);
-          setCurrentStep(currentStep + 1);
-        }
-      } catch (error) {
-        setUploading(false);
-        setFile(null);
-        setPreviousStep(currentStep);
-        setCurrentStep(currentStep + 1);
-      }
-
-      return;
-    }
-    currentStepData.attachment?.map(async (file) => {
-      if (!file.file) {
-        setUploading(false);
-        return setError("File is required");
-      }
-      const formData = new FormData();
-      formData.append("file", file.file);
-      formData.append("folder", "courses");
-      try {
-        const response = await fetch("/api/s3-upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await response.json();
-        if (data) {
-          setUploading(false);
-          setFile(null);
-        }
-      } catch (error) {
-        setUploading(false);
-        setPreviousStep(currentStep);
-        setCurrentStep(currentStep - 1);
-      }
-    });
+    // setUploading(true);
+    // if (currentStep == 0) {
+    //   if (!course.basicInfo.attachment) {
+    //     setUploading(false);
+    //     return setError("File is required");
+    //   }
+    //   const files = course.basicInfo.attachment;
+    //   const formData = new FormData();
+    //   if(course.basicInfo.attachment) formData.append("file", course.basicInfo.attachment);
+    //   formData.append("folder", "courses");
+    //   try {
+    //     const response = await fetch("/api/s3-upload", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
+    //     const data = await response.json();
+    //     if (data) {
+    //       setUploading(false);
+    //       setFile(null);
+    //       setPreviousStep(currentStep);
+    //       setCurrentStep(currentStep + 1);
+    //     }
+    //   } catch (error) {
+    //     setUploading(false);
+    //     setFile(null);
+    //     setPreviousStep(currentStep);
+    //     setCurrentStep(currentStep + 1);
+    //   }
+    //   return;
+    // }
+    // currentStepData.attachment?.map(async (file) => {
+    //   if (!file.file) {
+    //     setUploading(false);
+    //     return setError("File is required");
+    //   }
+    //   const formData = new FormData();
+    //   formData.append("file", file.file);
+    //   formData.append("folder", "courses");
+    //   try {
+    //     const response = await fetch("/api/s3-upload", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
+    //     const data = await response.json();
+    //     if (data) {
+    //       setUploading(false);
+    //       setFile(null);
+    //     }
+    //   } catch (error) {
+    //     setUploading(false);
+    //     setPreviousStep(currentStep);
+    //     setCurrentStep(currentStep - 1);
+    //   }
+    // });
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   }

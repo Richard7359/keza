@@ -125,25 +125,6 @@ function TwoUpandDown() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  const deleteAttachement = (position: string) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              attachment: step.attachment.filter(
-                (att) => att.position !== position
-              ),
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
-
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {
       setCourse({
@@ -224,7 +205,9 @@ function TwoUpandDown() {
                   </span>
                   <button
                     onClick={() => {
-                      deleteAttachement("up_left");
+                      if (currentStep > 0) {
+                        setImage1({position: "", file: null});
+                      }
                     }}
                     className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
                     type="button"
@@ -286,7 +269,9 @@ function TwoUpandDown() {
                   </span>
                   <button
                     onClick={() => {
-                      deleteAttachement("up_left");
+                      if (currentStep > 0) {
+                        setImage2({position: "", file: null});
+                      }
                     }}
                     className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
                     type="button"
