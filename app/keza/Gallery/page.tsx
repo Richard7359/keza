@@ -2,10 +2,10 @@ import React from "react";
 import Navigation from "../../components/Navigation_bar/Navigation";
 import Footer from "../../components/Footer";
 import Image from "next/image";
-import child from "../images/bootcamp-image-4.jpg";
-import bootcamp from "../images/bootcamp-image-2.jpg";
-import Piano from "../images/piano.png";
-import Child_ichigo from "../images/child_ichigo.png";
+import child from "../../images/bootcamp-image-4.jpg";
+import bootcamp from "../../images/bootcamp-image-2.jpg";
+import Piano from "../../images/piano.png";
+import Child_ichigo from "../../images/child_ichigo.png";
 
 const page = () => {
   return (

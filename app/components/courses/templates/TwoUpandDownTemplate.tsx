@@ -42,61 +42,41 @@ import { GoDotFill } from "react-icons/go";
 import { CourseData } from "@/app/store/courseData";
 import { BsFillImageFill } from "react-icons/bs";
 import { BsImage } from "react-icons/bs";
+import { imageType } from "@/app/store/courseData";
 
 const TwoUpandDownTemplate = () => {
   const [activeAccordion, setActiveAccordion] = useState(1);
   const [done, setDone] = useState<number[]>([]);
   const { currentStep } = step();
-  const { course, setCourse } = CourseData();
-  const [currentImage1, setCurrentImage1] = useState<File | null>(null);
-  const [currentImage2, setCurrentImage2] = useState<File | null>(null);
-  const [currentImage3, setCurrentImage3] = useState<File | null>(null);
-  const [currentImage4, setCurrentImage4] = useState<File | null>(null);
+  const {
+    course,
+    setCourse,
+    image1,
+    setImage1,
+    image2,
+    setImage2,
+  } = CourseData();
+  const [currentImage1, setCurrentImage1] = useState<imageType>({
+    position: "",
+    file: null,
+  });
+  const [currentImage2, setCurrentImage2] = useState<imageType>({
+    position: "",
+    file: null,
+  });
 
   useEffect(() => {
-    const currentStepObj = course.steps.find(
-      (step) => step.step === currentStep
-    );
-
-    if (currentStepObj) {
-      const up_left = currentStepObj.attachment.find(
-        (att) => att.position === "up_left"
-      );
-      const up_right = currentStepObj.attachment.find(
-        (att) => att.position === "up_right"
-      );
-      const bottom_left = currentStepObj.attachment.find(
-        (att) => att.position === "bottom_left"
-      );
-
-      const bottom_right = currentStepObj.attachment.find(
-        (att) => att.position === "bottom_right"
-      );
-
-      if (up_left) {
-        setCurrentImage1(up_left.file);
-      } else {
-        setCurrentImage1(null);
-      }
-      if (up_right) {
-        setCurrentImage2(up_right.file);
-      } else {
-        setCurrentImage2(null);
-      }
-
-      if (bottom_left) {
-        setCurrentImage3(bottom_left.file);
-      } else {
-        setCurrentImage3(null);
-      }
-
-      if (bottom_right) {
-        setCurrentImage4(bottom_right.file);
-      } else {
-        setCurrentImage4(null);
-      }
+    if (image1.file) {
+      setCurrentImage1(image1);
+    } else {
+      setCurrentImage1({ position: "", file: null });
     }
-  }, [course]);
+    if (image2) {
+      setCurrentImage2(image2);
+    } else {
+      setCurrentImage2({ position: "", file: null });
+    }
+  }, [image1, image2]);
 
   return (
     <div className="w-full">
@@ -135,10 +115,10 @@ const TwoUpandDownTemplate = () => {
             } sm:pd_id gd`}
           >
             <div className="gap-2">
-              {currentImage1 ? (
+              {currentImage1.file ? (
                 <div className="w-full flex justify-center">
                   <Image
-                    src={URL.createObjectURL(currentImage1)}
+                    src={URL.createObjectURL(currentImage1.file)}
                     alt="KEFL Logo image"
                     className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom"
                     width={500}
@@ -152,10 +132,10 @@ const TwoUpandDownTemplate = () => {
                   </div>
                 </div>
               )}
-              {currentImage2 ? (
+              {currentImage2.file ? (
                 <div className="w-full flex justify-center">
                   <Image
-                    src={URL.createObjectURL(currentImage2)}
+                    src={URL.createObjectURL(currentImage2.file)}
                     alt="KEFL Logo image"
                     className="w-[80%] h-[220px] cursor-pointer rounded-[5px] border-custom mt-2"
                     width={500}

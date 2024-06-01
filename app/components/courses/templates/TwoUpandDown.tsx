@@ -32,8 +32,6 @@ function TwoUpandDown() {
     setImage1,
     image2,
     setImage2,
-    image3,
-    setImage3,
   } = CourseData();
   const {
     handleSubmit,
@@ -70,10 +68,6 @@ function TwoUpandDown() {
     position: "",
     file: null,
   });
-  const [currentImage3, setCurrentImage3] = useState<imageType>({
-    position: "",
-    file: null,
-  });
 
   useEffect(() => {
     console.log("template options", template);
@@ -102,12 +96,7 @@ function TwoUpandDown() {
     } else {
       setCurrentImage2({ position: "", file: null });
     }
-    if (image3.file) {
-      setCurrentImage3(image3);
-    } else {
-      setCurrentImage3({ position: "", file: null });
-    }
-  }, [image1, image2, image3]);
+  }, [image1, image2]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
