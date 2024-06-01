@@ -18,7 +18,7 @@ import { GrCloudUpload } from "react-icons/gr";
 import { TbTrashX } from "react-icons/tb";
 
 import { motion } from "framer-motion";
-import { CourseData } from "@/app/store/courseData";
+import { CourseData, imageType } from "@/app/store/courseData";
 import TemplateOptions from "./TemplatesOptions";
 import Loader from "../Loader";
 
@@ -39,7 +39,7 @@ const FormSchema = z.object({
 
 function AddCourseForm() {
   const { currentStep, setCurrentStep, previousStep, setPreviousStep } = step();
-  const { course, setCourse,image1, image2,image3,image4 } = CourseData();
+  const { course, setCourse, image1, image2, image3, image4 } = CourseData();
   const {
     handleSubmit,
     register,
@@ -82,7 +82,7 @@ function AddCourseForm() {
     console.log("image 2 : ", image2);
     console.log("image 3 : ", image3);
     console.log("image 4 : ", image4);
-  }, [image1, image2,image3,image4]);
+  }, [image1, image2, image3, image4]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -95,7 +95,13 @@ function AddCourseForm() {
   async function handleNext() {
     if (error) return;
     const currentStepData = course.steps[currentStep - 1];
-    // setUploading(true);
+    const allImages: imageType[] = [];
+    [image1, image2, image3, image4].map((image, index) => {
+      if (image.file) {
+        allImages.push(image);
+      }
+    });
+    setUploading(true);
     // if (currentStep == 0) {
     //   if (!course.basicInfo.attachment) {
     //     setUploading(false);
@@ -103,7 +109,8 @@ function AddCourseForm() {
     //   }
     //   const files = course.basicInfo.attachment;
     //   const formData = new FormData();
-    //   if(course.basicInfo.attachment) formData.append("file", course.basicInfo.attachment);
+    //   if (course.basicInfo.attachment)
+    //     formData.append("file", course.basicInfo.attachment);
     //   formData.append("folder", "courses");
     //   try {
     //     const response = await fetch("/api/s3-upload", {
@@ -125,30 +132,47 @@ function AddCourseForm() {
     //   }
     //   return;
     // }
-    // currentStepData.attachment?.map(async (file) => {
-    //   if (!file.file) {
-    //     setUploading(false);
-    //     return setError("File is required");
-    //   }
-    //   const formData = new FormData();
-    //   formData.append("file", file.file);
-    //   formData.append("folder", "courses");
-    //   try {
-    //     const response = await fetch("/api/s3-upload", {
-    //       method: "POST",
-    //       body: formData,
-    //     });
-    //     const data = await response.json();
-    //     if (data) {
-    //       setUploading(false);
-    //       setFile(null);
-    //     }
-    //   } catch (error) {
-    //     setUploading(false);
-    //     setPreviousStep(currentStep);
-    //     setCurrentStep(currentStep - 1);
-    //   }
-    // });
+
+    allImages.map(async (file) => {
+      if (!file.file) {
+        setUploading(false);
+        return setError("File is required");
+      }
+      const formData = new FormData();
+      formData.append("file", file.file);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (data) {
+          setCourse({
+            ...course,
+            steps: course.steps.map((step) => {
+              if (step.step == currentStep) {
+                return {
+                  ...step,
+                  attachment: [
+                    ...step.attachment,
+                    { position: file.position, file: data },
+                  ],
+                };
+              }
+              return step;
+            }),
+          });
+          setUploading(false);
+          setFile(null);
+        }
+      } catch (error) {
+        setUploading(false);
+        setPreviousStep(currentStep);
+        setCurrentStep(currentStep - 1);
+      }
+    });
+    setUploading(false);
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   }
@@ -168,36 +192,50 @@ function AddCourseForm() {
   }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    // if (
-    //   currentStep == 0 &&
-    //   (data.title === "" || !file || level === "" || complexity === 0)
-    // ) {
-    //   return setError("All fields are required");
-    // }
     if (currentStep == 0) {
-      setCourse({
-        ...course,
-        basicInfo: {
-          title: data.title,
-          level: level,
-          complexity: complexity,
-          uploadedBy: "Admin",
-          attachment: file ? file : null,
-        },
-      });
-      if (currentStep == course.steps.length) {
-        setCourse({
-          basicInfo: { ...course.basicInfo },
-          steps: [
-            ...course.steps,
-            {
-              title: "",
-              step: currentStep + 1,
-              template: "Single Image",
-              attachment: [],
-            },
-          ],
+      if (data.title === "" || !file || level === "" || complexity === 0) {
+        setUploading(false);
+        return setError("All fields are required");
+      }
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
         });
+        const data = await response.json();
+        if (data) {
+          setCourse({
+            ...course,
+            basicInfo: {
+              title: data.title,
+              level: level,
+              complexity: complexity,
+              uploadedBy: "Admin",
+              attachment: data,
+            },
+          });
+          if (currentStep == course.steps.length) {
+            setCourse({
+              basicInfo: { ...course.basicInfo },
+              steps: [
+                ...course.steps,
+                {
+                  title: "",
+                  step: currentStep + 1,
+                  template: "Single Image",
+                  attachment: [],
+                },
+              ],
+            });
+          }
+          setUploading(false);
+          setFile(null);
+        }
+      } catch (error) {
+        console.log("error", error);
       }
     } else if (currentStep > 0 && currentStep == course.steps.length) {
       setCourse({
@@ -253,7 +291,12 @@ function AddCourseForm() {
     }
   };
 
-    const setBasicInfo = ( title: string, complexity: number, level: string, file: File) => {
+  const setBasicInfo = (
+    title: string,
+    complexity: number,
+    level: string,
+    file: File
+  ) => {
     if (currentStep == 0) {
       setCourse({
         ...course,
@@ -261,13 +304,11 @@ function AddCourseForm() {
           ...course.basicInfo,
           complexity: complexity,
           title: title,
-          level: level,
-          attachment: file
+          level: level
         },
       });
     }
   };
-
 
   const handleSubmitForm = () => {};
 

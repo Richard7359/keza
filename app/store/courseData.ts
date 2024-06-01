@@ -18,7 +18,6 @@ export interface stepDataTypes {
     step: number;
     template: string;
     attachment: {position: string, file: ""}[];
-    // attachment: {position: string, file: File | null}[];
 }
 
 export interface courseDataTypes {
@@ -27,7 +26,7 @@ export interface courseDataTypes {
         level: string;
         complexity: number;
         uploadedBy: string;
-        attachment: File | null;
+        attachment: string;
     },
     steps: stepDataTypes[];
 }
@@ -45,7 +44,7 @@ export const CourseData = create<courseType>((set) => ({
             level: "",
             complexity: 0,
             uploadedBy: "Admin",
-            attachment: null,
+            attachment: "",
         },
         steps: [], 
     },
