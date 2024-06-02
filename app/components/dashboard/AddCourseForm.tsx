@@ -25,6 +25,8 @@ import LargePic from "../courses/templates/LargePic";
 import LargePicBottom from "../courses/templates/LargePicBottom";
 import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
+import useAddCourse from "@/app/hooks/courses/addCourse";
+import { trpc } from "@/app/_trpc/client";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -73,6 +75,16 @@ function AddCourseForm() {
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
+  const {mutate} = trpc.addCourse.addCourse.useMutation({
+    onSuccess: () => {
+      console.log("Success");
+      alert("Course Added successfuly");
+    },
+    onError: (error) => {
+      console.log("Error", error);
+      alert("Error adding course");
+    }
+  });
 
   useEffect(() => {
     console.log("basic Attachement", basicAttachement);
@@ -262,7 +274,13 @@ function AddCourseForm() {
     }
   };
 
-  const handleSubmitForm = () => {};
+  const handleSubmitForm = () => {
+    console.log("this is the current Course : ", course);
+    mutate({
+      userId: "1",
+      courseDetails: course
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[95%] ">
@@ -382,9 +400,8 @@ function AddCourseForm() {
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-between mt-2">
         <div className="flex gap-2 items-center">
-          {uploading == false && (
             <div className="flex items-center gap-2">
-              <Button
+             {currentStep > 0 && ( <Button
                 className=""
                 disabled={true}
                 type="button"
@@ -394,8 +411,8 @@ function AddCourseForm() {
                   <IoPlayBackOutline />
                   <p>back</p>
                 </p>
-              </Button>
-              {currentStep > 0 && (
+              </Button> )}
+              {uploading == false && (
                 <Button type="submit" className="">
                   <p className="flex items-center gap-2">
                     <p>Save-Next</p>
@@ -404,7 +421,6 @@ function AddCourseForm() {
                 </Button>
               )}
             </div>
-          )}
           {uploading == true && (
             <Button className="px-12">
               <div className="spinAnimation"></div>{" "}
@@ -412,7 +428,7 @@ function AddCourseForm() {
           )}
         </div>
         {currentStep > 0 && (
-          <Button type="submit" className="">
+          <Button type="button" className="" onClick={() => handleSubmitForm()}>
             <p className="flex items-center">
               <p>Submit</p>
               <TbPlayerTrackNext />
