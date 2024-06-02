@@ -16,17 +16,7 @@ import { useEffect, useState } from "react";
 
 const Preview = () => {
   const { currentStep } = step();
-  const { course, setCourse } = CourseData();
-  const [currentCourse, setCurrentCourse] = useState<any>(null);
-
-  // const currentCourse = course.steps.find((step) => step.step === currentStep);
-
-
-  useEffect(() => {
-    console.log("currentCourse : ", currentCourse);
-    console.log("course from the preview : ", course);
-    setCurrentCourse(course.steps.find((step) => step.step === currentStep))
-  }, [course])
+  const [currentCourse ] = useState<any>(null);
 
   return (
     <div className="flex justify-center">
@@ -37,8 +27,6 @@ const Preview = () => {
           template, next and save, submit form as final form ..............
         </div>
       ) : (
-        // <div></div>
-        // <SingleImageTemplate />
         <div className="w-full">
           {currentCourse?.template == "Single Image" && <SingleImageTemplate />}
           {currentCourse?.template == "Single Image Fit" && <SingleImageFitTemplate />}

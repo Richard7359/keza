@@ -22,7 +22,6 @@ const TemplateOptions = () => {
   const { course, setCourse } = CourseData();
 
   const setStepTemplate = (inputTemplate: string) => {
-    console.log("input : ", inputTemplate);
     if (currentStep > 0) {
       setCourse({
         ...course,
