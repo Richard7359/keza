@@ -90,8 +90,8 @@ function AddCourseForm() {
   }, [course_title_value]);
 
   useEffect(() => {
-    setBasicInfo(watchedTitle, complexity, level, basicAttachement);
-  }, [watchedTitle, complexity, level, basicAttachement]);
+    setBasicInfo(watchedTitle, complexity, level);
+  }, [watchedTitle, complexity, level]);
 
   async function handleNext() {
     if (error) return;
@@ -118,7 +118,6 @@ function AddCourseForm() {
           body: formData,
         });
         const data = await response.json();
-        console.log("returned data : ", data);
         if (data) {
           uploadedImages.push({ position: file.position, file: data.fileName });
         }
@@ -150,7 +149,6 @@ function AddCourseForm() {
       ],
     });
     setUploading(false);
-    setFile(null);
     setImage1({ position: "", file: null });
     setImage2({ position: "", file: null });
     setImage3({ position: "", file: null });
@@ -176,12 +174,12 @@ function AddCourseForm() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     if (currentStep == 0) {
       setUploading(true);
-      if (data.title === "" || !file || level === "" || complexity === 0) {
+      if (data.title === "" || !image1 || level === "" || complexity === 0) {
         setUploading(false);
         return setError("All fields are required");
       }
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("file", image1.file as File);
       formData.append("folder", "courses");
       try {
         const response = await fetch("/api/s3-upload", {
@@ -189,8 +187,21 @@ function AddCourseForm() {
           body: formData,
         });
         const uploadedImage = await response.json();
-        if (uploadedImage) {
-          setBasicAttachment(uploadedImage.fileName);
+        if (uploadedImage.fileName) {
+          const newState = {
+            ...course,
+             basicInfo: {
+              ...course.basicInfo,
+               attachment: uploadedImage.fileName,
+             },
+           };
+           console.log("new state : ", newState);
+           console.log("new image : ", uploadedImage.fileName);
+           setCourse(newState);
+           setUploading(false);
+           setImage1({ position: "", file: null });
+           setPreviousStep(currentStep);
+           setCurrentStep(currentStep + 1);
           if (currentStep == course.steps.length) {
             setCourse({
               basicInfo: { ...course.basicInfo },
@@ -205,15 +216,14 @@ function AddCourseForm() {
               ],
             });
           }
-          setFile(null);
         }
       } catch (error) {
         setUploading(false);
-        setFile(null);
       }
+    }else{
+      handleNext();
+      setError("");
     }
-    handleNext();
-    setError("");
   }
 
   const setStepTitle = (title: string) => {
@@ -237,7 +247,6 @@ function AddCourseForm() {
     title: string,
     complexity: number,
     level: string,
-    attachment: string
   ) => {
     if (currentStep == 0) {
       setCourse({
@@ -246,13 +255,12 @@ function AddCourseForm() {
           ...course.basicInfo,
           complexity: complexity,
           title: title,
-          level: level,
-          attachment: attachment
+          level: level
         },
       });
     }
   };
-
+ 
   const handleSubmitForm = () => {};
 
   return (
@@ -317,7 +325,7 @@ function AddCourseForm() {
             </div>
           </div>
           <div>
-            <UploadImage file={file} setFile={setFile} />
+            <UploadImage />
           </div>
         </motion.div>
       )}{" "}

@@ -76,12 +76,6 @@ function SingleImage() {
   });
 
   useEffect(() => {
-    console.log("template options", template);
-  }, [template]);
-
-  useEffect(() => {
-    console.log("currentStep : ", currentStep);
-    console.log("previousStep : ", previousStep);
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
@@ -116,10 +110,6 @@ function SingleImage() {
   useEffect(() => {
     setBasicTitle(watchedTitle);
   }, [watchedTitle]);
-
-  useEffect(() => {
-    console.log("these are the course data after:", course);
-  }, [course]);
 
   useEffect(() => {
     setError("");

@@ -82,10 +82,6 @@ function FourImagesSidebySide() {
   });
 
   useEffect(() => {
-    console.log("template options", template);
-  }, [template]);
-
-  useEffect(() => {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
@@ -174,32 +170,9 @@ function FourImagesSidebySide() {
   }, [watchedTitle]);
 
   useEffect(() => {
-    console.log("these are the course data after:", course);
-  }, [course]);
-
-  useEffect(() => {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  // const addAttachement = (position: string, file: File) => {
-  //   if (currentStep > 0) {
-  //     setCourse({
-  //       ...course,
-  //       steps: course.steps.map((step) => {
-  //         if (step.step == currentStep) {
-  //           return {
-  //             ...step,
-  //             attachment: [
-  //               ...step.attachment,
-  //               { position: position, file: file },
-  //             ],
-  //           };
-  //         }
-  //         return step;
-  //       }),
-  //     });
-  //   }
-  // };
 
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {

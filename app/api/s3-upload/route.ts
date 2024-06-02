@@ -11,7 +11,6 @@ const s3Client = new S3Client({
 
  async function UploadFileToS3(file:Buffer, fileName:string, folder:string) {
     const fileBuffer = file;
-    console.log(fileName);
     const params = {
         Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME as string,
         Key: `${folder}/${fileName}`,

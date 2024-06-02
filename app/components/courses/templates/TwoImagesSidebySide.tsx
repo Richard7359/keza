@@ -62,10 +62,6 @@ function TwoImagesSidebySide() {
   });
 
   useEffect(() => {
-    console.log("template options", template);
-  }, [template]);
-
-  useEffect(() => {
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
@@ -95,10 +91,6 @@ function TwoImagesSidebySide() {
   useEffect(() => {
     setBasicTitle(watchedTitle);
   }, [watchedTitle]);
-
-  useEffect(() => {
-    console.log("these are the course data after:", course);
-  }, [course]);
 
   useEffect(() => {
     setError("");

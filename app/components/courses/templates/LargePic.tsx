@@ -80,12 +80,6 @@ function LargePic() {
   });
 
   useEffect(() => {
-    console.log("template options", template);
-  }, [template]);
-
-  useEffect(() => {
-    console.log("currentStep : ", currentStep);
-    console.log("previousStep : ", previousStep);
     setValue(
       "course_title",
       course.steps.length > 0 && currentStep > 0
@@ -123,32 +117,8 @@ function LargePic() {
   }, [watchedTitle]);
 
   useEffect(() => {
-    console.log("these are the course data after:", course);
-  }, [course]);
-
-  useEffect(() => {
     setError("");
   }, [complexity, level, file, watchedTitle]);
-
-  // const addAttachement = (position: string, file: File) => {
-  //   if (currentStep > 0) {
-  //     setCourse({
-  //       ...course,
-  //       steps: course.steps.map((step) => {
-  //         if (step.step == currentStep) {
-  //           return {
-  //             ...step,
-  //             attachment: [
-  //               ...step.attachment,
-  //               { position: position, file: file },
-  //             ],
-  //           };
-  //         }
-  //         return step;
-  //       }),
-  //     });
-  //   }
-  // };
 
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {

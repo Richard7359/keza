@@ -68,53 +68,8 @@ const TwoImagesSidebySideTemplate = () => {
     position: "",
     file: null,
   });
-
-  // useEffect(() => {
-  //   const currentStepObj = course.steps.find(
-  //     (step) => step.step === currentStep
-  //   );
-
-  //   if (currentStepObj) {
-  //     const up_left = currentStepObj.attachment.find(
-  //       (att) => att.position === "up_left"
-  //     );
-  //     const up_right = currentStepObj.attachment.find(
-  //       (att) => att.position === "up_right"
-  //     );
-
-  //     if (up_left) {
-  //       setCurrentImage1(up_left.file);
-  //     } else {
-  //       setCurrentImage1(null);
-  //     }
-  //     if (up_right) {
-  //       setCurrentImage2(up_right.file);
-  //     } else {
-  //       setCurrentImage2(null);
-  //     }
-  //   }
-  // }, [course]);
-
+  
   useEffect(() => {
-    // const currentStepObj = course.steps.find(
-    //   (step) => step.step === currentStep
-    // );
-
-    // if (currentStepObj) {
-    //   const up_left = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_left"
-    //   );
-    //   const up_right = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_right"
-    //   );
-
-    //  if (image1) {
-    //   const up_left = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_left"
-    //   );
-    //   const up_right = currentStepObj.attachment.find(
-    //     (att) => att.position === "up_right"
-    //   );
 
     if (image1) {
       setCurrentImage1(image1);
@@ -126,9 +81,7 @@ const TwoImagesSidebySideTemplate = () => {
     } else {
       setCurrentImage2({ position: "", file: null });
     }
-    // }
   }, [image1, image2]);
-  // }, [course]);
 
   return (
     <div className="w-full">

@@ -2,25 +2,26 @@ import { ChangeEvent, useState } from "react";
 
 import { GrCloudUpload } from "react-icons/gr";
 import { TbTrashX } from "react-icons/tb";
+import { CourseData } from "@/app/store/courseData";
 
-const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
-  const [uploading, setUploading] = useState(false);
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFile(e.target.files[0]);
-    }
-  };
+const UploadImage = () => {
+  const {
+    image1,
+    setImage1,
+  } = CourseData();
 
   return (
     <div className="mt-2 ">
-      {!file ? (
+      {!image1.file ? (
         <label className="opacity-1  text-xs font-bold hover:cursor-pointer">
           Attach file
           <input
             type="file"
             accept="image/jpeg,image/png,application/pdf,image/jpg"
             hidden={true}
-            onChange={handleFileChange}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setImage1({ position: "basic_info", file: e.target.files![0] });
+            }}
           />
           <div className="mt-2 flex h-52 flex-col items-center justify-center rounded-xl border border-dashed py-8 input_bg">
             <span className="opacity-1 hover:shadow:sm flex h-20 w-20 items-center justify-center rounded-full bg-white">
@@ -49,10 +50,10 @@ const UploadImage = ({ file, setFile }: { file: any; setFile: any }) => {
           </label>
           <div className="flex items-center gap-7">
             <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-              {file?.name}
+              {image1.file?.name}
             </span>
             <button
-              onClick={() => setFile(null)}
+              onClick={() => setImage1({ position: "", file: null })}
               className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
               type="button"
             >
