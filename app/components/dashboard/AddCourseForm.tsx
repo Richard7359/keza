@@ -25,7 +25,7 @@ import LargePic from "../courses/templates/LargePic";
 import LargePicBottom from "../courses/templates/LargePicBottom";
 import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
-import useGetCourse from "@/app/hooks/courses/getCourse";
+import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { trpc } from "@/app/_trpc/client";
 
 const FormSchema = z.object({

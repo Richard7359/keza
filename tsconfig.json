@@ -1,4 +1,14 @@
 {
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/keza/dashboard/page.js",
+    "app/keza/dashboard1",
+    "app/keza/dashboard/addCourse",
+    "app/hooks/courses/addCourse.ts"
+  ],
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,6 +31,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/keza/dashboard/page.js", "app/keza/dashboard1", "app/keza/dashboard/addCourse"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/keza/dashboard/page.js",
+    "app/keza/dashboard1",
+    "app/keza/dashboard/addCourse"
+  ],
   "exclude": ["node_modules"]
 }

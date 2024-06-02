@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../../components/Navigation_bar/Navigation";
 import Footer from "../../components/Footer";
 import Link from "next/link";
@@ -15,19 +15,17 @@ import {
 } from "@/components/ui/breadcrumb";
 import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 import { GiBookshelf } from "react-icons/gi";
-
-
 import CourseCard from "../../components/courseCard";
-import Ichigo from "../images/ichigojam.jpg";
 import TrafficLight from "../../images/keza-traffic-light.png";
-import Forklift from "../images/keza-forklift.png";
-import Car from "../images/keza-car.png";
-import DevelopmentKit from "../images/kezaz-development-kit.png";
-import Helicopter from "../images/Helocopter.png";
-import HouseInstallation from "../images/House-installation@2x.png";
-import Irrigation from "../images/Irrigation.png";
+import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 const Page = () => {
   const [selected, setSelected] = useState(0);
+  const { data } = useGetCourse();
+
+  useEffect(() => {
+  if(data) console.log("data from the database : ",data)
+  }, [data]);
+  
 
   return (
     <>
@@ -96,83 +94,52 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-             {selected == 0 ? <p
-                onClick={() => setSelected(2)}
-                className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
-              >
-                Middle level{" "}
-              </p> : ""}
-              {selected == 2 || selected == 0  ? <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              <CourseCard
-                  id={1}
-                  description={"Traffic Light"}
-                  image={TrafficLight}
-                  level={2}
-                  complexity={2}
-                />
-              </div> : <div className="font-medium flex items-center p-3 gap-2">
-              <GiBookshelf /> <p>No courses available for this level</p>
-                </div>}
-              <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {/* <CourseCard
-                  id={1}
-                  description={"Ichigo Jam"}
-                  image={Ichigo}
-                  level={1}
-                  complexity={1}
-                  stared={true}
-                /> */}
-                {/* <CourseCard
-                  id={1}
-                  description={"Traffic Light"}
-                  image={TrafficLight}
-                  level={2}
-                  complexity={2}
-                />
-                <CourseCard
-                  id={1}
-                  description={"Keza Folk lift"}
-                  image={Forklift}
-                  level={3}
-                  complexity={3}
-                />
-                <CourseCard
-                  id={1}
-                  description={"House Installation"}
-                  image={HouseInstallation}
-                  level={1}
-                  complexity={1}
-                  stared={true}
-                />
-                <CourseCard
-                  id={1}
-                  description={"Keza Car"}
-                  image={Car}
-                  level={2}
-                  complexity={2}
-                />
-                <CourseCard
-                  id={1}
-                  description={"Lego Helicopter"}
-                  image={Helicopter}
-                  level={1}
-                  complexity={1}
-                />
-                <CourseCard
-                  id={1}
-                  description={"Irrigation"}
-                  image={Irrigation}
-                  level={2}
-                  complexity={2}
-                />
-                <CourseCard
-                  id={1}
-                  description={"Keza Development Kit"}
-                  image={DevelopmentKit}
-                  level={3}
-                  complexity={3}
-                /> */}
-              </div>
+              {selected == 0 ? (
+                <p
+                  onClick={() => setSelected(2)}
+                  className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
+                >
+                  Middle level{" "}
+                </p>
+              ) : (
+                ""
+              )}
+              {selected == 2 || selected == 0 ? (
+                <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                  <CourseCard
+                    id={1}
+                    description={"Traffic Light"}
+                    image={TrafficLight}
+                    level={2}
+                    complexity={2}
+                  />
+                  <CourseCard
+                    id={1}
+                    description={"Traffic Light"}
+                    image={TrafficLight}
+                    level={2}
+                    complexity={2}
+                  />
+                  {/* {data
+                    ? data.map((course) => {
+                        return (
+                          <CourseCard
+                            id={course.id}
+                            description={"course"}
+                            image={"course.image"}
+                            level={"course.level"}
+                            complexity={course.complexity}
+                          />
+                        );
+                      })
+                    : ""} */}
+                </div>
+              ) : (
+                <div className="font-medium flex items-center p-3 gap-2">
+                  <GiBookshelf /> <p>No courses available for this level</p>
+                </div>
+              )}
+              <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
             </div>
           </div>
         </div>
