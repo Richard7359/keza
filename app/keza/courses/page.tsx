@@ -113,13 +113,13 @@ const Page = () => {
                     level={2}
                     complexity={2}
                   />
-                  <CourseCard
+                  {/* <CourseCard
                     id={1}
                     description={"Traffic Light"}
                     image={TrafficLight}
                     level={2}
                     complexity={2}
-                  />
+                  /> */}
                   {/* {data
                     ? data.map((course) => {
                         return (
