@@ -56,7 +56,6 @@ function AddCourseForm() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       title: course.basicInfo ? course.basicInfo.title : "",
-      // course_title: "",
       course_title:
         course.steps.length > 0 && currentStep > 0
           ? course.steps[currentStep - 1]?.title
@@ -69,6 +68,7 @@ function AddCourseForm() {
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
   const [uploading, setUploading] = useState<boolean>(false);
+  const [basicAttachement, setBasicAttachment] = useState<string>("");
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
@@ -90,8 +90,8 @@ function AddCourseForm() {
   }, [course_title_value]);
 
   useEffect(() => {
-    setBasicInfo(watchedTitle, complexity, level, file as File);
-  }, [watchedTitle, complexity, level, file]);
+    setBasicInfo(watchedTitle, complexity, level, basicAttachement);
+  }, [watchedTitle, complexity, level, basicAttachement]);
 
   async function handleNext() {
     if (error) return;
@@ -190,16 +190,7 @@ function AddCourseForm() {
         });
         const uploadedImage = await response.json();
         if (uploadedImage) {
-          setCourse({
-            ...course,
-            basicInfo: {
-              title: data.title,
-              level: level,
-              complexity: complexity,
-              uploadedBy: "Admin",
-              attachment: uploadedImage.fileName,
-            },
-          });
+          setBasicAttachment(uploadedImage.fileName);
           if (currentStep == course.steps.length) {
             setCourse({
               basicInfo: { ...course.basicInfo },
@@ -214,32 +205,13 @@ function AddCourseForm() {
               ],
             });
           }
-          setUploading(false);
           setFile(null);
-          setPreviousStep(currentStep);
-          setCurrentStep(currentStep + 1);
         }
       } catch (error) {
         setUploading(false);
         setFile(null);
       }
     }
-    // else if (currentStep > 0 && currentStep == course.steps.length) {
-    //   setCourse({
-    //     ...course,
-    //     steps: [
-    //       ...course.steps,
-    //       {
-    //         title: "",
-    //         step: currentStep + 1,
-    //         template: "Single Image",
-    //         attachment: [],
-    //       },
-    //     ],
-    //   });
-    // }
-    // reset();
-    console.log("adding the next step");
     handleNext();
     setError("");
   }
@@ -261,28 +233,11 @@ function AddCourseForm() {
     }
   };
 
-  const setStepTemplate = (inputTemplate: string) => {
-    if (currentStep > 0) {
-      setCourse({
-        ...course,
-        steps: course.steps.map((step) => {
-          if (step.step == currentStep) {
-            return {
-              ...step,
-              template: inputTemplate,
-            };
-          }
-          return step;
-        }),
-      });
-    }
-  };
-
   const setBasicInfo = (
     title: string,
     complexity: number,
     level: string,
-    file: File
+    attachment: string
   ) => {
     if (currentStep == 0) {
       setCourse({
@@ -292,6 +247,7 @@ function AddCourseForm() {
           complexity: complexity,
           title: title,
           level: level,
+          attachment: attachment
         },
       });
     }
