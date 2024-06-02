@@ -44,6 +44,7 @@ function AddCourseForm() {
     setImage2,
     setImage3,
     setImage4,
+    basicImage,
   } = CourseData();
   const {
     handleSubmit,
@@ -108,7 +109,7 @@ function AddCourseForm() {
     if (error) return;
     const currentStepData = course.steps[currentStep - 1];
     const allImages: imageType[] = [];
-    [image1, image2, image3, image4].map((image, index) => {
+    [image1, image2, image3, image4, basicImage].map((image, index) => {
       if (image.file) {
         allImages.push(image);
       }
@@ -141,11 +142,17 @@ function AddCourseForm() {
     });
 
     await Promise.all(uploadPromises);
+    const uploadedBasicImage = uploadedImages.find(
+      (image) => image.position === "basic_image"
+    );
     const updatedSteps: any = course.steps.map((step, index) => {
       if (index === currentStep - 1) {
         return {
           ...step,
-          attachment: [...step.attachment, [...uploadedImages]],
+          attachment: [
+            ...step.attachment,
+            [...uploadedImages.filter((img) => img.position !== "basic_image")],
+          ],
         };
       }
       return step;
@@ -154,7 +161,9 @@ function AddCourseForm() {
       ...course,
       basicInfo: {
         ...course.basicInfo,
-        attachment: uploadedImages[0]?.file as string,
+        attachment: uploadedBasicImage?.file
+          ? (uploadedBasicImage?.file as string)
+          : course.basicInfo.attachment,
       },
       steps: [
         ...updatedSteps,
@@ -373,24 +382,30 @@ function AddCourseForm() {
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-between mt-2">
         <div className="flex gap-2 items-center">
-          {uploading == false ? (
+          {uploading == false && (
             <div className="flex items-center gap-2">
+              <Button
+                className=""
+                disabled={true}
+                type="button"
+                onClick={() => handleBack()}
+              >
+                <p className="flex items-center gap-2">
+                  <IoPlayBackOutline />
+                  <p>back</p>
+                </p>
+              </Button>
               {currentStep > 0 && (
-                <Button className="" type="button" onClick={() => handleBack()}>
+                <Button type="submit" className="">
                   <p className="flex items-center gap-2">
-                    <IoPlayBackOutline />
-                    <p>back</p>
+                    <p>Save-Next</p>
+                    <TbPlayerTrackNext />
                   </p>
                 </Button>
               )}
-              <Button type="submit" className="">
-                <p className="flex items-center gap-2">
-                  <p>Save-Next</p>
-                  <TbPlayerTrackNext />
-                </p>
-              </Button>
             </div>
-          ) : (
+          )}
+          {uploading == true && (
             <Button className="px-12">
               <div className="spinAnimation"></div>{" "}
             </Button>

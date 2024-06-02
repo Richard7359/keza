@@ -16,7 +16,14 @@ import { useEffect, useState } from "react";
 
 const Preview = () => {
   const { currentStep } = step();
-  const [currentCourse ] = useState<any>(null);
+  const { course } = CourseData();
+  const [currentCourse , setCurrentCourse ] = useState<any>(null);
+
+  useEffect(() => {
+    if (course.steps.length > 0) {
+      setCurrentCourse(course.steps[currentStep - 1])
+    }
+  }, [course, currentStep]);
 
   return (
     <div className="flex justify-center">

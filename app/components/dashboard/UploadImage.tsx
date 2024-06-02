@@ -20,7 +20,7 @@ const UploadImage = () => {
             accept="image/jpeg,image/png,application/pdf,image/jpg"
             hidden={true}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setBasicImage({ position: "basic_info", file: e.target.files![0] });
+                setBasicImage({ position: "basic_image", file: e.target.files![0] });
             }}
           />
           <div className="mt-2 flex h-52 flex-col items-center justify-center rounded-xl border border-dashed py-8 input_bg">
