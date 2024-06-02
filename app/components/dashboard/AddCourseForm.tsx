@@ -68,10 +68,23 @@ function AddCourseForm() {
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
   const [uploading, setUploading] = useState<boolean>(false);
-  const [basicAttachement, setBasicAttachment] = useState<string>("");
+  const [basicAttachement, setBasicAttachment] = useState<any>();
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
+
+  useEffect(() => {
+    console.log("basic Attachement", basicAttachement);
+    if (currentStep == 0) {
+      setCourse({
+        ...course,
+        basicInfo: {
+          ...course.basicInfo,
+          attachment: basicAttachement?.basicInfo.attachment,
+        },
+      });
+    }
+  }, [basicAttachement]);
 
   useEffect(() => {
     setValue(
@@ -82,8 +95,6 @@ function AddCourseForm() {
     );
     setValue("title", course.basicInfo ? course.basicInfo.title : "");
   }, [currentStep, previousStep]);
-
-  useEffect(() => {}, [image1, image2, image3, image4]);
 
   useEffect(() => {
     setStepTitle(course_title_value);
@@ -102,7 +113,10 @@ function AddCourseForm() {
         allImages.push(image);
       }
     });
-    const uploadedImages: imageType[] = [];
+    const uploadedImages: {
+      position: string;
+      file: string;
+    }[] = [];
     const uploadPromises = allImages.map(async (file) => {
       setUploading(true);
       if (!file.file) {
@@ -138,6 +152,10 @@ function AddCourseForm() {
     });
     setCourse({
       ...course,
+      basicInfo: {
+        ...course.basicInfo,
+        attachment: uploadedImages[0]?.file as string,
+      },
       steps: [
         ...updatedSteps,
         {
@@ -178,49 +196,27 @@ function AddCourseForm() {
         setUploading(false);
         return setError("All fields are required");
       }
-      const formData = new FormData();
-      formData.append("file", image1.file as File);
-      formData.append("folder", "courses");
-      try {
-        const response = await fetch("/api/s3-upload", {
-          method: "POST",
-          body: formData,
+      // setCourse(newState);
+
+      if (currentStep == course.steps.length) {
+        setCourse({
+          basicInfo: { ...course.basicInfo },
+          steps: [
+            ...course.steps,
+            {
+              title: "",
+              step: currentStep + 1,
+              template: "Single Image",
+              attachment: [],
+            },
+          ],
         });
-        const uploadedImage = await response.json();
-        if (uploadedImage.fileName) {
-          const newState = {
-            ...course,
-             basicInfo: {
-              ...course.basicInfo,
-               attachment: uploadedImage.fileName,
-             },
-           };
-           console.log("new state : ", newState);
-           console.log("new image : ", uploadedImage.fileName);
-           setCourse(newState);
-           setUploading(false);
-           setImage1({ position: "", file: null });
-           setPreviousStep(currentStep);
-           setCurrentStep(currentStep + 1);
-          if (currentStep == course.steps.length) {
-            setCourse({
-              basicInfo: { ...course.basicInfo },
-              steps: [
-                ...course.steps,
-                {
-                  title: "",
-                  step: currentStep + 1,
-                  template: "Single Image",
-                  attachment: [],
-                },
-              ],
-            });
-          }
-        }
-      } catch (error) {
-        setUploading(false);
       }
-    }else{
+      setUploading(false);
+      setImage1({ position: "", file: null });
+      setPreviousStep(currentStep);
+      setCurrentStep(currentStep + 1);
+    } else {
       handleNext();
       setError("");
     }
@@ -243,11 +239,7 @@ function AddCourseForm() {
     }
   };
 
-  const setBasicInfo = (
-    title: string,
-    complexity: number,
-    level: string,
-  ) => {
+  const setBasicInfo = (title: string, complexity: number, level: string) => {
     if (currentStep == 0) {
       setCourse({
         ...course,
@@ -255,12 +247,12 @@ function AddCourseForm() {
           ...course.basicInfo,
           complexity: complexity,
           title: title,
-          level: level
+          level: level,
         },
       });
     }
   };
- 
+
   const handleSubmitForm = () => {};
 
   return (

@@ -6,13 +6,13 @@ import { CourseData } from "@/app/store/courseData";
 
 const UploadImage = () => {
   const {
-    image1,
-    setImage1,
+    basicImage,
+    setBasicImage,
   } = CourseData();
 
   return (
     <div className="mt-2 ">
-      {!image1.file ? (
+      {!basicImage.file ? (
         <label className="opacity-1  text-xs font-bold hover:cursor-pointer">
           Attach file
           <input
@@ -20,7 +20,7 @@ const UploadImage = () => {
             accept="image/jpeg,image/png,application/pdf,image/jpg"
             hidden={true}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setImage1({ position: "basic_info", file: e.target.files![0] });
+                setBasicImage({ position: "basic_info", file: e.target.files![0] });
             }}
           />
           <div className="mt-2 flex h-52 flex-col items-center justify-center rounded-xl border border-dashed py-8 input_bg">
@@ -50,10 +50,10 @@ const UploadImage = () => {
           </label>
           <div className="flex items-center gap-7">
             <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
-              {image1.file?.name}
+              {basicImage.file?.name}
             </span>
             <button
-              onClick={() => setImage1({ position: "", file: null })}
+              onClick={() => setBasicImage({ position: "", file: null })}
               className="flex items-center justify-center gap-2 rounded-lg px-[5px] py-1 text-xs font-semibold"
               type="button"
             >

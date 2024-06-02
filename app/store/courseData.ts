@@ -11,6 +11,8 @@ export interface courseType {
     setImage3: (value: imageType) => void;
     image4: imageType;
     setImage4: (value: imageType) => void;
+    basicImage: imageType;
+    setBasicImage: (value: imageType) => void;
 }
 
 export interface stepDataTypes {
@@ -69,4 +71,9 @@ export const CourseData = create<courseType>((set) => ({
         file: null,
     },
     setImage4: (value: imageType) => set({ image4: value }),
+    basicImage: {
+        position: "",
+        file: null,
+    },
+    setBasicImage: (value: imageType) => set({ basicImage: value }),
 }));
