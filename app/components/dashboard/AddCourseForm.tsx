@@ -25,7 +25,7 @@ import LargePic from "../courses/templates/LargePic";
 import LargePicBottom from "../courses/templates/LargePicBottom";
 import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
-import useAddCourse from "@/app/hooks/courses/addCourse";
+import useGetCourse from "@/app/hooks/courses/getCourse";
 import { trpc } from "@/app/_trpc/client";
 
 const FormSchema = z.object({
@@ -75,9 +75,11 @@ function AddCourseForm() {
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
+  const {data, refetch} = useGetCourse();
   const {mutate} = trpc.addCourse.addCourse.useMutation({
     onSuccess: () => {
       console.log("Success");
+      refetch();
       alert("Course Added successfuly");
     },
     onError: (error) => {
@@ -85,6 +87,10 @@ function AddCourseForm() {
       alert("Error adding course");
     }
   });
+
+  useEffect(() => {
+    console.log("all Courses", data);
+  })
 
   useEffect(() => {
     console.log("basic Attachement", basicAttachement);

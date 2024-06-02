@@ -1,9 +1,9 @@
 import { trpc } from '../../_trpc/client';
 import { courseDataTypes } from '@/app/store/courseData';
 
-const useAddCourse = () => {
- const data = trpc.addCourse.addCourse.useMutation();
+const useGetCourse = () => {
+ const data = trpc.getCourse.getCourse.useQuery();
  return { ...data }
 }
 
-export default useAddCourse
+export default useGetCourse
