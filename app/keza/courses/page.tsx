@@ -23,9 +23,8 @@ const Page = () => {
   const { data } = useGetCourse();
 
   useEffect(() => {
-  if(data) console.log("data from the database : ",data)
-  }, [data]);
-  
+    console.log("all Courses", data);
+  });
 
   return (
     <>
@@ -106,13 +105,6 @@ const Page = () => {
               )}
               {selected == 2 || selected == 0 ? (
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                  <CourseCard
-                    id={1}
-                    description={"Traffic Light"}
-                    image={TrafficLight}
-                    level={2}
-                    complexity={2}
-                  />
                   {/* <CourseCard
                     id={1}
                     description={"Traffic Light"}
@@ -120,19 +112,27 @@ const Page = () => {
                     level={2}
                     complexity={2}
                   /> */}
-                  {/* {data
+                  {/* <CourseCard
+                    id={1}
+                    description={"Traffic Light"}
+                    image={TrafficLight}
+                    level={2}
+                    complexity={2}
+                  /> */}
+                  {data
                     ? data.map((course) => {
                         return (
                           <CourseCard
+                            key={course.id}
                             id={course.id}
-                            description={"course"}
-                            image={"course.image"}
-                            level={"course.level"}
-                            complexity={course.complexity}
+                            description={course.courseDetails?.basicInfo?.title}
+                            image={course.courseDetails?.basicInfo?.attachment}
+                            level={2}
+                            complexity={2}
                           />
                         );
                       })
-                    : ""} */}
+                    : ""}
                 </div>
               ) : (
                 <div className="font-medium flex items-center p-3 gap-2">

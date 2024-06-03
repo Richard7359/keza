@@ -16,7 +16,10 @@ const CourseCard = ({image, level, complexity, description , stared, id} : {imag
     <div className="h-[215px] w-full border-custom rounded-2xl">
       <div className="h-[60%] rounded-t-2xl relative">
         <Image
-          src={image}
+          src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
+          // src={image}
+          width={500}
+          height={500}
           alt="KEFL Logo image"
           className="w-full h-full object-cover cursor-pointer rounded-t-[16px] border-custom"
         />
