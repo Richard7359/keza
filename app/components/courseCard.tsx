@@ -9,7 +9,7 @@ import { GoDotFill } from "react-icons/go";
 import Link from "next/link";
 import Complexity from "./dashboard/Complexity";
 
-const CourseCard = ({image, level, complexity, description , stared, id} : {image : any, level: number, complexity: number, description : string , stared? : boolean, id: number}) => {
+const CourseCard = ({image, level, complexity, description , stared, id} : {image : any, level: string, complexity: number, description : string , stared? : boolean, id: number}) => {
 
   return (
     <Link href={`/keza/courses/${id}`}>

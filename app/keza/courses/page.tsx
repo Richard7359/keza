@@ -18,6 +18,8 @@ import { GiBookshelf } from "react-icons/gi";
 import CourseCard from "../../components/courseCard";
 import TrafficLight from "../../images/keza-traffic-light.png";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
+
+
 const Page = () => {
   const [selected, setSelected] = useState(0);
   const { data } = useGetCourse();
@@ -127,8 +129,8 @@ const Page = () => {
                             id={course.id}
                             description={course.courseDetails?.basicInfo?.title}
                             image={course.courseDetails?.basicInfo?.attachment}
-                            level={2}
-                            complexity={2}
+                            level={course.courseDetails?.basicInfo?.level}
+                            complexity={course.courseDetails?.basicInfo?.complexity}
                           />
                         );
                       })

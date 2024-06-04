@@ -98,77 +98,94 @@ import batterryfull from "../../../images/TrafficLight/batteryfull.jpeg";
 import full from "../../../images/TrafficLight/fullfinalview.jpeg";
 import useGetCourseById from "@/app/hooks/courses/usegGetCourseById";
 import TwoEqualImages from "@/app/components/courses/AccordionItems/TwoEqualImages";
-import SingleLargeImage from "@/app/components/courses/AccordionItems/SingleLargeImage";
 
-const Page = () => {
-
-  const { data } = useGetCourseById({ id: "1" });
-  console.log("single Course ")
-  useEffect(() => {
-    console.log("single Course : ", data);
-  }, [data])
-
+const SingleLargeImage = () => {
   let localData;
-  if (typeof window!== 'undefined') {
+  if (typeof window !== "undefined") {
     localData = localStorage.getItem("done");
   }
   const [activeAccordion, setActiveAccordion] = useState(0);
-  const [done, setDone] = useState<number[]>(localData ? JSON.parse(localData) : []);
+  const [done, setDone] = useState<number[]>(
+    localData ? JSON.parse(localData) : []
+  );
 
   useEffect(() => {
     localStorage.setItem("done", JSON.stringify(done));
-  } , [done]);
-
-  const formatDate = (dateString : any) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-  
-
+  }, [done]);
   return (
-    <>
-      <Navigation />
-      
-      {data && <div className="mb-6">
-        <div className="mb-4">
-          <p className="text-center text-2xl font-bold mt-10">{data[0].courseDetails?.basicInfo?.title}</p>
-          <p className="text-center mt-1">{`${data[0].courseDetails.basicInfo?.uploadedBy} on ${formatDate(data[0]?.createdAt)}`}</p>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src={final_traffic_light}
-            alt="KEFL Logo image"
-            className="w-[80%] sm:w-[490px] h-[300px] cursor-pointer rounded-[5px] border-custom"
-          />
-        </div>
-        <div className="flex justify-center mt-4">
-          <div className="w-[80%] sm:w-[50%]">
-            <ViewMaterials />
-            <div className="mt-4">
-              <div className="flex justify-center">
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-[100%] border-none"
-                >
-                {data[0].courseDetails.steps.map((item, index) => {
-                  return (
-                    <SingleLargeImage key={index} {...item} />
+    <AccordionItem value="2" className="border border-none mt-4">
+    <AccordionTrigger
+      className={`pd_id _c uc pc_id hover:uf hover:se ${
+        activeAccordion == 2
+          ? "pc_id_courses_bottom uf_course se_course"
+          : ""
+      } ${done.includes(2) ? "uf_course se_course" : ""}`}
+      onClick={() => {
+        setActiveAccordion(2);
+        if (activeAccordion == 2) {
+          setActiveAccordion(0);
+        }
+      }}
+    >
+      <div className="flex items-center">
+        <CgServerless className="text-3xl" />
+        STEP 2: Plugging S2 into S1
+      </div>
+    </AccordionTrigger>
+    <AccordionContent
+      className={`pd_id _c uc ${
+        activeAccordion == 2 ? "pc_id_courses" : ""
+      } sm:pd_id gd`}
+    >
+      <div className="flex gap-2 justify-center">
+        <Image
+          src={s1s2}
+          alt="KEFL Logo image"
+          className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+        />
+      </div>
+      <div className="m-2 flex justify-end">
+        <TooltipProvider>
+          {done.includes(2) ? (
+            <Tooltip>
+              <TooltipTrigger
+                className="border text-green easy-bg px-3 rounded-full font-semibold flex items-center"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const newDone = done.filter(
+                    (item) => item !== 2
                   );
-                })} 
-                </Accordion>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>}
-      <Footer />
-    </>
+                  setDone(newDone);
+                }}
+              >
+                <GoDotFill />
+                <p>Done</p>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Mark this step as not completed</p>
+              </TooltipContent>
+            </Tooltip>
+          ) : (
+            <Tooltip>
+              <TooltipTrigger
+                className="border border-black px-3 rounded-full font-semibold"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDone([...done, 2]);
+                }}
+              >
+                To Do
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Mark this step as completed</p>
+              </TooltipContent>
+            </Tooltip>
+          )}
+        </TooltipProvider>
+      </div>
+    </AccordionContent>
+  </AccordionItem>
   );
 };
 
-export default Page;
+export default SingleLargeImage;

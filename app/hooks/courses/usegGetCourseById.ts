@@ -34,10 +34,10 @@ interface Attachment {
     updatedAt: string;
   }
 
-const useGetCourse = () => {
+const useGetCourseById = ({id} : {id : string}) => {
 
- const data  = trpc.getCourse.getCourse.useQuery();
+ const data  = trpc.getCourseById.getCourseById.useQuery({id});
  return { ...data, data: data.data as ResponseItem[]}
 }
 
-export default useGetCourse
+export default useGetCourseById
