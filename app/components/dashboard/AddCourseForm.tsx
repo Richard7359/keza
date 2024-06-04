@@ -75,8 +75,8 @@ function AddCourseForm() {
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
-  const {data, refetch} = useGetCourse();
-  const {mutate} = trpc.addCourse.addCourse.useMutation({
+  const { data, refetch } = useGetCourse();
+  const { mutate } = trpc.addCourse.addCourse.useMutation({
     onSuccess: () => {
       console.log("Success");
       refetch();
@@ -85,12 +85,8 @@ function AddCourseForm() {
     onError: (error) => {
       console.log("Error", error);
       alert("Error adding course");
-    }
+    },
   });
-
-  useEffect(() => {
-    console.log("all Courses", data);
-  })
 
   useEffect(() => {
     console.log("basic Attachement", basicAttachement);
@@ -120,25 +116,29 @@ function AddCourseForm() {
   }, [course_title_value]);
 
   useEffect(() => {
-    if(basicImage.file) {
+    if (basicImage.file) {
       setError("");
     }
   }, [basicImage]);
 
   useEffect(() => {
-      setError("");
+    setError("");
   }, [image1, image2, image3, image4]);
 
   useEffect(() => {
     setBasicInfo(watchedTitle, complexity, level);
   }, [watchedTitle, complexity, level]);
 
-  async function handleNext() {
+  async function handleNext({ action }: { action: string }) {
     const currentStepData = course.steps[currentStep - 1];
     console.log("currentStepData", currentStepData);
-    if(currentStepData.template == "Single Image" && currentStepData.attachment.length != 1) {
-        return setError("Please attach an image");
+    if (currentStepData.title == "") {
+      return setError("Title is required");
     }
+    if (currentStepData.template == "Single Image" && image1.file == null) {
+      return setError("Please attach an image");
+    }
+    setError("");
     const allImages: imageType[] = [];
     [image1, image2, image3, image4, basicImage].map((image, index) => {
       if (image.file) {
@@ -177,18 +177,23 @@ function AddCourseForm() {
       (image) => image.position === "basic_image"
     );
     const updatedSteps: any = course.steps.map((step, index) => {
-      const flattenedUploadedImages = uploadedImages.filter((img) => img.position!== "basic_image").flat();
+      const flattenedUploadedImages = uploadedImages
+        .filter((img) => img.position !== "basic_image")
+        .flat();
       if (index === currentStep - 1) {
         return {
           ...step,
-          attachment: [
-            ...step.attachment,
-            ...flattenedUploadedImages,
-          ],
+          attachment: [...step.attachment, ...flattenedUploadedImages],
         };
       }
       return step;
     });
+    const nextStep = action === "next" && {
+      title: "",
+      step: currentStep + 1,
+      template: "Single Image",
+      attachment: [],
+    };
     setCourse({
       ...course,
       basicInfo: {
@@ -197,15 +202,7 @@ function AddCourseForm() {
           ? (uploadedBasicImage?.file as string)
           : course.basicInfo.attachment,
       },
-      steps: [
-        ...updatedSteps,
-        {
-          title: "",
-          step: currentStep + 1,
-          template: "Single Image",
-          attachment: [],
-        },
-      ],
+      steps: [...updatedSteps, nextStep],
     });
     setUploading(false);
     setError("");
@@ -213,8 +210,11 @@ function AddCourseForm() {
     setImage2({ position: "", file: null });
     setImage3({ position: "", file: null });
     setImage4({ position: "", file: null });
-    setPreviousStep(currentStep);
-    setCurrentStep(currentStep + 1);
+    if (action === "next") {
+      setPreviousStep(currentStep);
+      setCurrentStep(currentStep + 1);
+    }
+    handleSubmitForm();
   }
 
   useEffect(() => {
@@ -234,7 +234,12 @@ function AddCourseForm() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     if (currentStep == 0) {
       setUploading(true);
-      if (data.title === "" || !basicImage.file || level === "" || complexity === 0) {
+      if (
+        data.title === "" ||
+        !basicImage.file ||
+        level === "" ||
+        complexity === 0
+      ) {
         setUploading(false);
         return setError("All fields are required");
       }
@@ -257,7 +262,7 @@ function AddCourseForm() {
       setPreviousStep(currentStep);
       setCurrentStep(currentStep + 1);
     } else {
-      handleNext();
+      handleNext({ action: "next" });
     }
   }
 
@@ -296,7 +301,7 @@ function AddCourseForm() {
     console.log("this is the current Course : ", course);
     mutate({
       userId: "1",
-      courseDetails: course
+      courseDetails: course,
     });
   };
 
@@ -418,8 +423,9 @@ function AddCourseForm() {
       {error ? <p className="text-red text-sm">{error}</p> : null}
       <div className="flex justify-between mt-2">
         <div className="flex gap-2 items-center">
-            <div className="flex items-center gap-2">
-             {currentStep > 0 && ( <Button
+          <div className="flex items-center gap-2">
+            {currentStep > 0 && (
+              <Button
                 className=""
                 disabled={true}
                 type="button"
@@ -429,16 +435,17 @@ function AddCourseForm() {
                   <IoPlayBackOutline />
                   <p>back</p>
                 </p>
-              </Button> )}
-              {uploading == false && (
-                <Button type="submit" className="">
-                  <p className="flex items-center gap-2">
-                    <p>Save&Next</p>
-                    <TbPlayerTrackNext />
-                  </p>
-                </Button>
-              )}
-            </div>
+              </Button>
+            )}
+            {uploading == false && (
+              <Button type="submit" className="">
+                <p className="flex items-center gap-2">
+                  <p>Save&Next</p>
+                  <TbPlayerTrackNext />
+                </p>
+              </Button>
+            )}
+          </div>
           {uploading == true && (
             <Button className="px-12">
               <div className="spinAnimation"></div>{" "}
@@ -446,7 +453,7 @@ function AddCourseForm() {
           )}
         </div>
         {currentStep > 0 && (
-          <Button type="button" className="" onClick={() => handleSubmitForm()}>
+          <Button type="button" className="" onClick={() => handleNext({ action: "submit" })}>
             <p className="flex items-center">
               <p>Submit</p>
               <TbPlayerTrackNext />
