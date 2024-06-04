@@ -120,12 +120,25 @@ function AddCourseForm() {
   }, [course_title_value]);
 
   useEffect(() => {
+    if(basicImage.file) {
+      setError("");
+    }
+  }, [basicImage]);
+
+  useEffect(() => {
+      setError("");
+  }, [image1, image2, image3, image4]);
+
+  useEffect(() => {
     setBasicInfo(watchedTitle, complexity, level);
   }, [watchedTitle, complexity, level]);
 
   async function handleNext() {
-    if (error) return;
     const currentStepData = course.steps[currentStep - 1];
+    console.log("currentStepData", currentStepData);
+    if(currentStepData.template == "Single Image" && currentStepData.attachment.length != 1) {
+        return setError("Please attach an image");
+    }
     const allImages: imageType[] = [];
     [image1, image2, image3, image4, basicImage].map((image, index) => {
       if (image.file) {
@@ -164,12 +177,13 @@ function AddCourseForm() {
       (image) => image.position === "basic_image"
     );
     const updatedSteps: any = course.steps.map((step, index) => {
+      const flattenedUploadedImages = uploadedImages.filter((img) => img.position!== "basic_image").flat();
       if (index === currentStep - 1) {
         return {
           ...step,
           attachment: [
             ...step.attachment,
-            [...uploadedImages.filter((img) => img.position !== "basic_image")],
+            ...flattenedUploadedImages,
           ],
         };
       }
@@ -194,6 +208,7 @@ function AddCourseForm() {
       ],
     });
     setUploading(false);
+    setError("");
     setImage1({ position: "", file: null });
     setImage2({ position: "", file: null });
     setImage3({ position: "", file: null });
@@ -219,12 +234,10 @@ function AddCourseForm() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     if (currentStep == 0) {
       setUploading(true);
-      if (data.title === "" || !image1 || level === "" || complexity === 0) {
+      if (data.title === "" || !basicImage.file || level === "" || complexity === 0) {
         setUploading(false);
         return setError("All fields are required");
       }
-      // setCourse(newState);
-
       if (currentStep == course.steps.length) {
         setCourse({
           basicInfo: { ...course.basicInfo },
@@ -245,7 +258,6 @@ function AddCourseForm() {
       setCurrentStep(currentStep + 1);
     } else {
       handleNext();
-      setError("");
     }
   }
 

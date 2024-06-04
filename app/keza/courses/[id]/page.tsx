@@ -98,75 +98,78 @@ import batterryfull from "../../../images/TrafficLight/batteryfull.jpeg";
 import full from "../../../images/TrafficLight/fullfinalview.jpeg";
 import useGetCourseById from "@/app/hooks/courses/usegGetCourseById";
 import TwoEqualImages from "@/app/components/courses/AccordionItems/TwoEqualImages";
-import SingleLargeImage from "@/app/components/courses/AccordionItems/SingleLargeImage";
+import SingleImage from "@/app/components/courses/AccordionItems/SingleImage";
 import AccordionItems from "@/app/components/courses/AccordionItems/AccordionItems";
 
 const Page = () => {
-
   const { data } = useGetCourseById({ id: "1" });
-  console.log("single Course ")
   useEffect(() => {
     console.log("single Course : ", data);
-  }, [data])
+  }, [data]);
 
   let localData;
-  if (typeof window!== 'undefined') {
+  if (typeof window !== "undefined") {
     localData = localStorage.getItem("done");
   }
   const [activeAccordion, setActiveAccordion] = useState(0);
-  const [done, setDone] = useState<number[]>(localData ? JSON.parse(localData) : []);
+  const [done, setDone] = useState<number[]>(
+    localData ? JSON.parse(localData) : []
+  );
 
   useEffect(() => {
     localStorage.setItem("done", JSON.stringify(done));
-  } , [done]);
+  }, [done]);
 
-  const formatDate = (dateString : any) => {
+  const formatDate = (dateString: any) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
-  
 
   return (
     <>
       <Navigation />
-      
-      {data && <div className="mb-6">
-        <div className="mb-4">
-          <p className="text-center text-2xl font-bold mt-10">{data[0].courseDetails?.basicInfo?.title}</p>
-          <p className="text-center mt-1">{`${data[0].courseDetails.basicInfo?.uploadedBy} on ${formatDate(data[0]?.createdAt)}`}</p>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src={final_traffic_light}
-            alt="KEFL Logo image"
-            className="w-[80%] sm:w-[490px] h-[300px] cursor-pointer rounded-[5px] border-custom"
-          />
-        </div>
-        <div className="flex justify-center mt-4">
-          <div className="w-[80%] sm:w-[50%]">
-            <ViewMaterials />
-            <div className="mt-4">
-              <div className="flex justify-center">
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-[100%] border-none"
-                >
-                {data[0].courseDetails.steps.map((item, index) => {
-                  return (
-                    <AccordionItems key={index} id="5" step={item} />
-                  );
-                })} 
-                </Accordion>
+
+      {data && (
+        <div className="mb-6">
+          <div className="mb-4">
+            <p className="text-center text-2xl font-bold mt-10">
+              {data[0].courseDetails?.basicInfo?.title}
+            </p>
+            <p className="text-center mt-1">{`${
+              data[0].courseDetails.basicInfo?.uploadedBy
+            } on ${formatDate(data[0]?.createdAt)}`}</p>
+          </div>
+          <div className="flex justify-center">
+            <Image
+              src={final_traffic_light}
+              alt="KEFL Logo image"
+              className="w-[80%] sm:w-[490px] h-[300px] cursor-pointer rounded-[5px] border-custom"
+            />
+          </div>
+          <div className="flex justify-center mt-4">
+            <div className="w-[80%] sm:w-[50%]">
+              <ViewMaterials />
+              <div className="mt-4">
+                <div className="flex justify-center">
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="w-[100%] border-none"
+                  >
+                    {data[0].courseDetails.steps.map((item, index) => {
+                      return <AccordionItems key={index} id="5" step={item} />;
+                    })}
+                  </Accordion>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>}
+      )}
       <Footer />
     </>
   );
