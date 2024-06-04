@@ -10,7 +10,7 @@ interface Attachment {
     title: string;
     step: number;
     template: string;
-    attachment: Attachment[];
+    attachment: {position: string, file: ""}[];
   }
   
   interface BasicInfo {

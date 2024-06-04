@@ -98,8 +98,9 @@ import batterryfull from "../../../images/TrafficLight/batteryfull.jpeg";
 import full from "../../../images/TrafficLight/fullfinalview.jpeg";
 import useGetCourseById from "@/app/hooks/courses/usegGetCourseById";
 import TwoEqualImages from "@/app/components/courses/AccordionItems/TwoEqualImages";
+import { stepDataTypes } from "@/app/store/courseData";
 
-const SingleLargeImage = () => {
+const SingleLargeImage = ({step}: {step: stepDataTypes}) => {
   let localData;
   if (typeof window !== "undefined") {
     localData = localStorage.getItem("done");

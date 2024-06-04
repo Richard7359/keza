@@ -99,6 +99,7 @@ import full from "../../../images/TrafficLight/fullfinalview.jpeg";
 import useGetCourseById from "@/app/hooks/courses/usegGetCourseById";
 import TwoEqualImages from "@/app/components/courses/AccordionItems/TwoEqualImages";
 import SingleLargeImage from "@/app/components/courses/AccordionItems/SingleLargeImage";
+import AccordionItems from "@/app/components/courses/AccordionItems/AccordionItems";
 
 const Page = () => {
 
@@ -157,7 +158,7 @@ const Page = () => {
                 >
                 {data[0].courseDetails.steps.map((item, index) => {
                   return (
-                    <SingleLargeImage key={index} {...item} />
+                    <AccordionItems key={index} id="5" step={item} />
                   );
                 })} 
                 </Accordion>
