@@ -129,7 +129,7 @@ function AddCourseForm() {
     setBasicInfo(watchedTitle, complexity, level);
   }, [watchedTitle, complexity, level]);
 
-  async function handleNext({ action }: { action: string }) {
+  async function handleNext({action} : {action: string}) {
     const currentStepData = course.steps[currentStep - 1];
     console.log("currentStepData", currentStepData);
     if (currentStepData.title == "") {
@@ -188,12 +188,6 @@ function AddCourseForm() {
       }
       return step;
     });
-    const nextStep = action === "next" && {
-      title: "",
-      step: currentStep + 1,
-      template: "Single Image",
-      attachment: [],
-    };
     setCourse({
       ...course,
       basicInfo: {
@@ -202,7 +196,15 @@ function AddCourseForm() {
           ? (uploadedBasicImage?.file as string)
           : course.basicInfo.attachment,
       },
-      steps: [...updatedSteps, nextStep],
+      steps: [
+        ...updatedSteps,
+        {
+          title: "",
+          step: currentStep + 1,
+          template: "Single Image",
+          attachment: [],
+        },
+      ],
     });
     setUploading(false);
     setError("");
@@ -210,11 +212,8 @@ function AddCourseForm() {
     setImage2({ position: "", file: null });
     setImage3({ position: "", file: null });
     setImage4({ position: "", file: null });
-    if (action === "next") {
-      setPreviousStep(currentStep);
-      setCurrentStep(currentStep + 1);
-    }
-    handleSubmitForm();
+    setPreviousStep(currentStep);
+    setCurrentStep(currentStep + 1);
   }
 
   useEffect(() => {
@@ -262,7 +261,7 @@ function AddCourseForm() {
       setPreviousStep(currentStep);
       setCurrentStep(currentStep + 1);
     } else {
-      handleNext({ action: "next" });
+      handleNext({action: "next"});
     }
   }
 
@@ -453,7 +452,7 @@ function AddCourseForm() {
           )}
         </div>
         {currentStep > 0 && (
-          <Button type="button" className="" onClick={() => handleNext({ action: "submit" })}>
+          <Button type="button" className="" onClick={() => handleSubmitForm()}>
             <p className="flex items-center">
               <p>Submit</p>
               <TbPlayerTrackNext />
