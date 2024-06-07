@@ -35,6 +35,7 @@ import {
   Search,
   ShoppingCart,
   Users,
+  Send
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -131,15 +132,14 @@ const DashboardWrapper = ({
           <div className="mt-auto p-4">
             <Card x-chunk="dashboard-02-chunk-0">
               <CardHeader className="p-2 pt-0 md:p-4">
-                <CardTitle>Upgrade to Pro</CardTitle>
+                <CardTitle>Invite Member</CardTitle>
                 <CardDescription>
-                  Unlock all features and get unlimited access to our support
-                  team.
+                  Invite team member to this workspace and start collaborating.
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-                <Button size="sm" className="w-full">
-                  Upgrade
+                <Button size="sm" className="w-full gap-2">
+                  Sent Invite <Send className="h-4 w-4"/>
                 </Button>
               </CardContent>
             </Card>
@@ -210,15 +210,14 @@ const DashboardWrapper = ({
               <div className="mt-auto">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Upgrade to Pro</CardTitle>
+                    <CardTitle>Invite Member</CardTitle>
                     <CardDescription>
-                      Unlock all features and get unlimited access to our
-                      support team.
+                    Invite team member to this workspace and start collaborating.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Button size="sm" className="w-full">
-                      Upgrade
+                    <Button size="sm" className="w-full gap-2">
+                    Sent Invite <Send className="h-4 w-4"/>
                     </Button>
                   </CardContent>
                 </Card>
@@ -231,7 +230,7 @@ const DashboardWrapper = ({
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search products..."
+                  placeholder="Type in to search something.................."
                   className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
                 />
               </div>
