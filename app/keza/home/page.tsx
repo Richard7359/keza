@@ -14,11 +14,6 @@ import NewsLetter from "../../components/NewsLetter";
 import example from "../../hooks/useGetExampleRoute";
 
 export default function HomePage() {
-  const { data } = example();
-  // const data
-  console.log("data");
-  console.log(data);
-  console.log(data);
 
   return (
     <div className="w-[100%] p-0 m-0">
