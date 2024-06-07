@@ -453,7 +453,7 @@ function AddCourseForm() {
         </div>
         {currentStep > 0 && (
           <Button type="button" className="" onClick={() => handleSubmitForm()}>
-            <p className="flex items-center">
+            <p className="flex items-center gap-2">
               <p>Submit</p>
               <TbPlayerTrackNext />
             </p>
