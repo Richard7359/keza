@@ -78,11 +78,21 @@ function AddCourseForm() {
   const { data, refetch } = useGetCourse();
   const { mutate } = trpc.addCourse.addCourse.useMutation({
     onSuccess: () => {
-      console.log("Success");
+      setCurrentStep(0);
+      setCourse({
+        basicInfo: {
+          title: "",
+          level: "",
+          complexity: 0,
+          uploadedBy: "Admin",
+          attachment: "",
+        },
+        steps: [],
+      });
       refetch();
       alert("Course Added successfuly");
     },
-    onError: (error) => {
+    onError: (error: any) => {
       console.log("Error", error);
       alert("Error adding course");
     },
@@ -129,7 +139,7 @@ function AddCourseForm() {
     setBasicInfo(watchedTitle, complexity, level);
   }, [watchedTitle, complexity, level]);
 
-  async function handleNext({action} : {action: string}) {
+  async function handleNext({ action }: { action: string }) {
     const currentStepData = course.steps[currentStep - 1];
     console.log("currentStepData", currentStepData);
     if (currentStepData.title == "") {
@@ -176,7 +186,7 @@ function AddCourseForm() {
     const uploadedBasicImage = uploadedImages.find(
       (image) => image.position === "basic_image"
     );
-    const updatedSteps: any = course.steps.map((step, index) => {
+    const updatedSteps: any = course.steps.map((step : any, index : any) => {
       const flattenedUploadedImages = uploadedImages
         .filter((img) => img.position !== "basic_image")
         .flat();
@@ -261,7 +271,7 @@ function AddCourseForm() {
       setPreviousStep(currentStep);
       setCurrentStep(currentStep + 1);
     } else {
-      handleNext({action: "next"});
+      handleNext({ action: "next" });
     }
   }
 
@@ -269,7 +279,7 @@ function AddCourseForm() {
     if (currentStep > 0) {
       setCourse({
         ...course,
-        steps: course.steps.map((step) => {
+        steps: course.steps.map((step : any) => {
           if (step.step == currentStep) {
             return {
               ...step,

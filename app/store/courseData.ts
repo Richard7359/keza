@@ -39,7 +39,7 @@ export interface imageType {
 }
 
 
-export const CourseData = create<courseType>((set) => ({
+export const CourseData : any = create<courseType>((set) => ({
     course: {
         basicInfo: {
             title: "",

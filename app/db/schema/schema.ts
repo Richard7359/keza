@@ -1,4 +1,4 @@
-import { pgTable, serial, text, varchar, jsonb, foreignKey, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, varchar, jsonb, uuid, foreignKey, timestamp } from "drizzle-orm/pg-core";
 import { sql } from 'drizzle-orm';
 
 export const users = pgTable('users', {
@@ -8,8 +8,8 @@ export const users = pgTable('users', {
 });
 
 export const courses = pgTable('courses', {
-  id: serial('id').primaryKey(),
-  userId: text('userID'), // Adjusted to match expected arguments
-  courseDetails: jsonb('course_details'), // JSONB column to store course details
-  createdAt: timestamp('created_at').defaultNow(), // Set default current timestamp
+  id: uuid("id").defaultRandom().primaryKey().notNull(),
+  userId: text('userID'),
+  courseDetails: jsonb('course_details'), 
+  createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => sql`CURRENT_TIMESTAMP`)});
