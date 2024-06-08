@@ -27,6 +27,7 @@ import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { trpc } from "@/app/_trpc/client";
+import { Toaster, toast } from 'sonner'
 
 const FormSchema = z.object({
   title: z.string(),
@@ -90,7 +91,6 @@ function AddCourseForm() {
         steps: [],
       });
       refetch();
-      alert("Course Added successfuly");
     },
     onError: (error: any) => {
       console.log("Error", error);
@@ -126,6 +126,10 @@ function AddCourseForm() {
   }, [course_title_value]);
 
   useEffect(() => {
+    toast.success("Step recorded successfuly!!", { position: 'top-right' });
+  }, []);
+
+  useEffect(() => {
     if (basicImage.file) {
       setError("");
     }
@@ -142,12 +146,30 @@ function AddCourseForm() {
   async function handleNext({ action }: { action: string }) {
     const currentStepData = course.steps[currentStep - 1];
     console.log("currentStepData", currentStepData);
+    // title validations
     if (currentStepData.title == "") {
+      toast.error("Title is required", { position: 'top-right' });
       return setError("Title is required");
     }
-    if (currentStepData.template == "Single Image" && image1.file == null) {
+
+    // image validations
+    if ((currentStepData.template == "Single Image" || currentStepData.template == "Single Image Fit") && image1.file == null) {
+      toast.error("Please attach an image", { position: 'top-right' });
       return setError("Please attach an image");
     }
+    else if ((currentStepData.template == "Two Images Side by Side" || currentStepData.template == "Two Images Top, One Image Bottom" || currentStepData.template == "Two Images Vertically Stacked") && (image1.file == null || image2.file == null)) {
+      toast.error("Please attach all image", { position: 'top-right' });
+      return setError("Please attach all image");
+    }
+    else if (currentStepData.template == "Large pic Left, Small pic Right with Bottom pic" && (image1.file == null || image2.file == null || image3.file == null)) {
+      toast.error("Please attach all image", { position: 'top-right' });
+      return setError("Please attach all image");
+    }
+    else if (currentStepData.template == "Four Equal Images (2x2 Grid)" && (image1.file == null || image2.file == null || image3.file == null || image4.file == null)) {
+      toast.error("Please attach all image", { position: 'top-right' });
+      return setError("Please attach all image");
+    }
+
     setError("");
     const allImages: imageType[] = [];
     [image1, image2, image3, image4, basicImage].map((image, index) => {
@@ -163,6 +185,7 @@ function AddCourseForm() {
       setUploading(true);
       if (!file.file) {
         setUploading(false);
+        toast.error("File is required", { position: 'top-right' });
         return setError("File is required");
       }
       const formData = new FormData();
@@ -216,6 +239,7 @@ function AddCourseForm() {
         },
       ],
     });
+    toast.success("Step recorded successfuly!!", { position: 'top-right' });
     setUploading(false);
     setError("");
     setImage1({ position: "", file: null });
@@ -228,6 +252,7 @@ function AddCourseForm() {
 
   useEffect(() => {
     console.log("course", course);
+    setError("");
   }, [course]);
 
   const handleBack = () => {
@@ -250,6 +275,7 @@ function AddCourseForm() {
         complexity === 0
       ) {
         setUploading(false);
+        toast.error("All fields are required", { position: 'top-right' });
         return setError("All fields are required");
       }
       if (currentStep == course.steps.length) {
@@ -266,6 +292,7 @@ function AddCourseForm() {
           ],
         });
       }
+      toast.success("Step recorded successfuly!!", { position: 'top-right' });
       setUploading(false);
       setImage1({ position: "", file: null });
       setPreviousStep(currentStep);
@@ -316,6 +343,7 @@ function AddCourseForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[95%] ">
+      {/* <Toaster /> */}
       <div className="flex gap-2 mb-3">
         <IoFootstepsOutline size={20} />
         {currentStep == 0 ? (

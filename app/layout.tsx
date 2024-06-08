@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+// import { Toaster } from "@/components/ui/toaster"
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./css/course.css";
 import "./css/faq.css";
 import "./css/testimonial.css";
 import "./css/dashboard.css";
+import { Toaster, toast } from 'sonner'
 
 import Provider from "./_trpc/provider";
 
@@ -22,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Toaster />
       <body className={inter.className}><Provider>{children}</Provider></body>
       <script
         src="https://static.elfsight.com/platform/platform.js"
