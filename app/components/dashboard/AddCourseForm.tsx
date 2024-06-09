@@ -330,12 +330,12 @@ function AddCourseForm() {
 
   useEffect(() => {
     console.log("course", course);
-    // if (submitting) {
-    //   mutate({
-    //     userId: "1",
-    //     courseDetails: course,
-    //   });
-    // }
+    if (submitting) {
+      mutate({
+        userId: "1",
+        courseDetails: course,
+      });
+    }
     setError("");
   }, [course]);
 
@@ -420,110 +420,111 @@ function AddCourseForm() {
   };
 
   const handleSubmitForm = async () => {
-    // const currentStepData = course.steps[currentStep - 1];
-    // console.log("currentStepData", currentStepData);
-    // // title validations
-    // if (currentStepData.title == "") {
-    //   toast.error("Title is required", { position: "top-right" });
-    //   return setError("Title is required");
-    // }
-    // // image validations
-    // if (
-    //   (currentStepData.template == "Single Image" ||
-    //     currentStepData.template == "Single Image Fit") &&
-    //   image1.file == null
-    // ) {
-    //   toast.error("Please attach an image", { position: "top-right" });
-    //   return setError("Please attach an image");
-    // } else if (
-    //   (currentStepData.template == "Two Images Side by Side" ||
-    //     currentStepData.template == "Two Images Top, One Image Bottom" ||
-    //     currentStepData.template == "Two Images Vertically Stacked") &&
-    //   (image1.file == null || image2.file == null)
-    // ) {
-    //   toast.error("Please attach all image", { position: "top-right" });
-    //   return setError("Please attach all image");
-    // } else if (
-    //   currentStepData.template ==
-    //     "Large pic Left, Small pic Right with Bottom pic" &&
-    //   (image1.file == null || image2.file == null || image3.file == null)
-    // ) {
-    //   toast.error("Please attach all image", { position: "top-right" });
-    //   return setError("Please attach all image");
-    // } else if (
-    //   currentStepData.template == "Four Equal Images (2x2 Grid)" &&
-    //   (image1.file == null ||
-    //     image2.file == null ||
-    //     image3.file == null ||
-    //     image4.file == null)
-    // ) {
-    //   toast.error("Please attach all image", { position: "top-right" });
-    //   return setError("Please attach all image");
-    // }
+    setSubmitting(true);
+    const currentStepData = course.steps[currentStep - 1];
+    console.log("currentStepData", currentStepData);
+    // title validations
+    if (currentStepData.title == "") {
+      toast.error("Title is required", { position: "top-right" });
+      return setError("Title is required");
+    }
+    // image validations
+    if (
+      (currentStepData.template == "Single Image" ||
+        currentStepData.template == "Single Image Fit") &&
+      image1.file == null
+    ) {
+      toast.error("Please attach an image", { position: "top-right" });
+      return setError("Please attach an image");
+    } else if (
+      (currentStepData.template == "Two Images Side by Side" ||
+        currentStepData.template == "Two Images Top, One Image Bottom" ||
+        currentStepData.template == "Two Images Vertically Stacked") &&
+      (image1.file == null || image2.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
+      return setError("Please attach all image");
+    } else if (
+      currentStepData.template ==
+        "Large pic Left, Small pic Right with Bottom pic" &&
+      (image1.file == null || image2.file == null || image3.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
+      return setError("Please attach all image");
+    } else if (
+      currentStepData.template == "Four Equal Images (2x2 Grid)" &&
+      (image1.file == null ||
+        image2.file == null ||
+        image3.file == null ||
+        image4.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
+      return setError("Please attach all image");
+    }
 
-    // setError("");
-    // const allImages: imageType[] = [];
-    // [image1, image2, image3, image4, basicImage].map((image, index) => {
-    //   if (image.file) {
-    //     allImages.push(image);
-    //   }
-    // });
-    // const uploadedImages: {
-    //   position: string;
-    //   file: string;
-    // }[] = [];
-    // const uploadPromises = allImages.map(async (file) => {
-    //   if (!file.file) {
-    //     toast.error("File is required", { position: "top-right" });
-    //     return setError("File is required");
-    //   }
-    //   const formData = new FormData();
-    //   formData.append("file", file.file);
-    //   formData.append("folder", "courses");
-    //   try {
-    //     const response = await fetch("/api/s3-upload", {
-    //       method: "POST",
-    //       body: formData,
-    //     });
-    //     const data = await response.json();
-    //     if (data) {
-    //       uploadedImages.push({ position: file.position, file: data.fileName });
-    //     }
-    //   } catch (error) {
-    //     alert("error");
-    //   }
-    // });
+    setError("");
+    const allImages: imageType[] = [];
+    [image1, image2, image3, image4, basicImage].map((image, index) => {
+      if (image.file) {
+        allImages.push(image);
+      }
+    });
+    const uploadedImages: {
+      position: string;
+      file: string;
+    }[] = [];
+    const uploadPromises = allImages.map(async (file) => {
+      if (!file.file) {
+        toast.error("File is required", { position: "top-right" });
+        return setError("File is required");
+      }
+      const formData = new FormData();
+      formData.append("file", file.file);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (data) {
+          uploadedImages.push({ position: file.position, file: data.fileName });
+        }
+      } catch (error) {
+        alert("error");
+      }
+    });
 
-    // await Promise.all(uploadPromises);
-    // const uploadedBasicImage = uploadedImages.find(
-    //   (image) => image.position === "basic_image"
-    // );
-    // const updatedSteps: any = course.steps.map((step: any, index: any) => {
-    //   const flattenedUploadedImages = uploadedImages
-    //     .filter((img) => img.position !== "basic_image")
-    //     .flat();
-    //   if (index === currentStep - 1) {
-    //     return {
-    //       ...step,
-    //       attachment: [...step.attachment, ...flattenedUploadedImages],
-    //     };
-    //   }
-    //   return step;
-    // });
-    // setSubmitting(true);
-    // setCourse({
-    //   ...course,
-    //   basicInfo: {
-    //     ...course.basicInfo,
-    //     attachment: uploadedBasicImage?.file
-    //       ? (uploadedBasicImage?.file as string)
-    //       : course.basicInfo.attachment,
-    //   },
-    //   steps: [...updatedSteps],
-    // });
-    // toast.success(`Step ${currentStep} recorded successfuly!!`, {
-    //   position: "top-right",
-    // });
+    await Promise.all(uploadPromises);
+    const uploadedBasicImage = uploadedImages.find(
+      (image) => image.position === "basic_image"
+    );
+    const updatedSteps: any = course.steps.map((step: any, index: any) => {
+      const flattenedUploadedImages = uploadedImages
+        .filter((img) => img.position !== "basic_image")
+        .flat();
+      if (index === currentStep - 1) {
+        return {
+          ...step,
+          attachment: [...step.attachment, ...flattenedUploadedImages],
+        };
+      }
+      return step;
+    });
+
+    setCourse({
+      ...course,
+      basicInfo: {
+        ...course.basicInfo,
+        attachment: uploadedBasicImage?.file
+          ? (uploadedBasicImage?.file as string)
+          : course.basicInfo.attachment,
+      },
+      steps: [...updatedSteps],
+    });
+    toast.success(`Step ${currentStep} recorded successfuly!!`, {
+      position: "top-right",
+    });
   };
 
   return (
