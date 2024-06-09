@@ -106,11 +106,20 @@ function Page() {
     <div className="h-[100vh] w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-6">
-          <div className="grid gap-2 text-center">
-            <h1 className="text-3xl font-bold">Login</h1>
-            <p className="text-balance text-muted-foreground">
-              Enter your email below to login to your account
-            </p>
+          <div>
+            <div className="flex items-center gap-3">
+              <a href="/">
+                <Image
+                  src={Keza_logo}
+                  alt="KEFL Logo image"
+                  className="w-15 md:w-12 object-cover cursor-pointer"
+                />
+              </a>
+              <h1 className="text-xl font-semibold">Welcome back</h1>
+            </div>
+            <small className="text-gray-400 text-center">
+              So glad to have you here! Please enter your credentials!{" "}
+            </small>
           </div>
           <div className="grid gap-4">
             <div className="grid gap-2">
