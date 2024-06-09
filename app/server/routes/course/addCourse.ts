@@ -31,7 +31,8 @@ export const addCourse = router({
     .mutation(async ({ input }) => {
       console.log(input);
       return db.insert(courses).values({
-        courseDetails: {...input.courseDetails},
+        courseDetails: {},
+        // courseDetails: {...input.courseDetails},
         userId: input.userId,
       });
     }),
