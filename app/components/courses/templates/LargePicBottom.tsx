@@ -140,7 +140,7 @@ function LargePicBottom() {
     if (currentStep > 0) {
       setCourse({
         ...course,
-        steps: course.steps.map((step) => {
+        steps: course.steps.map((step : any) => {
           if (step.step == currentStep) {
             return {
               ...step,
