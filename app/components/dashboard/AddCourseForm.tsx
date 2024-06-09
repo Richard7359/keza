@@ -142,36 +142,6 @@ function AddCourseForm() {
     },
   });
 
-  // useEffect(() => {
-  //   mutate({
-  //       userId: '694bf143-f4e5-42fd-aed7-2c5f75a76541',
-  //       courseDetails: {
-  //         basicInfo: {
-  //           title: 'hdfghh',
-  //           level: 'Middle',
-  //           complexity: 1,
-  //           uploadedBy: 'Admin',
-  //           attachment: 'cablebattery.jpg'
-  //         },
-  //         steps: [
-  //           {
-  //             title: 'gretyertyety',
-  //             step: 1,
-  //             template: 'Single Image',
-  //             attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
-  //           },
-  //           {
-  //             title: 'etyeyreyteytr',
-  //             step: 2,
-  //             template: 'Single Image',
-  //             attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
-  //           },
-  //           { title: 'hdghghgdety', step: 3, template: 'Single Image', attachment: [] }
-  //         ]
-  //       }
-  //   });
-  // }, []);
-
   useEffect(() => {
     console.log("basic Attachement", basicAttachement);
     if (currentStep == 0) {
@@ -198,10 +168,6 @@ function AddCourseForm() {
   useEffect(() => {
     setStepTitle(course_title_value);
   }, [course_title_value]);
-
-  // useEffect(() => {
-  //   toast.success("Step recorded successfuly!!", { position: 'top-right' });
-  // }, []);
 
   useEffect(() => {
     if (basicImage.file) {
@@ -571,7 +537,7 @@ function AddCourseForm() {
               {...register("title")}
             />
           </div>
-          <div className="mt-2 grid grid-cols-2">
+          <div className="mt-2 grid  grid-cols-1 sm:grid-cols-2">
             <div>
               <label htmlFor="description" className="text-sm font-semibold">
                 Course Level
