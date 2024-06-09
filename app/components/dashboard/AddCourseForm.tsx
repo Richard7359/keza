@@ -129,12 +129,8 @@ function AddCourseForm() {
   });
 
   useEffect(() => {
-    addUser({
-      fullName: "name",
-      phone: "000000000",
-    });
     mutate({
-        userId: '1',
+        userId: '694bf143-f4e5-42fd-aed7-2c5f75a76541',
         courseDetails: {
           basicInfo: {
             title: 'hdfghh',

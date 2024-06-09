@@ -7,8 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate:generate": "drizzle-kit generate",
-    "migrate:push": "drizzle-kit push",
     "codegen": "graphql-codegen -r dotenv/config --config codegen.yml dotenv_config_path=./.env.local"
   },
   "dependencies": {
