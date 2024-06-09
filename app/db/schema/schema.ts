@@ -8,8 +8,9 @@ export const users = pgTable('users', {
 });
 
 export const courses = pgTable('courses', {
-  id: uuid("id").defaultRandom().primaryKey().notNull(),
-  userId: text('userID'),
-  courseDetails: jsonb('course_details'), 
+  // id: uuid("id").defaultRandom().primaryKey().notNull(),
+  id: serial('id').primaryKey(),
+  userId: text('userId'),
+  courseDetails: jsonb('courseDetails'), 
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => sql`CURRENT_TIMESTAMP`)});

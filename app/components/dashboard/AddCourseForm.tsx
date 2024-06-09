@@ -13,7 +13,7 @@ import { IoPlayBackOutline } from "react-icons/io5";
 import { IoFootstepsOutline } from "react-icons/io5";
 import { step } from "@/app/store/currectStep";
 
-import { motion } from "framer-motion";
+import { motion, steps } from "framer-motion";
 import { CourseData, imageType } from "@/app/store/courseData";
 import TemplateOptions from "./TemplatesOptions";
 
@@ -27,7 +27,8 @@ import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { trpc } from "@/app/_trpc/client";
-import { Toaster, toast } from 'sonner'
+import { Toaster, toast } from "sonner";
+import useAddUser from "@/app/hooks/useAddUser";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -48,6 +49,7 @@ function AddCourseForm() {
     setImage3,
     setImage4,
     basicImage,
+    setBasicImage
   } = CourseData();
   const {
     handleSubmit,
@@ -66,19 +68,50 @@ function AddCourseForm() {
           : "",
     },
   });
-
+  const { mutate: addUser } = useAddUser();
   const [error, setError] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const [complexity, setComplexity] = useState<number>(0);
   const [level, setLevel] = useState("");
   const [uploading, setUploading] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [basicAttachement, setBasicAttachment] = useState<any>();
   const delta = currentStep - previousStep;
   const course_title_value = watch("course_title");
   const watchedTitle = watch("title");
+  const dummy = {
+    basicInfo: {
+      attachment: "title",
+      complexity: 0,
+      level: "title",
+      title: "title",
+      uploadedBy: "Admin",
+    },
+    steps: [
+      {
+        attachment: ["title"],
+        step: 1,
+        template: "Single Image",
+        title: "title",
+      },
+    ],
+  };
   const { data, refetch } = useGetCourse();
   const { mutate } = trpc.addCourse.addCourse.useMutation({
     onSuccess: () => {
+      toast.success(`The course is added successfuly!!`, {
+        position: "top-right",
+      });
+      setCurrentStep(0);
+      setSubmitting(false);
+      setUploading(false);
+      setError("");
+      setImage1({ position: "", file: null });
+      setImage2({ position: "", file: null });
+      setImage3({ position: "", file: null });
+      setImage4({ position: "", file: null });
+      setBasicImage({ position: "", file: null });
+      setPreviousStep(0);
       setCurrentStep(0);
       setCourse({
         basicInfo: {
@@ -97,6 +130,40 @@ function AddCourseForm() {
       alert("Error adding course");
     },
   });
+
+  // useEffect(() => {
+  //   addUser({
+  //     fullName: "name",
+  //     phone: "000000000",
+  //   });
+  //   mutate({
+  //       userId: '1',
+  //       courseDetails: {
+  //         basicInfo: {
+  //           title: 'hdfghh',
+  //           level: 'Middle',
+  //           complexity: 1,
+  //           uploadedBy: 'Admin',
+  //           attachment: 'cablebattery.jpg'
+  //         },
+  //         steps: [
+  //           {
+  //             title: 'gretyertyety',
+  //             step: 1,
+  //             template: 'Single Image',
+  //             attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
+  //           },
+  //           {
+  //             title: 'etyeyreyteytr',
+  //             step: 2,
+  //             template: 'Single Image',
+  //             attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
+  //           },
+  //           { title: 'hdghghgdety', step: 3, template: 'Single Image', attachment: [] }
+  //         ]
+  //       }
+  //   });
+  // }, []);
 
   useEffect(() => {
     console.log("basic Attachement", basicAttachement);
@@ -125,9 +192,9 @@ function AddCourseForm() {
     setStepTitle(course_title_value);
   }, [course_title_value]);
 
-  useEffect(() => {
-    toast.success("Step recorded successfuly!!", { position: 'top-right' });
-  }, []);
+  // useEffect(() => {
+  //   toast.success("Step recorded successfuly!!", { position: 'top-right' });
+  // }, []);
 
   useEffect(() => {
     if (basicImage.file) {
@@ -143,30 +210,46 @@ function AddCourseForm() {
     setBasicInfo(watchedTitle, complexity, level);
   }, [watchedTitle, complexity, level]);
 
-  async function handleNext({ action }: { action: string }) {
+  async function handleNext({ action }: { action?: string }) {
     const currentStepData = course.steps[currentStep - 1];
     console.log("currentStepData", currentStepData);
     // title validations
     if (currentStepData.title == "") {
-      toast.error("Title is required", { position: 'top-right' });
+      toast.error("Title is required", { position: "top-right" });
       return setError("Title is required");
     }
 
     // image validations
-    if ((currentStepData.template == "Single Image" || currentStepData.template == "Single Image Fit") && image1.file == null) {
-      toast.error("Please attach an image", { position: 'top-right' });
+    if (
+      (currentStepData.template == "Single Image" ||
+        currentStepData.template == "Single Image Fit") &&
+      image1.file == null
+    ) {
+      toast.error("Please attach an image", { position: "top-right" });
       return setError("Please attach an image");
-    }
-    else if ((currentStepData.template == "Two Images Side by Side" || currentStepData.template == "Two Images Top, One Image Bottom" || currentStepData.template == "Two Images Vertically Stacked") && (image1.file == null || image2.file == null)) {
-      toast.error("Please attach all image", { position: 'top-right' });
+    } else if (
+      (currentStepData.template == "Two Images Side by Side" ||
+        currentStepData.template == "Two Images Top, One Image Bottom" ||
+        currentStepData.template == "Two Images Vertically Stacked") &&
+      (image1.file == null || image2.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
       return setError("Please attach all image");
-    }
-    else if (currentStepData.template == "Large pic Left, Small pic Right with Bottom pic" && (image1.file == null || image2.file == null || image3.file == null)) {
-      toast.error("Please attach all image", { position: 'top-right' });
+    } else if (
+      currentStepData.template ==
+        "Large pic Left, Small pic Right with Bottom pic" &&
+      (image1.file == null || image2.file == null || image3.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
       return setError("Please attach all image");
-    }
-    else if (currentStepData.template == "Four Equal Images (2x2 Grid)" && (image1.file == null || image2.file == null || image3.file == null || image4.file == null)) {
-      toast.error("Please attach all image", { position: 'top-right' });
+    } else if (
+      currentStepData.template == "Four Equal Images (2x2 Grid)" &&
+      (image1.file == null ||
+        image2.file == null ||
+        image3.file == null ||
+        image4.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
       return setError("Please attach all image");
     }
 
@@ -185,7 +268,7 @@ function AddCourseForm() {
       setUploading(true);
       if (!file.file) {
         setUploading(false);
-        toast.error("File is required", { position: 'top-right' });
+        toast.error("File is required", { position: "top-right" });
         return setError("File is required");
       }
       const formData = new FormData();
@@ -209,7 +292,7 @@ function AddCourseForm() {
     const uploadedBasicImage = uploadedImages.find(
       (image) => image.position === "basic_image"
     );
-    const updatedSteps: any = course.steps.map((step : any, index : any) => {
+    const updatedSteps: any = course.steps.map((step: any, index: any) => {
       const flattenedUploadedImages = uploadedImages
         .filter((img) => img.position !== "basic_image")
         .flat();
@@ -239,7 +322,9 @@ function AddCourseForm() {
         },
       ],
     });
-    toast.success("Step recorded successfuly!!", { position: 'top-right' });
+    toast.success(`Step ${currentStep} recorded successfuly!!`, {
+      position: "top-right",
+    });
     setUploading(false);
     setError("");
     setImage1({ position: "", file: null });
@@ -252,6 +337,12 @@ function AddCourseForm() {
 
   useEffect(() => {
     console.log("course", course);
+    if (submitting) {
+      mutate({
+        userId: "1",
+        courseDetails: course,
+      });
+    }
     setError("");
   }, [course]);
 
@@ -275,7 +366,7 @@ function AddCourseForm() {
         complexity === 0
       ) {
         setUploading(false);
-        toast.error("All fields are required", { position: 'top-right' });
+        toast.error("All fields are required", { position: "top-right" });
         return setError("All fields are required");
       }
       if (currentStep == course.steps.length) {
@@ -292,7 +383,9 @@ function AddCourseForm() {
           ],
         });
       }
-      toast.success("Step recorded successfuly!!", { position: 'top-right' });
+      toast.success(`Step ${currentStep} recorded successfuly!!`, {
+        position: "top-right",
+      });
       setUploading(false);
       setImage1({ position: "", file: null });
       setPreviousStep(currentStep);
@@ -306,7 +399,7 @@ function AddCourseForm() {
     if (currentStep > 0) {
       setCourse({
         ...course,
-        steps: course.steps.map((step : any) => {
+        steps: course.steps.map((step: any) => {
           if (step.step == currentStep) {
             return {
               ...step,
@@ -333,17 +426,113 @@ function AddCourseForm() {
     }
   };
 
-  const handleSubmitForm = () => {
-    console.log("this is the current Course : ", course);
-    mutate({
-      userId: "1",
-      courseDetails: course,
+  const handleSubmitForm = async () => {
+    const currentStepData = course.steps[currentStep - 1];
+    console.log("currentStepData", currentStepData);
+    // title validations
+    if (currentStepData.title == "") {
+      toast.error("Title is required", { position: "top-right" });
+      return setError("Title is required");
+    }
+    // image validations
+    if (
+      (currentStepData.template == "Single Image" ||
+        currentStepData.template == "Single Image Fit") &&
+      image1.file == null
+    ) {
+      toast.error("Please attach an image", { position: "top-right" });
+      return setError("Please attach an image");
+    } else if (
+      (currentStepData.template == "Two Images Side by Side" ||
+        currentStepData.template == "Two Images Top, One Image Bottom" ||
+        currentStepData.template == "Two Images Vertically Stacked") &&
+      (image1.file == null || image2.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
+      return setError("Please attach all image");
+    } else if (
+      currentStepData.template ==
+        "Large pic Left, Small pic Right with Bottom pic" &&
+      (image1.file == null || image2.file == null || image3.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
+      return setError("Please attach all image");
+    } else if (
+      currentStepData.template == "Four Equal Images (2x2 Grid)" &&
+      (image1.file == null ||
+        image2.file == null ||
+        image3.file == null ||
+        image4.file == null)
+    ) {
+      toast.error("Please attach all image", { position: "top-right" });
+      return setError("Please attach all image");
+    }
+
+    setError("");
+    const allImages: imageType[] = [];
+    [image1, image2, image3, image4, basicImage].map((image, index) => {
+      if (image.file) {
+        allImages.push(image);
+      }
     });
+    const uploadedImages: {
+      position: string;
+      file: string;
+    }[] = [];
+    const uploadPromises = allImages.map(async (file) => {
+      if (!file.file) {
+        toast.error("File is required", { position: "top-right" });
+        return setError("File is required");
+      }
+      const formData = new FormData();
+      formData.append("file", file.file);
+      formData.append("folder", "courses");
+      try {
+        const response = await fetch("/api/s3-upload", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (data) {
+          uploadedImages.push({ position: file.position, file: data.fileName });
+        }
+      } catch (error) {
+        alert("error");
+      }
+    });
+
+    await Promise.all(uploadPromises);
+    const uploadedBasicImage = uploadedImages.find(
+      (image) => image.position === "basic_image"
+    );
+    const updatedSteps: any = course.steps.map((step: any, index: any) => {
+      const flattenedUploadedImages = uploadedImages
+        .filter((img) => img.position !== "basic_image")
+        .flat();
+      if (index === currentStep - 1) {
+        return {
+          ...step,
+          attachment: [...step.attachment, ...flattenedUploadedImages],
+        };
+      }
+      return step;
+    });
+    setSubmitting(true);
+    setCourse({
+      ...course,
+      basicInfo: {
+        ...course.basicInfo,
+        attachment: uploadedBasicImage?.file
+          ? (uploadedBasicImage?.file as string)
+          : course.basicInfo.attachment,
+      },
+      steps: [...updatedSteps],
+    });
+
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-[95%] ">
-      {/* <Toaster /> */}
       <div className="flex gap-2 mb-3">
         <IoFootstepsOutline size={20} />
         {currentStep == 0 ? (

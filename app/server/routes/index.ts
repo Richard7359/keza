@@ -1,6 +1,6 @@
 import { publicProcedure, router } from "../trpc";
 import { exampleRouter } from "./test/index";
-import { addCourse, getCourse,getCourseById } from "./course";
+import { addCourse, getCourse,getCourseById} from "./course";
 
 
 export const appRouter = router({

@@ -23,12 +23,6 @@ export const addCourse = router({
               step: z.number(),
               template: z.string(),
               attachment: z.any()
-            //   attachment: z.array(
-            //     z.object({
-            //       position: z.string(),
-            //       file: z.string(),
-            //     })
-            //   ),
             })
           ),
         }),
@@ -36,6 +30,9 @@ export const addCourse = router({
     )
     .mutation(async ({ input }) => {
       console.log(input);
-      return db.insert(courses).values(input);
+      return db.insert(courses).values({
+        courseDetails: {...input.courseDetails},
+        userId: input.userId,
+      });
     }),
 });
