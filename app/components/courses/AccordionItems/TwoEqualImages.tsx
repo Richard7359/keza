@@ -6,7 +6,6 @@ import { GoDotFill } from "react-icons/go";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
@@ -23,7 +22,6 @@ import s2 from "../../../images/TrafficLight/s2.jpeg";
 import { stepDataTypes } from "@/app/store/courseData";
 
 const TwoEqualImages = ({ step }: { step: stepDataTypes }) => {
-  console.log("step", step);
   let localData;
   if (typeof window !== "undefined") {
     localData = localStorage.getItem("done");

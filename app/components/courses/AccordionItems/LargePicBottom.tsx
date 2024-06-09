@@ -1,12 +1,6 @@
 "use client";
-import { GiArmorDowngrade } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
-import { FaChessBishop } from "react-icons/fa";
-import { FaMonument } from "react-icons/fa";
-import { FaPause } from "react-icons/fa";
-import { FaPlug } from "react-icons/fa";
 import { FaVenus } from "react-icons/fa";
-import { SlBadge } from "react-icons/sl";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
