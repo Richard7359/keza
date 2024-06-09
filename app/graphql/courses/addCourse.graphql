@@ -1,0 +1,9 @@
+mutation addCourse($courseDetails: jsonb, $userId: uuid!) {
+  insert_courses_one(object: {CourseDetails: $courseDetails, UserId: $userId}) {
+    id
+    UserId
+    UpdatedOn
+    CreatedOn
+    CourseDetails
+  }
+}

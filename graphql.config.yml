@@ -1,0 +1,5 @@
+schema:
+  - "${GRAPHQL_URL}":
+      headers:
+        x-hasura-admin-secret: "${GRAPHQL_ADMIN_KEY}"
+documents: "**/*.graphql"

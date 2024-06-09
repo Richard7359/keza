@@ -1,0 +1,15 @@
+overwrite: true
+schema:
+  - "${GRAPHQL_URL}":
+      headers:
+        x-hasura-admin-secret: "${GRAPHQL_ADMIN_KEY}"
+documents: "./app/graphql/**/*.graphql"
+generates:
+  ./app/graphql/generated/index.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+  graphql.schema.json:
+    plugins:
+      - "introspection"

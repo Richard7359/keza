@@ -1,8 +1,6 @@
 import { router, publicProcedure } from "../../trpc";
-import { eq } from "drizzle-orm";
-import { db } from "@/app/db";
-import { users, courses } from "@/app/db/schema";
 import { z } from "zod";
+import client from "@/app/utils/client";
 
 export const addCourse = router({
   addCourse: publicProcedure
@@ -29,11 +27,11 @@ export const addCourse = router({
       })
     )
     .mutation(async ({ input }) => {
-      console.log(input);
-      return db.insert(courses).values({
-        courseDetails: {},
-        // courseDetails: {...input.courseDetails},
-        userId: input.userId,
-      });
+      try {
+        const course = await client.addCourse(input);
+        return course;
+      } catch (error : any) {
+        throw new Error(error);
+      }
     }),
 });
