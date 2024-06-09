@@ -99,6 +99,9 @@ function AddCourseForm() {
   const { data, refetch } = useGetCourse();
   const { mutate } = trpc.addCourse.addCourse.useMutation({
     onSuccess: () => {
+      toast.success(`Course added successfuly!!`, {
+        position: "top-right",
+      });
       setCurrentStep(0);
       setSubmitting(false);
       setUploading(false);
@@ -107,6 +110,17 @@ function AddCourseForm() {
       setImage2({ position: "", file: null });
       setImage3({ position: "", file: null });
       setImage4({ position: "", file: null });
+      setComplexity(0);
+      setCourse({
+        basicInfo: {
+          title: "",
+          level: "",
+          complexity: 0,
+          uploadedBy: "Admin",
+          attachment: "",
+        },
+        steps: []
+      });
       setBasicImage({ position: "", file: null });
       setPreviousStep(0);
       setCurrentStep(0);
@@ -128,35 +142,35 @@ function AddCourseForm() {
     },
   });
 
-  useEffect(() => {
-    mutate({
-        userId: '694bf143-f4e5-42fd-aed7-2c5f75a76541',
-        courseDetails: {
-          basicInfo: {
-            title: 'hdfghh',
-            level: 'Middle',
-            complexity: 1,
-            uploadedBy: 'Admin',
-            attachment: 'cablebattery.jpg'
-          },
-          steps: [
-            {
-              title: 'gretyertyety',
-              step: 1,
-              template: 'Single Image',
-              attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
-            },
-            {
-              title: 'etyeyreyteytr',
-              step: 2,
-              template: 'Single Image',
-              attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
-            },
-            { title: 'hdghghgdety', step: 3, template: 'Single Image', attachment: [] }
-          ]
-        }
-    });
-  }, []);
+  // useEffect(() => {
+  //   mutate({
+  //       userId: '694bf143-f4e5-42fd-aed7-2c5f75a76541',
+  //       courseDetails: {
+  //         basicInfo: {
+  //           title: 'hdfghh',
+  //           level: 'Middle',
+  //           complexity: 1,
+  //           uploadedBy: 'Admin',
+  //           attachment: 'cablebattery.jpg'
+  //         },
+  //         steps: [
+  //           {
+  //             title: 'gretyertyety',
+  //             step: 1,
+  //             template: 'Single Image',
+  //             attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
+  //           },
+  //           {
+  //             title: 'etyeyreyteytr',
+  //             step: 2,
+  //             template: 'Single Image',
+  //             attachment: [ { position: 'up_left', file: 'fulls1s2.jpeg' } ]
+  //           },
+  //           { title: 'hdghghgdety', step: 3, template: 'Single Image', attachment: [] }
+  //         ]
+  //       }
+  //   });
+  // }, []);
 
   useEffect(() => {
     console.log("basic Attachement", basicAttachement);
@@ -332,7 +346,7 @@ function AddCourseForm() {
     console.log("course", course);
     if (submitting) {
       mutate({
-        userId: "1",
+        userId: "694bf143-f4e5-42fd-aed7-2c5f75a76541",
         courseDetails: course,
       });
     }
@@ -350,6 +364,7 @@ function AddCourseForm() {
   }, [complexity, level, file, watchedTitle]);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    if (submitting) return;
     if (currentStep == 0) {
       setUploading(true);
       if (
@@ -420,9 +435,7 @@ function AddCourseForm() {
   };
 
   const handleSubmitForm = async () => {
-    setSubmitting(true);
     const currentStepData = course.steps[currentStep - 1];
-    console.log("currentStepData", currentStepData);
     // title validations
     if (currentStepData.title == "") {
       toast.error("Title is required", { position: "top-right" });
@@ -461,6 +474,9 @@ function AddCourseForm() {
       toast.error("Please attach all image", { position: "top-right" });
       return setError("Please attach all image");
     }
+
+    setSubmitting(true);
+    setUploading(false);
 
     setError("");
     const allImages: imageType[] = [];
@@ -521,9 +537,6 @@ function AddCourseForm() {
           : course.basicInfo.attachment,
       },
       steps: [...updatedSteps],
-    });
-    toast.success(`Step ${currentStep} recorded successfuly!!`, {
-      position: "top-right",
     });
   };
 
