@@ -344,7 +344,6 @@ function AddCourseForm() {
   }
 
   useEffect(() => {
-    console.log("course", course);
     if (submitting) {
       mutate({
         userId: "694bf143-f4e5-42fd-aed7-2c5f75a76541",
