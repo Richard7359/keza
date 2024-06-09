@@ -100,9 +100,11 @@ import useGetCourseById from "@/app/hooks/courses/usegGetCourseById";
 import TwoEqualImages from "@/app/components/courses/AccordionItems/TwoEqualImages";
 import SingleImage from "@/app/components/courses/AccordionItems/SingleImage";
 import AccordionItems from "@/app/components/courses/AccordionItems/AccordionItems";
+import { useParams } from "next/navigation";
 
 const Page = () => {
-  const { data } = useGetCourseById({ id: "1" });
+  const { id } = useParams<{ id: string }>();
+  const { data } = useGetCourseById({ id: id });
   useEffect(() => {
     console.log("single Course : ", data);
   }, [data]);
@@ -137,11 +139,16 @@ const Page = () => {
         <div className="mb-6">
           <div className="mb-4">
             <p className="text-center text-2xl font-bold mt-10">
-              {data[0].courseDetails?.basicInfo?.title}
+              {data.courses[0].CourseDetails?.basicInfo?.title}
             </p>
-            <p className="text-center mt-1">{`${
-              data[0].courseDetails.basicInfo?.uploadedBy
-            } on ${formatDate(data[0]?.createdAt)}`}</p>
+            <p className="text-center mt-1">
+            {`${
+              data.courses[0].CourseDetails?.basicInfo?.uploadedBy
+            } on ${formatDate(data?.courses[0].CreatedOn)}`}
+              {/* {`${
+              data.courses[0].CourseDetails?.uploadedBy
+            } on ${formatDate(data?.createdAt)}`} */}
+            </p>
           </div>
           <div className="flex justify-center">
             <Image
@@ -160,7 +167,7 @@ const Page = () => {
                     collapsible
                     className="w-[100%] border-none"
                   >
-                    {data[0].courseDetails.steps.map((item, index) => {
+                    {data.courses[0].CourseDetails?.steps.map((item : any, index : any) => {
                       return <AccordionItems key={index} id="5" step={item} />;
                     })}
                   </Accordion>

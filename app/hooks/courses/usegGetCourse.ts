@@ -34,10 +34,41 @@ interface Attachment {
     updatedAt: string;
   }
 
-const useGetCourse = () => {
+// const useGetCourse = () => {
 
- const data  = trpc.getCourse.getCourse.useQuery();
- return { ...data, data: data.data as ResponseItem[]}
-}
+//  const data  = trpc.getCourse.getCourse.useQuery();
+//  return { ...data, data: data.data as ResponseItem[]}
+// }
+const useGetCourse = () => {
+  const data = trpc.getCourse.getCourse.useQuery();
+  // const { data, isLoading, error } = trpc.getCourse.getCourse.useQuery();
+
+
+  // Assuming `data.courses` is the array you want to convert to `ResponseItem[]`.
+  // Map over `data.courses` and construct `ResponseItem` objects.
+  const responseItems: ResponseItem[] = data.data?.courses.map(course => ({
+    id: course.id,
+    userId: course.UserId,
+    courseDetails: {
+      basicInfo: {
+        title: course.CourseDetails.title,
+        level: course.CourseDetails.level,
+        complexity: course.CourseDetails.complexity,
+        uploadedBy: course.CourseDetails.uploadedBy,
+        attachment: course.CourseDetails.attachment,
+      },
+      steps: course.CourseDetails.steps.map((step : any) => ({
+        title: step.template,
+        step: step.step,
+        template: step.template,
+        attachment: step.attachment.map((att : any) => ({ position: att.position, file: att.file })),
+      })),
+    },
+    createdAt: course.CreatedOn,
+    updatedAt: course.UpdatedOn,
+  })) || [];
+
+  return { courses: responseItems, ...data };
+};
 
 export default useGetCourse

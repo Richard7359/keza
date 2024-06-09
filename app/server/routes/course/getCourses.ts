@@ -1,10 +1,13 @@
 import {router, publicProcedure} from "../../trpc";
-import { eq } from "drizzle-orm";
-import { db } from "@/app/db";
-import {courses} from "@/app/db/schema";
+import client from "@/app/utils/client";
 
 export const getCourse = router({
     getCourse: publicProcedure.query(async () => {
-      return db.select().from(courses);
+      try {
+       const allCourses =  await client.getAllCourses();
+       return allCourses;
+      } catch (error : any) {
+        console.log(error);
+      }
     })
   });

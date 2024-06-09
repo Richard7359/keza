@@ -44,11 +44,11 @@ const UploadImage = () => {
           </div>
         </label>
       ) : (
-        <div className="mt-1 flex flex-col gap-2 ">
+        <div className="mt-1 flex flex-col  gap-2 ">
           <label className="opacity-1 text-xs font-bold capitalize">
             Selected file
           </label>
-          <div className="flex items-center gap-7">
+          <div className="flex items-center justify-center gap-7 h-52">
             <span className="flex cursor-pointer text-sky-600 font-bold text-sm">
               {basicImage.file?.name}
             </span>

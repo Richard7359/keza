@@ -601,7 +601,7 @@ function AddCourseForm() {
               </div>
             </div>
           </div>
-          <div>
+          <div >
             <UploadImage />
           </div>
         </motion.div>

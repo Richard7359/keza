@@ -496,10 +496,44 @@ export type AddCourseMutationVariables = Exact<{
 
 export type AddCourseMutation = { __typename?: 'mutation_root', insert_courses_one?: { __typename?: 'courses', id: any, UserId: any, UpdatedOn: any, CreatedOn: any, CourseDetails: any } | null };
 
+export type GetAllCoursesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllCoursesQuery = { __typename?: 'query_root', courses: Array<{ __typename?: 'courses', id: any, UserId: any, UpdatedOn: any, CreatedOn: any, CourseDetails: any }> };
+
+export type GetSingleCoursesQueryVariables = Exact<{
+  id: Scalars['uuid'];
+}>;
+
+
+export type GetSingleCoursesQuery = { __typename?: 'query_root', courses: Array<{ __typename?: 'courses', id: any, UserId: any, UpdatedOn: any, CreatedOn: any, CourseDetails: any }> };
+
 
 export const AddCourseDocument = gql`
     mutation addCourse($courseDetails: jsonb, $userId: uuid!) {
   insert_courses_one(object: {CourseDetails: $courseDetails, UserId: $userId}) {
+    id
+    UserId
+    UpdatedOn
+    CreatedOn
+    CourseDetails
+  }
+}
+    `;
+export const GetAllCoursesDocument = gql`
+    query getAllCourses {
+  courses {
+    id
+    UserId
+    UpdatedOn
+    CreatedOn
+    CourseDetails
+  }
+}
+    `;
+export const GetSingleCoursesDocument = gql`
+    query getSingleCourses($id: uuid!) {
+  courses(where: {id: {_eq: $id}}) {
     id
     UserId
     UpdatedOn
@@ -518,6 +552,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     addCourse(variables: AddCourseMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<AddCourseMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<AddCourseMutation>(AddCourseDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'addCourse', 'mutation');
+    },
+    getAllCourses(variables?: GetAllCoursesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetAllCoursesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCoursesQuery>(GetAllCoursesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCourses', 'query');
+    },
+    getSingleCourses(variables: GetSingleCoursesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetSingleCoursesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetSingleCoursesQuery>(GetSingleCoursesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getSingleCourses', 'query');
     }
   };
 }

@@ -1,0 +1,9 @@
+query getSingleCourses($id: uuid!) {
+  courses(where: {id: {_eq: $id}}) {
+    id
+    UserId
+    UpdatedOn
+    CreatedOn
+    CourseDetails
+  }
+}

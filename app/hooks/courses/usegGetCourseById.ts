@@ -37,7 +37,7 @@ interface Attachment {
 const useGetCourseById = ({id} : {id : string}) => {
 
  const data  = trpc.getCourseById.getCourseById.useQuery({id});
- return { ...data, data: data.data as ResponseItem[]}
+ return { ...data}
 }
 
 export default useGetCourseById

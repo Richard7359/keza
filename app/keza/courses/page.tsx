@@ -22,7 +22,7 @@ import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 
 const Page = () => {
   const [selected, setSelected] = useState(0);
-  const { data } = useGetCourse();
+  const { data, courses } = useGetCourse();
 
   useEffect(() => {
     console.log("all Courses", data);
@@ -122,15 +122,15 @@ const Page = () => {
                     complexity={2}
                   /> */}
                   {data
-                    ? data.map((course) => {
+                    ? data.courses?.map((course) => {
                         return (
                           <CourseCard
                             key={course.id}
                             id={course.id}
-                            description={course.courseDetails?.basicInfo?.title}
-                            image={course.courseDetails?.basicInfo?.attachment}
-                            level={course.courseDetails?.basicInfo?.level}
-                            complexity={course.courseDetails?.basicInfo?.complexity}
+                            description={course.CourseDetails?.basicInfo?.title}
+                            image={course.CourseDetails?.basicInfo?.attachment}
+                            level={course.CourseDetails?.basicInfo?.level}
+                            complexity={course.CourseDetails?.basicInfo?.complexity}
                           />
                         );
                       })

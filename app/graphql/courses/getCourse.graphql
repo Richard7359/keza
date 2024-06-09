@@ -1,0 +1,9 @@
+query getAllCourses {
+  courses {
+    id
+    UserId
+    UpdatedOn
+    CreatedOn
+    CourseDetails
+  }
+}
