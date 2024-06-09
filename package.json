@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "migrate:generate": "drizzle-kit generate",
-    "migrate:push": "drizzle-kit push"
+    "migrate:push": "drizzle-kit push",
+    "codegen": "graphql-codegen -r dotenv/config --config codegen.yml dotenv_config_path=./.env.local"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.583.0",
@@ -36,6 +37,10 @@
     "@trpc/server": "^10.45.2",
     "@vercel/postgres": "^0.8.0",
     "better-sqlite3": "^10.0.0",
+    "graphql": "^16.8.1",
+    "graphql-request": "5.1.0",
+    "graphql-tag": "^2.12.6",
+    "typescript-graphql-request": "^4.4.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
@@ -68,6 +73,13 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.16.5",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/typescript": "2.8.3",
+    "@graphql-codegen/typescript-graphql-request": "^4.5.9",
+    "@graphql-codegen/typescript-operations": "2.5.8",
+    "@graphql-codegen/typescript-react-query": "^4.1.0",
+    "graphql-codegen-typescript-mock-data": "^3.7.1",
     "@types/better-sqlite3": "^7.6.10",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -79,5 +91,19 @@
     "supabase": "^1.167.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "supertokens-node": {
+        "peerDependencies": {
+          "express": "*"
+        }
+      },
+      "graphql-request": {
+        "peerDependencies": {
+          "graphql-tag": "*"
+        }
+      }
+    }
   }
 }
