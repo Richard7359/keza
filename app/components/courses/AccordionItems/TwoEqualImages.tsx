@@ -20,8 +20,10 @@ import {
 } from "@/components/ui/tooltip";
 import s1 from "../../../images/TrafficLight/s1.jpeg";
 import s2 from "../../../images/TrafficLight/s2.jpeg";
+import { stepDataTypes } from "@/app/store/courseData";
 
-const TwoEqualImages = () => {
+const TwoEqualImages = ({ step }: { step: stepDataTypes }) => {
+  console.log("step", step);
   let localData;
   if (typeof window !== "undefined") {
     localData = localStorage.getItem("done");
@@ -35,7 +37,7 @@ const TwoEqualImages = () => {
     localStorage.setItem("done", JSON.stringify(done));
   }, [done]);
   return (
-      <AccordionItem value="1" className="border border-none mt-4">
+      <AccordionItem value={String(step?.step)} className="border border-none mt-4">
         <AccordionTrigger
           className={`pd_id _c uc pc_id hover:uf hover:se ${
             activeAccordion == 1

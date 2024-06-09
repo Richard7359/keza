@@ -9,11 +9,11 @@ const Page = () => {
     <div className="flex justify-center text-sm">
       <div className="w-[98%] bg-white p-2 mt-2 rounded-sm uc grid  grid-cols-2">
         <div className="">
-          <p className="font-bold mb-3">Add Course</p>
+          <p className="font-bold mb-3 text-lg">Add Course</p>
           <AddCourseForm/>
         </div>
         <div className="">
-          <p className=" font-bold">Preview</p>
+          <p className=" font-bold text-lg">Preview</p>
           <div className="mt-2 ">
             <Preview />
           </div>

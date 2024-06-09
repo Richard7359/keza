@@ -116,26 +116,6 @@ function LargePicBottom() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  // const addAttachement = (position: string, file: File) => {
-  //   if (currentStep > 0) {
-  //     setCourse({
-  //       ...course,
-  //       steps: course.steps.map((step) => {
-  //         if (step.step == currentStep) {
-  //           return {
-  //             ...step,
-  //             attachment: [
-  //               ...step.attachment,
-  //               { position: position, file: file },
-  //             ],
-  //           };
-  //         }
-  //         return step;
-  //       }),
-  //     });
-  //   }
-  // };
-
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {
       setCourse({
@@ -177,7 +157,6 @@ function LargePicBottom() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  // addAttachement("up_left", e.target.files![0]);
                   if (currentStep > 0) {
                     setImage1({
                       position: "up_left",
@@ -240,7 +219,6 @@ function LargePicBottom() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  // addAttachement("up_right", e.target.files![0]);
                   if (currentStep > 0) {
                     setImage2({
                       position: "up_right",
@@ -305,7 +283,6 @@ function LargePicBottom() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  // addAttachement("bottom", e.target.files![0]);
                   if (currentStep > 0) {
                     setImage3({ position: "bottom", file: e.target.files![0] });
                   }

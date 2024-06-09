@@ -134,7 +134,6 @@ const Page = () => {
   return (
     <>
       <Navigation />
-
       {data && (
         <div className="mb-6">
           <div className="mb-4">
@@ -145,9 +144,6 @@ const Page = () => {
             {`${
               data.courses[0].CourseDetails?.basicInfo?.uploadedBy
             } on ${formatDate(data?.courses[0].CreatedOn)}`}
-              {/* {`${
-              data.courses[0].CourseDetails?.uploadedBy
-            } on ${formatDate(data?.createdAt)}`} */}
             </p>
           </div>
           <div className="flex justify-center">

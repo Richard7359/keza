@@ -23,7 +23,7 @@
 
 // export default DashboardWrapper;
 
-import Link from "next/link"
+import Link from "next/link";
 import {
   Bell,
   CircleUser,
@@ -35,18 +35,18 @@ import {
   Search,
   ShoppingCart,
   Users,
-  Send
-} from "lucide-react"
+  Send,
+} from "lucide-react";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,12 +54,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import Keza_logo from "../../images/burgundy-logo.webp";
-
 
 const DashboardWrapper = ({
   children,
@@ -74,12 +73,12 @@ const DashboardWrapper = ({
             <Link href="/" className="flex items-center gap-2 font-semibold">
               {/* <Package2 className="h-6 w-6" /> */}
               <Link href="/" legacyBehavior passHref>
-            <Image
-              src={Keza_logo}
-              alt="KEFL Logo image"
-              className="w-6 md:w-10 object-cover cursor-pointer"
-            />
-          </Link>
+                <Image
+                  src={Keza_logo}
+                  alt="KEFL Logo image"
+                  className="w-6 md:w-10 object-cover cursor-pointer"
+                />
+              </Link>
               <span className="">KEFL</span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
@@ -100,11 +99,11 @@ const DashboardWrapper = ({
                 href="#"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
-                <Users className="h-4 w-4"/>
+                <Users className="h-4 w-4" />
                 Staff
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                   6
-                </Badge>
+                </Badge> */}
               </Link>
               <Link
                 href="#"
@@ -112,6 +111,9 @@ const DashboardWrapper = ({
               >
                 <Package className="h-4 w-4" />
                 Courses{" "}
+                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                  3
+                </Badge>
               </Link>
               <Link
                 href="#"
@@ -139,7 +141,7 @@ const DashboardWrapper = ({
               </CardHeader>
               <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
                 <Button size="sm" className="w-full gap-2">
-                  Sent Invite <Send className="h-4 w-4"/>
+                  Send Invite <Send className="h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
@@ -181,9 +183,9 @@ const DashboardWrapper = ({
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Staff
-                  <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                  {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                     6
-                  </Badge>
+                  </Badge> */}
                 </Link>
                 <Link
                   href="#"
@@ -191,6 +193,9 @@ const DashboardWrapper = ({
                 >
                   <Package className="h-5 w-5" />
                   Courses
+                  <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                    6
+                  </Badge>
                 </Link>
                 <Link
                   href="#"
@@ -212,12 +217,13 @@ const DashboardWrapper = ({
                   <CardHeader>
                     <CardTitle>Invite Member</CardTitle>
                     <CardDescription>
-                    Invite team member to this workspace and start collaborating.
+                      Invite team member to this workspace and start
+                      collaborating.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Button size="sm" className="w-full gap-2">
-                    Sent Invite <Send className="h-4 w-4"/>
+                      Send Invite <Send className="h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -256,7 +262,7 @@ const DashboardWrapper = ({
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default DashboardWrapper;

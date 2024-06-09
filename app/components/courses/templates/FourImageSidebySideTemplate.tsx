@@ -137,9 +137,7 @@ const FourImageSidebySideTemplate = () => {
     } else {
       setCurrentImage4({ position: "", file: null });
     }
-    // }
   }, [image1, image2, image3, image4]);
-  // }, [course]);
 
   return (
     <div className="w-full">

@@ -110,6 +110,7 @@ function AddCourseForm() {
       setImage2({ position: "", file: null });
       setImage3({ position: "", file: null });
       setImage4({ position: "", file: null });
+      setBasicImage({ position: "", file: null });
       setComplexity(0);
       setCourse({
         basicInfo: {
@@ -121,7 +122,6 @@ function AddCourseForm() {
         },
         steps: []
       });
-      setBasicImage({ position: "", file: null });
       setPreviousStep(0);
       setCurrentStep(0);
       setCourse({
@@ -338,6 +338,7 @@ function AddCourseForm() {
     setImage2({ position: "", file: null });
     setImage3({ position: "", file: null });
     setImage4({ position: "", file: null });
+    setBasicImage({ position: "", file: null });
     setPreviousStep(currentStep);
     setCurrentStep(currentStep + 1);
   }

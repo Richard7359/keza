@@ -50,7 +50,7 @@ const Preview = () => {
               <li className="flex  gap-1 "><TbPoint className="h-5 w-5"/> <div><strong>Templates:</strong>There are several templates available that you need to choose from when adding steps.</div> </li>
             </ul>
          </div>
-         <p className="flex items-center justify-center gap-2 text-base font-medium mt-2">Steps to Add a Course:</p>
+         <p className="flex items-center justify-center gap-2 text-base mt-2 underline font-extrabold">Steps to Add a Course:</p>
          <p className="flex items-center gap-2 text-base font-medium mt-2"><FcBiotech className="h-5 w-5" /> Basic Information .</p> 
          <div className="ml-8">
             <ul>

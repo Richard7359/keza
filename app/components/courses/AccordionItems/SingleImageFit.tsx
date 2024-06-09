@@ -1,29 +1,10 @@
 "use client";
-import { SiOpslevel } from "react-icons/si";
 import { GiArmorDowngrade } from "react-icons/gi";
-import { AiFillApi } from "react-icons/ai";
-import { BiLogoUnsplash } from "react-icons/bi";
-import { BiPackage } from "react-icons/bi";
-import { CgEricsson } from "react-icons/cg";
-import { CgFigma } from "react-icons/cg";
-import { CgPolaroid } from "react-icons/cg";
-import { CgTally } from "react-icons/cg";
-import { CgTrees } from "react-icons/cg";
-import { CgTapDouble } from "react-icons/cg";
-import { CgScreenShot } from "react-icons/cg";
-import { CgServerless } from "react-icons/cg";
-import { FaChessBishop } from "react-icons/fa";
-import { FaMonument } from "react-icons/fa";
-import { FaPause } from "react-icons/fa";
-import { FaPlug } from "react-icons/fa";
-import { FaVenus } from "react-icons/fa";
-import { SlBadge } from "react-icons/sl";
 import { GoDotFill } from "react-icons/go";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
@@ -35,10 +16,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
 import { stepDataTypes } from "@/app/store/courseData";
 
-const SingleImage = ({ step }: { step: stepDataTypes }) => {
+const SingleImageFit = ({ step }: { step: stepDataTypes }) => {
   let localData;
   if (typeof window !== "undefined") {
     localData = localStorage.getItem("done");
@@ -65,7 +45,7 @@ const SingleImage = ({ step }: { step: stepDataTypes }) => {
         }}
       >
         <div className="flex items-center">
-          <CgServerless className="text-3xl" />
+          <GiArmorDowngrade className="text-3xl" />
           {`STEP ${String(step?.step)} : ${step?.title}`}
         </div>
       </AccordionTrigger>
@@ -80,7 +60,7 @@ const SingleImage = ({ step }: { step: stepDataTypes }) => {
             width={400}
             height={400}
             alt="KEFL Logo image"
-            className="w-[80%] h-[260px] cursor-pointer rounded-[5px] border-custom"
+            className="w-[100%] h-[260px] cursor-pointer rounded-[5px] border-custom"
           />
         </div>
         <div className="m-2 flex justify-end">
@@ -125,4 +105,4 @@ const SingleImage = ({ step }: { step: stepDataTypes }) => {
   );
 };
 
-export default SingleImage;
+export default SingleImageFit;

@@ -110,7 +110,7 @@ const SingleImageFitTemplate = () => {
               {currentImage1.file ? (
                 <Image
                   src={URL.createObjectURL(currentImage1.file)}
-                  alt="KEFL Logo image"
+                  alt="KEFL image"
                   className="w-[100%] h-[260px] cursor-pointer rounded-[5px] border-custom"
                   width={500}
                   height={300}

@@ -98,26 +98,6 @@ function SingleImageFit() {
     setError("");
   }, [complexity, level, file, watchedTitle]);
 
-  // const addAttachement = (position: string, file: File) => {
-  //   if (currentStep > 0) {
-  //     setCourse({
-  //       ...course,
-  //       steps: course.steps.map((step) => {
-  //         if (step.step == currentStep) {
-  //           return {
-  //             ...step,
-  //             attachment: [
-  //               ...step.attachment,
-  //               { position: position, file: file },
-  //             ],
-  //           };
-  //         }
-  //         return step;
-  //       }),
-  //     });
-  //   }
-  // };
-
   const setStepTitle = (title: string) => {
     if (currentStep > 0) {
       setCourse({
@@ -158,7 +138,6 @@ function SingleImageFit() {
               hidden={true}
               className="bg-green"
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                // addAttachement("up_left", e.target.files![0]);
                 if (currentStep > 0) {
                   setImage1({ position: "up_left", file: e.target.files![0] });
                 }

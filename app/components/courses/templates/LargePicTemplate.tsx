@@ -147,7 +147,7 @@ const LargePicTemplate = () => {
                 {currentImage2.file ? (
                   <Image
                     src={URL.createObjectURL(currentImage2.file)}
-                    alt="KEFL Logo image"
+                    alt="KEFL image"
                     className="w-[70%] h-[220px] cursor-pointer rounded-[5px] border-custom"
                     width={500}
                     height={300}

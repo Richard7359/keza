@@ -161,7 +161,6 @@ function LargePic() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  // addAttachement("up_left", e.target.files![0]);
                   if (currentStep > 0) {
                     setImage1({
                       position: "up_left",
@@ -224,7 +223,6 @@ function LargePic() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  // addAttachement("up_right", e.target.files![0]);
                   if (currentStep > 0) {
                     setImage2({
                       position: "up_right",
@@ -289,9 +287,8 @@ function LargePic() {
                 hidden={true}
                 className="bg-green"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  // addAttachement("bottom", e.target.files![0]);
                   if (currentStep > 0) {
-                    setImage2({ position: "bottom", file: e.target.files![0] });
+                    setImage3({ position: "bottom", file: e.target.files![0] });
                   }
                 }}
               />
