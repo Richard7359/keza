@@ -5,7 +5,6 @@ import { GoDotFill } from "react-icons/go";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
