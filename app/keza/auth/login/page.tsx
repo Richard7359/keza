@@ -10,6 +10,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   email: z.string(),
@@ -17,7 +18,8 @@ const FormSchema = z.object({
 });
 
 function Login() {
-
+  const router = useRouter();
+   
   return (
     <form className="h-[100vh] w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
       <div className="flex items-center justify-center py-12">
@@ -59,7 +61,7 @@ function Login() {
               </div>
               <Input id="password" type="password" required />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" onClick={() => router.push("/auth/signup")} >
               Login
             </Button>
             <Button variant="outline" className="w-full gap-2">

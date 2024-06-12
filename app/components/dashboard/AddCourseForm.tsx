@@ -641,7 +641,7 @@ function AddCourseForm() {
             {uploading == false && (
               <Button type="submit" className="">
                 <p className="flex items-center gap-2">
-                  <p>Save&Next</p>
+                  <p>Save & Next</p>
                   <TbPlayerTrackNext />
                 </p>
               </Button>
