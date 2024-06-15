@@ -1,28 +1,3 @@
-// import React from "react";
-// import NavBar from "@/app/components/dashboard/NavBar";
-// import {
-//     Breadcrumb,
-//     BreadcrumbItem,
-//     BreadcrumbLink,
-//     BreadcrumbList,
-//     BreadcrumbPage,
-//     BreadcrumbSeparator,
-//   } from "@/components/ui/breadcrumb";
-// import SideBar1 from "@/app/components/dashboard/SideBar";
-// const DashboardWrapper = ({
-//   children,
-// }: Readonly<{
-//   children?: React.ReactNode;
-// }>) => {
-//   return (
-//     <div className="dashboard-bg flex">
-//          {children}
-//     </div>
-//   );
-// };
-
-// export default DashboardWrapper;
-
 import Link from "next/link";
 import {
   Bell,
@@ -71,7 +46,6 @@ const DashboardWrapper = ({
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
-              {/* <Package2 className="h-6 w-6" /> */}
               <Link href="/" legacyBehavior passHref>
                 <Image
                   src={Keza_logo}
@@ -101,12 +75,9 @@ const DashboardWrapper = ({
               >
                 <Users className="h-4 w-4" />
                 Staff
-                {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  6
-                </Badge> */}
               </Link>
               <Link
-                href="#"
+                href="/keza/dashboard/course"
                 className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
               >
                 <Package className="h-4 w-4" />
@@ -183,12 +154,9 @@ const DashboardWrapper = ({
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Staff
-                  {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                    6
-                  </Badge> */}
                 </Link>
                 <Link
-                  href="#"
+                  href="/keza/dashboard/course"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <Package className="h-5 w-5" />
