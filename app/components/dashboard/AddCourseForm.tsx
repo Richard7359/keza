@@ -27,7 +27,7 @@ import FourImagesSidebySide from "../courses/templates/FourImagesSidebySide";
 import TwoUpandDown from "../courses/templates/TwoUpandDown";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { trpc } from "@/app/_trpc/client";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import useAddUser from "@/app/hooks/useAddUser";
 
 const FormSchema = z.object({

@@ -50,13 +50,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { toast } from "sonner";
+import { trpc } from "@/app/_trpc/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { useEffect } from "react";
 
 function Page() {
-  const { data, isLoading } = useGetCourse();
+  const { data, isLoading, refetch } = useGetCourse();
+  const { mutate } = trpc.archiveCourse.archiveCourse.useMutation({
+    onSuccess: () => {
+        refetch();
+        toast.success(`Course added successfuly!!`, {
+            position: "top-right",
+          });
+    },
+    onError: (error) => {
+      console.log("error : ", error);
+    },
+  });
 
   useEffect(() => {
     console.log("all data : ", data);
@@ -160,7 +173,6 @@ function Page() {
                     {data && !isLoading ? (
                       data.courses?.length > 0 ? (
                         <TableBody>
-
                           {data.courses?.map((course) => {
                             return (
                               <TableRow key={course.id}>
@@ -212,7 +224,7 @@ function Page() {
                                       </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                      <DropdownMenuItem>
+                                      <DropdownMenuItem onClick={() => mutate({id: course?.id, status: !course?.isArchived})}>
                                         {!course?.isArchived
                                           ? "Archive"
                                           : "UnArchive"}
@@ -237,11 +249,19 @@ function Page() {
                 </CardContent>
                 <CardFooter>
                   <div className="w-full flex justify-center">
-                    {data && !isLoading
-                      ? data.courses?.length == 0
-                        ? <div className="flex items-center gap-1"><FiDatabase /> No courses available</div>
-                        : ""
-                      : isLoading ? "Loading..." : ""}
+                    {data && !isLoading ? (
+                      data.courses?.length == 0 ? (
+                        <div className="flex items-center gap-1">
+                          <FiDatabase /> No courses available
+                        </div>
+                      ) : (
+                        ""
+                      )
+                    ) : isLoading ? (
+                      "Loading..."
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </CardFooter>
               </Card>
