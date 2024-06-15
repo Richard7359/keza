@@ -6,7 +6,7 @@
     ".next/types/**/*.ts",
     "app/keza/dashboard/page.js",
     "app/keza/dashboard1",
-    "app/keza/dashboard/addCourse",
+    "app/keza/dashboard/course/addCourse",
     "app/hooks/courses/addCourse.ts"
   ],
   "compilerOptions": {
@@ -38,7 +38,7 @@
     ".next/types/**/*.ts",
     "app/keza/dashboard/page.js",
     "app/keza/dashboard1",
-    "app/keza/dashboard/addCourse"
+    "app/keza/dashboard/course/addCourse"
   ],
   "exclude": ["node_modules"]
 }
