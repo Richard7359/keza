@@ -210,7 +210,6 @@ function Page() {
                             );
                           })
                         : ""}
-
                       {/* this will be uncommented to review the responsivenes in case there is more data (in terms of height) */}
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">

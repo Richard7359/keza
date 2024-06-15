@@ -18,6 +18,19 @@ export type Scalars = {
   uuid: any;
 };
 
+/** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
+export type Boolean_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['Boolean']>;
+  _gt?: InputMaybe<Scalars['Boolean']>;
+  _gte?: InputMaybe<Scalars['Boolean']>;
+  _in?: InputMaybe<Array<Scalars['Boolean']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['Boolean']>;
+  _lte?: InputMaybe<Scalars['Boolean']>;
+  _neq?: InputMaybe<Scalars['Boolean']>;
+  _nin?: InputMaybe<Array<Scalars['Boolean']>>;
+};
+
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']>;
@@ -59,6 +72,7 @@ export type Courses = {
   UpdatedOn: Scalars['timestamptz'];
   UserId: Scalars['uuid'];
   id: Scalars['uuid'];
+  isArchived?: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -104,6 +118,7 @@ export type Courses_Bool_Exp = {
   _not?: InputMaybe<Courses_Bool_Exp>;
   _or?: InputMaybe<Array<Courses_Bool_Exp>>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
+  isArchived?: InputMaybe<Boolean_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "courses" */
@@ -134,6 +149,7 @@ export type Courses_Insert_Input = {
   UpdatedOn?: InputMaybe<Scalars['timestamptz']>;
   UserId?: InputMaybe<Scalars['uuid']>;
   id?: InputMaybe<Scalars['uuid']>;
+  isArchived?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** aggregate max on columns */
@@ -177,6 +193,7 @@ export type Courses_Order_By = {
   UpdatedOn?: InputMaybe<Order_By>;
   UserId?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  isArchived?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: courses */
@@ -200,7 +217,9 @@ export enum Courses_Select_Column {
   /** column name */
   UserId = 'UserId',
   /** column name */
-  Id = 'id'
+  Id = 'id',
+  /** column name */
+  IsArchived = 'isArchived'
 }
 
 /** input type for updating data in table "courses" */
@@ -210,6 +229,7 @@ export type Courses_Set_Input = {
   UpdatedOn?: InputMaybe<Scalars['timestamptz']>;
   UserId?: InputMaybe<Scalars['uuid']>;
   id?: InputMaybe<Scalars['uuid']>;
+  isArchived?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Streaming cursor of the table "courses" */
@@ -227,6 +247,7 @@ export type Courses_Stream_Cursor_Value_Input = {
   UpdatedOn?: InputMaybe<Scalars['timestamptz']>;
   UserId?: InputMaybe<Scalars['uuid']>;
   id?: InputMaybe<Scalars['uuid']>;
+  isArchived?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** update columns of table "courses" */
@@ -240,7 +261,9 @@ export enum Courses_Update_Column {
   /** column name */
   UserId = 'UserId',
   /** column name */
-  Id = 'id'
+  Id = 'id',
+  /** column name */
+  IsArchived = 'isArchived'
 }
 
 export type Courses_Updates = {

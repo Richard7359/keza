@@ -23,7 +23,7 @@ import { Badge } from "@/components/ui/badge";
 
 const Page = () => {
   const [selected, setSelected] = useState(0);
-  const { data, courses } = useGetCourse();
+  const { data } = useGetCourse();
 
   useEffect(() => {
     console.log("all Courses", data);
