@@ -55,7 +55,7 @@ import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { useEffect } from "react";
 
 function Page() {
-  const { data } = useGetCourse();
+  const { data, isLoading } = useGetCourse();
 
   useEffect(() => {
     console.log("all data : ", data);
@@ -156,9 +156,11 @@ function Page() {
                         </TableHead>
                       </TableRow>
                     </TableHeader>
-                    <TableBody>
-                      {data
-                        ? data.courses?.map((course) => {
+                    {data && !isLoading ? (
+                      data.courses?.length > 4 ? (
+                        <TableBody>
+                          (
+                          {data.courses?.map((course) => {
                             return (
                               <TableRow key={course.id}>
                                 <TableCell className="hidden sm:table-cell">
@@ -209,7 +211,11 @@ function Page() {
                                       </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                      <DropdownMenuItem>Edit</DropdownMenuItem>
+                                      <DropdownMenuItem>
+                                        {!course?.isArchived
+                                          ? "Archive"
+                                          : "UnArchive"}
+                                      </DropdownMenuItem>
                                       <DropdownMenuItem>
                                         Delete
                                       </DropdownMenuItem>
@@ -218,58 +224,25 @@ function Page() {
                                 </TableCell>
                               </TableRow>
                             );
-                          })
-                        : ""}
-                      {/* this will be uncommented to review the responsivenes in case there is more data (in terms of height) */}
-                      {/* <TableRow>
-                        <TableCell className="hidden sm:table-cell">
-                          <Image
-                            alt="course image"
-                            className="aspect-square rounded-md object-contain w-[150px] h-[100px]"
-                            src={ichigo}
-                            height="500"
-                            width="500"
-                          />
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          Laser Lemonade Machine
-                        </TableCell>
-                        <TableCell>
-                          <Badge className="medium medium-bg">archived</Badge>
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell">
-                          Admin
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell">
-                          2023-07-12 10:42 AM
-                        </TableCell>
-                        <TableCell>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button
-                                aria-haspopup="true"
-                                size="icon"
-                                variant="ghost"
-                              >
-                                <MoreHorizontal className="h-4 w-4" />
-                                <span className="sr-only">Toggle menu</span>
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem>Edit</DropdownMenuItem>
-                              <DropdownMenuItem>Delete</DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
-                        </TableCell>
-                      </TableRow> */}
-                    </TableBody>
+                          })}
+                          )
+                        </TableBody>
+                      ) : (
+                        ""
+                      )
+                    ) : (
+                      ""
+                    )}
                   </Table>
                 </CardContent>
                 <CardFooter>
-                  {/* <div className="text-xs text-muted-foreground">
-                    Showing <strong>1-10</strong> of <strong>32</strong>{" "}
-                    products
-                  </div> */}
+                  <div className="w-full flex justify-center">
+                    {data && !isLoading
+                      ? data.courses?.length < 4
+                        ? "No courses available"
+                        : ""
+                      : "Loading..."}
+                  </div>
                 </CardFooter>
               </Card>
             </TabsContent>
