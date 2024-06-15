@@ -522,7 +522,7 @@ export type AddCourseMutation = { __typename?: 'mutation_root', insert_courses_o
 export type GetAllCoursesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllCoursesQuery = { __typename?: 'query_root', courses: Array<{ __typename?: 'courses', id: any, UserId: any, UpdatedOn: any, CreatedOn: any, CourseDetails: any }> };
+export type GetAllCoursesQuery = { __typename?: 'query_root', courses: Array<{ __typename?: 'courses', id: any, UserId: any, UpdatedOn: any, CreatedOn: any, CourseDetails: any, isArchived?: boolean | null }> };
 
 export type GetSingleCoursesQueryVariables = Exact<{
   id: Scalars['uuid'];
@@ -551,6 +551,7 @@ export const GetAllCoursesDocument = gql`
     UpdatedOn
     CreatedOn
     CourseDetails
+    isArchived
   }
 }
     `;

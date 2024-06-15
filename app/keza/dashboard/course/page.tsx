@@ -63,12 +63,12 @@ function Page() {
 
   function formatDate(isoDateString: string) {
     const date = new Date(isoDateString);
-  
+
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); 
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
     return `${year}-${month}-${day} ${hours}:${minutes} AM`;
   }
 
@@ -165,7 +165,11 @@ function Page() {
                                   <Image
                                     alt="course image"
                                     className="aspect-square rounded-md object-contain w-[150px] h-[100px]"
-                                    src={process.env.NEXT_PUBLIC_IMAGE_URL + course.CourseDetails?.basicInfo?.attachment}
+                                    src={
+                                      process.env.NEXT_PUBLIC_IMAGE_URL +
+                                      course.CourseDetails?.basicInfo
+                                        ?.attachment
+                                    }
                                     height="500"
                                     width="500"
                                   />
@@ -174,15 +178,21 @@ function Page() {
                                   {course.CourseDetails?.basicInfo?.title}
                                 </TableCell>
                                 <TableCell>
-                                  <Badge className="text-green easy-bg">
-                                    active
-                                  </Badge>
+                                  {!course?.isArchived ? (
+                                    <Badge className="text-green easy-bg">
+                                      active
+                                    </Badge>
+                                  ) : (
+                                    <Badge className="medium medium-bg">
+                                      archived
+                                    </Badge>
+                                  )}
                                 </TableCell>
                                 <TableCell className="hidden md:table-cell">
-                                {course.CourseDetails?.basicInfo?.uploadedBy}
+                                  {course.CourseDetails?.basicInfo?.uploadedBy}
                                 </TableCell>
                                 <TableCell className="hidden md:table-cell">
-                                {formatDate(course?.CreatedOn)}
+                                  {formatDate(course?.CreatedOn)}
                                 </TableCell>
                                 <TableCell>
                                   <DropdownMenu>
@@ -211,7 +221,7 @@ function Page() {
                           })
                         : ""}
                       {/* this will be uncommented to review the responsivenes in case there is more data (in terms of height) */}
-                      <TableRow>
+                      {/* <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
                             alt="course image"
@@ -251,7 +261,7 @@ function Page() {
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
-                      </TableRow>
+                      </TableRow> */}
                     </TableBody>
                   </Table>
                 </CardContent>
