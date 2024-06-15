@@ -39,6 +39,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { FiDatabase } from "react-icons/fi";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
@@ -157,9 +158,9 @@ function Page() {
                       </TableRow>
                     </TableHeader>
                     {data && !isLoading ? (
-                      data.courses?.length > 4 ? (
+                      data.courses?.length > 0 ? (
                         <TableBody>
-                          (
+
                           {data.courses?.map((course) => {
                             return (
                               <TableRow key={course.id}>
@@ -225,7 +226,6 @@ function Page() {
                               </TableRow>
                             );
                           })}
-                          )
                         </TableBody>
                       ) : (
                         ""
@@ -238,10 +238,10 @@ function Page() {
                 <CardFooter>
                   <div className="w-full flex justify-center">
                     {data && !isLoading
-                      ? data.courses?.length < 4
-                        ? "No courses available"
+                      ? data.courses?.length == 0
+                        ? <div className="flex items-center gap-1"><FiDatabase /> No courses available</div>
                         : ""
-                      : "Loading..."}
+                      : isLoading ? "Loading..." : ""}
                   </div>
                 </CardFooter>
               </Card>

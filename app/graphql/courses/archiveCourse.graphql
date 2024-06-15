@@ -1,0 +1,10 @@
+mutation archiveCourse($id: uuid!, $status: Boolean) {
+  update_courses(where: {id: {_eq: $id}}, _set: {isArchived: $status}) {
+    returning {
+      isArchived
+      id
+      UpdatedOn
+      UserId
+    }
+  }
+}
