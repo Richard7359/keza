@@ -18,6 +18,7 @@ import { GiBookshelf } from "react-icons/gi";
 import CourseCard from "../../components/courseCard";
 import TrafficLight from "../../images/keza-traffic-light.png";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
+import { Badge } from "@/components/ui/badge";
 
 
 const Page = () => {
