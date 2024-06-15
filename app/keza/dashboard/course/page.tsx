@@ -61,6 +61,17 @@ function Page() {
     console.log("all data : ", data);
   }, [data]);
 
+  function formatDate(isoDateString: string) {
+    const date = new Date(isoDateString);
+  
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); 
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day} ${hours}:${minutes} AM`;
+  }
+
   return (
     <div className="flex h-full w-full flex-col bg-muted/40">
       <div className="flex flex-col sm:gap-4 sm:py-4 ">
@@ -171,7 +182,7 @@ function Page() {
                                 {course.CourseDetails?.basicInfo?.uploadedBy}
                                 </TableCell>
                                 <TableCell className="hidden md:table-cell">
-                                  2023-07-12 10:42 AM
+                                {formatDate(course?.CreatedOn)}
                                 </TableCell>
                                 <TableCell>
                                   <DropdownMenu>
