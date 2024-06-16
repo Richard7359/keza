@@ -24,7 +24,7 @@ import { Badge } from "@/components/ui/badge";
 
 const Page = () => {
   const [selected, setSelected] = useState(0);
-  const { data } = useGetCourse();
+  const { data , isLoading } = useGetCourse();
 
   useEffect(() => {
     console.log("all Courses", data);
@@ -97,7 +97,7 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              {selected == 0 ? (
+              {data && !isLoading ? selected == 0 ? (
                 <p
                   onClick={() => setSelected(2)}
                   className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
@@ -106,11 +106,11 @@ const Page = () => {
                 </p>
               ) : (
                 ""
-              )}
+              ) : isLoading ? <div className="mt-4 bg-green">retrieving data.....</div>:""}
               {selected == 2 || selected == 0 ? (
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {data
-                    ? data.courses?.length > 0
+                    ? data.courses?.length > 0 && !isLoading
                     ?  data.courses?.map((course) => {
                         return (
                           <CourseCard
@@ -124,7 +124,7 @@ const Page = () => {
                         );
                       }) : (
                         <div className="flex items-center gap-1">
-                          <FiDatabase /> No courses available
+                          <GiBookshelf /> <p>No courses available</p>
                         </div>
                       )
                     : ""}
