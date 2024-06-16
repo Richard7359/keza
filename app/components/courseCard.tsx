@@ -17,14 +17,12 @@ const CourseCard = ({image, level, complexity, description , stared, id} : {imag
       <div className="h-[60%] rounded-t-2xl relative">
         <Image
           src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
-          // src={image}
           width={500}
           height={500}
           alt="KEFL Logo image"
           className="w-full h-full object-cover cursor-pointer rounded-t-[16px] border-custom"
         />
         <div className={`absolute inset-0 opacity-40 rounded-t-2xl`}></div>
-        {/* <div className={`absolute inset-0 bg-level${level} opacity-40 rounded-t-2xl`}></div> */}
       </div>
       <div className="h-[25%] flex justify-between mx-3 py-1">
         <p className="font-serif text-sm">{description}</p>
