@@ -1,0 +1,10 @@
+query getAllUnArchivedCourse {
+  courses {
+    id
+    UserId
+    UpdatedOn
+    CreatedOn
+    CourseDetails
+    isArchived
+  }
+}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../../components/Navigation_bar/Navigation";
 import Footer from "../../components/Footer";
 import Link from "next/link";
+import { FiDatabase } from "react-icons/fi";
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -109,7 +110,8 @@ const Page = () => {
               {selected == 2 || selected == 0 ? (
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {data
-                    ? data.courses?.map((course) => {
+                    ? data.courses?.length > 0
+                    ?  data.courses?.map((course) => {
                         return (
                           <CourseCard
                             key={course.id}
@@ -120,7 +122,11 @@ const Page = () => {
                             complexity={course.CourseDetails?.basicInfo?.complexity}
                           />
                         );
-                      })
+                      }) : (
+                        <div className="flex items-center gap-1">
+                          <FiDatabase /> No courses available
+                        </div>
+                      )
                     : ""}
                 </div>
               ) : (
