@@ -565,7 +565,7 @@ export const ArchiveCourseDocument = gql`
     `;
 export const GetAllCoursesDocument = gql`
     query getAllCourses {
-  courses {
+  courses(where: {isArchived: {_eq: false}}) {
     id
     UserId
     UpdatedOn
