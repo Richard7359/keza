@@ -112,18 +112,32 @@ const Page = () => {
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {data
                     ? data.courses?.length > 0 && !isLoading
-                    ?  data.courses?.map((course) => {
-                        return (
-                          <CourseCard
-                            key={course.id}
-                            id={course.id}
-                            description={course.CourseDetails?.basicInfo?.title}
-                            image={course.CourseDetails?.basicInfo?.attachment}
-                            level={course.CourseDetails?.basicInfo?.level}
-                            complexity={course.CourseDetails?.basicInfo?.complexity}
-                          />
-                        );
-                      }) : (
+                    ?  
+                    data.courses?.filter(course => course.CourseDetails?.basicInfo?.level === 'Middle').map((course) => {
+                      return (
+                        <CourseCard
+                          key={course.id}
+                          id={course.id}
+                          description={course.CourseDetails?.basicInfo?.title}
+                          image={course.CourseDetails?.basicInfo?.attachment}
+                          level={course.CourseDetails?.basicInfo?.level}
+                          complexity={course.CourseDetails?.basicInfo?.complexity}
+                        />
+                      );
+                    })                    
+                    // data.courses?.map((course) => {
+                    //     return (
+                    //       <CourseCard
+                    //         key={course.id}
+                    //         id={course.id}
+                    //         description={course.CourseDetails?.basicInfo?.title}
+                    //         image={course.CourseDetails?.basicInfo?.attachment}
+                    //         level={course.CourseDetails?.basicInfo?.level}
+                    //         complexity={course.CourseDetails?.basicInfo?.complexity}
+                    //       />
+                    //     );
+                    //   }) 
+                      : (
                         <div className="flex items-center gap-1">
                           <GiBookshelf /> <p>No courses available</p>
                         </div>
