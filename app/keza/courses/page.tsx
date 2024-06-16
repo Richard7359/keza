@@ -108,20 +108,6 @@ const Page = () => {
               )}
               {selected == 2 || selected == 0 ? (
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                  {/* <CourseCard
-                    id={1}
-                    description={"Traffic Light"}
-                    image={TrafficLight}
-                    level={2}
-                    complexity={2}
-                  /> */}
-                  {/* <CourseCard
-                    id={1}
-                    description={"Traffic Light"}
-                    image={TrafficLight}
-                    level={2}
-                    complexity={2}
-                  /> */}
                   {data
                     ? data.courses?.map((course) => {
                         return (
