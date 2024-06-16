@@ -54,11 +54,11 @@ import { toast } from "sonner";
 import { trpc } from "@/app/_trpc/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import useGetCourse from "@/app/hooks/courses/usegGetCourse";
+import useGetAllUnArchivedCourse from "@/app/hooks/courses/useGetAllUnArchivedCourse";
 import { useEffect } from "react";
 
 function Page() {
-  const { data, isLoading, refetch } = useGetCourse();
+  const { data, isLoading, refetch } = useGetAllUnArchivedCourse();
   const { mutate , isLoading : isArchiving} = trpc.archiveCourse.archiveCourse.useMutation({
     onSuccess: () => {
         refetch();
