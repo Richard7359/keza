@@ -106,7 +106,8 @@ const Page = () => {
                 </p>
               ) : (
                 ""
-              ) : isLoading ? <div className="mt-4">retrieving data.....</div>:""}
+              ) : isLoading ? <div className="skeleton-loader"></div>:""}
+              {/* ) : isLoading ? <div className="mt-4">retrieving data.....</div>:""} */}
               {selected == 2 || selected == 0 ? (
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {data
