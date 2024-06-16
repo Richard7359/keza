@@ -97,7 +97,7 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              {data && !isLoading ? selected == 0 ? (
+              {data && !isLoading ? selected == 0 && data.courses?.length > 0 ? (
                 <p
                   onClick={() => setSelected(2)}
                   className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
