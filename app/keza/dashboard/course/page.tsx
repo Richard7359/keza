@@ -230,7 +230,7 @@ function Page() {
                                           : "UnArchive"}
                                       </DropdownMenuItem>
                                       <DropdownMenuItem>
-                                        Delete
+                                        Edit
                                       </DropdownMenuItem>
                                     </DropdownMenuContent>
                                   </DropdownMenu> : <div className="loader"></div>}
