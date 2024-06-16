@@ -59,7 +59,7 @@ import { useEffect } from "react";
 
 function Page() {
   const { data, isLoading, refetch } = useGetCourse();
-  const { mutate } = trpc.archiveCourse.archiveCourse.useMutation({
+  const { mutate , isLoading : isArchiving} = trpc.archiveCourse.archiveCourse.useMutation({
     onSuccess: () => {
         refetch();
         toast.success(`Course added successfuly!!`, {
@@ -210,7 +210,7 @@ function Page() {
                                   {formatDate(course?.CreatedOn)}
                                 </TableCell>
                                 <TableCell>
-                                  <DropdownMenu>
+                                  {!isArchiving ? <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                       <Button
                                         aria-haspopup="true"
@@ -233,7 +233,7 @@ function Page() {
                                         Delete
                                       </DropdownMenuItem>
                                     </DropdownMenuContent>
-                                  </DropdownMenu>
+                                  </DropdownMenu> : <div className="loader"></div>}
                                 </TableCell>
                               </TableRow>
                             );
