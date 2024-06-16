@@ -23,7 +23,7 @@ import { Badge } from "@/components/ui/badge";
 
 
 const Page = () => {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState("all");
   const { data , isLoading } = useGetCourse();
 
   useEffect(() => {
@@ -40,9 +40,9 @@ const Page = () => {
               <Breadcrumb>
                 <BreadcrumbList className="">
                   <BreadcrumbItem
-                    onClick={() => setSelected(0)}
+                    onClick={() => setSelected("all")}
                     className={`cursor-pointer text-all font-bold  px-4 py-1 border border-transparent hover:border-all hover:bg-all ${
-                      selected == 0 && "border-all bg-all bg-opacity-5"
+                      selected == "ALL" && "border-all bg-all bg-opacity-5"
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
@@ -52,9 +52,9 @@ const Page = () => {
                   <HiOutlineChevronDoubleRight className="text-all" />
 
                   <BreadcrumbItem
-                    onClick={() => setSelected(1)}
+                    onClick={() => setSelected("Beginner")}
                     className={`cursor-pointer text-level1 font-bold  px-4 py-1 border border-transparent hover:border-level1 hover:bg-level1 ${
-                      selected == 1 && "border-level1 bg-level1 bg-opacity-5"
+                      selected == "Beginner" && "border-level1 bg-level1 bg-opacity-5"
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
@@ -64,9 +64,9 @@ const Page = () => {
                   <HiOutlineChevronDoubleRight className="text-level1" />
 
                   <BreadcrumbItem
-                    onClick={() => setSelected(2)}
+                    onClick={() => setSelected("Middle")}
                     className={`cursor-pointer text-level2 font-bold  px-4 py-1 border border-transparent hover:border-level2 hover:bg-level2 ${
-                      selected == 2 && "border-level2 bg-level2 bg-opacity-5"
+                      selected == "Middle" && "border-level2 bg-level2 bg-opacity-5"
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
@@ -76,9 +76,9 @@ const Page = () => {
                   <HiOutlineChevronDoubleRight className="text-level2" />
 
                   <BreadcrumbItem
-                    onClick={() => setSelected(3)}
+                    onClick={() => setSelected("Pre-advanced")}
                     className={`cursor-pointer text-level3 font-bold  px-4 py-1 border border-transparent hover:border-level3 hover:bg-level3 ${
-                      selected == 3 && "border-level3 bg-level3 bg-opacity-5"
+                      selected == "Pre-advanced" && "border-level3 bg-level3 bg-opacity-5"
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>Pre-advanced level</BreadcrumbLink>
@@ -86,9 +86,9 @@ const Page = () => {
                   <HiOutlineChevronDoubleRight className="text-level3" />
 
                   <BreadcrumbItem
-                    onClick={() => setSelected(4)}
+                    onClick={() => setSelected("advanced")}
                     className={`cursor-pointer text-level4 font-bold  px-4 py-1 border border-transparent hover:border-level4 hover:bg-level4 ${
-                      selected == 4 && "border-level4 bg-level4 bg-opacity-5"
+                      selected == "advanced" && "border-level4 bg-level4 bg-opacity-5"
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
@@ -97,9 +97,9 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              {data && !isLoading ? selected == 0 && data.courses?.length > 0 ? (
+              {data && !isLoading ? selected == "all" && data.courses?.length > 0 ? (
                 <p
-                  onClick={() => setSelected(2)}
+                  onClick={() => setSelected("Middle")}
                   className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
                 >
                   Middle level{" "}
@@ -108,12 +108,13 @@ const Page = () => {
                 ""
               ) : isLoading ? <div className="skeleton-loader"></div>:""}
               {/* ) : isLoading ? <div className="mt-4">retrieving data.....</div>:""} */}
-              {selected == 2 || selected == 0 ? (
+              {selected != "all" ? (
                 <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {data
-                    ? data.courses?.length > 0 && !isLoading
+                    ? data.courses?.filter(course => course.CourseDetails?.basicInfo?.level === selected).length > 0 && !isLoading
+                    // ? data.courses?.length > 0 && !isLoading
                     ?  
-                    data.courses?.filter(course => course.CourseDetails?.basicInfo?.level === 'Middle').map((course) => {
+                    data.courses?.filter(course => course.CourseDetails?.basicInfo?.level === selected).map((course) => {
                       return (
                         <CourseCard
                           key={course.id}
