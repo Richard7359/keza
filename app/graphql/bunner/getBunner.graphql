@@ -1,0 +1,7 @@
+query getAllBunners {
+  bunner {
+    pdf
+    id
+    description
+  }
+}

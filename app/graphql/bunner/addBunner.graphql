@@ -1,0 +1,9 @@
+mutation addBunner($description: String, $pdf : String ) {
+  insert_bunner(objects: {pdf: $pdf, description: $description}) {
+    returning {
+      pdf
+      description
+      id
+    }
+  }
+}
