@@ -33,7 +33,7 @@ const Page = () => {
     <>
       <div className="bg-[#f7f8fa]">
         <Navigation />
-        <div className="md:h-screen">
+        <div className="md:min-h-screen">
           <div className="flex justify-center ">
             <div className="my-6 w-[97%] bg-white py-6 px-6 rounded-keza border-custom border-custom">
               <Breadcrumb>
@@ -100,22 +100,6 @@ const Page = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              {/* {data && !isLoading ? (
-                selected == "all" && data.courses?.length > 0 ? (
-                  <p
-                    onClick={() => setSelected("Middle")}
-                    className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
-                  >
-                    Middle level{" "}
-                  </p>
-                ) : (
-                  ""
-                )
-              ) : isLoading ? (
-                <div className="skeleton-loader"></div>
-              ) : (
-                ""
-              )} */}
               {data && data.courses?.length > 0 && !isLoading ? (
                 <div>
                   {selected != "all" ? (
@@ -165,7 +149,7 @@ const Page = () => {
                           <div>
                             <p
                               onClick={() => setSelected("Beginner")}
-                              className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
+                              className={`cursor-pointer text-level1 font-bold py-1 border border-transparent`}
                             >
                               Beginner level{" "}
                             </p>
@@ -212,7 +196,7 @@ const Page = () => {
                           <div>
                             <p
                               onClick={() => setSelected("Middle")}
-                              className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
+                              className={`cursor-pointer text-level2 font-bold py-1 border border-transparent`}
                             >
                               Middle level{" "}
                             </p>
@@ -260,7 +244,7 @@ const Page = () => {
                           <div>
                             <p
                               onClick={() => setSelected("Pre-advanced")}
-                              className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
+                              className={`cursor-pointer text-level3 font-bold  py-1 border border-transparent`}
                             >
                               Pre-advanced level{" "}
                             </p>
@@ -308,7 +292,7 @@ const Page = () => {
                           <div>
                             <p
                               onClick={() => setSelected("advanced")}
-                              className={`cursor-pointer text-level2 font-bold mt-2 border border-transparent rounded-full flex items-center`}
+                              className={`cursor-pointer text-level4 font-bold py-1 border border-transparent`}
                             >
                               Advanced level{" "}
                             </p>
