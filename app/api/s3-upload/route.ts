@@ -9,13 +9,32 @@ const s3Client = new S3Client({
     } as any
  });
 
+ function getMimeType(extension: string): string {
+    switch (extension.toLowerCase()) {
+        case ".pdf":
+            return "application/pdf";
+        case ".jpg":
+        case ".jpeg":
+            return "image/jpeg";
+        case ".png":
+            return "image/png";
+        // Add more cases as needed
+        default:
+            return "application/octet-stream"; // Default to binary stream if unknown
+    }
+}
+
  async function UploadFileToS3(file:Buffer, fileName:string, folder:string) {
     const fileBuffer = file;
+    const extension = fileName.split('.').pop(); 
+    const mimeType = getMimeType(extension as string); 
+
     const params = {
         Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME as string,
         Key: `${folder}/${fileName}`,
         Body: fileBuffer,
-        ContentType: "image/jpeg",
+        ContentType: mimeType
+        // ContentType: "image/jpeg"
     }
 
     const command = new PutObjectCommand(params);

@@ -251,6 +251,9 @@ function AddCourseForm() {
         const response = await fetch("/api/s3-upload", {
           method: "POST",
           body: formData,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         });
         const data = await response.json();
         if (data) {
