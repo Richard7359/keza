@@ -3,5 +3,6 @@ query getAllBunners {
     pdf
     id
     description
+    isActive
   }
 }
