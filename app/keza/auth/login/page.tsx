@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import bootcamp from "../../../images/bootcamp-image-2.jpg";
 import Keza_logo from "../../../images/burgundy-logo.webp";
@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const FormSchema = z.object({
   email: z.string(),
@@ -21,9 +22,41 @@ const FormSchema = z.object({
 
 function Login() {
   const router = useRouter();
-   
+  const {
+    handleSubmit,
+    register,
+    watch,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    e.preventDefault();
+    console.log("login form data : ", data);
+    if(data.email === "ishimwerichard26@gmail.com" && data.password === "richard123"){
+      toast.success(`successfuly authenticated!!`, {
+        position: "top-right",
+      });
+     router.push("/dashboard/course");
+    }else {
+      toast.error(`Email or password is incorrect`, {
+        position: "top-right",
+      });
+    }
+  }
+
   return (
-    <form className="h-[100vh] w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="h-[100vh] w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"
+    >
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-6">
           <div>
@@ -48,6 +81,7 @@ function Login() {
                 id="email"
                 type="email"
                 placeholder="youremail@keza.com"
+                {...register("email")}
                 required
               />
             </div>
@@ -61,9 +95,15 @@ function Login() {
                   Forgot your password?
                 </Link>
               </div>
-              <Input id="password" type="password" required />
+              <Input
+                id="password"
+                type="password"
+                required
+                {...register("password")}
+              />
             </div>
-            <Button type="submit" className="w-full" onClick={() => router.push("/auth/signup")} >
+            <Button type="submit" className="w-full">
+              {/* <Button type="submit" className="w-full" onClick={() => router.push("/auth/signup")} > */}
               Login
             </Button>
             <Button variant="outline" className="w-full gap-2">

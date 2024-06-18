@@ -93,9 +93,7 @@ function Page() {
     const day = String(date.getDate()).padStart(2, "0");
     const hours = Number(String(date.getHours()).padStart(2, "0"));
     const minutes = String(date.getMinutes()).padStart(2, "0");
-    const period = hours >= 12? 'PM' : 'AM'; // Now hours is a number, so this comparison works correctly
-  
-    // Convert hours to 12-hour format for displaying
+    const period = hours >= 12? 'PM' : 'AM'; 
     const displayHours = hours % 12 || 12;
     console.log(`${year}-${month}-${day} ${displayHours}:${minutes} ${period}`)
   
