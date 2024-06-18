@@ -22,12 +22,23 @@ export default function Navigation() {
   return (
     <div className="bg-yellow-300 z-50">
       {data ? (
-        data.bunner.length > 0 && data.bunner[data.bunner.length - 1].isActive? (
+        data.bunner.length > 0 &&
+        data.bunner[data.bunner.length - 1].isActive ? (
           <div className="py-2 flex justify-center items-center text-3xl z-50">
             <MdOutlineNotificationsActive />
             <p className="text-sm font-mono">
               {data.bunner[data.bunner.length - 1].description}{" "}
-              <strong className="font-bold cursor-pointer"><a href={process.env.NEXT_PUBLIC_IMAGE_URL + data.bunner[data.bunner.length - 1].pdf}> here </a></strong>
+              <strong className="font-bold cursor-pointer">
+                <a
+                  href={
+                    process.env.NEXT_PUBLIC_IMAGE_URL +
+                    data.bunner[data.bunner.length - 1].pdf
+                  }
+                >
+                  {" "}
+                  here{" "}
+                </a>
+              </strong>
             </p>
           </div>
         ) : (
@@ -149,11 +160,11 @@ export default function Navigation() {
                   Courses
                 </a>
               </li>
-
-              <button className="bg-deepSkyBlue mt-2 md:mt-0 text-white md:bg-white md:text-black px-8 py-2 rounded-md text-md font-bold">
-                {/* Get in touch */}
-                TALK TO KFL
-              </button>
+              <a href="mailto:?to=keza.info@gmail.com&subject=Subject Here&body=Body text here">
+                <button className="bg-deepSkyBlue mt-2 md:mt-0 text-white md:bg-white md:text-black px-8 py-2 rounded-md text-md font-bold">
+                  TALK TO KFL
+                </button>
+              </a>
             </ul>
           </div>
         </div>
