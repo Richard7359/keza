@@ -378,9 +378,9 @@ function Page() {
                   <CardFooter>
                     <div className="w-full flex justify-center">
                       {data && !isLoading ? (
-                        data.courses?.length == 0 ? (
+                        data.bunner?.length == 0 ? (
                           <div className="flex items-center gap-1">
-                            <FiDatabase /> No courses available
+                            <FiDatabase /> No bunner available
                           </div>
                         ) : (
                           ""

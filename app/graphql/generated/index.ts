@@ -67,10 +67,12 @@ export type String_Comparison_Exp = {
 /** this table willcontain all anouncement */
 export type Bunner = {
   __typename?: 'bunner';
+  createdOn?: Maybe<Scalars['timestamptz']>;
   description: Scalars['String'];
   id: Scalars['uuid'];
-  isActive?: Maybe<Scalars['Boolean']>;
+  isActive: Scalars['Boolean'];
   pdf: Scalars['String'];
+  updatedOn?: Maybe<Scalars['timestamptz']>;
 };
 
 /** aggregated selection of "bunner" */
@@ -100,10 +102,12 @@ export type Bunner_Bool_Exp = {
   _and?: InputMaybe<Array<Bunner_Bool_Exp>>;
   _not?: InputMaybe<Bunner_Bool_Exp>;
   _or?: InputMaybe<Array<Bunner_Bool_Exp>>;
+  createdOn?: InputMaybe<Timestamptz_Comparison_Exp>;
   description?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   isActive?: InputMaybe<Boolean_Comparison_Exp>;
   pdf?: InputMaybe<String_Comparison_Exp>;
+  updatedOn?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "bunner" */
@@ -114,26 +118,32 @@ export enum Bunner_Constraint {
 
 /** input type for inserting data into table "bunner" */
 export type Bunner_Insert_Input = {
+  createdOn?: InputMaybe<Scalars['timestamptz']>;
   description?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
   isActive?: InputMaybe<Scalars['Boolean']>;
   pdf?: InputMaybe<Scalars['String']>;
+  updatedOn?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** aggregate max on columns */
 export type Bunner_Max_Fields = {
   __typename?: 'bunner_max_fields';
+  createdOn?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   pdf?: Maybe<Scalars['String']>;
+  updatedOn?: Maybe<Scalars['timestamptz']>;
 };
 
 /** aggregate min on columns */
 export type Bunner_Min_Fields = {
   __typename?: 'bunner_min_fields';
+  createdOn?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   pdf?: Maybe<Scalars['String']>;
+  updatedOn?: Maybe<Scalars['timestamptz']>;
 };
 
 /** response of any mutation on the table "bunner" */
@@ -154,10 +164,12 @@ export type Bunner_On_Conflict = {
 
 /** Ordering options when selecting data from "bunner". */
 export type Bunner_Order_By = {
+  createdOn?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   isActive?: InputMaybe<Order_By>;
   pdf?: InputMaybe<Order_By>;
+  updatedOn?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: bunner */
@@ -168,21 +180,27 @@ export type Bunner_Pk_Columns_Input = {
 /** select columns of table "bunner" */
 export enum Bunner_Select_Column {
   /** column name */
+  CreatedOn = 'createdOn',
+  /** column name */
   Description = 'description',
   /** column name */
   Id = 'id',
   /** column name */
   IsActive = 'isActive',
   /** column name */
-  Pdf = 'pdf'
+  Pdf = 'pdf',
+  /** column name */
+  UpdatedOn = 'updatedOn'
 }
 
 /** input type for updating data in table "bunner" */
 export type Bunner_Set_Input = {
+  createdOn?: InputMaybe<Scalars['timestamptz']>;
   description?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
   isActive?: InputMaybe<Scalars['Boolean']>;
   pdf?: InputMaybe<Scalars['String']>;
+  updatedOn?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** Streaming cursor of the table "bunner" */
@@ -195,14 +213,18 @@ export type Bunner_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Bunner_Stream_Cursor_Value_Input = {
+  createdOn?: InputMaybe<Scalars['timestamptz']>;
   description?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
   isActive?: InputMaybe<Scalars['Boolean']>;
   pdf?: InputMaybe<Scalars['String']>;
+  updatedOn?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** update columns of table "bunner" */
 export enum Bunner_Update_Column {
+  /** column name */
+  CreatedOn = 'createdOn',
   /** column name */
   Description = 'description',
   /** column name */
@@ -210,7 +232,9 @@ export enum Bunner_Update_Column {
   /** column name */
   IsActive = 'isActive',
   /** column name */
-  Pdf = 'pdf'
+  Pdf = 'pdf',
+  /** column name */
+  UpdatedOn = 'updatedOn'
 }
 
 export type Bunner_Updates = {
@@ -794,18 +818,26 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']>>;
 };
 
+export type ActivateBunnerMutationVariables = Exact<{
+  id: Scalars['uuid'];
+  status?: InputMaybe<Scalars['Boolean']>;
+}>;
+
+
+export type ActivateBunnerMutation = { __typename?: 'mutation_root', update_bunner?: { __typename?: 'bunner_mutation_response', returning: Array<{ __typename?: 'bunner', createdOn?: any | null, description: string, id: any, isActive: boolean, pdf: string, updatedOn?: any | null }> } | null };
+
 export type AddBunnerMutationVariables = Exact<{
   description?: InputMaybe<Scalars['String']>;
   pdf?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type AddBunnerMutation = { __typename?: 'mutation_root', insert_bunner?: { __typename?: 'bunner_mutation_response', returning: Array<{ __typename?: 'bunner', pdf: string, description: string, id: any }> } | null };
+export type AddBunnerMutation = { __typename?: 'mutation_root', insert_bunner?: { __typename?: 'bunner_mutation_response', returning: Array<{ __typename?: 'bunner', pdf: string, description: string, id: any, isActive: boolean, createdOn?: any | null, updatedOn?: any | null }> } | null };
 
 export type GetAllBunnersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllBunnersQuery = { __typename?: 'query_root', bunner: Array<{ __typename?: 'bunner', pdf: string, id: any, description: string, isActive?: boolean | null }> };
+export type GetAllBunnersQuery = { __typename?: 'query_root', bunner: Array<{ __typename?: 'bunner', pdf: string, id: any, description: string, isActive: boolean, updatedOn?: any | null, createdOn?: any | null }> };
 
 export type AddCourseMutationVariables = Exact<{
   courseDetails?: InputMaybe<Scalars['jsonb']>;
@@ -841,6 +873,20 @@ export type GetSingleCoursesQueryVariables = Exact<{
 export type GetSingleCoursesQuery = { __typename?: 'query_root', courses: Array<{ __typename?: 'courses', id: any, UserId: any, UpdatedOn: any, CreatedOn: any, CourseDetails: any }> };
 
 
+export const ActivateBunnerDocument = gql`
+    mutation activateBunner($id: uuid!, $status: Boolean) {
+  update_bunner(where: {id: {_eq: $id}}, _set: {isActive: $status}) {
+    returning {
+      createdOn
+      description
+      id
+      isActive
+      pdf
+      updatedOn
+    }
+  }
+}
+    `;
 export const AddBunnerDocument = gql`
     mutation addBunner($description: String, $pdf: String) {
   insert_bunner(objects: {pdf: $pdf, description: $description}) {
@@ -848,6 +894,9 @@ export const AddBunnerDocument = gql`
       pdf
       description
       id
+      isActive
+      createdOn
+      updatedOn
     }
   }
 }
@@ -859,6 +908,8 @@ export const GetAllBunnersDocument = gql`
     id
     description
     isActive
+    updatedOn
+    createdOn
   }
 }
     `;
@@ -928,6 +979,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    activateBunner(variables: ActivateBunnerMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<ActivateBunnerMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<ActivateBunnerMutation>(ActivateBunnerDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'activateBunner', 'mutation');
+    },
     addBunner(variables?: AddBunnerMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<AddBunnerMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<AddBunnerMutation>(AddBunnerDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'addBunner', 'mutation');
     },

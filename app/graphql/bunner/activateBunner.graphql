@@ -1,0 +1,12 @@
+mutation activateBunner($id: uuid!, $status: Boolean) {
+  update_bunner(where: {id: {_eq: $id}}, _set: {isActive: $status}) {
+    returning {
+      createdOn
+      description
+      id
+      isActive
+      pdf
+      updatedOn
+    }
+  }
+}

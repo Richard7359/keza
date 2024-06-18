@@ -7,7 +7,7 @@ import {
   archiveCourse,
   getAllUnArchivedCourse,
 } from "./course";
-import { addBunner, getAllBunners } from "./bunner";
+import { addBunner, getAllBunners, activateBunner } from "./bunner";
 
 export const appRouter = router({
   exampleRouter: exampleRouter,
@@ -18,6 +18,7 @@ export const appRouter = router({
   getAllUnArchivedCourse: getAllUnArchivedCourse,
   addBunner: addBunner,
   getAllBunners: getAllBunners,
+  activateBunner: activateBunner,
 });
 
 export type AppRouter = typeof appRouter;
