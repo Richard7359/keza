@@ -38,13 +38,13 @@ function Login() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    e.preventDefault();
+   
     console.log("login form data : ", data);
     if(data.email === "ishimwerichard26@gmail.com" && data.password === "richard123"){
       toast.success(`successfuly authenticated!!`, {
         position: "top-right",
       });
-     router.push("/dashboard/course");
+     router.push("/keza/dashboard/course");
     }else {
       toast.error(`Email or password is incorrect`, {
         position: "top-right",
