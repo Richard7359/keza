@@ -22,7 +22,7 @@ export default function Navigation() {
   return (
     <div className="bg-yellow-300 z-50">
       {data ? (
-        data.bunner.length > 0 ? (
+        data.bunner.length > 0 && data.bunner[data.bunner.length - 1].isActive? (
           <div className="py-2 flex justify-center items-center text-3xl z-50">
             <MdOutlineNotificationsActive />
             <p className="text-sm font-mono">

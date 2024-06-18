@@ -4,5 +4,7 @@ query getAllBunners {
     id
     description
     isActive
+    updatedOn
+    createdOn
   }
 }

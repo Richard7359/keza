@@ -4,6 +4,9 @@ mutation addBunner($description: String, $pdf : String ) {
       pdf
       description
       id
+      isActive
+      createdOn
+      updatedOn
     }
   }
 }
