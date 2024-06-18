@@ -18,6 +18,9 @@ import { TbTrashX } from "react-icons/tb";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { GrCloudUpload } from "react-icons/gr";
+import { trpc } from "@/app/_trpc/client";
+import { toast } from "sonner";
+import useGetAllBunners from "@/app/hooks/bunner/useGetBunner";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -38,22 +41,41 @@ function Page() {
     },
   });
 
+ const {refetch} = useGetAllBunners();
+
+  const { mutate, isLoading } = trpc.addBunner.addBunner.useMutation({
+    onSuccess: () => {
+      toast.success(`Bunner added successfuly!!`, {
+        position: "top-right",
+      });
+      setPdf(null);
+      refetch();
+    },
+    onError: (error: any) => {
+      console.log("Error", error);
+      alert("Error adding Bunner");
+    },
+  });
+
   const [pdf, setPdf] = useState<File | null>(null);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
+    if (!pdf) {
+      alert("Please select a pdf file");
+      return;
+    }
     const formData = new FormData();
-    formData.append("file", pdf as File);
+    formData.append("file", pdf);
     formData.append("folder", "courses");
+
     try {
       const response = await fetch("/api/s3-upload", {
         method: "POST",
-        body: formData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        body: formData
       });
-      const data = await response.json();
+      const uploadedPdf = await response.json();
+      mutate({description: data.title, pdf: uploadedPdf.fileName})
+      console.log(uploadedPdf.fileName);
       console.log(data);
     } catch (error) {
       console.error(error);
@@ -77,7 +99,7 @@ function Page() {
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Description</Label>
-            <Input id="text" type="text" placeholder="" required />
+            <Input id="title" type="text" placeholder="" {...register("title")} required />
           </div>
           <div className="grid gap-2">
             {!pdf?.name ? (
@@ -140,7 +162,7 @@ function Page() {
         </CardContent>
         <CardFooter>
           <Button className="w-full" type="submit">
-            Save Bunner
+            {Save Bunner}
           </Button>
         </CardFooter>
       </Card>

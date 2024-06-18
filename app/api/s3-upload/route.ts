@@ -44,8 +44,12 @@ const s3Client = new S3Client({
 
 export async function POST(request: any) {
 try {
+    console.log("api called");
     const formData = await request.formData();
+    console.log("file from the api");
+    console.log(formData);
     const file = formData.get("file") as File;
+
     const folder = formData.get("folder") as string;
     if(!file) return NextResponse.json({ error: "File is required"}, {status: 400});
     const buffer = Buffer.from(await file.arrayBuffer());
