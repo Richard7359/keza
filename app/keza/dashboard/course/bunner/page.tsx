@@ -42,8 +42,9 @@ function Page() {
   });
 
  const {refetch} = useGetAllBunners();
+ const [isLoading, setIsLoading] = useState(false);
 
-  const { mutate, isLoading } = trpc.addBunner.addBunner.useMutation({
+  const { mutate } = trpc.addBunner.addBunner.useMutation({
     onSuccess: () => {
       toast.success(`Bunner added successfuly!!`, {
         position: "top-right",
@@ -60,6 +61,7 @@ function Page() {
   const [pdf, setPdf] = useState<File | null>(null);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    setIsLoading(true);
     if (!pdf) {
       alert("Please select a pdf file");
       return;
@@ -77,7 +79,9 @@ function Page() {
       mutate({description: data.title, pdf: uploadedPdf.fileName})
       console.log(uploadedPdf.fileName);
       console.log(data);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
       alert("error");
     }
@@ -162,7 +166,7 @@ function Page() {
         </CardContent>
         <CardFooter>
           <Button className="w-full" type="submit">
-            {Save Bunner}
+            {isLoading ? "adding Bunner...." : "Save Bunner"}
           </Button>
         </CardFooter>
       </Card>
