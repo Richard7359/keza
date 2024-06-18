@@ -27,8 +27,7 @@ export default function Navigation() {
             <MdOutlineNotificationsActive />
             <p className="text-sm font-mono">
               {data.bunner[data.bunner.length - 1].description}{" "}
-              <strong className="font-bold cursor-pointer"><a href={process.env.NEXT_PUBLIC_IMAGE_URL + data.bunner[data.bunner.length - 1].pdf}/></strong>
-              {/* <strong className="font-bold cursor-pointer">here</strong> */}
+              <strong className="font-bold cursor-pointer"><a href={process.env.NEXT_PUBLIC_IMAGE_URL + data.bunner[data.bunner.length - 1].pdf}> here </a></strong>
             </p>
           </div>
         ) : (
@@ -38,7 +37,6 @@ export default function Navigation() {
         ""
       )}
       <nav className="bg-deepSkyBlue dark:bg-gray-900 ">
-        {/* <nav className="bg-deepSkyBlue static-position dark:bg-gray-900 "> */}
         <div className="flex flex-wrap items-center justify-between md:justify-around mx-auto p-4">
           <a
             href="/"
