@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -64,8 +64,6 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import useGetAllUnArchivedCourse from "@/app/hooks/courses/useGetAllUnArchivedCourse";
-import { useEffect } from "react";
 
 const FormSchema = z.object({
   title: z.string(),
@@ -87,18 +85,29 @@ function Page() {
   });
 
   function formatDate(isoDateString: string) {
+    console.log("isoDateString : ", isoDateString);
     const date = new Date(isoDateString);
-
+  
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero indexed, so we add 1 to get the correct month number
     const day = String(date.getDate()).padStart(2, "0");
-    const hours = String(date.getHours()).padStart(2, "0");
+    const hours = Number(String(date.getHours()).padStart(2, "0"));
     const minutes = String(date.getMinutes()).padStart(2, "0");
-    return `${year}-${month}-${day} ${hours}:${minutes} AM`;
+    const period = hours >= 12? 'PM' : 'AM'; // Now hours is a number, so this comparison works correctly
+  
+    // Convert hours to 12-hour format for displaying
+    const displayHours = hours % 12 || 12;
+    console.log(`${year}-${month}-${day} ${displayHours}:${minutes} ${period}`)
+  
+    return `${year}-${month}-${day} ${displayHours}:${minutes} ${period}`;
   }
 
-  const { refetch, data } = useGetAllBunners();
+  const { refetch, data, isLoading: loadingData } = useGetAllBunners();
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    console.log("bunners : ", data);
+  }, [data]);
 
   const { mutate } = trpc.addBunner.addBunner.useMutation({
     onSuccess: () => {
@@ -204,14 +213,8 @@ function Page() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="hidden w-[180px] sm:table-cell">
-                            <span className="sr-only">Image</span>
-                          </TableHead>
-                          <TableHead>Title</TableHead>
+                          <TableHead>Description</TableHead>
                           <TableHead>Status</TableHead>
-                          <TableHead className="hidden md:table-cell">
-                            Created by
-                          </TableHead>
                           <TableHead className="hidden md:table-cell">
                             Created at
                           </TableHead>
@@ -328,7 +331,7 @@ function Page() {
                                 )}
                               </TableCell>
                               <TableCell className="hidden md:table-cell">
-                                {formatDate(data.bunner[data.bunner.length - 1]?.id)}
+                                {formatDate(data.bunner[data.bunner.length - 1]?.createdOn)}
                               </TableCell>
                               <TableCell>
                                 {!isLoading ? (
@@ -377,7 +380,7 @@ function Page() {
                   </CardContent>
                   <CardFooter>
                     <div className="w-full flex justify-center">
-                      {data && !isLoading ? (
+                      {data && !loadingData ? (
                         data.bunner?.length == 0 ? (
                           <div className="flex items-center gap-1">
                             <FiDatabase /> No bunner available
@@ -385,7 +388,7 @@ function Page() {
                         ) : (
                           ""
                         )
-                      ) : isLoading ? (
+                      ) : loadingData ? (
                         "Loading..."
                       ) : (
                         ""
@@ -400,7 +403,7 @@ function Page() {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full flex justify-center items-center"
+        className="w-full flex justify-center items-center bg-muted/40"
       >
         <Card className="w-[60%]">
           <CardHeader>
