@@ -109,6 +109,18 @@ function Page() {
     console.log("bunners : ", data);
   }, [data]);
 
+  const { mutate : activate , isLoading : isArchiving} = trpc.activateBunner.activateBunner.useMutation({
+    onSuccess: () => {
+        refetch();
+        toast.success(`Bunner updated successfuly!!`, {
+            position: "top-right",
+          });
+    },
+    onError: (error) => {
+      console.log("error : ", error);
+    },
+  });
+
   const { mutate } = trpc.addBunner.addBunner.useMutation({
     onSuccess: () => {
       toast.success(`Bunner added successfuly!!`, {
@@ -320,7 +332,7 @@ function Page() {
                                 {data.bunner[data.bunner.length - 1]?.description}
                               </TableCell>
                               <TableCell>
-                                {!data.bunner[data.bunner.length - 1]?.isActive ? (
+                                {data.bunner[data.bunner.length - 1]?.isActive ? (
                                   <Badge className="text-green easy-bg">
                                     active
                                   </Badge>
@@ -349,19 +361,19 @@ function Page() {
                                       </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                      {/* <DropdownMenuItem
+                                      <DropdownMenuItem
                                         onClick={() =>
-                                          mutate({
-                                            id: course?.id,
-                                            status: !course?.isArchived,
+                                          activate({
+                                            id: data.bunner[data.bunner.length - 1]?.id,
+                                            status: !data.bunner[data.bunner.length - 1]?.isActive,
                                           })
                                         }
                                       >
-                                        {!course?.isArchived
+                                        {data.bunner[data.bunner.length - 1]?.isActive
                                           ? "Archive"
                                           : "UnArchive"}
-                                      </DropdownMenuItem> */}
-                                      <DropdownMenuItem>Edit</DropdownMenuItem>
+                                      </DropdownMenuItem>
+                                      {/* <DropdownMenuItem>Edit</DropdownMenuItem> */}
                                     </DropdownMenuContent>
                                   </DropdownMenu>
                                 ) : (
