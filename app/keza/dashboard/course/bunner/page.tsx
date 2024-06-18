@@ -127,6 +127,7 @@ function Page() {
         position: "top-right",
       });
       setPdf(null);
+      setValue("title", "");
       refetch();
     },
     onError: (error: any) => {
