@@ -15,7 +15,7 @@ const FAQ = () => {
           <Title title="FAQs" />
         </div>
         <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">
-          Your Questiones are Answered
+          Your Questions are Answered
         </h2>
       </div>
       <div className="flex justify-center">

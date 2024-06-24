@@ -172,7 +172,7 @@ export default function Navigation() {
               </li>
               <a href="mailto:?to=keza.info@gmail.com&subject=Subject Here&body=Body text here">
                 <button className="bg-deepSkyBlue mt-2 md:mt-0 text-white md:bg-white md:text-black px-8 py-2 rounded-md text-md font-bold">
-                  TALK TO KFL
+                  TALK TO KEFL
                 </button>
               </a>
             </ul>

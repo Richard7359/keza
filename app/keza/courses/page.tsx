@@ -58,7 +58,7 @@ const Page = () => {
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
-                      <Link href="">Beginner level</Link>
+                      <Link href="">Beginner (aged 3-6)</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <HiOutlineChevronDoubleRight className="text-level1" />
@@ -71,7 +71,7 @@ const Page = () => {
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
-                      <Link href="">Middle level</Link>
+                      <Link href="">Middle (aged 7-9)</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <HiOutlineChevronDoubleRight className="text-level2" />
@@ -83,7 +83,7 @@ const Page = () => {
                       "border-level3 bg-level3 bg-opacity-5"
                     } hover:bg-opacity-5 rounded-full`}
                   >
-                    <BreadcrumbLink>Pre-advanced level</BreadcrumbLink>
+                    <BreadcrumbLink>Pre-advanced (aged 10-12)</BreadcrumbLink>
                   </BreadcrumbItem>
                   <HiOutlineChevronDoubleRight className="text-level3" />
 
@@ -95,49 +95,62 @@ const Page = () => {
                     } hover:bg-opacity-5 rounded-full`}
                   >
                     <BreadcrumbLink>
-                      <Link href="">Advanced level</Link>
+                      <Link href="">Level 4: Advanced (Aged 13-15)</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
               {data && data.courses?.length > 0 && !isLoading ? (
                 <div>
+                  
                   {selected != "all" ? (
-                    data.courses?.filter(
-                      (course) =>
-                        course.CourseDetails?.basicInfo?.level === selected
-                    ).length > 0 ? (
-                      <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                        {data.courses
-                          ?.filter(
-                            (course) =>
-                              course.CourseDetails?.basicInfo?.level ===
-                              selected
-                          )
-                          .map((course) => {
-                            return (
-                              <CourseCard
-                                key={course.id}
-                                id={course.id}
-                                description={
-                                  course.CourseDetails?.basicInfo?.title
-                                }
-                                image={
-                                  course.CourseDetails?.basicInfo?.attachment
-                                }
-                                level={course.CourseDetails?.basicInfo?.level}
-                                complexity={
-                                  course.CourseDetails?.basicInfo?.complexity
-                                }
-                              />
-                            );
-                          })}
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-1">
-                        <GiBookshelf /> <p>No courses available</p>
-                      </div>
-                    )
+                    <div>
+                      <p className="text-black font-bold py-1 border border-transparent flex items-center">Brief Overview : </p>
+                      <p className="text-gray-700 text-sm font-light">
+                        {selected === "Beginner"
+                          ? "Dive into the world of coding with easy-to-understand block-based programming. Introduce young children to basic programming concepts through interactive and playful activities."
+                          : selected === "Middle"
+                          ? "This program introduces Pre-advanced (aged 10-12) students, aged 10-12, to coding and robotics through hands-on activities using Scratch, Etoys, and Turtle Art. Focusing on block-based programming, game creation, and tinkering, this course aims to enhance problem-solving skills, creativity, and computational thinking.Develop intermediate programming skills through Scratch, Etoys and Turtle Art"
+                          : selected === "Pre-advanced"
+                          ? "This program introduces pre-advanced level students, aged 10-12, to coding and robotics through hands-on activities using Scratch, Etoys, and Turtle Art. Focusing on block-based programming, game creation, and tinkering, this course aims to enhance problem-solving skills, creativity, and computational thinking.Develop intermediate programming skills through Scratch, Etoys and Turtle Art"
+                          : "This program is designed for students aged 13-15 who are ready to take their coding and robotics skills to the next level. Through engaging projects and hands-on activities, students will delve deeper into the world of programming using advanced and Pictoblox. The curriculum emphasizes creativity, critical thinking, and problem-solving by integrating block-based coding, game development, and tinkering with robotics. Master advanced programming concepts and project management."}
+                      {" "}
+                      {data.courses?.filter(
+                        (course) =>
+                          course.CourseDetails?.basicInfo?.level === selected
+                      ).length > 0 ? (
+                        <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                          {data.courses
+                            ?.filter(
+                              (course) =>
+                                course.CourseDetails?.basicInfo?.level ===
+                                selected
+                            )
+                            .map((course) => {
+                              return (
+                                <CourseCard
+                                  key={course.id}
+                                  id={course.id}
+                                  description={
+                                    course.CourseDetails?.basicInfo?.title
+                                  }
+                                  image={
+                                    course.CourseDetails?.basicInfo?.attachment
+                                  }
+                                  level={course.CourseDetails?.basicInfo?.level}
+                                  complexity={
+                                    course.CourseDetails?.basicInfo?.complexity
+                                  }
+                                />
+                              );
+                            })}
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-1">
+                          <GiBookshelf /> <p>No courses available</p>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <div>
                       <div>
@@ -151,7 +164,16 @@ const Page = () => {
                               onClick={() => setSelected("Beginner")}
                               className={`cursor-pointer text-level1 font-bold py-1 border border-transparent`}
                             >
-                              Beginner level{" "}
+                              Beginner (aged 3-6)|{" "}
+                              <p
+                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
+                              >
+                                Dive into the world of coding with
+                                easy-to-understand block-based programming.
+                                Introduce young children to basic programming
+                                concepts through interactive and playful
+                                activities.
+                              </p>
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -196,9 +218,23 @@ const Page = () => {
                           <div>
                             <p
                               onClick={() => setSelected("Middle")}
-                              className={`cursor-pointer text-level2 font-bold py-1 border border-transparent`}
+                              className={`cursor-pointer text-level2 font-bold py-1 border border-transparent flex items-center`}
                             >
-                              Middle level{" "}
+                              Middle (aged 7-9) |{" "}
+                              <p
+                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
+                              >
+                                This program introduces Pre-advanced (aged
+                                10-12) students, aged 10-12, to coding and
+                                robotics through hands-on activities using
+                                Scratch, Etoys, and Turtle Art. Focusing on
+                                block-based programming, game creation, and
+                                tinkering, this course aims to enhance
+                                problem-solving skills, creativity, and
+                                computational thinking.Develop intermediate
+                                programming skills through Scratch, Etoys and
+                                Turtle Art
+                              </p>
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -246,7 +282,20 @@ const Page = () => {
                               onClick={() => setSelected("Pre-advanced")}
                               className={`cursor-pointer text-level3 font-bold  py-1 border border-transparent`}
                             >
-                              Pre-advanced level{" "}
+                              Pre-advanced (aged 10-12)|{" "}
+                              <p
+                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
+                              >
+                                This program introduces pre-advanced level
+                                students, aged 10-12, to coding and robotics
+                                through hands-on activities using Scratch,
+                                Etoys, and Turtle Art. Focusing on block-based
+                                programming, game creation, and tinkering, this
+                                course aims to enhance problem-solving skills,
+                                creativity, and computational thinking.Develop
+                                intermediate programming skills through Scratch,
+                                Etoys and Turtle Art
+                              </p>
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -294,7 +343,22 @@ const Page = () => {
                               onClick={() => setSelected("advanced")}
                               className={`cursor-pointer text-level4 font-bold py-1 border border-transparent`}
                             >
-                              Advanced level{" "}
+                              Advanced (Aged 13-15)|{" "}
+                              <p
+                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
+                              >
+                                This program is designed for students aged 13-15
+                                who are ready to take their coding and robotics
+                                skills to the next level. Through engaging
+                                projects and hands-on activities, students will
+                                delve deeper into the world of programming using
+                                advanced and Pictoblox. The curriculum
+                                emphasizes creativity, critical thinking, and
+                                problem-solving by integrating block-based
+                                coding, game development, and tinkering with
+                                robotics. Master advanced programming concepts
+                                and project management.
+                              </p>
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
