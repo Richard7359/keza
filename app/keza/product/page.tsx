@@ -1,17 +1,17 @@
 import React from "react";
 import Image from "next/image";
+import image from "../../images/bootcamp-image-1.jpg"
 
 const page1 = () => {
   return (
-    <div>
+    <div className="bg-green w-[400px] h-[100px]">
       <div className="group relative border bg-white rounded-xl overflow-hidden">
         {" "}
         <div className="aspect-h-3 aspect-w-4 overflow-hidden bg-gray-100">
           <Image
-            width={2940}
-            height={1960}
             alt="GOOGLE PIXEL 6 PRO"
-            src="https://images.unsplash.com/photo-1706412703794-d944cd3625b3?q=80&amp;w=2940&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src={image}
+            // src="https://images.unsplash.com/photo-1706412703794-d944cd3625b3?q=80&amp;w=2940&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             className="object-cover object-center"
           />
           <div
