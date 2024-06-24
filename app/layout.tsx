@@ -5,6 +5,7 @@ import "./css/course.css";
 import "./css/faq.css";
 import "./css/testimonial.css";
 import "./css/dashboard.css";
+import "./css/product.css";
 import { Toaster, toast } from 'sonner'
 
 import Provider from "./_trpc/provider";
