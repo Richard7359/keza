@@ -31,14 +31,21 @@ export function TeamDialog({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <p className="cursor-pointer text-gray-700 text-sm font-light">
+        {/* <p className="cursor-pointer text-gray-700 text-sm font-light">
           {trigger.length > 190
             ? position.length > 38 ?  `${trigger.substring(0, Math.min(trigger.length, 190))}.....` : `${trigger.substring(0, Math.min(trigger.length, 230))}.....` 
+            : trigger}
+        </p> */}
+        <p className="cursor-pointer text-gray-700 text-sm font-light">
+          {trigger.length > 190
+            ? position.length > 38
+              ? `${trigger.substring(0, Math.min(trigger.length, 160))}.....`
+              : `${trigger.substring(0, Math.min(trigger.length, 200))}.....`
             : trigger}
         </p>
       </DialogTrigger>
       <DialogContent className="w-[95%] sm:flex sm:w-[80%] h-[95vh] sm:h-[54vh]  overflow-auto p-2 sm:p-3">
-      {/* <DialogContent className="w-[95%] sm:flex sm:w-[80%] sm:p-3"> */}
+        {/* <DialogContent className="w-[95%] sm:flex sm:w-[80%] sm:p-3"> */}
         <div
           className=" 
         flex justify-center items-center w-full sm:w-[32%]"
@@ -111,13 +118,13 @@ export function TeamDialog({
 //       <DialogTrigger asChild>
 //         <p className="cursor-pointer text-gray-700 text-sm font-light">
 //           {trigger.length > 190
-//             ? position.length > 38 ?  `${trigger.substring(0, Math.min(trigger.length, 190))}.....` : `${trigger.substring(0, Math.min(trigger.length, 230))}.....` 
+//             ? position.length > 38 ?  `${trigger.substring(0, Math.min(trigger.length, 190))}.....` : `${trigger.substring(0, Math.min(trigger.length, 230))}.....`
 //             : trigger}
 //         </p>
 //       </DialogTrigger>
 //       <DialogContent className="sm:flex w-[80%] p-3">
 //         <div
-//           className=" 
+//           className="
 //         flex justify-center items-center w-[32%]"
 //         >
 //           <Image

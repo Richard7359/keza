@@ -73,7 +73,7 @@ export default function Navigation() {
             <svg
               className="w-5 h-5"
               aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="http:/www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 17 14"
             >
@@ -100,7 +100,7 @@ export default function Navigation() {
                   Home
                 </a>
                 <a
-                  href="/keza//services"
+                  href="/keza/services"
                   className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                   aria-current="page"
                 >
@@ -110,7 +110,17 @@ export default function Navigation() {
                   Services
                 </a>
                 <a
-                  href="/keza//team"
+                  href="/keza/product"
+                  className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                  aria-current="page"
+                >
+                  <strong className="mr-[3px]">
+                    <MdOutlineMiscellaneousServices />
+                  </strong>{" "}
+                  Products
+                </a>
+                <a
+                  href="/keza/team"
                   className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                   aria-current="page"
                 >
@@ -120,7 +130,7 @@ export default function Navigation() {
                   Team
                 </a>
                 <a
-                  href="/keza//Gallery"
+                  href="/keza/Gallery"
                   className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                   aria-current="page"
                 >
@@ -140,7 +150,7 @@ export default function Navigation() {
                 Sign up
               </a> */}
                 {/* <a
-                href="/keza//auth/login"
+                href="/keza/auth/login"
                 className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                 aria-current="page"
               >
@@ -150,7 +160,7 @@ export default function Navigation() {
                 Login
               </a> */}
                 <a
-                  href="/keza//courses"
+                  href="/keza/courses"
                   className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                   aria-current="page"
                 >
