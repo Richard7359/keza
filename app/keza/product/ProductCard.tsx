@@ -1,15 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import image from "../../images/bootcamp-image-1.jpg";
+import Link from "next/link";
+// import image from "../../images/products/keza_development_kit_1.jpg";
 import "../../css/product_css.css";
 
-const ProductPage = () => {
+const ProductCard = ({image, name , price , category, id}: {image: any, name: string , price : number , category : string, id:number}) => {
   return (
-    <div className="min-h-[40vh]">
+    <Link href={`/keza/product/${id}`} >
       <div className="w-[350px]">
         <div className="group relative border bg-white rounded-xl overflow-hidden">
           {" "}
-          <div className="aspect-h-3 aspect-w-4 overflow-hidden bg-gray-100">
+          <div className="aspect-h-3 aspect-w-4 overflow-hidden bg-gray-100 border-b">
             <Image
               alt="GOOGLE PIXEL 6 PRO"
               src={image}
@@ -43,17 +44,17 @@ const ProductPage = () => {
                     aria-hidden="true"
                     className="absolute inset-0"
                   ></span>{" "}
-                  GOOGLE PIXEL 6 PRO{" "}
+                  {name}{" "}
                 </a>{" "}
               </h3>{" "}
-              <p>$19.99</p>{" "}
+              <p>{price}{" "}rwf</p>{" "}
             </div>{" "}
-            <p className="mt-1 text-sm text-gray-600">Phone cases</p>{" "}
+            <p className="mt-1 text-sm text-gray-600">{category}</p>{" "}
           </div>{" "}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
-export default ProductPage;
+export default ProductCard;

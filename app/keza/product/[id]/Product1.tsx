@@ -1,22 +1,20 @@
 "use client";
 
-import Navigation from "@/app/components/Navigation_bar/Navigation";
-import Footer from "@/app/components/Footer";
 import React, { useState } from "react";
 import Image from "next/image";
 import { TfiMinus } from "react-icons/tfi";
 import { LiaPlusSolid } from "react-icons/lia";
 import { Button } from "@/components/ui/button";
-import keza_development_kit_1 from "../../images/products/keza_development_kit_1.jpg";
-import keza_development_kit_2 from "../../images/products/keza_development_kit_2.jpg";
-import keza_development_kit_3 from "../../images/products/keza_development_kit_3.jpg";
-import keza_development_kit_4 from "../../images/products/keza_development_kit_4.jpg";
-import { CarouselSize } from "./carousel";
+import keza_development_kit_1 from "../../../images/products/keza_development_kit_1.jpg";
+import keza_development_kit_2 from "../../../images/products/keza_development_kit_2.jpg";
+import keza_development_kit_3 from "../../../images/products/keza_development_kit_3.jpg";
+import keza_development_kit_4 from "../../../images/products/keza_development_kit_4.jpg";
+import { CarouselSize } from "../carousel";
 import Link from "next/link";
 import { TbGardenCart } from "react-icons/tb";
-import { ProductCategorySideBar } from "./ProductCategorySide";
+import { ProductCategorySideBar } from "../ProductCategorySide";
 
-const Page = () => {
+const Product1 = () => {
   const SelectedProductData = {
     id: 1,
     name: "Tshirt",
@@ -41,8 +39,7 @@ const Page = () => {
   };
   const [image, setImage] = React.useState(SelectedProductData.images[0]);
   return (
-    <div>
-      <Navigation />
+    <div className="h-[60vh]">
       <div className="w-full">
         <div className="w-[80%] m-auto flex gap-5 mt-2">
           <div className="w-[20%] border border-gray-300 h-full p-4 rounded-md mt-5">
@@ -63,7 +60,7 @@ const Page = () => {
                 />
               </div>
               <div className="h-64 ml-10">
-                <CarouselSize image={image} setImage={setImage} />
+                <CarouselSize image={image} setImage={setImage} SelectedProductData={SelectedProductData} />
               </div>
             </div>
             <div className="ml-10  w-[60%] mt-5 h-[22rem] flex flex-col justify-between">
@@ -104,7 +101,7 @@ const Page = () => {
                   <Link href={"/viewCart"}>
                     {" "}
                     <Button className="hover:bg-orange-500 w-32 gap-1">
-                    <TbGardenCart className="" size={24} /> Add to Cart
+                      <TbGardenCart className="" size={24} /> Add to Cart
                     </Button>
                   </Link>
                 </div>
@@ -121,9 +118,8 @@ const Page = () => {
           </div>
         </div> */}
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
 
-export default Page;
+export default Product1;

@@ -16,21 +16,21 @@ import keza_development_kit_3 from "../../images/products/keza_development_kit_3
 import keza_development_kit_4 from "../../images/products/keza_development_kit_4.jpg";
 import Image from "next/image";
 export function CarouselSize(props: any) {
-  const SelectedProductData = {
-    id: 1,
-    name: "Tshirt",
-    price: "$10",
-    discount: "$5",
-    image: "/tshirt.jpg",
-    images: [
-        keza_development_kit_1,
-        keza_development_kit_2,
-        keza_development_kit_3,
-        keza_development_kit_4
-    ],
-    stock: 320,
-    description: "This is a Tshirt",
-  };
+  // const SelectedProductData = {
+  //   id: 1,
+  //   name: "Tshirt",
+  //   price: "$10",
+  //   discount: "$5",
+  //   image: "/tshirt.jpg",
+  //   images: [
+  //       keza_development_kit_1,
+  //       keza_development_kit_2,
+  //       keza_development_kit_3,
+  //       keza_development_kit_4
+  //   ],
+  //   stock: 320,
+  //   description: "This is a Tshirt",
+  // };
 
   return (
     <Carousel
@@ -40,7 +40,7 @@ export function CarouselSize(props: any) {
       className="w-full max-w-sm"
     >
       <CarouselContent>
-        {SelectedProductData.images.map((img: any, index: any) => (
+        {props.SelectedProductData.images.map((img: any, index: any) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <Card>
