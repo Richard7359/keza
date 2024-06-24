@@ -1219,7 +1219,7 @@ select {
 
 .aspect-h-3 {
     /* --tw-aspect-h: 3, */
-    height: 200px
+    height: 180px
 }
 
 .aspect-w-4 {
@@ -1971,7 +1971,7 @@ select {
     background-color: rgb(156 163 175 / var(--tw-bg-opacity))
 }
 
-.bg-gray-50 {
+.bg-gray-501 {
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity))
 }
@@ -2296,7 +2296,7 @@ select {
     letter-spacing: .025em
 }
 
-.text-black {
+.text-black1 {
     --tw-text-opacity: 1;
     color: rgb(22 22 22 / var(--tw-text-opacity))
 }
@@ -2460,7 +2460,7 @@ select {
     color: rgb(75 85 99 / var(--tw-text-opacity))
 }
 
-.hover\:bg-gray-50:hover {
+.hover\:bg-gray-501:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity))
 }
@@ -2470,7 +2470,7 @@ select {
     background-color: rgb(75 85 99 / var(--tw-bg-opacity))
 }
 
-.hover\:text-black:hover {
+.hover\:text-black1:hover {
     --tw-text-opacity: 1;
     color: rgb(22 22 22 / var(--tw-text-opacity))
 }
@@ -2496,7 +2496,7 @@ select {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)
 }
 
-.focus\:text-black:focus {
+.focus\:text-black1:focus {
     --tw-text-opacity: 1;
     color: rgb(22 22 22 / var(--tw-text-opacity))
 }
@@ -2537,7 +2537,7 @@ select {
     background-color: rgb(243 244 246 / var(--tw-bg-opacity))
 }
 
-.active\:text-black\/60:active {
+.active\:text-black1\/60:active {
     color: #16161699
 }
 
