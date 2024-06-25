@@ -34,10 +34,10 @@ const Product2 = () => {
   };
   const [image, setImage] = React.useState(SelectedProductData.images[0]);
   return (
-    <div className="h-[60vh]">
+    <div className="min-h-[60vh] pb-8">
       <div className="w-full">
         <div className="w-[80%] m-auto flex gap-5 mt-2">
-          <div className="w-[20%] border border-gray-300 h-full p-4 rounded-md mt-5">
+          <div className="w-[20%] border border-gray-300  h-full p-4 rounded-md mt-5">
             <h1 className="text-[#030229] font-bold text-base py-1 text-center">
               Categories
             </h1>
@@ -45,13 +45,13 @@ const Product2 = () => {
           </div>
           <div className="flex gap-3 w-[80%]">
             <div className="w-[40%] h-[22rem]">
-              <div className="w-full h-full p-2 border border-gray-300 m-5 rounded-sm">
+              <div className="w-full  p-2 border border-gray-300 m-5 rounded-sm">
                 <Image
                   src={image}
                   width={300}
                   height={400}
                   alt="Picture of the Logo"
-                  className="m-auto w-full h-full object-cover"
+                  className="m-auto w-full  object-cover"
                 />
               </div>
               <div className="h-64 ml-10">

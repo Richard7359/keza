@@ -9,29 +9,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-// import SelectedProductData from "../data/DummyData/selectedProductData"
-import keza_development_kit_1 from "../../images/products/keza_development_kit_1.jpg";
-import keza_development_kit_2 from "../../images/products/keza_development_kit_2.jpg";
-import keza_development_kit_3 from "../../images/products/keza_development_kit_3.jpg";
-import keza_development_kit_4 from "../../images/products/keza_development_kit_4.jpg";
 import Image from "next/image";
 export function CarouselSize(props: any) {
-  // const SelectedProductData = {
-  //   id: 1,
-  //   name: "Tshirt",
-  //   price: "$10",
-  //   discount: "$5",
-  //   image: "/tshirt.jpg",
-  //   images: [
-  //       keza_development_kit_1,
-  //       keza_development_kit_2,
-  //       keza_development_kit_3,
-  //       keza_development_kit_4
-  //   ],
-  //   stock: 320,
-  //   description: "This is a Tshirt",
-  // };
-
   return (
     <Carousel
       opts={{
@@ -50,7 +29,7 @@ export function CarouselSize(props: any) {
                     width={300}
                     height={300}
                     alt="img"
-                    className="h-full w-full object-cover"
+                    className="w-full object-cover"
                     onClick={() => {
                       props.setImage(img);
                     }}

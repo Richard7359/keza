@@ -20,6 +20,7 @@ import { FcHighPriority } from "react-icons/fc";
 
 import { useEffect, useState } from "react";
 
+
 const Preview = () => {
   const { currentStep } = step();
   const { course } = CourseData();

@@ -20,6 +20,7 @@ import CourseCard from "../../components/courseCard";
 import TrafficLight from "../../images/keza-traffic-light.png";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 import { Badge } from "@/components/ui/badge";
+import ViewCourseDetails from "@/app/components/courses/Dialog";
 
 const Page = () => {
   const [selected, setSelected] = useState("all");
@@ -119,7 +120,7 @@ const Page = () => {
                       <p className="text-black font-bold py-1 border border-transparent flex items-center">
                         {selected === "Pre-advanced" || selected === "advanced"
                           ? "Objective: "
-                         : ""}
+                          : ""}
                       </p>{" "}
                       <p className="text-gray-700 text-sm font-light">
                         {selected === "Pre-advanced"
@@ -128,9 +129,12 @@ const Page = () => {
                           ? "Introduce and develop robotics skills using various platforms."
                           : ""}
                       </p>{" "}
-                      <p className="text-black font-bold py-1 border border-transparent flex items-center">
-                        Cources :{" "}
-                      </p>
+                      <div className="flex gap-4">
+                        <p className="text-black font-bold py-1 border border-transparent flex items-center">
+                          Cources :{" "}
+                        </p>
+                        <ViewCourseDetails selected={selected}/>
+                      </div>
                       {data.courses?.filter(
                         (course) =>
                           course.CourseDetails?.basicInfo?.level === selected
