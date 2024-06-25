@@ -13,8 +13,10 @@ const Page = () => {
   return (
     <div>
       <Navigation />
+      <div className="h-[40vh] md:h-[100vh]">
       {id == "1"  && <Product1 />}
       {id == "2"  && <Product2 />}
+      </div>
       <Footer />
     </div>
   );

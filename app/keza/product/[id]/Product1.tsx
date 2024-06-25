@@ -39,7 +39,7 @@ const Product1 = () => {
   };
   const [image, setImage] = React.useState(SelectedProductData.images[0]);
   return (
-    <div className="h-[60vh]">
+    <div className="">
       <div className="w-full">
         <div className="w-[80%] m-auto flex gap-5 mt-2">
           <div className="w-[20%] border border-gray-300 h-full p-4 rounded-md mt-5">
@@ -49,7 +49,7 @@ const Product1 = () => {
             <ProductCategorySideBar />
           </div>
           <div className="flex gap-3 w-[80%]">
-            <div className="w-[40%] h-[22rem]">
+            <div className="w-[40%]">
               <div className="w-full h-full p-2 border border-gray-300 m-5 rounded-sm">
                 <Image
                   src={image}
@@ -59,7 +59,7 @@ const Product1 = () => {
                   className="m-auto w-full h-full object-cover"
                 />
               </div>
-              <div className="h-64 ml-10">
+              <div className="ml-10">
                 <CarouselSize image={image} setImage={setImage} SelectedProductData={SelectedProductData} />
               </div>
             </div>
