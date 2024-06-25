@@ -35,7 +35,7 @@ const Page = () => {
         <Navigation />
         <div className="md:min-h-screen">
           <div className="flex justify-center ">
-            <div className="my-6 w-[97%] bg-white py-6 px-6 rounded-keza border-custom border-custom">
+            <div className="my-6 w-[97%] bg-white py-6 px-6 rounded-keza border-custom ">
               <Breadcrumb>
                 <BreadcrumbList className="">
                   <BreadcrumbItem
@@ -102,24 +102,40 @@ const Page = () => {
               </Breadcrumb>
               {data && data.courses?.length > 0 && !isLoading ? (
                 <div>
-                  
                   {selected != "all" ? (
                     <div>
-                      <p className="text-black font-bold py-1 border border-transparent flex items-center">Brief Overview : </p>
+                      <p className="text-black font-bold py-1 border border-transparent flex items-center">
+                        Brief Overview :{" "}
+                      </p>
                       <p className="text-gray-700 text-sm font-light">
                         {selected === "Beginner"
                           ? "Dive into the world of coding with easy-to-understand block-based programming. Introduce young children to basic programming concepts through interactive and playful activities."
                           : selected === "Middle"
-                          ? "This program introduces Pre-advanced (aged 10-12) students, aged 10-12, to coding and robotics through hands-on activities using Scratch, Etoys, and Turtle Art. Focusing on block-based programming, game creation, and tinkering, this course aims to enhance problem-solving skills, creativity, and computational thinking.Develop intermediate programming skills through Scratch, Etoys and Turtle Art"
+                          ? "Children learn the basics of programming using block-based coding platforms. These user-friendly interfaces help young minds grasp coding concepts by snapping together visual blocks to create commands and build simple programs. Enhance problem-solving skills and introduce more complex sequences."
                           : selected === "Pre-advanced"
                           ? "This program introduces pre-advanced level students, aged 10-12, to coding and robotics through hands-on activities using Scratch, Etoys, and Turtle Art. Focusing on block-based programming, game creation, and tinkering, this course aims to enhance problem-solving skills, creativity, and computational thinking.Develop intermediate programming skills through Scratch, Etoys and Turtle Art"
                           : "This program is designed for students aged 13-15 who are ready to take their coding and robotics skills to the next level. Through engaging projects and hands-on activities, students will delve deeper into the world of programming using advanced and Pictoblox. The curriculum emphasizes creativity, critical thinking, and problem-solving by integrating block-based coding, game development, and tinkering with robotics. Master advanced programming concepts and project management."}
-                      {" "}
+                      </p>{" "}
+                      <p className="text-black font-bold py-1 border border-transparent flex items-center">
+                        {selected === "Pre-advanced" || selected === "advanced"
+                          ? "Objective: "
+                         : ""}
+                      </p>{" "}
+                      <p className="text-gray-700 text-sm font-light">
+                        {selected === "Pre-advanced"
+                          ? "Enhance coding skills with Pictoblox for real-world applications."
+                          : selected === "advanced"
+                          ? "Introduce and develop robotics skills using various platforms."
+                          : ""}
+                      </p>{" "}
+                      <p className="text-black font-bold py-1 border border-transparent flex items-center">
+                        Cources :{" "}
+                      </p>
                       {data.courses?.filter(
                         (course) =>
                           course.CourseDetails?.basicInfo?.level === selected
                       ).length > 0 ? (
-                        <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        <div className="gap-2 mt-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                           {data.courses
                             ?.filter(
                               (course) =>
@@ -164,16 +180,7 @@ const Page = () => {
                               onClick={() => setSelected("Beginner")}
                               className={`cursor-pointer text-level1 font-bold py-1 border border-transparent`}
                             >
-                              Beginner (aged 3-6)|{" "}
-                              <p
-                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
-                              >
-                                Dive into the world of coding with
-                                easy-to-understand block-based programming.
-                                Introduce young children to basic programming
-                                concepts through interactive and playful
-                                activities.
-                              </p>
+                              Beginner (aged 3-6)
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -220,21 +227,7 @@ const Page = () => {
                               onClick={() => setSelected("Middle")}
                               className={`cursor-pointer text-level2 font-bold py-1 border border-transparent flex items-center`}
                             >
-                              Middle (aged 7-9) |{" "}
-                              <p
-                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
-                              >
-                                This program introduces Pre-advanced (aged
-                                10-12) students, aged 10-12, to coding and
-                                robotics through hands-on activities using
-                                Scratch, Etoys, and Turtle Art. Focusing on
-                                block-based programming, game creation, and
-                                tinkering, this course aims to enhance
-                                problem-solving skills, creativity, and
-                                computational thinking.Develop intermediate
-                                programming skills through Scratch, Etoys and
-                                Turtle Art
-                              </p>
+                              Middle (aged 7-9)
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -282,20 +275,7 @@ const Page = () => {
                               onClick={() => setSelected("Pre-advanced")}
                               className={`cursor-pointer text-level3 font-bold  py-1 border border-transparent`}
                             >
-                              Pre-advanced (aged 10-12)|{" "}
-                              <p
-                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
-                              >
-                                This program introduces pre-advanced level
-                                students, aged 10-12, to coding and robotics
-                                through hands-on activities using Scratch,
-                                Etoys, and Turtle Art. Focusing on block-based
-                                programming, game creation, and tinkering, this
-                                course aims to enhance problem-solving skills,
-                                creativity, and computational thinking.Develop
-                                intermediate programming skills through Scratch,
-                                Etoys and Turtle Art
-                              </p>
+                              Pre-advanced (aged 10-12)
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -343,22 +323,7 @@ const Page = () => {
                               onClick={() => setSelected("advanced")}
                               className={`cursor-pointer text-level4 font-bold py-1 border border-transparent`}
                             >
-                              Advanced (Aged 13-15)|{" "}
-                              <p
-                                className={`pl-2 cursor-pointer text-gray-700 text-sm font-light`}
-                              >
-                                This program is designed for students aged 13-15
-                                who are ready to take their coding and robotics
-                                skills to the next level. Through engaging
-                                projects and hands-on activities, students will
-                                delve deeper into the world of programming using
-                                advanced and Pictoblox. The curriculum
-                                emphasizes creativity, critical thinking, and
-                                problem-solving by integrating block-based
-                                coding, game development, and tinkering with
-                                robotics. Master advanced programming concepts
-                                and project management.
-                              </p>
+                              Advanced (Aged 13-15)
                             </p>
                             <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                               {data.courses
@@ -404,6 +369,16 @@ const Page = () => {
                 ""
               )}
               <div className="gap-2 mt-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-[97%] bg-white py-4 px-6 rounded-keza border-custom text-gray-700 text-sm font-light">
+              The Keza Education Future Lab curriculum is designed to provide a
+              comprehensive and engaging learning experience for children aged
+              3-15 years. By progressively introducing more complex concepts and
+              projects, students will develop strong programming, coding, and
+              robotics skills, preparing them for future technological
+              challenges.
             </div>
           </div>
         </div>
