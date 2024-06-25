@@ -179,7 +179,6 @@ export default function Team() {
               {staff.map((person) => (
                 <div key={person.title} className="flex justify-center mt-8">
                   <div className="w-[100%] h-[600px] md:w-[400px] md:h-[600px] bg-white rounded-lg">
-                  {/* <div className="w-[100%] h-[600px] md:w-[400px] md:min-h-[600px] bg-green rounded-lg"> */}
                     <div className="h-[65%] w-full  flex justify-center items-center">
                       <Image
                         src={person.image}
