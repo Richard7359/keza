@@ -11,6 +11,7 @@ import { MdTipsAndUpdates } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import useGetAllBunners from "@/app/hooks/bunner/useGetBunner";
+import { FaBlog } from "react-icons/fa";
 
 export default function Navigation() {
   const [active, setActive] = useState(true);
@@ -129,7 +130,8 @@ export default function Navigation() {
                   </strong>
                   Team
                 </a>
-                <a
+                {/* items are very cogested that's why i've removed Gallery item */}
+                {/* <a
                   href="/keza/Gallery"
                   className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
                   aria-current="page"
@@ -138,7 +140,8 @@ export default function Navigation() {
                     <GrGallery />
                   </strong>
                   Gallery
-                </a>
+                </a> */}
+
                 {/* <a
                 href="/keza/#"
                 className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
@@ -159,6 +162,16 @@ export default function Navigation() {
                 </strong>
                 Login
               </a> */}
+                <a
+                  href="/keza/blogs"
+                  className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
+                  aria-current="page"
+                >
+                  <strong className="mr-[3px]">
+                  <FaBlog />
+                  </strong>
+                  Blogs
+                </a>
                 <a
                   href="/keza/courses"
                   className="block py-2 px-3 text-black focus:bg-deepSkyBlue focus:text-white w-[100%] rounded md:bg-transparent md:text-white md:p-0 group inline-flex md:h-10 md:w-max items-center justify-center md:rounded-md md:px-4 md:py-2 md:text-md md:font-medium md:transition-colors md:hover:bg-deepSkyBlue-light md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground md:focus:outline-none md:disabled:pointer-events-none md:disabled:opacity-50 md:data-[active]:bg-accent/50 md:data-[state=open]:bg-accent/50"
