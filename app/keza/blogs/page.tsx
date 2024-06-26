@@ -24,12 +24,12 @@ const page = () => {
       </div>
 
       <div className="grid md:grid-cols-3 mb-10 shadow-sm md:hover:shadow-2xl">
-        <a href="./summer-camp-2023.html" className="inline-block w-full col-span-2 p-4">
+        <a href="/keza/blogs/1" className="inline-block w-full col-span-2 p-4">
           <Image src={Boot_camp_image} alt="Blog Image" className="w-full h-52 md:h-80 object-cover rounded-md" />
         </a>
         <div className="p-4">
           <span className="text-xs text-gray-500">Coding & programming</span>
-          <a href="./summer-camp-2023.html"
+          <a href="/keza/blogs/1"
             className="inline-block text-lg md:text-2xl font-bold mt-2 hover:underline hover:underline-offset-8">KEFL Ltd
             Empower&apos;s Future Innovators Boot Camp: Nurturing Young
             Minds for technology Excellence</a>

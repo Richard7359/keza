@@ -92,7 +92,7 @@ const Blog = () => {
           </div>
           <div className="flex justify-center my-10">
             <a
-              href="/blog/blogs.html"
+              href="/keza/blogs"
               className="border border-burgundy rounded-full px-24 md:px-28 py-3 text-burgundy hover:bg-burgundy hover:bg-opacity-10 transition duration-300"
             >
               More articles
