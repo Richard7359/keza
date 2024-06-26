@@ -1,10 +1,11 @@
 import laser_cutter_machine from "../../../images/laser-cutter-machine.webp";
 import steam_training_image from "../../../images/steam.jpg";
-import RightImageService from "./service/RightImageService";
-import LeftImageService from "./service/LeftImageService";
 import technology_gadget_image from "../../../images/technology_gadget.jpg";
 import consultancy_image from "../../../images/Consultancy@2x.webp";
 import Consultancy from "./service/Consultancy";
+import Gadegets from "./service/Gadgets";
+import Training from "./service/Training";
+import Engraving from "./service/Engraving";
 
 export default function Services() {
   const cutting_engraving = {
@@ -75,9 +76,9 @@ export default function Services() {
           each course below by click the read more.
         </p>
       </div>
-      <RightImageService service={cutting_engraving} />
-      <LeftImageService service={steam_training} />
-      <RightImageService service={technology_gadget} />
+      <Engraving service={cutting_engraving} />
+      <Training service={steam_training} />
+      <Gadegets service={technology_gadget} />
       <Consultancy service={consultancy} />
     </section>
   );

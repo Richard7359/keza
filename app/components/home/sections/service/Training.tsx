@@ -12,36 +12,21 @@ export interface ServiceProps {
     subTitle?: string;
   };
 }
-const LeftImageService = ({ service }: ServiceProps) => {
+const Training = ({ service }: ServiceProps) => {
   return (
     <div className="flex justify-center">
-      <div className="py-16 w-[80%]">
+      <div className="py-10 w-[80%]">
         <div className="container mx-auto px-4">
-          <h2 className="sm:text-2xl font-bold pb-6 uppercase">
+          <h2 className="sm:text-2xl font-bold pb-3 uppercase">
             {service.title}
           </h2>
-          <div className="hidden sm:grid sm:grid-cols-1 md:grid-cols-4 gap-8 border border-grey sm:block">
-            {service.steps.map((step, id) => {
-              return (
-                <div
-                  key={id}
-                  className="flex justify-center md:border-r border-gray"
-                >
-                  <p className="text-sm font-semibold m-4 my-8 uppercase">
-                    {step}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex flex-col md:flex-row items-center mt-8 bg-custom-gray rounded-lg">
+          <div className="flex flex-col md:flex-row items-center mt-2 bg-custom-gray rounded-lg">
             <div className="md:w-1/2 md:h-[427px] relative rounded-tr-lg sm:rounded-tr-none rounded-tl-lg  sm:rounded-bl-lg">
               <Image
                 src={service.image}
                 alt="Discovery Process"
                 className="w-full h-full object-cover rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg border border-custom-gray"
               />
-              {/* <div className="absolute inset-0 bg-black opacity-15 rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg"></div> */}
             </div>
             <div className="md:w-1/2 md:h-[427px]">
               <div className="p-8">
@@ -62,4 +47,4 @@ const LeftImageService = ({ service }: ServiceProps) => {
   );
 };
 
-export default LeftImageService;
+export default Training;

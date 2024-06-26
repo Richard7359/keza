@@ -15,7 +15,7 @@ export interface ServiceProps {
 const Consultancy = ({ service }: ServiceProps) => {
   return (
     <div className="flex justify-center">
-      <div className="py-16 w-[80%]">
+      <div className="py-10 w-[80%]">
         <div className="container mx-auto px-4">
           <h2 className="sm:text-2xl font-bold pb-3 uppercase">
             {service.title}
