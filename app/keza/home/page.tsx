@@ -1,6 +1,7 @@
 "use client";
 
 import Navigation from "../../components/Navigation_bar/Navigation";
+import Blog from "@/app/components/home/sections/blog";
 import Landing from "../../components/home/sections/landing";
 import Courses from "../../components/home/sections/courses";
 import Footer from "../../components/Footer";
@@ -27,6 +28,7 @@ export default function HomePage() {
       <FAQ />
       <NewsLetter />
       <Patners />
+      <Blog />
       <Ourteam />
       <Footer />
     </div>

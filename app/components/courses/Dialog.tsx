@@ -147,7 +147,6 @@ const ViewCourseDetails = ({ selected }: { selected: string }) => {
         View course details
       </DialogTrigger>
       <DialogContent className="w-[95%] sm:flex sm:w-[80%] h-[95vh] sm:h-[80vh]  overflow-auto p-2 sm:p-3">
-      {/* <DialogContent className="w-[80%] p-4 overflow-auto"> */}
         <div className="">
           <div className="">
             <p className="text-black font-bold py-1 border border-transparent flex items-center">
