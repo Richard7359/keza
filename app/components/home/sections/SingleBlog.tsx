@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Boot_camp_image from "../../../images/bootcamp copy.jpg"
+import Coding from "../../../images/coding.jpg"
+import Ecd from "../../../images/TrafficLight/ECD.jpg"
 
 const SingleBlog = () => {
   return (
@@ -136,7 +138,7 @@ const SingleBlog = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <a href="#" className="inline-block w-full">
             <Image
-              src={Boot_camp_image}
+              src={Ecd}
               alt="Blog Image"
               className="w-full h-40 object-cover"
             />
@@ -161,7 +163,7 @@ const SingleBlog = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <a href="#" className="inline-block w-full">
             <Image
-              src={Boot_camp_image}
+              src={Coding}
               alt="Blog Image"
               className="w-full h-40 object-cover"
             />
@@ -183,7 +185,7 @@ const SingleBlog = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <a href="#" className="inline-block w-full">
             <Image
-              src={Boot_camp_image}
+              src={Coding}
               alt="Blog Image"
               className="w-full h-40 object-cover"
             />
@@ -205,7 +207,7 @@ const SingleBlog = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <a href="#" className="inline-block w-full">
             <Image
-              src={Boot_camp_image}
+              src={Coding}
               alt="Blog Image"
               className="w-full h-40 object-cover"
             />
@@ -227,7 +229,7 @@ const SingleBlog = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <a href="#" className="inline-block w-full">
             <Image
-              src={Boot_camp_image}
+              src={Coding}
               alt="Blog Image"
               className="w-full h-40 object-cover"
             />
@@ -249,7 +251,7 @@ const SingleBlog = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <a href="#" className="inline-block w-full">
             <Image
-              src={Boot_camp_image}
+              src={Coding}
               alt="Blog Image"
               className="w-full h-40 object-cover"
             />
