@@ -4,6 +4,8 @@ import RightImageService from "./service/RightImageService";
 import LeftImageService from "./service/LeftImageService";
 import technology_gadget_image from "../../../images/technology_gadget.jpg";
 import consultancy_image from "../../../images/Consultancy@2x.webp";
+import Consultancy from "./service/Consultancy";
+
 export default function Services() {
   const cutting_engraving = {
     title: "Cutting & Engraving of Designs",
@@ -76,7 +78,7 @@ export default function Services() {
       <RightImageService service={cutting_engraving} />
       <LeftImageService service={steam_training} />
       <RightImageService service={technology_gadget} />
-      <LeftImageService service={consultancy} />
+      <Consultancy service={consultancy} />
     </section>
   );
 }
