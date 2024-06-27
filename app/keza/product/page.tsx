@@ -5,7 +5,7 @@ import Navigation from "@/app/components/Navigation_bar/Navigation";
 import Footer from "@/app/components/Footer";
 import ProductCard from "./ProductCard";
 import KezaDEvelopmentKit from "../../images/products/keza_development_kit_1.jpg";
-import KezaPiano from "../../images/products/piano_1.jpg";
+import KezaPiano from "../../images/products/piano_3.jpg";
 
 const page1 = () => {
   return (
