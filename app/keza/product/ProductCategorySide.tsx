@@ -15,7 +15,7 @@ import {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
-          <AccordionTrigger className="text-gray-700">Artificial Intelligence</AccordionTrigger>
+          <AccordionTrigger className="text-gray-700">AI</AccordionTrigger>
           <AccordionContent>
             Yes. It comes with default styles that matches the other
             components&apos; aesthetic.
