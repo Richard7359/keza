@@ -48,8 +48,6 @@ const Product2 = () => {
               <div className="w-full  p-2 border border-gray-300 m-5 rounded-sm">
                 <Image
                   src={image}
-                  width={300}
-                  height={400}
                   alt="Picture of the Logo"
                   className="m-auto w-full  object-cover"
                 />

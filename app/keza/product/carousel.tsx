@@ -26,8 +26,6 @@ export function CarouselSize(props: any) {
                 <CardContent className="flex aspect-square items-center justify-center p-1">
                   <Image
                     src={img}
-                    width={300}
-                    height={300}
                     alt="img"
                     className="w-full object-cover"
                     onClick={() => {
