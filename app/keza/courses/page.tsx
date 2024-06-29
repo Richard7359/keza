@@ -1,25 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Navigation from "../../components/Navigation_bar/Navigation";
-import Footer from "../../components/Footer";
 import Link from "next/link";
 import { FiDatabase } from "react-icons/fi";
 import {
   Breadcrumb,
-  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 import { GiBookshelf } from "react-icons/gi";
 import CourseCard from "../../components/courseCard";
-import TrafficLight from "../../images/keza-traffic-light.png";
 import useGetCourse from "@/app/hooks/courses/usegGetCourse";
-import { Badge } from "@/components/ui/badge";
 import ViewCourseDetails from "@/app/components/courses/Dialog";
 
 const Page = () => {
@@ -33,7 +26,6 @@ const Page = () => {
   return (
     <>
       <div className="bg-[#f7f8fa]">
-        <Navigation />
         <div className="md:min-h-screen">
           <div className="flex justify-center ">
             <div className="my-6 w-[97%] bg-white py-6 px-6 rounded-keza border-custom ">
@@ -387,7 +379,6 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
