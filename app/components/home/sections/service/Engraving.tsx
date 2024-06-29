@@ -45,7 +45,7 @@ const Engraving = ({ service }: ServiceProps) => {
                     <Image
                       src={service.image}
                       alt="Discovery Process"
-                      className="w-full h-full object-cover rounded-tl-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-tr-lg sm:rounded-br-lg border border-custom-gray"
+                      className="w-full h-full object-cover rounded-tr-lg sm:rounded-tr-none rounded-tl-lg sm:rounded-bl-lg border border-custom-gray"
                     />
                   </div>
                   <div className="md:w-1/2 md:h-[427px] ">
