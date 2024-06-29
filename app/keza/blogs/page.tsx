@@ -1,6 +1,4 @@
 import React from "react";
-import Navigation from "@/app/components/Navigation_bar/Navigation";
-import Footer from "@/app/components/Footer";
 import Image from "next/image";
 import Boot_camp_image from "../../images/bootcamp copy.jpg"
 import Ecd from "../../images/TrafficLight/ECD.jpg"
@@ -13,7 +11,6 @@ import Ichigo from "../../images/ichigojam.jpg"
 const page = () => {
   return (
     <div>
-      <Navigation />
       <section className="container mx-auto px-5 py-10 md:px-0">
     <article className="container mx-auto">
       <div className="flex flex-col items-center px-5 mb-8 md:p-0 md:mb-10">
@@ -174,8 +171,6 @@ const page = () => {
       </div>
     </article>
   </section>
-
-      <Footer />
     </div>
   );
 };
