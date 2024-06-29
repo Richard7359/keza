@@ -12,9 +12,9 @@ import Ichigo from "../../images/ichigojam.jpg";
 
 const page = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen bg-green">
       <Navigation />
-      <div>this is diy page</div>
+      <div className="flex-grow">this is diy page</div>
       <Footer />
     </div>
   );
