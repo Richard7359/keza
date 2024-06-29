@@ -45,10 +45,12 @@ const Engraving = ({ service }: ServiceProps) => {
                       <p className="mb-8 font-times font-custom-light text-lg">
                         {service.description}
                       </p>
-                      <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
-                        Read more{" "}
-                        <TbBrandCitymapper className="font-bold size-6 mx-2" />
-                      </button>
+                      <a href="/keza/services/engraving">
+                        <button className="bg-burgundy rounded-md px-4 py-2 text-white flex items-center my-6">
+                          Read more{" "}
+                          <TbBrandCitymapper className="font-bold size-6 mx-2" />
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>
