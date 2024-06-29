@@ -1,6 +1,4 @@
 import React from "react";
-import Navigation from "../../components/Navigation_bar/Navigation";
-import Footer from "../../components/Footer";
 import Image from "next/image";
 import child from "../../images/bootcamp-image-4.jpg";
 import bootcamp from "../../images/bootcamp-image-2.jpg";
@@ -10,7 +8,6 @@ import Child_ichigo from "../../images/child_ichigo.png";
 const page = () => {
   return (
     <div>
-      <Navigation />
       <div className="bg-white dark:bg-gray-800 h-screen py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
           <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
@@ -103,7 +100,6 @@ const page = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

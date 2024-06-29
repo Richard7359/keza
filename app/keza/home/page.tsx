@@ -1,10 +1,8 @@
 "use client";
 
-import Navigation from "../../components/Navigation_bar/Navigation";
 import Blog from "@/app/components/home/sections/blog";
 import Landing from "../../components/home/sections/landing";
 import Courses from "../../components/home/sections/courses";
-import Footer from "../../components/Footer";
 import Ourteam from "../../components/our_team";
 import Values from "../../components/Values";
 import SampleGallery from "../../components/Gallery";
@@ -18,7 +16,6 @@ export default function HomePage() {
 
   return (
     <div className="w-[100%] p-0 m-0">
-      <Navigation />
       <div className="bg-[#838b94] font-montserrat">
         <Landing />
       </div>
@@ -30,7 +27,6 @@ export default function HomePage() {
       <Patners />
       <Blog />
       <Ourteam />
-      <Footer />
     </div>
   );
 }
