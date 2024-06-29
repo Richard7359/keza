@@ -10,12 +10,10 @@ import KezaPiano from "../../images/products/piano_4.jpg";
 const page1 = () => {
   return (
     <div>
-      <Navigation />
       <div className="m-2 min-h-[40vh] flex gap-2">
         <ProductCard image={KezaDEvelopmentKit} name="Keza Development Kit" price={20} category="Keza Kit" id={1}/>
         <ProductCard image={KezaPiano} name="Keza Piano" price={20} category="Keza Kit" id={2}/>
       </div>
-      <Footer />
     </div>
   );
 };

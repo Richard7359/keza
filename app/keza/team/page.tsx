@@ -1,4 +1,3 @@
-import Navigation from "@/app/components/Navigation_bar/Navigation";
 import Image from "next/image";
 import Antoine from "../../images/Antoine-MUTSINZI.png";
 import Emile from "../../images/MUKIZA-Emile.png";
@@ -16,7 +15,6 @@ import Dei from "../../images/dei_image.jpg";
 import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import Link from "next/link";
-import Footer from "@/app/components/Footer";
 
 import { TeamDialog } from "@/app/components/team/Dialog";
 
@@ -165,7 +163,6 @@ export default function Team() {
   return (
     <div className="">
       <div className="bg-team-bg pb-4">
-        <Navigation />
         <div className="pt-4 md:pt-6">
           <h2 className="text-2xl md:text-4xl font-bold text-black tracking-wide text-center">
             Our T<strong className="text-burgundy">e</strong>am
@@ -223,7 +220,6 @@ export default function Team() {
           </div>
         </div>{" "}
       </div>
-      <Footer />
     </div>
   );
 }

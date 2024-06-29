@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import image from "../../images/products/keza_development_kit_1.jpg";
 import "../../css/product_css.css";
 
 const ProductCard = ({image, name , price , category, id}: {image: any, name: string , price : number , category : string, id:number}) => {
@@ -14,7 +13,6 @@ const ProductCard = ({image, name , price , category, id}: {image: any, name: st
             <Image
               alt="keza image"
               src={image}
-              // src="https://images.unsplash.com/photo-1706412703794-d944cd3625b3?q=80&amp;w=2940&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               className="object-cover object-center"
             />
             <div
