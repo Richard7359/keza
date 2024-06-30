@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import houseInstallation from "../../../images/House-installation@2x.png";
-import jumpingRobot from "../../../images/Jumping-robot.png";
+import irrigation from "../../../images/Irrigation.png";
+import irrigations from "../../../images/Irrigation.png";
 
 const Video2 = () => {
   return (
@@ -137,14 +138,14 @@ const Video2 = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a
-                  href="/DIY/irrigation-system.html"
+              <a
+                  href="/keza/diy/2"
                   className="inline-block w-full"
                 >
-                  <img
-                    src="/assets/Irrigation.png"
+                  <Image
+                    src={irrigation}
                     alt="Irrigation project"
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover bg-green"
                   />
                 </a>
                 <div className="p-4">
@@ -165,8 +166,8 @@ const Video2 = () => {
                   href="/DIY/mobile-robot.html"
                   className="inline-block w-full"
                 >
-                  <img
-                    src="/assets/Jumping-robot.png"
+                  <Image
+                    src={houseInstallation}
                     alt="A simple jumping robot thumbnail"
                     className="w-full h-48 object-cover"
                   />

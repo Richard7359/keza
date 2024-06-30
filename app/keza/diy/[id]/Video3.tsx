@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+
+import irrigation from "../../../images/Irrigation.png";
 import houseInstallation from "../../../images/House-installation@2x.png";
 import jumpingRobot from "../../../images/Jumping-robot.png";
 
@@ -158,8 +160,8 @@ const Video3 = () => {
                   href="/DIY/irrigation-system.html"
                   className="inline-block w-full"
                 >
-                  <img
-                    src="/assets/Irrigation.png"
+                  <Image
+                    src={irrigation}
                     alt="Irrigation system example"
                     className="w-full h-48 object-cover"
                   />
@@ -183,8 +185,8 @@ const Video3 = () => {
                   href="/DIY/house-installation.html"
                   className="inline-block w-full"
                 >
-                  <img
-                    src="/assets/House-installation.png"
+                  <Image
+                    src={irrigation}
                     alt="A thumbnail of a house and its installation for kids"
                     className="w-full h-48 object-cover"
                   />
