@@ -18,9 +18,8 @@ export default function Landing() {
                 Keza Education Future Lab [KEFL]
               </h1>
               <p className=" text-black font-serif">
-              a learning
-          platform that powers young kids of 3 to 14 years of age to become 
-          future innovators using technology .
+                a learning platform that powers young kids of 3 to 14 years of
+                age to become future innovators using technology .
               </p>
             </div>
           </div>
