@@ -198,7 +198,7 @@ const Video2 = () => {
             </p>
             <p className="text-4xl mt-8 animate-bounce">&#128071;&#127998;</p>
             <a
-              href="/contact/contact-us.html"
+              href="mailto:?to=keza.info@gmail.com&subject=Subject Here&body=Body text here"
               className="px-10 py-3 bg-deepSkyBlue hover:opacity-80 mt-8 rounded-md text-white"
             >
               Send us a message

@@ -157,7 +157,7 @@ const Video3 = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                 <a
-                  href="/DIY/irrigation-system.html"
+                  href="/keza/diy/1"
                   className="inline-block w-full"
                 >
                   <Image
@@ -171,7 +171,7 @@ const Video3 = () => {
                     Tinkering & Making
                   </span>
                   <a
-                    href="/DIY/irrigation-system.html"
+                    href="/keza/diy/1"
                     className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
                   >
                     A guide on Making and automating water supply irrigation
@@ -182,11 +182,11 @@ const Video3 = () => {
 
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                 <a
-                  href="/DIY/house-installation.html"
+                  href="/keza/diy/2"
                   className="inline-block w-full"
                 >
                   <Image
-                    src={irrigation}
+                    src={houseInstallation}
                     alt="A thumbnail of a house and its installation for kids"
                     className="w-full h-48 object-cover"
                   />
@@ -196,7 +196,7 @@ const Video3 = () => {
                     Tinkering & Making
                   </span>
                   <a
-                    href="/DIY/house-installation.html"
+                    href="/keza/diy/2"
                     className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
                   >
                     A guide on how to make a house and its installation
@@ -216,7 +216,7 @@ const Video3 = () => {
             </p>
             <p className="text-4xl mt-8 animate-bounce">&#128071;&#127998;</p>
             <a
-              href="/contact/contact-us.html"
+              href="mailto:?to=keza.info@gmail.com&subject=Subject Here&body=Body text here"
               className="px-10 py-3 bg-deepSkyBlue hover:opacity-80 mt-8 rounded-md text-white"
             >
               Send us a message
