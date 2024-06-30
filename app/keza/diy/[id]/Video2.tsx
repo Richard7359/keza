@@ -3,18 +3,18 @@ import Image from "next/image";
 import houseInstallation from "../../../images/House-installation@2x.png";
 import jumpingRobot from "../../../images/Jumping-robot.png";
 
-const Video1 = () => {
+const Video2 = () => {
   return (
     <div>
       <main>
         <section className="container mx-auto px-3 md:px-0">
           <div className="flex flex-col items-center text-center my-10 md:mt-20 md:mb-24 px-3 md:p-0">
             <h2 className="font-extrabold text-3xl md:text-5xl md:pr-8">
-              A guide on Making and automating water supply irrigation system
+              A guide on how to make a house and its installation
             </h2>
             <p className="text-sm md:text-lg mt-1 text-paragraph">
               By following the below ste-by-step guide, you can make your own
-              irrigation system using materials you can find anywhere
+              house and its installation using materials you can find anywhere
             </p>
           </div>
 
@@ -23,7 +23,7 @@ const Video1 = () => {
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/vv5fhFJeNr8?si=B3rtVyarCfjE48-M"
+                src="https://www.youtube.com/embed/Id2K_MMQ1Oo?si=3mOqRzZ6ALr3mLVj"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -35,67 +35,92 @@ const Video1 = () => {
               <h3 className="font-bold text-2xl md:text-3xl mb-4 md:mt-0">
                 Steps to follow
               </h3>
-
-              <h4 className="font-bold text-paragraph">
-                The need for Irrigation System
-              </h4>
               <p className="text-paragraph">
-                Discuss why we need irrigation. Explain that sometimes it
-                doesn&apos;t rain enough, and plants need water to grow. Show
-                pictures or simple diagrams of dry land and healthy plants to
-                illustrate the difference.Discuss the benefits of irrigation,
-                such as helping plants grow strong and healthy, ensuring a good
-                harvest, and providing food for people and animals.
+                The approach of tinkering and making electricity will help the
+                learner to manage electricity in SET P5 (Unit 15). Click on a
+                step to open it.
               </p>
               <br />
               <div className="w-full drop-shadow-md rounded-md border border-badge p-4 text-paragraph">
                 <details className="px-3 py-4 cursor-pointer">
                   <summary>Step 1: Gathering Materials</summary>
-                  <p className="py-2"></p>
-                </details>
-                <hr />
-                <details className="px-3 py-4 cursor-pointer">
-                  <summary>Step 2: Cutting a bottle</summary>
-                  <p className="py-2">Cutting a bottle.</p>
-                </details>
-                <hr />
-                <details className="px-3 py-4 cursor-pointer">
-                  <summary>Step 3: Connect pipe to the immersible pump</summary>
-                  <p className="py-2">Connect pipe to the immersible pump.</p>
-                </details>
-                <hr />
-                <details className="px-3 py-4 cursor-pointer">
-                  <summary>Step 4: Put water into cutting bottle</summary>
-                  <p className="py-2">Put water into cutting bottle.</p>
-                </details>
-                <hr />
-                <details className="px-3 py-4 cursor-pointer">
-                  <summary>Step 5: Pipe to the immersible pump</summary>
                   <p className="py-2">
-                    Pipe to the immersible pump put into cutting bottle that
-                    contain water.
+                    Gathering Materials. For this project you will need
+                    <strong>cardboard</strong>, <strong>scissor</strong>,
+                    <strong>cutter</strong>, <strong>glue gun</strong>,
+                    <strong>glue stick</strong>, <strong>maker</strong>,
+                    <strong>ruler</strong>, <strong>battery/dry cells</strong>,
+                    <strong>LED</strong>, <strong>wires</strong>,
+                    <strong>battery holder</strong>,
+                    <strong>,and switch.</strong>
                   </p>
                 </details>
                 <hr />
                 <details className="px-3 py-4 cursor-pointer">
-                  <summary>Step 6: Preparation dry land</summary>
-                  <p className="py-2">Preparation dry land.</p>
+                  <summary>Step 2: Sketching & Planning</summary>
+                  <p className="py-2">Sketching & Planning.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 3: Measuring Out the Pieces</summary>
+                  <p className="py-2">Measuring Out the Pieces.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 4: Cut Out Space for the Roof</summary>
+                  <p className="py-2">Cut Out Space for the Roof.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 5: Assembling the Pieces</summary>
+                  <p className="py-2">Assembling the Pieces.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 6: Making a Base</summary>
+                  <p className="py-2">Making a Base.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 7: Measuring Out the Roof</summary>
+                  <p className="py-2">Measuring Out the Roof.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 8: Making Doors and Windows</summary>
+                  <p className="py-2">Making Doors and Windows.</p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 9: Assembling materials</summary>
+                  <p className="py-2">
+                    Assembling the materials of making a house.
+                  </p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 10: Connect the wires to the LED</summary>
+                  <p className="py-2">
+                    Connect the wires to the LED respectively positive and
+                    negative position
+                  </p>
+                </details>
+                <hr />
+                <details className="px-3 py-4 cursor-pointer">
+                  <summary>Step 11: Connect wires to the switch</summary>
+                  <p className="py-2">Connect wires to the switch</p>
                 </details>
                 <hr />
                 <details className="px-3 py-4 cursor-pointer">
                   <summary>
-                    Step 7: Coonect immersible pump to the battery
+                    Step 12: Connect switch with source of energy
                   </summary>
-                  <p className="py-2">
-                    Battery holder with switch connect immersible pump
-                  </p>
+                  <p className="py-2">Connect switch with source of energy</p>
                 </details>
                 <hr />
                 <details className="px-3 py-4 cursor-pointer">
-                  <summary>Step 8: Start your irrigation process</summary>
-                  <p className="py-2">
-                    Irrigation process start by switch on .
-                  </p>
+                  <summary>Step 13: Final product</summary>
+                  <p className="py-2">Final product (House) with electricity</p>
                 </details>
               </div>
             </div>
@@ -112,9 +137,12 @@ const Video1 = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a href="/keza/diy/2" className="inline-block w-full">
-                  <Image
-                    src={houseInstallation}
+                <a
+                  href="/DIY/irrigation-system.html"
+                  className="inline-block w-full"
+                >
+                  <img
+                    src="/assets/Irrigation.png"
                     alt="Irrigation project"
                     className="w-full h-48 object-cover"
                   />
@@ -124,17 +152,21 @@ const Video1 = () => {
                     Tinkering & Making
                   </span>
                   <a
-                    href="/keza/diy/2"
+                    href="/DIY/irrigation-system.html"
                     className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
                   >
-                    A guide on how to make a house and its installation
+                    A guide on Making and automating water supply irrigation
+                    project
                   </a>
                 </div>
               </div>
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a href="/keza/diy/3" className="inline-block w-full">
-                  <Image
-                    src={jumpingRobot}
+                <a
+                  href="/DIY/mobile-robot.html"
+                  className="inline-block w-full"
+                >
+                  <img
+                    src="/assets/Jumping-robot.png"
                     alt="A simple jumping robot thumbnail"
                     className="w-full h-48 object-cover"
                   />
@@ -144,7 +176,7 @@ const Video1 = () => {
                     Tinkering & Making
                   </span>
                   <a
-                    href="/keza/diy/3"
+                    href="/DIY/mobile-robot.html"
                     className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
                   >
                     A guide on making a Mobile robot using materials you can
@@ -154,6 +186,7 @@ const Video1 = () => {
               </div>
             </div>
           </article>
+
           <article className="container mx-auto my-10 px-3 md:px-0 flex flex-col justify-center items-center">
             <h3 className="font-extrabold text-3xl text-darkGrey text-center md:text-left pt-10 md:pt-0 md:text-4xl md:pr-8">
               Want to be trained?
@@ -164,7 +197,7 @@ const Video1 = () => {
             </p>
             <p className="text-4xl mt-8 animate-bounce">&#128071;&#127998;</p>
             <a
-              href="mailto:?to=keza.info@gmail.com&subject=Subject Here&body=Body text here"
+              href="/contact/contact-us.html"
               className="px-10 py-3 bg-deepSkyBlue hover:opacity-80 mt-8 rounded-md text-white"
             >
               Send us a message
@@ -176,4 +209,4 @@ const Video1 = () => {
   );
 };
 
-export default Video1;
+export default Video2;
