@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import houseInstallation from "../../../images/House-installation@2x.png";
+import jumpingRobot from "../../../images/Jumping-robot.png";
 
 const Video1 = () => {
   return (
@@ -18,16 +20,6 @@ const Video1 = () => {
 
           <article className="course grid md:grid-cols-2 md:gap-x-14 md:my-20 px-3 md:px-0">
             <div>
-              {/* <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/vv5fhFJeNr8?si=B3rtVyarCfjE48-M"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                className="rounded-md sticky top-0 mb-4 md:mb-0 w-full"
-              ></iframe> */}
               <iframe
                 width="560"
                 height="315"
@@ -38,13 +30,7 @@ const Video1 = () => {
                 allowFullScreen
                 className="rounded-md sticky top-0 mb-4 md:mb-0 w-full"
               />
-              {/* <iframe
-                src="https://www.youtube.com/watch?v=gfU1iZnjRZM"
-                frameBorder="0"
-                allowFullScreen 
-              /> */}
             </div>
-
             <div className="course_content">
               <h3 className="font-bold text-2xl md:text-3xl mb-4 md:mt-0">
                 Steps to follow
@@ -62,7 +48,6 @@ const Video1 = () => {
                 harvest, and providing food for people and animals.
               </p>
               <br />
-
               <div className="w-full drop-shadow-md rounded-md border border-badge p-4 text-paragraph">
                 <details className="px-3 py-4 cursor-pointer">
                   <summary>Step 1: Gathering Materials</summary>
@@ -116,7 +101,6 @@ const Video1 = () => {
             </div>
           </article>
         </section>
-
         <section>
           <article className="container mx-auto px-3 mt-20 md:mb-24 md:px-0">
             <div className="text-center md:items-start md:text-left my-10 md:mt-36 md:mb-24 md:p-0">
@@ -128,12 +112,9 @@ const Video1 = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a
-                  href="/DIY/house-installation.html"
-                  className="inline-block w-full"
-                >
+                <a href="/keza/diy/2" className="inline-block w-full">
                   <Image
-                    src="/assets/House-installation.png"
+                    src={houseInstallation}
                     alt="Irrigation project"
                     className="w-full h-48 object-cover"
                   />
@@ -143,21 +124,17 @@ const Video1 = () => {
                     Tinkering & Making
                   </span>
                   <a
-                    href="/DIY/house-installation.html"
+                    href="/keza/diy/2"
                     className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
                   >
                     A guide on how to make a house and its installation
                   </a>
                 </div>
               </div>
-
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a
-                  href="/DIY/mobile-robot.html"
-                  className="inline-block w-full"
-                >
+                <a href="/keza/diy/3" className="inline-block w-full">
                   <Image
-                    src="/assets/Jumping-robot.png"
+                    src={jumpingRobot}
                     alt="A simple jumping robot thumbnail"
                     className="w-full h-48 object-cover"
                   />
@@ -167,7 +144,7 @@ const Video1 = () => {
                     Tinkering & Making
                   </span>
                   <a
-                    href="/DIY/mobile-robot.html"
+                    href="/keza/diy/3"
                     className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
                   >
                     A guide on making a Mobile robot using materials you can
@@ -177,7 +154,6 @@ const Video1 = () => {
               </div>
             </div>
           </article>
-
           <article className="container mx-auto my-10 px-3 md:px-0 flex flex-col justify-center items-center">
             <h3 className="font-extrabold text-3xl text-darkGrey text-center md:text-left pt-10 md:pt-0 md:text-4xl md:pr-8">
               Want to be trained?

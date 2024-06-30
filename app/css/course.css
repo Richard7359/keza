@@ -32,6 +32,14 @@
   border-color: rgb(255 159 26 / var(--tw-border-opacity));
 }
 
+details > summary {
+  list-style-type: none;
+}
+
+details > summary::before {
+  content: "▶️";
+}
+
 .list > li {
   list-style-type: "✅";
   padding-inline-start: 0.5rem;

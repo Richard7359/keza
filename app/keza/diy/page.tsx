@@ -34,7 +34,7 @@ const page = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                 <a
-                  href="/DIY/irrigation-system.html"
+                  href="/keza/diy/1"
                   className="inline-block w-full"
                 >
                   <Image
