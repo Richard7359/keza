@@ -52,6 +52,7 @@ export default function Courses() {
   const services = [
     {
       title: "Robotics",
+      url: "/keza/robotics",
       description:
         "Robotics is a technology that encompasses the design, building, implementation, and operation of robots. Robotics includes applications designed to conduct a specific task or series of tasks for commercial purposes",
       images: [
@@ -71,6 +72,7 @@ export default function Courses() {
     },
     {
       title: "Interactive engineering",
+      url: "/keza/interactive-engineering",
       images: [
         {
           src: bootCamp,
@@ -90,6 +92,7 @@ export default function Courses() {
     },
     {
       title: "Coding & Programming",
+      url: "/keza/coding-programming",
       description:
         "Coding is about creating instructions for computers using programming languages. For children, starting with block-based languages like Scratch helps build foundational skills through drag-and-drop code blocks. Programming involves making software and games, taught to kids through languages like Turtle Art and Scratch, fostering web app and game creation.",
       images: [
@@ -109,6 +112,7 @@ export default function Courses() {
     },
     {
       title: "Artificial intelligence / AI",
+      url: "/keza/ai",
       images: [
         {
           src: ai1,
@@ -193,10 +197,12 @@ export default function Courses() {
                 {services[selected].title}
               </p>
               <p className="max-w-xl ">{services[selected].description}</p>
+              <a href={services[selected].url}>
               <button className="bg-deepSkyBlue rounded-md px-4 py-2 text-white flex items-center my-6">
                 Explore more{" "}
                 <TbBrandCitymapper className="font-bold size-6 mx-2" />
               </button>
+              </a>
             </div>
           </div>
         </div>
