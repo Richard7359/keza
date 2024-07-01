@@ -1,7 +1,7 @@
 "use client";
 
-import bootcamp from "../../../images/bootcamp-image-2.jpg";
-import Keza_logo from "../../../images/burgundy-logo.webp";
+import bootcamp from "../../images/bootcamp-image-2.jpg";
+import Keza_logo from "../../images/burgundy-logo.webp";
 import Image from "next/image";
 import Link from "next/link";
 

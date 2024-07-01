@@ -23,7 +23,7 @@ const Page = () => {
               <Button className="mx-2">
                 <p className="flex items-center gap-2">
                   <MdAddCard />
-                  <Link href="/keza/dashboard/addCourse">Add Course</Link>
+                  <Link href="/dashboard/addCourse">Add Course</Link>
                 </p>
               </Button>
             </div>
