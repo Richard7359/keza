@@ -4,10 +4,14 @@ import keza_kit1 from "../../../images/kezaz-development-kit.png";
 import keza_kit2 from "../../../images/keza-forklift.png";
 import keza_kit3 from "../../../images/keza-kid-trainer-kit-full.png";
 import keza_kit4 from "../../../images/keza-traffic-light.png";
+import Title from "../../Title";
 
 const Kits = () => {
   return (
-    <div className="my-28">
+    <div className="mb-16">
+      <div className="flex justify-center pt-12">
+        <Title title="Locally made materials" />
+      </div>
       <article className="container_kit mx-auto px-3 md:px-0">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold">
