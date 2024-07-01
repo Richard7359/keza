@@ -92,16 +92,16 @@ const Footer = () => {
               >
                 About
               </a>
-              <a href="" className="hover:text-white">
+              <a href="/keza/blogs" className="hover:text-white">
                 Blog
               </a>
-              <a
+              {/* <a
                 href=""
                 className="hover:text-white"
               >
                 Testimonials
-              </a>
-              <a href="#" className="hover:text-white">
+              </a> */}
+              <a href="/keza/Gallery" className="hover:text-white">
                 Gallery
               </a>
               <a href="#" className="hover:text-white">
