@@ -42,51 +42,45 @@ const Product4 = () => {
   return (
     <div className="">
       <main>
-        <section className="container mx-auto">
-          <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
-            <div>
-              <Image
-                src={keza_development_kit_1}
-                alt=""
-                className="rounded-md sticky top-0 mb-10 md:pt-10 overflow-hidden"
-              />
-            </div>
-            <div className="text-paragraph">
-              <h3 className="font-bold text-2xl mb-4 text-darkGrey">
-                Keza Development Kit
-              </h3>
-              <p>
-                The Keza Development Kit is an IoT (Internet of Things) based
-                educational kit created by Keza Education Future Lab. It is
-                specifically designed for kids to engage in robotics, coding,
-                and programming activities. The kit includes an advanced
-                programming platform called PictoBlox, which is based on
-                Scratch, making it user-friendly for children.
-              </p>
-              <br />
-              <p>
-                With the Keza Development Kit, kids can explore and create over
-                15 different projects. These projects cover various
-                functionalities, such as:
-              </p>
-              <br />
-              <ul className="list pl-5">
-                <li>Obstacle sensing</li>
-                <li>Thermometer implementation</li>
-                <li>Traffic light simulation</li>
-                <li>Alarm system setup</li>
-                <li>and even Home automation systems</li>
-              </ul>
-              <br />
-              <p>
-                The kit aims to provide a hands-on and interactive learning
-                experience, allowing children to learn key concepts in
-                technology, programming, and IoT while having fun building and
-                experimenting with different projects.
-              </p>
-            </div>
-          </article>
-        </section>
+      <section className="container mx-auto">
+      <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
+        <div>
+          <img src="/assets/keza-traffic-light.png" alt=""
+            className="rounded-md sticky top-0 mb-10 md:pt-10 overflow-hidden" />
+        </div>
+        <div className="text-paragraph">
+          <h3 className="font-bold text-2xl mb-4 text-darkGrey">
+            Keza Traffic Light
+          </h3>
+          <p>
+            <strong>Keza Traffic Light</strong> serves as an educational
+            resource created by Keza Education Future Lab (KEFL). KEFL
+            introduces the concepts of programming and robotics to children
+            within the 8 to 11 age group, aiming to foster proficiencies in
+            key scientific areas encompassing physical sciences, life
+            sciences, earth sciences, and engineering.
+          </p>
+          <br />
+          <p>
+            The KEFL engineering team conceived the idea of developing the
+            Keza Traffic Light kit as an educational tool with the intention
+            of illustrating the connections between the functions of traffic
+            lights and their influence on daily life. This traffic light kit
+            is utilized to teach various primary-level subjects, including:
+          </p>
+          <br />
+          <ul className="list pl-5">
+            <li>Energy</li>
+            <li>Light, and</li>
+            <li>Electricity</li>
+          </ul>
+          <br />
+          <p>
+            through an engaging approach centered around play-based learning.
+          </p>
+        </div>
+      </article>
+    </section>
         <Other_kefl_kit />
       </main>
     </div>

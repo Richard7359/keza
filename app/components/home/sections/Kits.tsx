@@ -7,7 +7,7 @@ import keza_kit4 from "../../../images/keza-traffic-light.png";
 
 const Kits = () => {
   return (
-    <div className="my-8">
+    <div className="my-28">
       <article className="container_kit mx-auto px-3 md:px-0">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold">
