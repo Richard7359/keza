@@ -11,7 +11,7 @@ const Page = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <div>
+    <div >
       {id == "1" && <Video1 />}
       {id == "2" && <Video2 />}
       {id == "3" && <Video3 />}

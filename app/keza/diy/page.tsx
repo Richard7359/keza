@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import Image from "next/image";
 import Navigation from "@/app/components/Navigation_bar/Navigation";
@@ -13,10 +15,15 @@ import irrigation from "../../images/Irrigation.png";
 import houseInstallation from "../../images/House-installation@2x.png";
 import jumpingRobot from "../../images/Jumping-robot.png";
 import News_Letter from "../../images/news-letter-img.svg";
+import useGetCourse from "@/app/hooks/courses/usegGetCourse";
 
-const page = () => {
+const Page = () => {
+  const { data, isLoading } = useGetCourse();
+  React.useEffect(() => {
+    console.log("all Courses", data);
+  });
   return (
-    <div >
+    <div>
       <main>
         <section>
           <article className="container mx-auto px-3 md:px-0">
@@ -31,12 +38,9 @@ const page = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a
-                  href="/keza/diy/2"
-                  className="inline-block w-full"
-                >
+                <a href="/keza/diy/2" className="inline-block w-full">
                   <Image
                     src={irrigation}
                     alt="Irrigation project"
@@ -58,10 +62,7 @@ const page = () => {
               </div>
 
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a
-                  href="/keza/diy/2"
-                  className="inline-block w-full"
-                >
+                <a href="/keza/diy/2" className="inline-block w-full">
                   <Image
                     src={houseInstallation}
                     alt="A thumbnail of a house and its installation for kids"
@@ -82,10 +83,7 @@ const page = () => {
               </div>
 
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <a
-                  href="/keza/diy/3"
-                  className="inline-block w-full"
-                >
+                <a href="/keza/diy/3" className="inline-block w-full">
                   <Image
                     src={jumpingRobot}
                     alt="A simple jumping robot thumbnail"
@@ -105,6 +103,35 @@ const page = () => {
                   </a>
                 </div>
               </div>
+              {data?.courses.map((course) => {
+                return (
+                  <div
+                    className="bg-white rounded-lg shadow-sm overflow-hidden"
+                    key={course.id}
+                  >
+                    <a href={`/keza/courses/${course.id}`} className="inline-block w-full">
+                      <Image
+                        src={process.env.NEXT_PUBLIC_IMAGE_URL + course.CourseDetails?.basicInfo?.attachment}
+                        width={500}
+                        height={500}
+                        alt="A simple jumping robot thumbnail"
+                        className="w-full h-48 object-cover"
+                      />
+                    </a>
+                    <div className="p-4 flex flex-col">
+                      <span className="text-xs text-gray-500">
+                        Tinkering & Making
+                      </span>
+                      <a
+                        href={`/keza/courses/${course.id}`}
+                        className="inline-block text-lg font-semibold mt-2 hover:underline hover:underline-offset-8"
+                      >
+                        {course.CourseDetails?.basicInfo?.title}
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="flex flex-col items-center text-center my-10 md:mt-20 md:mb-24 px-3 md:p-0">
@@ -159,4 +186,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
