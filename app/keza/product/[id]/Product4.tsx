@@ -9,6 +9,7 @@ import keza_development_kit_1 from "../../../images/products/keza_development_ki
 import keza_development_kit_2 from "../../../images/products/keza_development_kit_2.jpg";
 import keza_development_kit_3 from "../../../images/products/keza_development_kit_3.jpg";
 import keza_development_kit_4 from "../../../images/products/keza_development_kit_4.jpg";
+import keza_kit4 from "../../../images/keza-traffic-light.png";
 import { CarouselSize } from "../carousel";
 import Link from "next/link";
 import { TbGardenCart } from "react-icons/tb";
@@ -45,7 +46,7 @@ const Product4 = () => {
       <section className="container mx-auto">
       <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
         <div>
-          <img src="/assets/keza-traffic-light.png" alt=""
+          <Image src={keza_kit4} alt=""
             className="rounded-md sticky top-0 mb-10 md:pt-10 overflow-hidden" />
         </div>
         <div className="text-paragraph">
