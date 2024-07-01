@@ -32,7 +32,7 @@ const Other_kefl_kit = () => {
           </a>
 
           <a
-            href="/kefl-kits/keza-forklift.html"
+            href="/keza/product/2"
             className="card_kit bg-white grid p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-40 h-52 border rounded"
           >
             <h3 className="font-semibold mb-5">Keza Forklift</h3>
@@ -44,7 +44,7 @@ const Other_kefl_kit = () => {
           </a>
 
           <a
-            href="/kefl-kits/keza-kid-trainer-kit.html"
+            href="/keza/product/3"
             className="card_kit bg-white grid p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-40 h-52 border rounded"
           >
             <h3 className="font-semibold mb-5">Keza Kid Trainer Kit</h3>
@@ -56,7 +56,7 @@ const Other_kefl_kit = () => {
           </a>
 
           <a
-            href="/kefl-kits/keza-traffic-light.html"
+            href="/keza/product/4"
             className="card_kit bg-white grid p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-40 h-52 border rounded"
           >
             <h3 className="font-semibold mb-5">Keza Traffic Light</h3>
