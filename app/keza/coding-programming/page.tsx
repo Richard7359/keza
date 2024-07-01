@@ -143,12 +143,12 @@ const page = () => {
         <section>
           <article className="container mx-auto px-3  md:px-0">
             <div className="flex flex-col items-center text-center my-10 md:mt-16 md:mb-14 md:p-0">
-              <h2 className="font-extrabold text-3xl md:text-5xl md:pr-8">
-                Robotics garelly
+              <h2 className="font-extrabold text-3xl md:text-4xl md:pr-8">
+                Kids doing programming at KEFL
               </h2>
-              <p className="text-sm mt-1 text-paragraph text-center">
-                Young leaners at in the robotics className practicing making of
-                robots
+              <p className="text-sm mt-1 text-paragraph">
+                Testimonials of the kids actively practicing coding &
+                programming
               </p>
             </div>
             <Robotics_gallery />
