@@ -4,7 +4,7 @@ import Robotics_gallery from "../services/engraving/Robotics_gallery";
 import coding from "../../images/coding.jpg";
 import interactive from "../../images/interactive-engineering-for-kids.jpeg";
 import interactive_enginnering from "../../images/interactive_engineering1.png";
-import ai from "../../images/ai2.png";
+import ai from "../../images/AI copy.png";
 
 const page = () => {
   return (

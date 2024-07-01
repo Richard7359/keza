@@ -11,34 +11,130 @@ const page = () => {
     <div>
       <main>
         <section className="container mx-auto">
-          <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
-            <div>
-              <Image
-                src={interactive}
-                alt=""
-                className="rounded-md sticky top-0 overflow-hidden"
+          <div className="flex flex-col items-center text-center md:p-0 md:mb-24">
+            <h2 className="font-extrabold text-3xl md:text-4xl md:pr-8">
+              Coding and programming
+            </h2>
+            <p className="text-sm mt-3 text-paragraph">
+              KEFL offers comprehensive training programs for both teachers and
+              students in the use of Scratch, Turtle Art, and Etoys as
+              programming languages. Below are short description of each
+            </p>
+          </div>
+
+          <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0 mb-10">
+            <figure>
+              {/* <iframe
+                className="rounded-md w-full"
+                height="315"
+                src="https://www.youtube.com/embed/m_iqCFUkCqM?si=29X0p9AVYiW_SY7O"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe> */}
+              <iframe
+                src="https://www.youtube.com/embed/m_iqCFUkCqM?si=29X0p9AVYiW_SY7O"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-md w-full"
+                height="315"
               />
-            </div>
+              <figcaption className="text-sm text-center italic mt-1">
+                Scratch programming example of two people having conversion
+              </figcaption>
+            </figure>
+
             <div>
-              <h3 className="font-bold text-2xl md:text-3xl mb-4 md:mt-0">
-                Robotics for kids
+              <h3 className="font-bold text-2xl mb-4 mt-4 md:mt-0">
+                Scracth programming
               </h3>
               <p className="text-paragraph">
-                Robotics is a technology that encompasses the design, building,
-                implementation, and operation of robots. Robotics includes
-                applications designed to conduct a specific task or series of
-                tasks for commercial purposes
+                Scratch is a beginner-friendly programming language that allows
+                students to create interactive stories, animations, and games by
+                snapping together visual code blocks. KEFL&apos;s Scratch
+                training equips teachers with the skills to teach coding
+                concepts effectively and engage students in creative coding
+                projects. For students, Scratch fosters creativity,
+                problem-solving, and logical thinking while making coding
+                accessible and enjoyable.
               </p>
-              <br />
+            </div>
+          </article>
+
+          <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
+            <div>
+              <h3 className="font-bold text-2xl mb-4 mt-4 md:mt-0">
+                Turtle art
+              </h3>
               <p className="text-paragraph">
-                When teaching kids coding, programming, robotics and interactive
-                engineering, it is important to make the learning process fun
-                and engaging. Teachers can use games, puzzles, and other
-                interactive activities to help kids learn these skills.
-                Additionally, teachers should encourage kids to collaborate with
-                each other, share their ideas, and learn from their mistakes. By
-                doing so, kids can develop important 21st-century skills that
-                will be valuable in their future careers.
+                Turtle Art is a unique programming language that uses a
+                graphical interface where students command a turtle to create
+                art and designs through simple commands. KEFL&apos;s Turtle Art
+                training empowers teachers to guide students in exploring math
+                and geometry concepts through artistic expression. Students can
+                use Turtle Art to visualize abstract ideas and develop
+                algorithmic thinking.
+              </p>
+            </div>
+
+            <figure>
+              {/* <iframe className="rounded-md w-full" height="315"
+            src="https://www.youtube.com/embed/NjFuB9TLTaw?si=OpvHddaT1LcicIIX" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe> */}
+              <iframe
+                src="https://www.youtube.com/embed/NjFuB9TLTaw?si=OpvHddaT1LcicIIX"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-md w-full"
+                height="315"
+              />
+              <figcaption className="text-sm text-center italic mt-1">
+                Turtle Art programming example of building a house
+              </figcaption>
+            </figure>
+          </article>
+
+          <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
+            <figure>
+              {/* <iframe
+                className="rounded-md w-full"
+                height="315"
+                src="https://www.youtube.com/embed/p-37NB9uCeI?si=udhbwiXDy3VoHIf2"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe> */}
+              <iframe
+                src="https://www.youtube.com/embed/p-37NB9uCeI?si=udhbwiXDy3VoHIf2"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-md w-full"
+                height="315"
+              />
+              <figcaption className="text-sm text-center italic mt-1">
+                Etoys programming example of making a car move in the road
+              </figcaption>
+            </figure>
+
+            <div>
+              <h3 className="font-bold text-2xl mb-4 mt-4 md:mt-0">Etoys</h3>
+              <p className="text-paragraph">
+                Etoys is an educational programming environment that enables
+                students to create interactive simulations, games, and
+                multimedia projects. KEFL&apos;s Etoys training equips teachers
+                with the tools to incorporate multimedia and interactive content
+                into their curriculum. Etoys encourages students to experiment,
+                collaborate, and learn through hands-on digital creation.
               </p>
             </div>
           </article>
@@ -56,44 +152,6 @@ const page = () => {
               </p>
             </div>
             <Robotics_gallery />
-            {/* <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 mb-10">
-          <!-- Image 1 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- image 2 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp-image-4.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 3 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 4 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 5 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp-image-4.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 6 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp-image-4.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 7 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 8 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 9 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-        </div> */}
           </article>
         </section>
 

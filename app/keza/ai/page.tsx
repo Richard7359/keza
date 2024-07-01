@@ -4,98 +4,91 @@ import Robotics_gallery from "../services/engraving/Robotics_gallery";
 import coding from "../../images/coding.jpg";
 import interactive from "../../images/interactive-engineering-for-kids.jpeg";
 import interactive_enginnering from "../../images/interactive_engineering1.png";
-import ai from "../../images/ai2.png";
+import ai from "../../images/AI copy.png";
 
 const page = () => {
   return (
     <div>
       <main>
-        <section className="container mx-auto">
-          <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
-            <div>
-              <Image
-                src={interactive}
-                alt=""
-                className="rounded-md sticky top-0 overflow-hidden"
-              />
-            </div>
-            <div>
-              <h3 className="font-bold text-2xl md:text-3xl mb-4 md:mt-0">
-                Robotics for kids
-              </h3>
-              <p className="text-paragraph">
-                Robotics is a technology that encompasses the design, building,
-                implementation, and operation of robots. Robotics includes
-                applications designed to conduct a specific task or series of
-                tasks for commercial purposes
-              </p>
-              <br />
-              <p className="text-paragraph">
-                When teaching kids coding, programming, robotics and interactive
-                engineering, it is important to make the learning process fun
-                and engaging. Teachers can use games, puzzles, and other
-                interactive activities to help kids learn these skills.
-                Additionally, teachers should encourage kids to collaborate with
-                each other, share their ideas, and learn from their mistakes. By
-                doing so, kids can develop important 21st-century skills that
-                will be valuable in their future careers.
-              </p>
-            </div>
-          </article>
-        </section>
+      <section className="container mx-auto">
+      <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
 
-        <section>
-          <article className="container mx-auto px-3  md:px-0">
-            <div className="flex flex-col items-center text-center my-10 md:mt-16 md:mb-14 md:p-0">
-              <h2 className="font-extrabold text-3xl md:text-5xl md:pr-8">
-                Robotics garelly
-              </h2>
-              <p className="text-sm mt-1 text-paragraph text-center">
-                Young leaners at in the robotics className practicing making of
-                robots
-              </p>
-            </div>
-            <Robotics_gallery />
-            {/* <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 mb-10">
-          <!-- Image 1 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- image 2 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp-image-4.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 3 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 4 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 5 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp-image-4.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 6 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp-image-4.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 7 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 8 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-          <!-- Image 9 -->
-          <div className="h-60">
-            <Image src="/assets/bootcamp.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-          </div>
-        </div> */}
-          </article>
-        </section>
+        <div>
+          <Image src={ai} alt="" className="rounded-md sticky top-0 overflow-hidden mb-4 md:mb-0" />
+        </div>
+        <div>
+          <h3 className="font-bold text-2xl md:text-3xl mb-4 md:mt-0">
+            Artificial Intelligence for kids
+          </h3>
+          <p className="text-paragraph">
+            At Keza Education Future Lab Ltd, we are dedicated to shaping the
+            future of education through innovation and technology. As part of
+            our commitment to providing cutting-edge educational solutions, we
+            are excited to announce our latest endeavor: the introduction of
+            Artificial Intelligence (AI) into the realm of education.
+          </p>
+          <br />
+          <p className="text-paragraph">
+            AI has the potential to revolutionize the way we teach and learn,
+            offering unprecedented opportunities for personalized, efficient,
+            and engaging educational experiences. Through our AI initiative,
+            we aim to harness the power of AI to empower both educators and
+            students alike.
+          </p>
+          <br />
+          <p className="text-paragraph">
+            Here&apos;s what you can expect from our AI-driven education solutions:
+          </p>
+          <br />
+          <ul className="list pl-5 text-paragraph flex flex-col gap-y-4">
+            <li>
+              <strong>Personalized Learning:</strong> AI algorithms analyze
+              individual learning styles and adapt content to meet the unique
+              needs of each student, ensuring that learning is tailored to
+              maximize understanding and retention.
+            </li>
+
+            <li>
+              <strong>Intelligent Tutoring:</strong> Our AI-powered virtual
+              tutors provide instant feedback, guidance, and support to
+              students, fostering a deeper understanding of subjects and
+              boosting academic performance.
+            </li>
+
+            <li>
+              <strong>Data-Driven Insights:</strong> We leverage AI to gather
+              and analyze vast amounts of data, enabling educators to make
+              informed decisions and tailor their teaching strategies for
+              better outcomes.
+            </li>
+
+            <li>
+              <strong>Gamified Learning:</strong> Engage students through
+              interactive and gamified experiences that make learning
+              enjoyable while promoting skill development and knowledge
+              retention.
+            </li>
+
+            <li>
+              <strong>Accessibility and Inclusivity:</strong> AI helps us
+              create accessible learning materials for all, breaking down
+              barriers and ensuring that education is available to everyone,
+              regardless of their abilities or circumstances.
+            </li>
+          </ul>
+          <br />
+          <p className="text-paragraph">
+            Our vision is to create a future where education is not only
+            effective but also enjoyable and accessible to all. Join us on
+            this exciting journey as we explore the boundless possibilities of
+            Artificial Intelligence in education. Together, we will unlock new
+            horizons in learning, nurturing the next generation of thinkers,
+            innovators, and leaders.
+          </p>
+        </div>
+      </article>
+    </section>
+
 
         <section className="my-10">
           <article className="container mx-auto px-3 md:px-0">
