@@ -11,6 +11,7 @@ import FAQ from "../../components/home/sections/FAQ";
 import Testimonial from "../../components/home/sections/Testimonial";
 import NewsLetter from "../../components/NewsLetter";
 import example from "../../hooks/useGetExampleRoute";
+import Kits from "@/app/components/home/sections/Kits";
 
 export default function HomePage() {
 
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Landing />
       </div>
       <Courses />
+      <Kits />
       <Values />
       <SampleGallery />
       <FAQ />
