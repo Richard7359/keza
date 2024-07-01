@@ -44,7 +44,7 @@ function Login() {
       toast.success(`successfuly authenticated!!`, {
         position: "top-right",
       });
-     router.push("/keza/dashboard/course");
+     router.push("/dashboard/course");
     }else {
       toast.error(`Email or password is incorrect`, {
         position: "top-right",
