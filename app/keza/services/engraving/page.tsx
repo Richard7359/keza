@@ -55,6 +55,14 @@ const page = () => {
         </div>
       </article>
     </section>
+    <div className="flex flex-col items-center text-center  md:p-0">
+          <h2 className="font-extrabold text-3xl md:text-4xl md:pr-8">
+            Robotics Gallery
+          </h2>
+          <p className="text-sm mt-1 text-paragraph">
+            Testimonials of the kids actively practicing robotics
+          </p>
+        </div>
    <Robotics_gallery />
   </main>
     </div>

@@ -10,15 +10,8 @@ const Robotics_gallery = () => {
   return (
     <div>
           <section>
-      <article className="container mx-auto px-3 mt-20 md:px-0">
-        <div className="flex flex-col items-center text-center mb-10 md:p-0">
-          <h2 className="font-extrabold text-3xl md:text-4xl md:pr-8">
-            Robotics Gallery
-          </h2>
-          <p className="text-sm mt-1 text-paragraph">
-            Testimonials of the kids actively practicing robotics
-          </p>
-        </div>
+      <article className="container mx-auto px-3 mt-4 md:px-0">
+
 
         <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 mb-10">
           
