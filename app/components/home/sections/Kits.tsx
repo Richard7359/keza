@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import keza_kit1 from "../../../images/kezaz-development-kit.png"
-import keza_kit2 from "../../../images/keza-forklift.png"
-import keza_kit3 from "../../../images/keza-kid-trainer-kit-full.png"
-import keza_kit4 from "../../../images/keza-traffic-light.png"
+import keza_kit1 from "../../../images/kezaz-development-kit.png";
+import keza_kit2 from "../../../images/keza-forklift.png";
+import keza_kit3 from "../../../images/keza-kid-trainer-kit-full.png";
+import keza_kit4 from "../../../images/keza-traffic-light.png";
 
 const Kits = () => {
   return (
