@@ -44,7 +44,7 @@ const Product1 = () => {
       <main>
         <section className="container mx-auto">
           <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
-            <div>
+            <div >
               <Image
                 src={keza_development_kit_1}
                 alt=""

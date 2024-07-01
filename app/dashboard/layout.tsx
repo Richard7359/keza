@@ -33,7 +33,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
-import Keza_logo from "../../images/burgundy-logo.webp";
+import Keza_logo from "../images/burgundy-logo.webp";
 
 const DashboardWrapper = ({
   children,
