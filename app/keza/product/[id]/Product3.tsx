@@ -16,7 +16,7 @@ import { TbGardenCart } from "react-icons/tb";
 import { ProductCategorySideBar } from "../ProductCategorySide";
 import Other_kefl_kit from "./Other_kefl_kit";
 
-const Product2 = () => {
+const Product3 = () => {
   const SelectedProductData = {
     id: 1,
     name: "Tshirt",
@@ -97,4 +97,4 @@ const Product2 = () => {
   );
 };
 
-export default Product2;
+export default Product3;
