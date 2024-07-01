@@ -23,9 +23,8 @@ const Kits = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
-        {/* <div className="grid grid-cols-2 md:grid-cols-5 bg-green"> */}
           <a
-            href="/kefl-kits/keza-development-kit.html"
+            href="/keza/product/1"
             className="card_kit bg-white grid p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-[160px] h-52 border rounded-sm"
           >
             <h3 className="font-semibold mb-5">Keza Development Kit</h3>
@@ -73,7 +72,7 @@ const Kits = () => {
           </a>
 
           <a
-            href="/kefl-kits/all-kefl-kits.html"
+            href="/keza/product"
             className="card_kit bg-white p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-40 h-52 border rounded flex justify-center items-center"
           >
             <span className="inline-block mt-3 text-burgundy hover:underline">

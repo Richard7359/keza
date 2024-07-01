@@ -39,85 +39,53 @@ const Product1 = () => {
   };
   const [image, setImage] = React.useState(SelectedProductData.images[0]);
   return (
-    <div className="min-h-[60vh] pb-8">
-      <div className="w-full">
-        <div className="w-[80%] m-auto flex gap-5 mt-2">
-          <div className="w-[20%] border border-gray-300 h-full p-4 rounded-md mt-5">
-            <h1 className="text-[#030229] font-bold text-base py-1 text-center">
-              Categories
-            </h1>
-            <ProductCategorySideBar />
-          </div>
-          <div className="flex gap-3 w-[80%]">
-            <div className="w-[40%]">
-              <div className="w-full p-2 border border-gray-300 m-5 rounded-sm">
-                <Image
-                  src={image}
-                  width={300}
-                  height={400}
-                  alt="Picture of the Logo"
-                  className="m-auto w-full object-cover"
-                />
-              </div>
-              <div className="ml-10">
-                <CarouselSize image={image} setImage={setImage} SelectedProductData={SelectedProductData} />
-              </div>
-            </div>
-            <div className="ml-10  w-[60%] mt-5 h-[22rem] flex flex-col justify-between">
-              <div className="">
-                <h1 className="text-[#030229] font-bold text-xl">
-                  Keza Development Kit
-                </h1>
-                <p className="text-[#030229B2] text-sm pt-2">
-                  This comprehensive IoT kit is designed to introduce children
-                  to the exciting worlds of Robotics, IoT technology, and
-                  Coding. Tailored for both beginners and advanced learners,
-                  this kit is suitable for young enthusiasts aged 3 to 14 years.
-                  It provides a hands-on, interactive learning experience,
-                  fostering creativity and critical thinking. Through engaging
-                  projects and step-by-step instructions, children will develop
-                  a solid foundation in these cutting-edge technologies,
-                  preparing them for future academic and career opportunities.
-                  The kit includes user-friendly components and resources to
-                  ensure a fun and educational journey for every child,
-                  regardless of their prior knowledge or skill level.
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex gap-2 border w-32 border-gray-300 px-5 py-1 rounded-sm">
-                  <button
-                    disabled={countProduct <= 1}
-                    onClick={HandleRemoveCount}
-                    className="mr-3"
-                  >
-                    <TfiMinus size={18} className="mt-[2phx]" />
-                  </button>{" "}
-                  <span className="mt-1">{countProduct}</span>
-                  <button onClick={HandleCount}>
-                    <LiaPlusSolid className="ml-3" size={18} />
-                  </button>
-                </div>
-                <div>
-                  <Link href={"/viewCart"}>
-                    {" "}
-                    <Button className="hover:bg-orange-500 w-32 gap-1">
-                      <TbGardenCart className="" size={24} /> Add to Cart
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="">
+  <main>
+    <section className="container mx-auto">
+      <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
+  
+        <div>
+          <img src="/assets/kezaz-development-kit.png" alt=""
+            className="rounded-md sticky top-0 mb-10 md:pt-10 overflow-hidden" />
         </div>
-        {/* <div className="rounded-md w-[80%] m-auto">
-          <div className="mt-32">
-            <h1 className="text-[#030229] font-medium text-base py-3 text-center">
-              RELATED PRODUCTS
-            </h1>
-            <RelatedProductsSection />
-          </div>
-        </div> */}
-      </div>
+        <div className="text-paragraph">
+          <h3 className="font-bold text-2xl mb-4 text-darkGrey">
+            Keza Development Kit
+          </h3>
+          <p>
+            The Keza Development Kit is an IoT (Internet of Things) based
+            educational kit created by Keza Education Future Lab. It is
+            specifically designed for kids to engage in robotics, coding, and
+            programming activities. The kit includes an advanced programming
+            platform called PictoBlox, which is based on Scratch, making it
+            user-friendly for children.
+          </p>
+          <br />
+          <p>
+            With the Keza Development Kit, kids can explore and create over 15
+            different projects. These projects cover various functionalities,
+            such as:
+          </p>
+          <br />
+          <ul className="list pl-5">
+            <li>Obstacle sensing</li>
+            <li>Thermometer implementation</li>
+            <li>Traffic light simulation</li>
+            <li>Alarm system setup</li>
+            <li>and even Home automation systems</li>
+          </ul>
+          <br />
+          <p>
+            The kit aims to provide a hands-on and interactive learning
+            experience, allowing children to learn key concepts in technology,
+            programming, and IoT while having fun building and experimenting
+            with different projects.
+          </p>
+        </div>
+      </article>
+    </section>
+
+  </main>
     </div>
   );
 };
