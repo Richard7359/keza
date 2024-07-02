@@ -13,6 +13,7 @@ import { MdOutlineNotificationsActive } from "react-icons/md";
 import useGetAllBunners from "@/app/hooks/bunner/useGetBunner";
 import { FaBlog } from "react-icons/fa";
 import { MdOutlineAccessibilityNew } from "react-icons/md";
+import { FaBagShopping } from "react-icons/fa6";
 
 export default function Navigation() {
   const [active, setActive] = useState(true);
@@ -117,7 +118,7 @@ export default function Navigation() {
                   aria-current="page"
                 >
                   <strong className="mr-[3px]">
-                    <MdOutlineMiscellaneousServices />
+                    <FaBagShopping />
                   </strong>{" "}
                   Shop
                 </a>
