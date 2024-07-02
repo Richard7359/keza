@@ -120,7 +120,7 @@ export default function Navigation() {
                   <strong className="mr-[3px]">
                     <FaBagShopping />
                   </strong>{" "}
-                  Shop
+                  Products
                 </a>
                 <a
                   href="/keza/diy"
