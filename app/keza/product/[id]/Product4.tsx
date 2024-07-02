@@ -9,6 +9,7 @@ import keza_development_kit_12 from "../../../images/products/TRAFFIC1.jpg";
 import keza_development_kit_13 from "../../../images/products/TRAFFIC2.jpg";
 import keza_development_kit_14 from "../../../images/products/TRAFFIC3.jpg";
 import keza_development_kit_15 from "../../../images/products/TRAFFIC4.jpg";
+import { BsTelephoneOutboundFill } from "react-icons/bs";
 import keza_kit4 from "../../../images/keza-traffic-light.png";
 import { CarouselSize } from "../carousel";
 import Link from "next/link";
@@ -71,7 +72,10 @@ const Product4 = () => {
                 <h3 className="font-bold text-2xl mb-4 text-darkGrey">
                   Keza Traffic Light
                 </h3>
-                <p className="font-bold">50,000 rwf</p>
+                <div>
+                <p  className="font-bold flex justify-end">50,000 rwf</p>
+                <p className="flex gap-2 mt-2"><BsTelephoneOutboundFill /> +250 786 701 376</p>
+                </div>
               </div>
               <p>
                 <strong>Keza Traffic Light</strong> serves as an educational

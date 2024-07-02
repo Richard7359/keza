@@ -10,6 +10,7 @@ import keza_development_kit_11 from "../../../images/products/KEZA_DEVELOPMENT K
 import keza_development_kit_12 from "../../../images/products/KEZA_DEVELOPMENT KIT_Update_11DD.jpg";
 import keza_development_kit_13 from "../../../images/products/KEZA_DEVELOPMENT_KIT Update_11.jpg";
 import keza_development_kit_14 from "../../../images/products/KEZA_DEVELOPMENT_KIT_Update_11CC.jpg";
+import { BsTelephoneOutboundFill } from "react-icons/bs";
 import { CarouselSize } from "../carousel";
 import Link from "next/link";
 import { TbGardenCart } from "react-icons/tb";
@@ -63,11 +64,14 @@ const Product1 = () => {
               </div>
             </div>
             <div className="text-paragraph">
-              <div className="flex justify-between">
+              <div className="flex justify-between ">
                 <h3 className="font-bold text-2xl mb-4 text-darkGrey">
                   Keza Development Kit
                 </h3>
-                <p  className="font-bold">90,000 rwf</p>
+                <div>
+                <p  className="font-bold flex justify-end">90,000 rwf</p>
+                <p className="flex gap-2 mt-2"><BsTelephoneOutboundFill /> +250 786 701 376</p>
+                </div>
               </div>
               <p>
                 The Keza Development Kit is an IoT (Internet of Things) based

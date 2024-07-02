@@ -10,6 +10,7 @@ import keza_development_kit_13 from "../../../images/products/MODEL2.jpg";
 import keza_development_kit_14 from "../../../images/products/MODEL3.jpg";
 import keza_development_kit_15 from "../../../images/products/MODEL4.jpg";
 import keza_development_kit_16 from "../../../images/products/MODEL5.jpg";
+import { BsTelephoneOutboundFill } from "react-icons/bs";
 import keza_kit2 from "../../../images/keza-forklift.png";
 import { CarouselSize } from "../carousel";
 import Link from "next/link";
@@ -74,7 +75,10 @@ const Product2 = () => {
                 <h3 className="font-bold text-2xl mb-4 text-darkGrey">
                 Keza Forklift
                 </h3>
-                <p  className="font-bold">40,000 rwf</p>
+                <div>
+                <p  className="font-bold flex justify-end">40,000 rwf</p>
+                <p className="flex gap-2 mt-2"><BsTelephoneOutboundFill /> +250 786 701 376</p>
+                </div>
               </div>
               <p>
                 The <strong>Keza forklift kit</strong>, developed by KEFL,
