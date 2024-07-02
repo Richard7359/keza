@@ -6,9 +6,10 @@ import { TfiMinus } from "react-icons/tfi";
 import { LiaPlusSolid } from "react-icons/lia";
 import { Button } from "@/components/ui/button";
 import keza_development_kit_1 from "../../../images/products/keza_development_kit_1.jpg";
-import keza_development_kit_2 from "../../../images/products/keza_development_kit_2.jpg";
-import keza_development_kit_3 from "../../../images/products/keza_development_kit_3.jpg";
-import keza_development_kit_4 from "../../../images/products/keza_development_kit_4.jpg";
+import keza_development_kit_11 from "../../../images/products/KEZA_DEVELOPMENT KIT_Updat_11BB.jpg";
+import keza_development_kit_12 from "../../../images/products/KEZA_DEVELOPMENT KIT_Update_11DD.jpg";
+import keza_development_kit_13 from "../../../images/products/KEZA_DEVELOPMENT_KIT Update_11.jpg";
+import keza_development_kit_14 from "../../../images/products/KEZA_DEVELOPMENT_KIT_Update_11CC.jpg";
 import { CarouselSize } from "../carousel";
 import Link from "next/link";
 import { TbGardenCart } from "react-icons/tb";
@@ -24,9 +25,10 @@ const Product1 = () => {
     image: "/tshirt.jpg",
     images: [
       keza_development_kit_1,
-      keza_development_kit_2,
-      keza_development_kit_3,
-      keza_development_kit_4,
+      keza_development_kit_11,
+      keza_development_kit_12,
+      keza_development_kit_13,
+      keza_development_kit_14,
     ],
     stock: 320,
     description: "This is the keza development kit 1",
@@ -38,18 +40,27 @@ const Product1 = () => {
   const HandleRemoveCount = () => {
     setCountProduct(countProduct - 1);
   };
-  const [image, setImage] = React.useState(SelectedProductData.images[0]);
+  const [image, setImage] = React.useState(keza_development_kit_1);
   return (
     <div className="">
       <main>
         <section className="container mx-auto">
           <article className="grid md:grid-cols-2 md:gap-x-14 my-10 px-3 md:px-0">
-            <div >
-              <Image
-                src={keza_development_kit_1}
-                alt=""
-                className="rounded-md sticky top-0 mb-10 md:pt-10 overflow-hidden"
-              />
+            <div>
+              <div className="">
+                <Image
+                  src={image}
+                  alt=""
+                  className="rounded-md sticky top-0 mb-10 md:pt-10 overflow-hidden"
+                />
+              </div>
+              <div className="flex justify-center">
+                <CarouselSize
+                  image={image}
+                  setImage={setImage}
+                  SelectedProductData={SelectedProductData}
+                />
+              </div>
             </div>
             <div className="text-paragraph">
               <h3 className="font-bold text-2xl mb-4 text-darkGrey">

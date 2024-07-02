@@ -22,7 +22,7 @@ const page1 = () => {
               className="card_kit bg-white grid p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-[160px] h-55 border rounded-sm"
             >
               <h3 className="font-semibold">Keza Development Kit</h3>
-              <h3 className="font-semibold mb-5">Price : 50,000rwf</h3>
+              <h3 className="font-semibold mb-5">Price : 90,000rwf</h3>
               <Image
                 src={keza_kit1}
                 alt="Keza Development Kit"
@@ -35,7 +35,7 @@ const page1 = () => {
               className="card_kit bg-white grid p-3 shadow-lg hover:shadow-2xl hover:cursor-pointer min-w-40 h-55 border rounded"
             >
               <h3 className="font-semibold">Keza Forklift</h3>
-              <h3 className="font-semibold mb-5">Price : 50,000rwf</h3>
+              <h3 className="font-semibold mb-5">Price : 40,000rwf</h3>
               <Image
                 src={keza_kit2}
                 alt="Keza Forklift"
