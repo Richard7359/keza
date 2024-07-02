@@ -119,7 +119,7 @@ export default function Navigation() {
                   <strong className="mr-[3px]">
                     <MdOutlineMiscellaneousServices />
                   </strong>{" "}
-                  Products
+                  Shop
                 </a>
                 <a
                   href="/keza/diy"
