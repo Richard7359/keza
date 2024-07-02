@@ -67,9 +67,12 @@ const Product4 = () => {
               </div>
             </div>
             <div className="text-paragraph">
-              <h3 className="font-bold text-2xl mb-4 text-darkGrey">
-                Keza Traffic Light
-              </h3>
+              <div className="flex justify-between">
+                <h3 className="font-bold text-2xl mb-4 text-darkGrey">
+                  Keza Traffic Light
+                </h3>
+                <p className="font-bold">50,000 rwf</p>
+              </div>
               <p>
                 <strong>Keza Traffic Light</strong> serves as an educational
                 resource created by Keza Education Future Lab (KEFL). KEFL

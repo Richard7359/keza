@@ -69,9 +69,12 @@ const Product3 = () => {
               </div>
             </div>
             <div className="text-paragraph">
-              <h3 className="font-bold text-2xl mb-4 text-darkGrey">
-                Keza Kid Trainer Kit
-              </h3>
+              <div className="flex justify-between">
+                <h3 className="font-bold text-2xl mb-4 text-darkGrey">
+                  Keza Kid Trainer Kit
+                </h3>
+                <p className="font-bold">50,000 rwf</p>
+              </div>
               <p>
                 A <strong>Keza kid trainer kit</strong> represents a robotic
                 system designed to educate children in various subjects like

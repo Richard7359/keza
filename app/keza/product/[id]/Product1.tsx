@@ -63,9 +63,12 @@ const Product1 = () => {
               </div>
             </div>
             <div className="text-paragraph">
-              <h3 className="font-bold text-2xl mb-4 text-darkGrey">
-                Keza Development Kit
-              </h3>
+              <div className="flex justify-between">
+                <h3 className="font-bold text-2xl mb-4 text-darkGrey">
+                  Keza Development Kit
+                </h3>
+                <p  className="font-bold">90,000 rwf</p>
+              </div>
               <p>
                 The Keza Development Kit is an IoT (Internet of Things) based
                 educational kit created by Keza Education Future Lab. It is

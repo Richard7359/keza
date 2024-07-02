@@ -70,9 +70,12 @@ const Product2 = () => {
             </div>
 
             <div className="text-paragraph">
-              <h3 className="font-bold text-2xl mb-4 text-darkGrey">
+              <div className="flex justify-between">
+                <h3 className="font-bold text-2xl mb-4 text-darkGrey">
                 Keza Forklift
-              </h3>
+                </h3>
+                <p  className="font-bold">40,000 rwf</p>
+              </div>
               <p>
                 The <strong>Keza forklift kit</strong>, developed by KEFL,
                 serves as an innovative tool to captivate children&apos;s
