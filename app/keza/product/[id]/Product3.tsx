@@ -76,7 +76,7 @@ const Product3 = () => {
                 </h3>
                 <div>
                                <p  className="font-bold flex justify-end underline text-blue-700">50,000 rwf</p>
-                <p className="flex items-center font-bold gap-2 mt-2 text-blue-800 cursor-pointer"><BsTelephoneOutboundFill /> +250 786 701 376</p>
+                <p className="flex items-center font-bold gap-2 mt-2 text-blue-800 cursor-pointer hover:underline"><BsTelephoneOutboundFill /> +250 786 701 376</p>
                 </div>
               </div>
               <p>
